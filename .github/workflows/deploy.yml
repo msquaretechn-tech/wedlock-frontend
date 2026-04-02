@@ -24,6 +24,7 @@ jobs:
             set -e
             echo "Changing to directory"
             cd ~/wedlock-frontend
+            chmod 600 key.pem
 
             echo "Pulling latest Code" 
             git pull origin main
