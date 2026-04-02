@@ -50,6 +50,5 @@ export default tseslint.config({
 ```
 
 <!-- trigger redeploy -->
-<!-- tesing command -->
 
 Frontend wedlock making ci cd pipeline in github action
