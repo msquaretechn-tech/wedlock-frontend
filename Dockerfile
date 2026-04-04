@@ -13,6 +13,15 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+# Pass build-time environment variables for Vite to include during build
+ARG VITE_BASE_URL
+ARG VITE_ZEGO_APP_ID
+ARG VITE_ZEGO_SERVER_SECRET
+
+ENV VITE_BASE_URL=$VITE_BASE_URL
+ENV VITE_ZEGO_APP_ID=$VITE_ZEGO_APP_ID
+ENV VITE_ZEGO_SERVER_SECRET=$VITE_ZEGO_SERVER_SECRET
+
 # Build production
 RUN npm run build
 

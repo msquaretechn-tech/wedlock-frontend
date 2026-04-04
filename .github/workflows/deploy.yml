@@ -48,7 +48,11 @@ jobs:
             # Ensure the backend network exists
             docker network inspect backend >/dev/null 2>&1 || docker network create backend
 
-            docker compose -f docker-compose.\$NEW_COLOR.yml build --build-arg CACHEBUST=\$(date +%s)
+            docker compose -f docker-compose.\$NEW_COLOR.yml build \
+              --build-arg CACHEBUST=\$(date +%s) \
+              --build-arg VITE_BASE_URL=${{ secrets.VITE_BASE_URL }} \
+              --build-arg VITE_ZEGO_APP_ID=${{ secrets.VITE_ZEGO_APP_ID }} \
+              --build-arg VITE_ZEGO_SERVER_SECRET=${{ secrets.VITE_ZEGO_SERVER_SECRET }}
             docker compose -f docker-compose.\$NEW_COLOR.yml up -d
 
             echo "Waiting for \$NEW_COLOR container to be created..."
