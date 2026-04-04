@@ -44,6 +44,10 @@ jobs:
 
             echo "Current color: \$CURRENT_COLOR"
             echo "Deploying \$NEW_COLOR on port \$NEW_PORT"
+
+            # Ensure the backend network exists
+            docker network inspect backend >/dev/null 2>&1 || docker network create backend
+
             docker compose -f docker-compose.\$NEW_COLOR.yml build --build-arg CACHEBUST=\$(date +%s)
             docker compose -f docker-compose.\$NEW_COLOR.yml up -d
 
