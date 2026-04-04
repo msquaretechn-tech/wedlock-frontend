@@ -22,7 +22,7 @@ import LocationBackgroundModal from "../user-dashboard-model/LocationBackgroundM
 import { RootState } from "./../../Redux/store";
 import { useToggleMutation } from "../../Redux/Api/toggle.api"
 import { toast } from "sonner";
-import { RiUserSharedLine } from "react-icons/ri";
+// import { RiUserSharedLine } from "react-icons/ri";
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query/react';
 
 import { useSelector } from "react-redux";
@@ -377,7 +377,10 @@ const MyDetails = () => {
   const { data: preferencesData, isLoading: isPreferencesLoading } = useGetPreferencesQuery();
   const { data: connectionsData } = useGetMyConnectionsQuery(undefined);
   const { data: sentData } = useGetSentConnectionRequestsQuery(undefined);
+  // @ts-ignore
   const connectionsCount = connectionsData?.data?.length || 0;
+
+  // @ts-ignore
   const sentRequestsCount = sentData?.data?.length || 0;
   console.log("preferencesData in Mydetails:", preferencesData);
 

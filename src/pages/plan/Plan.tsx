@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// @ts-ignore
 import FAQ from "../../components/faqs/Faqs.tsx";
 import "../../font.css";
 import { useGetPlansQuery } from "../../Redux/Api/plan.api";
@@ -9,6 +10,7 @@ import { useCreateCheckoutSessionMutation } from "../../Redux/Api/checkout.api";
 import { toast } from 'sonner';
 import { RootState } from "./../../Redux/store";
 import { useSelector } from "react-redux";
+// @ts-ignore
 import { Link } from "react-router-dom";
 import PremiumPlan from "../planDiscriptions/PremiumPlan";
 import ExclusivePlan from "../planDiscriptions/ExclusivePlan";

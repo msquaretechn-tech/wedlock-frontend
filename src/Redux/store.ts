@@ -70,7 +70,7 @@ let storage = createNoopStorage();
 // Dynamically load localStorage in the browser
 if (typeof window !== "undefined") {
   import("redux-persist/lib/storage").then((mod) => {
-    storage = mod.default;
+    storage = mod.default as any;
   });
 }
 
