@@ -3,8 +3,10 @@ import { RootState } from '../store';
 import { setCredentials, logout } from '../Reducers/user.reducer';
 
 
+const baseUrl = import.meta.env.VITE_BASE_URL || 'https://api.wedlock.com.au';
+
 const baseQuery = fetchBaseQuery({
-    baseUrl: `${import.meta.env.VITE_BASE_URL}/api/v1/`,
+    baseUrl: `${baseUrl}/api/v1/`,
     credentials: "include",
     prepareHeaders: (headers, { getState }) => {
         const accessToken = (getState() as RootState).userReducer.accessToken;
