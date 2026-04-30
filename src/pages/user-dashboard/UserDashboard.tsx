@@ -5,7 +5,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
 import { getDatabase, ref as rtdbRef, onValue } from "firebase/database";
-import { getAuth } from "firebase/auth";
 import { useGetMyConnectionsQuery } from "../../Redux/Api/connection.api";
 
 import Header from "../../components/header-footer-profile/Header";

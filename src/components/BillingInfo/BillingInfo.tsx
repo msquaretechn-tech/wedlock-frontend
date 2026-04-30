@@ -8,8 +8,6 @@ import { toast } from "sonner";
 import Loading from "../Loading";
 import { Alert } from "antd";
 import { CiWarning } from "react-icons/ci";
-import { RootState } from "./../../Redux/store";
-import { useSelector } from "react-redux";
 import PricingPage from "../../pages/plan/Plan";
 
 interface BillingData {
@@ -23,7 +21,6 @@ interface BillingData {
 }
 
 const BillingInfo = () => {
-  const { user } = useSelector((state: RootState) => state.userReducer);
   const [showPricing, setShowPricing] = useState(false);
 
   console.log('showPricing', showPricing)
