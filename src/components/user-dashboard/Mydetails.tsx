@@ -35,6 +35,8 @@ import PartnerPreferenceModal from "../user-dashboard-model/PartnerPreferenceMod
 import { useGetMyConnectionsQuery, useGetSentConnectionRequestsQuery } from "../../Redux/Api/connection.api";
 import MyConnectionsModal from "../user-dashboard-model/MyConnectionsModal";
 import SentRequestsModal from "../user-dashboard-model/SentRequestsModal";
+import { useGetMyProfileDetailsQuery } from "../../Redux/Api/profile.api";
+import { useGetBillingInfoQuery } from "../../Redux/Api/billing.api";
 
 
 const MyDetails = () => {
@@ -384,6 +386,12 @@ const MyDetails = () => {
   const sentRequestsCount = sentData?.data?.length || 0;
   console.log("preferencesData in Mydetails:", preferencesData);
 
+
+
+  //Plan detailsk
+  const { data: billingData } = useGetBillingInfoQuery();
+  console.log("billingData in Mydetails:", billingData);
+
   return (
 
 
@@ -440,6 +448,9 @@ const MyDetails = () => {
                     </div>
                     <div className="my-auto justify-center self-stretch whitespace-nowrap rounded-[100px] bg-orange-100 px-3 py-1.5 text-center capitalize tracking-normal">
                       {myDetails?.basic_and_lifestyle?.age}
+                    </div>
+                    <div className="my-auto justify-center self-stretch whitespace-nowrap rounded-[100px] bg-orange-100 px-3 py-1.5 text-center capitalize tracking-normal">
+                      {billingData?.data?.currentPlan || ""}
                     </div>
                     {/* <div 
                     onClick={() => setIsConnectionsModalVisible(true)}

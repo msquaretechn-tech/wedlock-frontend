@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Tabs } from "antd";
-import { ConfigProvider } from "antd";
+import { Tabs, Badge, ConfigProvider } from "antd";
 import type { TabsProps } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
+import { getDatabase, ref as rtdbRef, onValue } from "firebase/database";
+import { getAuth } from "firebase/auth";
+import { useGetMyConnectionsQuery } from "../../Redux/Api/connection.api";
 
 import Header from "../../components/header-footer-profile/Header";
 import Footer from "../../components/header-footer-profile/Footer";
@@ -32,6 +34,9 @@ const UserDashboard: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { user } = useSelector((state: RootState) => state.userReducer);
+  const { data: connectionsData } = useGetMyConnectionsQuery(undefined);
+  const [unreadCounts, setUnreadCounts] = useState<Record<string, number>>({});
+  const totalUnread = Object.values(unreadCounts).reduce((acc, count) => acc + count, 0);
 
   const [isExclusive, setIsExclusive] = useState(false);
 
@@ -41,6 +46,51 @@ const UserDashboard: React.FC = () => {
       setIsExclusive(true);
     }
   }, [user]);
+
+  // Firebase listener for total unread messages count
+  useEffect(() => {
+    const auth = getAuth();
+    const myUid = user?.uid || localStorage.getItem("uid");
+    
+    if (!myUid || !connectionsData?.data) return;
+
+    const db = getDatabase();
+    const usersRef = rtdbRef(db, "users");
+    
+    let activeListeners: (() => void)[] = [];
+
+    const unsubUsers = onValue(usersRef, (snapshot) => {
+      const usersData = snapshot.val();
+      if (!usersData) return;
+
+      // Clear old listeners
+      activeListeners.forEach(unsub => unsub());
+      activeListeners = [];
+      setUnreadCounts({});
+
+      const connectionDBIds = new Set(connectionsData.data.map((c: any) => c.userId));
+      
+      Object.entries(usersData).forEach(([fUid, uData]: [string, any]) => {
+        if (connectionDBIds.has(uData.userId) && fUid !== myUid) {
+          const msgRef = rtdbRef(db, `messages/${fUid}/${myUid}`);
+          const unsubMsg = onValue(msgRef, (msgSnap) => {
+            let unread = 0;
+            msgSnap.forEach((child) => {
+              const msg = child.val();
+              if (msg.seen === false) unread++;
+            });
+            setUnreadCounts(prev => ({ ...prev, [fUid]: unread }));
+          });
+          activeListeners.push(unsubMsg);
+        }
+      });
+    });
+
+    return () => {
+      unsubUsers();
+      activeListeners.forEach(unsub => unsub());
+    };
+  }, [connectionsData, user?.uid]);
 
   // Get the current tab from URL parameters
   const params = new URLSearchParams(location.search);
@@ -66,6 +116,11 @@ const UserDashboard: React.FC = () => {
       children: <Discover />,
     },
     {
+      key: "Connections",
+      label: `Connections`,
+      children: <Connections />,
+    },
+    {
       key: "favorite-profiles",
       label: `Favourite Profiles`,
       children: <Favourate />,
@@ -87,7 +142,12 @@ const UserDashboard: React.FC = () => {
     },
     {
       key: "chats",
-      label: `Chats`,
+      label: (
+        <span className="flex items-center gap-2">
+          Chats 
+          {totalUnread > 0 && <Badge count={totalUnread} size="small" style={{ backgroundColor: isExclusive ? "#60457E" : "#007EAF" }} />}
+        </span>
+      ),
       children: <ChatScreen />,
     },
     {
@@ -95,11 +155,7 @@ const UserDashboard: React.FC = () => {
       label: `Frequently Asked Questions`,
       children: <Faqs />,
     },
-    {
-      key: "Connections",
-      label: `Connections`,
-      children: <Connections />,
-    },
+
   ];
 
 

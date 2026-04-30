@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import { Button, LinearProgress, Box, Typography, Paper } from "@mui/material";
+import { Button, LinearProgress, Box, Typography, Paper, Stack } from "@mui/material";
 import { useGetBillingInfoQuery } from "../../Redux/Api/billing.api";
+import { useCreateCheckoutSessionMutation } from "../../Redux/Api/checkout.api";
+import { useGetPlansQuery } from "../../Redux/Api/plan.api";
+import { toast } from "sonner";
 
 import Loading from "../Loading";
 import { Alert } from "antd";
@@ -8,6 +11,16 @@ import { CiWarning } from "react-icons/ci";
 import { RootState } from "./../../Redux/store";
 import { useSelector } from "react-redux";
 import PricingPage from "../../pages/plan/Plan";
+
+interface BillingData {
+  currentPlan: string;
+  expirationDate: string;
+  notification: boolean;
+  remainingDays: string;
+  totalDays: string;
+  price: string;
+  planType: string;
+}
 
 const BillingInfo = () => {
   const { user } = useSelector((state: RootState) => state.userReducer);
@@ -23,7 +36,7 @@ const BillingInfo = () => {
     }
   }, [user]);
 
-  const [billingData, setBillingData] = useState({
+  const [billingData, setBillingData] = useState<BillingData>({
     currentPlan: "",
     expirationDate: "",
     notification: false,
@@ -32,20 +45,54 @@ const BillingInfo = () => {
     price: "",
     planType: "",
   });
-  type BillingInfoResponse = {
-    success: boolean;
-    data: any;
-  };
 
-  const { data, error, isLoading } = useGetBillingInfoQuery();
-
+  const { data: billingInfo, error, isLoading } = useGetBillingInfoQuery();
+  const { data: plansData } = useGetPlansQuery<any>();
+  const [createCheckoutSession] = useCreateCheckoutSessionMutation();
 
   useEffect(() => {
-    const res = data as BillingInfoResponse | undefined;
-    if (res?.success) {
-      setBillingData(res.data);
+    if (billingInfo?.success) {
+      setBillingData(billingInfo.data);
     }
-  }, [data]);
+  }, [billingInfo]);
+
+  const handleUpgrade = async () => {
+    console.log("Upgrading plan. Current billingData:", billingData);
+    console.log("Available plansData:", plansData);
+
+    if (!plansData?.data) {
+      toast.error("Plans data is not available. Please try again.");
+      return;
+    }
+
+    // Find the plan that matches currentPlan and planType (case-insensitive)
+    const currentPlanInfo = plansData.data.find((p: any) => {
+      const nameMatch = p.planName.toLowerCase().trim() === billingData.currentPlan.toLowerCase().trim();
+      
+      const pt1 = (p.planType || "").toLowerCase().trim();
+      const pt2 = (billingData.planType || "").toLowerCase().trim();
+      
+      // Flexible match for planType (e.g., "Monthly" vs "monthly" or "Month")
+      const typeMatch = pt1 === pt2 || (pt1 && pt2 && (pt1.includes(pt2) || pt2.includes(pt1)));
+      
+      return nameMatch && typeMatch;
+    });
+
+    console.log("Found plan info:", currentPlanInfo);
+
+    if (currentPlanInfo) {
+      try {
+        const res: any = await createCheckoutSession(currentPlanInfo.id).unwrap();
+        if (res?.url) {
+          window.location.href = res.url;
+        }
+      } catch (err: any) {
+        toast.error(err?.data?.message || "An error occurred during checkout");
+      }
+    } else {
+      toast.error(`Plan '${billingData.currentPlan}' with type '${billingData.planType}' not found.`);
+    }
+  };
 
   if (isLoading) return <Loading />;
   if (error) return <Typography color="error">Error loading billing info</Typography>;
@@ -78,23 +125,35 @@ const BillingInfo = () => {
           {billingData.price !== "Free" && ` / ${billingData.planType}`}
 
         </Typography>
-
-        {!isExclusive && (
+        <Stack direction="row" spacing={2} mt={2}>
           <Button
             variant="contained"
             sx={{
-              mt: 2,
               backgroundColor: "#007EAF",
               ":hover": { backgroundColor: "#005f80" },
             }}
             onClick={() => setShowPricing(true)}
           >
-            Upgrade Plan
+            Change Plan
           </Button>
-        )}
+
+          {billingData.currentPlan !== "Standard" && (
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "#007EAF",
+                ":hover": { backgroundColor: "#005f80" },
+              }}
+              onClick={handleUpgrade}
+            >
+              Upgrade Plan
+            </Button>
+          )}
+        </Stack>
 
 
         {showPricing && <PricingPage />}
+
 
         {billingData.notification && (
           <Box mt={3}>

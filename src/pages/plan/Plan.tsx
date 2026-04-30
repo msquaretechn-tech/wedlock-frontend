@@ -281,17 +281,30 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: 
         </div>
 
         <div className="p-6 border-t border-gray-100 bg-gray-50 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <label className="flex items-center gap-3 cursor-pointer group">
-            <input
-              type="checkbox"
-              className="w-5 h-5 rounded border-gray-300 text-[#007EAF] focus:ring-[#007EAF] cursor-pointer transition-all"
-              checked={isAcknowledged}
-              onChange={(e) => setIsAcknowledged(e.target.checked)}
-            />
-            <span className="text-sm font-medium text-gray-600 group-hover:text-gray-800 transition-colors">
-              Payment not refundable
-            </span>
-          </label>
+          <div className="flex flex-col gap-2">
+            <label className="flex items-center gap-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                className="w-5 h-5 rounded border-gray-300 text-[#007EAF] focus:ring-[#007EAF] cursor-pointer transition-all"
+                checked={isAcknowledged}
+                onChange={(e) => setIsAcknowledged(e.target.checked)}
+              />
+              <span className="text-sm font-medium text-gray-600 group-hover:text-gray-800 transition-colors">
+                Payment not refundable
+              </span>
+            </label>
+            <label className="flex items-center gap-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                className="w-5 h-5 rounded border-gray-300 text-[#007EAF] focus:ring-[#007EAF] cursor-pointer transition-all"
+                checked={isAcknowledged}
+                onChange={(e) => setIsAcknowledged(e.target.checked)}
+              />
+              <span className="text-sm font-medium text-gray-600 group-hover:text-gray-800 transition-colors">
+                Accepted Wedlock privacy policy & terms
+              </span>
+            </label>
+          </div>
 
           <div className="flex gap-4 w-full sm:w-auto">
             <button

@@ -5,7 +5,9 @@ import { getDatabase, ref as rtdbRef, onValue } from "firebase/database";
 import { FaMicrophone, FaSearch } from "react-icons/fa";
 import { format } from "date-fns";
 import { useGetConnectionStatusMutation } from "../../Redux/Api/connection.api";
-import {  useUnblockUserMutation, useGetBlockedUsersByMeQuery } from "../../Redux/Api/blockUser";
+import { useUnblockUserMutation, useGetBlockedUsersByMeQuery } from "../../Redux/Api/blockUser";
+import { useGetBillingInfoQuery } from "../../Redux/Api/billing.api";
+import { useGetUserSubscriptionStatusQuery } from "../../Redux/Api/checkout.api";
 import { useGetUserImageQuery } from "../../Redux/Api/profile.api";
 import { get, update } from "firebase/database";
 import { toast } from 'sonner';
@@ -41,11 +43,11 @@ export default function ChatScreen() {
 
   const navigate = useNavigate();
   const [getConnectionStatus] = useGetConnectionStatusMutation();
- const { data: myDetails } = useGetUserImageQuery<any>();
+  const { data: myDetails } = useGetUserImageQuery<any>();
   const [unblockUser] = useUnblockUserMutation();
   const { user } = useSelector((state: RootState) => state.userReducer);
-  const userty=user;
- 
+  const userty = user;
+
   const { data: blockedUsersData, refetch: refetchBlockedUsers } = useGetBlockedUsersByMeQuery("");
   useEffect(() => {
     const auth = getAuth();
@@ -60,61 +62,61 @@ export default function ChatScreen() {
     return () => unsubscribeAuth();
   }, [navigate]);
   useEffect(() => {
-        if (!currentUser) return;
+    if (!currentUser) return;
 
-        const realtimeDb = getDatabase();
-        const usersRef = rtdbRef(realtimeDb, "users");
+    const realtimeDb = getDatabase();
+    const usersRef = rtdbRef(realtimeDb, "users");
 
-        const unsubscribeDB = onValue(usersRef, async (snapshot) => {
-            const data = snapshot.val();
-           
-            if (data) {
-                const rawUsers: UserModel[] = Object.entries(data).map(([id, user]) => ({
-                    id,
-                    ...(user as any),
-                }));
+    const unsubscribeDB = onValue(usersRef, async (snapshot) => {
+      const data = snapshot.val();
 
-                const filtered = rawUsers.filter((user) => user.id !== currentUser.uid);
+      if (data) {
+        const rawUsers: UserModel[] = Object.entries(data).map(([id, user]) => ({
+          id,
+          ...(user as any),
+        }));
 
-                const connections = await Promise.all(
-                    filtered.map(async (user) => {
-                        if (!user.userId) {
-                            console.warn("User is missing userId:", user);
-                            return null;
-                        }
+        const filtered = rawUsers.filter((user) => user.id !== currentUser.uid);
 
-                        try {
-                            const res: any = await getConnectionStatus(user.userId).unwrap();
-                            if (res?.data?.connection_status === "accepted") {
-                                return user;
-                            }
-                            return null;
-                        } catch (error) {
-                            console.error(`Error fetching connection status for ${user.userId}:`, error);
-                            return null;
-                        }
-                    })
-                );
-
-                setConnectedUsers(connections.filter(Boolean) as UserModel[]);
+        const connections = await Promise.all(
+          filtered.map(async (user) => {
+            if (!user.userId) {
+              console.warn("User is missing userId:", user);
+              return null;
             }
-        });
 
-        return () => unsubscribeDB();
-    }, [currentUser, getConnectionStatus]);
-    const normalizeTimestamp = (ts: any): number => {
-  if (!ts) return 0;
+            try {
+              const res: any = await getConnectionStatus(user.userId).unwrap();
+              if (res?.data?.connection_status === "accepted") {
+                return user;
+              }
+              return null;
+            } catch (error) {
+              console.error(`Error fetching connection status for ${user.userId}:`, error);
+              return null;
+            }
+          })
+        );
 
-  // Already number
-  if (typeof ts === "number") return ts;
+        setConnectedUsers(connections.filter(Boolean) as UserModel[]);
+      }
+    });
 
-  // String ISO date
-  if (typeof ts === "string") return new Date(ts).getTime();
+    return () => unsubscribeDB();
+  }, [currentUser, getConnectionStatus]);
+  const normalizeTimestamp = (ts: any): number => {
+    if (!ts) return 0;
 
-  return 0;
-};
+    // Already number
+    if (typeof ts === "number") return ts;
 
-    /* ================= UNREAD + LAST MESSAGE ================= */
+    // String ISO date
+    if (typeof ts === "string") return new Date(ts).getTime();
+
+    return 0;
+  };
+
+  /* ================= UNREAD + LAST MESSAGE ================= */
   useEffect(() => {
     if (!currentUser || connectedUsers.length === 0) return;
 
@@ -134,13 +136,13 @@ export default function ChatScreen() {
         snapshot.forEach((child) => {
           const msg = child.val();
           if (msg.seen === false) unread++;
-        if (
-                    !lastMsg ||
-                    normalizeTimestamp(msg.timestamp) >
-                        normalizeTimestamp(lastMsg.timestamp)
-                    ) {
-                    lastMsg = msg;
-                    }
+          if (
+            !lastMsg ||
+            normalizeTimestamp(msg.timestamp) >
+            normalizeTimestamp(lastMsg.timestamp)
+          ) {
+            lastMsg = msg;
+          }
 
         });
 
@@ -179,7 +181,7 @@ export default function ChatScreen() {
     });
   }, [connectedUsers, currentUser]);
 
- 
+
 
   const handleUnblockUser = async (userId: string) => {
     try {
@@ -190,12 +192,28 @@ export default function ChatScreen() {
     }
   };
 
-  const handleChatOpen = async(user: UserModel) => {
-     // 🚫 Restrict Standard users
-  if (userty?.usertype === "Standard") {
-    toast.error("Standard users are not allowed to open chat");
-    return;
-  }
+  const { data: subscriptionData } = useGetUserSubscriptionStatusQuery(null);
+  const { data: billingInfo } = useGetBillingInfoQuery();
+
+  const handleChatOpen = async (user: UserModel) => {
+    const billingData = billingInfo?.data;
+    const currentPlan = (billingData?.currentPlan || subscriptionData?.usertype || userty?.usertype || "Standard").toLowerCase();
+    const remainingDays = billingData?.remainingDays !== undefined ? Number(billingData.remainingDays) : 0;
+
+    console.log("Chat Access Check:", { currentPlan, remainingDays, billingData });
+
+    // 🚫 Block if Standard plan
+    if (currentPlan === "standard") {
+      toast.error("Standard users are not allowed to open chat. Please upgrade your plan.");
+      return;
+    }
+
+    // 🚫 Block if plan has expired (remainingDays < 0)
+    // Note: If remainingDays is "N/A" or undefined, we might want to allow it if currentPlan is not Standard
+    if (billingData?.remainingDays !== "N/A" && remainingDays < 0) {
+      toast.error("Your subscription has expired. Please renew your plan to continue chatting.");
+      return;
+    }
     const db = getDatabase();
 
     const incomingRef = rtdbRef(
@@ -219,12 +237,12 @@ export default function ChatScreen() {
         );
       }
     });
-    navigate(`/chat/${user.id}`, { 
-      state: { 
+    navigate(`/chat/${user.id}`, {
+      state: {
         user,
         userIdToBlock: user.userId,
         currentUserId: currentUser.uid
-      } 
+      }
     });
   };
 
@@ -304,12 +322,12 @@ export default function ChatScreen() {
           <div className="divide-y divide-gray-200">
             {searchedUsers.map((user) => {
               const message = lastMessages[user.id] || {};
-                            const formattedTime = message?.timestamp
-                                        ? format(
-                                            new Date(normalizeTimestamp(message.timestamp)),
-                                            "hh:mm a"
-                                            )
-                                        : "";
+              const formattedTime = message?.timestamp
+                ? format(
+                  new Date(normalizeTimestamp(message.timestamp)),
+                  "hh:mm a"
+                )
+                : "";
 
 
               return (
