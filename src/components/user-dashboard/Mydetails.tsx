@@ -35,7 +35,6 @@ import PartnerPreferenceModal from "../user-dashboard-model/PartnerPreferenceMod
 import { useGetMyConnectionsQuery, useGetSentConnectionRequestsQuery } from "../../Redux/Api/connection.api";
 import MyConnectionsModal from "../user-dashboard-model/MyConnectionsModal";
 import SentRequestsModal from "../user-dashboard-model/SentRequestsModal";
-import { useGetMyProfileDetailsQuery } from "../../Redux/Api/profile.api";
 import { useGetBillingInfoQuery } from "../../Redux/Api/billing.api";
 
 
@@ -389,7 +388,7 @@ const MyDetails = () => {
 
 
   //Plan detailsk
-  const { data: billingData } = useGetBillingInfoQuery();
+  const { data: billingData } = useGetBillingInfoQuery<any>();
   console.log("billingData in Mydetails:", billingData);
 
   return (

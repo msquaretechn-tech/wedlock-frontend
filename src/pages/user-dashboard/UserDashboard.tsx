@@ -47,9 +47,7 @@ const UserDashboard: React.FC = () => {
     }
   }, [user]);
 
-  // Firebase listener for total unread messages count
   useEffect(() => {
-    const auth = getAuth();
     const myUid = user?.uid || localStorage.getItem("uid");
     
     if (!myUid || !connectionsData?.data) return;

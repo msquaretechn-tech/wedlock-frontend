@@ -192,8 +192,8 @@ export default function ChatScreen() {
     }
   };
 
-  const { data: subscriptionData } = useGetUserSubscriptionStatusQuery(null);
-  const { data: billingInfo } = useGetBillingInfoQuery();
+  const { data: subscriptionData } = useGetUserSubscriptionStatusQuery<any>(null);
+  const { data: billingInfo } = useGetBillingInfoQuery<any>();
 
   const handleChatOpen = async (user: UserModel) => {
     const billingData = billingInfo?.data;

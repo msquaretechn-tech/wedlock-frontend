@@ -25,16 +25,8 @@ interface BillingData {
 const BillingInfo = () => {
   const { user } = useSelector((state: RootState) => state.userReducer);
   const [showPricing, setShowPricing] = useState(false);
-  const [isExclusive, setIsExclusive] = useState(false);
 
   console.log('showPricing', showPricing)
-
-  useEffect(() => {
-    const storedExclusive = localStorage.getItem("isExclusive");
-    if (storedExclusive === "true" || user?.usertype === "Exclusive") {
-      setIsExclusive(true);
-    }
-  }, [user]);
 
   const [billingData, setBillingData] = useState<BillingData>({
     currentPlan: "",
@@ -46,7 +38,7 @@ const BillingInfo = () => {
     planType: "",
   });
 
-  const { data: billingInfo, error, isLoading } = useGetBillingInfoQuery();
+  const { data: billingInfo, error, isLoading } = useGetBillingInfoQuery<any>();
   const { data: plansData } = useGetPlansQuery<any>();
   const [createCheckoutSession] = useCreateCheckoutSessionMutation();
 
