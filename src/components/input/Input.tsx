@@ -4,16 +4,17 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id?: string;
   name?: string;
+  labelStyle?: React.CSSProperties;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ label, id, ...props }, ref) => {
+  ({ label, id, labelStyle, ...props }, ref) => {
     const generatedId = id || `input-${Math.random().toString(36).substring(2, 9)}`;
 
     return (
       <div className="mb-4">
         {label && (
-          <label htmlFor={generatedId} className="block mb-2 text-white">
+          <label htmlFor={generatedId} className="block mb-2" style={labelStyle}>
             {label}
           </label>
         )}
