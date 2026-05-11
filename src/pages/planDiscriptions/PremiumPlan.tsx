@@ -1,20 +1,28 @@
 import React from "react";
 import { MdCheckCircle, MdCancel } from "react-icons/md";
 
-const PremiumPlan: React.FC = () => {
+interface PremiumPlanProps {
+    planType?: string;
+}
+
+const PremiumPlan: React.FC<PremiumPlanProps> = ({ planType }) => {
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <section>
                 <h2 className="text-xl font-bold text-gray-800 mb-4 border-l-4 border-[#FFC759] pl-3">Pricing</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="bg-[#FFF9EE] p-4 rounded-xl border border-[#FFC759]/30">
-                        <p className="text-sm text-gray-500 font-medium">1 Month</p>
-                        <p className="text-2xl font-bold text-[#007EAF]">AU $1</p>
-                    </div>
-                    <div className="bg-[#FFF9EE] p-4 rounded-xl border border-[#FFC759]/30">
-                        <p className="text-sm text-gray-500 font-medium">12 Months</p>
-                        <p className="text-2xl font-bold text-[#007EAF]">AU $19.99</p>
-                    </div>
+                    {(!planType || planType.toLowerCase().includes("month")) && (
+                        <div className="bg-[#FFF9EE] p-4 rounded-xl border border-[#FFC759]/30">
+                            <p className="text-sm text-gray-500 font-medium">1 Month</p>
+                            <p className="text-2xl font-bold text-[#007EAF]">AU $1</p>
+                        </div>
+                    )}
+                    {(!planType || planType.toLowerCase().includes("year") || planType.toLowerCase().includes("annual")) && (
+                        <div className="bg-[#FFF9EE] p-4 rounded-xl border border-[#FFC759]/30">
+                            <p className="text-sm text-gray-500 font-medium">12 Months</p>
+                            <p className="text-2xl font-bold text-[#007EAF]">AU $19.99</p>
+                        </div>
+                    )}
                 </div>
             </section>
 

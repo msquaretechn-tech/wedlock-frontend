@@ -1,13 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Cookies from "js-cookie";
 
-const accessToken = Cookies.get("access_token") || null;
-const refreshToken = Cookies.get("refresh_token") || null;
-console.log(Cookies.get());
-console.log(refreshToken,"refreshToken");
+const accessToken = Cookies.get("access_token") || localStorage.getItem("access_token") || null;
+const refreshToken = Cookies.get("refresh_token") || localStorage.getItem("refresh_token") || null;
 
 const activationToken = Cookies.get("activationToken") || null;
 const token = Cookies.get("token") || null;
+const persistedUser = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")!) : null;
 
 interface User {
   id: number;
@@ -26,9 +25,8 @@ interface User {
   isOtherFormFilled: boolean;
   isImageFormFilled: boolean;
   role: string;
-  createdAt: string; // Consider using Date if you intend to handle these as Date objects
+  createdAt: string; 
   updatedAt: string; 
- 
 }
 
 type ToggleStatusType = {
@@ -122,18 +120,18 @@ interface InitialState {
 }
 
 const initialState : InitialState = {
-  loading:true,
-  user: null,
+  loading: true,
+  user: persistedUser,
   notificationData: null,
-  accessToken: accessToken || null,
-  refreshToken: refreshToken || null,
+  accessToken: accessToken,
+  refreshToken: refreshToken,
   activationToken: activationToken,
   token: token,
-  isPersonalFormFilled: false,
-  isQualificationFormFilled: false,
-  isOtherFormFilled: false,
-  isLocationFormFilled: false,
-  isImageFormFilled: false,
+  isPersonalFormFilled: persistedUser?.isPersonalFormFilled || false,
+  isQualificationFormFilled: persistedUser?.isQualificationFormFilled || false,
+  isOtherFormFilled: persistedUser?.isOtherFormFilled || false,
+  isLocationFormFilled: persistedUser?.isLocationFormFilled || false,
+  isImageFormFilled: persistedUser?.isImageFormFilled || false,
   myDetails: null,
   ReauthenticatePassword: null,
 };
@@ -153,12 +151,20 @@ const userSlice = createSlice({
     setUser: (state, action) => {
       state.loading = false;
     
-    
       const accessToken = action.payload.accessToken || Cookies.get("access_token");
       const refreshToken = action.payload.refreshToken || Cookies.get("refresh_token");
     
       state.accessToken = accessToken;
       state.refreshToken = refreshToken;
+
+      if (accessToken) {
+        localStorage.setItem("access_token", accessToken);
+        Cookies.set("access_token", accessToken, { expires: 7 });
+      }
+      if (refreshToken) {
+        localStorage.setItem("refresh_token", refreshToken);
+        Cookies.set("refresh_token", refreshToken, { expires: 30 });
+      }
     
       const {
         user,
@@ -170,6 +176,10 @@ const userSlice = createSlice({
       } = action.payload;
     
       state.user = user;
+      if (user) {
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("uid", user.uid);
+      }
     
       state.isLocationFormFilled = user?.isLocationFormFilled || isLocationFormFilled || false;
       state.isImageFormFilled = user?.isImageFormFilled || isImageFormFilled || false;
@@ -180,7 +190,27 @@ const userSlice = createSlice({
     
 
     setCredentials: (state, action) => {
-      state.accessToken = action.payload;
+      let newToken = null;
+      let newRefreshToken = null;
+
+      if (typeof action.payload === 'string') {
+        newToken = action.payload;
+      } else if (action.payload) {
+        if (action.payload.accessToken) newToken = action.payload.accessToken;
+        if (action.payload.refreshToken) newRefreshToken = action.payload.refreshToken;
+      }
+
+      if (newToken) {
+        state.accessToken = newToken;
+        localStorage.setItem("access_token", newToken);
+        Cookies.set("access_token", newToken, { expires: 7 });
+      }
+
+      if (newRefreshToken) {
+        state.refreshToken = newRefreshToken;
+        localStorage.setItem("refresh_token", newRefreshToken);
+        Cookies.set("refresh_token", newRefreshToken, { expires: 30 });
+      }
     },
 
     setNotificationData: (state, action) => {

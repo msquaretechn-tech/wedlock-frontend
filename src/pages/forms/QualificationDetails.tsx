@@ -53,7 +53,71 @@ const QualificationDetails = () => {
 
   useEffect(() => {
     if (qualificationData && occupationData && incomeData) {
-      setQualifications((qualificationData as any).data);
+      const qualificationMapping: Record<string, string> = {
+        "B.Tech.": "Bachelor of Technology",
+        "B.Arch": "Bachelor of Architecture",
+        "BCA": "Bachelor of Computer Applications",
+        "BE": "Bachelor of Engineering",
+        "B.Plan": "Bachelor of Planning",
+        "B.Sc.": "Bachelor of Science",
+        "B.A.": "Bachelor of Arts",
+        "B.Com.": "Bachelor of Commerce",
+        "B.Ed.": "Bachelor of Education",
+        "BFA": "Bachelor of Fine Arts",
+        "BFT": "Bachelor of Fashion Technology",
+        "BLIS": "Bachelor of Library and Information Science",
+        "B.M.M.": "Bachelor of Mass Media",
+        "B.S.W": "Bachelor of Social Work",
+        "B.Phil.": "Bachelor of Philosophy",
+        "BBA": "Bachelor of Business Administration",
+        "BFM": "Bachelor of Financial Management",
+        "BHM": "Bachelor of Hotel Management",
+        "B.A.M.S.": "Bachelor of Ayurvedic Medicine and Surgery",
+        "BDS": "Bachelor of Dental Surgery",
+        "BHMS": "Bachelor of Homeopathic Medicine and Surgery",
+        "BSMS": "Bachelor of Siddha Medicine and Surgery",
+        "BUMS": "Bachelor of Unani Medicine and Surgery",
+        "BVSc": "Bachelor of Veterinary Science",
+        "MBBS": "Bachelor of Medicine, Bachelor of Surgery",
+        "BPharm": "Bachelor of Pharmacy",
+        "BPT": "Bachelor of Physiotherapy",
+        "BGL": "Bachelor of General Laws",
+        "LL.B.": "Bachelor of Laws",
+        "CA": "Chartered Accountant",
+        "CS": "Company Secretary",
+        "ICWA": "Cost and Works Accountant",
+        "CFA": "Chartered Financial Analyst",
+        "MCA": "Master of Computer Applications",
+        "MBA": "Master of Business Administration",
+        "ME": "Master of Engineering",
+        "M.Tech.": "Master of Technology",
+        "M.Sc.": "Master of Science",
+        "M.A.": "Master of Arts",
+        "MCom": "Master of Commerce",
+        "M.Ed.": "Master of Education",
+        "MFA": "Master of Fine Arts",
+        "MLIS": "Master of Library and Information Science",
+        "MSW": "Master of Social Work",
+        "M.Phil.": "Master of Philosophy",
+        "MFM": "Master of Financial Management",
+        "MHM": "Master of Hotel Management",
+        "MHRM": "Master of Human Resource Management",
+        "PGDM": "Post Graduate Diploma in Management",
+        "MDS": "Master of Dental Surgery",
+        "MVSc": "Master of Veterinary Science",
+        "MCh": "Master of Chirurgie",
+        "DNB": "Diplomate of National Board",
+        "LL.M.": "Master of Laws",
+        "Ph.D.": "Doctor of Philosophy",
+        "DM": "Doctor of Medicine",
+      };
+
+      const mappedQualifications = (qualificationData as any).data.map((q: any) => ({
+        ...q,
+        value: qualificationMapping[q.value] || q.value
+      }));
+
+      setQualifications(mappedQualifications);
       setOccupations((occupationData as any).data);
       setIncomes((incomeData as any).data);
     }

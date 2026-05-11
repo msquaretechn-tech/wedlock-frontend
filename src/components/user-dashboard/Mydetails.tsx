@@ -37,6 +37,8 @@ import MyConnectionsModal from "../user-dashboard-model/MyConnectionsModal";
 import SentRequestsModal from "../user-dashboard-model/SentRequestsModal";
 import { useGetBillingInfoQuery } from "../../Redux/Api/billing.api";
 
+import { Button } from "@mui/material";
+
 
 const MyDetails = () => {
   const dispatch = useDispatch();
@@ -439,7 +441,7 @@ const MyDetails = () => {
                   </div>
 
                   <div className="mt-2.5 flex flex-wrap py-6 items-center gap-2.5 self-start text-base font-medium  leading-4 text-slate-900">
-                    <div className={`self-stretch text-xl font-bold leading-10 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} lg:text-3xl`}>
+                    <div className={`self-stretch text-xl font-bold leading-10 bg ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} lg:text-3xl`}>
                       {`${capitalize(myDetails?.basic_and_lifestyle?.firstName)} ${capitalize(myDetails?.basic_and_lifestyle?.lastName)}`}
                     </div>
                     <div className="my-auto justify-center self-stretch whitespace-nowrap rounded-[100px] bg-orange-100 px-3 py-1.5 text-center capitalize tracking-normal">
@@ -448,9 +450,28 @@ const MyDetails = () => {
                     <div className="my-auto justify-center self-stretch whitespace-nowrap rounded-[100px] bg-orange-100 px-3 py-1.5 text-center capitalize tracking-normal">
                       {myDetails?.basic_and_lifestyle?.age}
                     </div>
-                    <div className="my-auto justify-center self-stretch whitespace-nowrap rounded-[100px] bg-orange-100 px-3 py-1.5 text-center capitalize tracking-normal">
-                      {billingData?.data?.currentPlan || ""}
-                    </div>
+                    {(() => {
+                      const isExpired = Number(billingData?.data?.remainingDays) <= 0 && billingData?.data?.expirationDate !== "N/A";
+                      const displayPlan = isExpired ? "Standard" : (billingData?.data?.currentPlan || "Standard");
+                      const planColor = displayPlan === "Exclusive" ? "#60457E" : (displayPlan === "Premium" ? "#007EAF" : "#8c8c8c");
+                      
+                      return (
+                        <Button
+                          variant="contained"
+                          sx={{
+                            backgroundColor: planColor,
+                            ":hover": { backgroundColor: planColor },
+                            borderRadius: "100px",
+                            textTransform: "capitalize",
+                            boxShadow: "none",
+                            fontWeight: "bold"
+                          }}
+                          className="my-auto justify-center self-stretch whitespace-nowrap px-3 py-1.5 text-center tracking-normal"
+                        >
+                          {displayPlan}
+                        </Button>
+                      );
+                    })()}
                     {/* <div 
                     onClick={() => setIsConnectionsModalVisible(true)}
                     className="flex items-center gap-1 my-auto justify-center self-stretch cursor-pointer whitespace-nowrap rounded-[100px] bg-blue-100 px-3 py-1.5 text-center capitalize tracking-normal hover:bg-blue-200 transition-colors"

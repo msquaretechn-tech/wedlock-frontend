@@ -92,7 +92,7 @@ const PricingPage = () => {
     }
   };
 
-  const handlePlanClick = (planId: string, planName: string) => {
+  const handlePlanClick = (planId: string, planName: string,) => {
     setSelectedPlanId(planId);
     if (planName === "Exclusive") {
       setShowExclusiveDescription(true);
@@ -209,7 +209,7 @@ const PricingPage = () => {
           onContinue={handlePremiumContinue}
           title="Premium Plan Details"
         >
-          <PremiumPlan />
+          <PremiumPlan planType={activeTab} />
         </PlanDescriptionModal>
 
         {/* Exclusive Description Modal */}
@@ -219,7 +219,7 @@ const PricingPage = () => {
           onContinue={handleExclusiveContinue}
           title="Exclusive Plan Details"
         >
-          <ExclusivePlan />
+          <ExclusivePlan planType={activeTab} />
         </PlanDescriptionModal>
 
         {/* Exclusive Eligibility Checklist */}
@@ -254,6 +254,7 @@ interface ModalProps {
 
 const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: ModalProps) => {
   const [isAcknowledged, setIsAcknowledged] = useState(false);
+  const [isAcknowledgedPolicy, setIsAcknowledgedPolicy] = useState(false);
 
   // Reset acknowledgement when modal opens
   useEffect(() => {
@@ -297,8 +298,8 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: 
               <input
                 type="checkbox"
                 className="w-5 h-5 rounded border-gray-300 text-[#007EAF] focus:ring-[#007EAF] cursor-pointer transition-all"
-                checked={isAcknowledged}
-                onChange={(e) => setIsAcknowledged(e.target.checked)}
+                checked={isAcknowledgedPolicy}
+                onChange={(e) => setIsAcknowledgedPolicy(e.target.checked)}
               />
               <span className="text-sm font-medium text-gray-600 group-hover:text-gray-800 transition-colors">
                 Accepted Wedlock privacy policy & terms
@@ -314,12 +315,12 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: 
               Cancel
             </button>
             <button
-              className={`px-8 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md flex items-center justify-center gap-2 flex-1 sm:flex-none ${isAcknowledged
+              className={`px-8 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md flex items-center justify-center gap-2 flex-1 sm:flex-none ${isAcknowledged && isAcknowledgedPolicy
                 ? "bg-[#007EAF] text-white hover:bg-[#005f85] scale-100"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed scale-[0.98]"
                 }`}
               onClick={onContinue}
-              disabled={!isAcknowledged}
+              disabled={!isAcknowledged || !isAcknowledgedPolicy}
             >
               Get Started
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -401,13 +402,23 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: EligibilityP
               <div className="relative flex items-center justify-center">
                 <input
                   type="checkbox"
-                  className="w-6 h-6 rounded-md border-2 border-white/30 checked:bg-[#553985] checked:border-transparent transition-all cursor-pointer accent-[#553985]"
+                  className="sr-only"
                   checked={checkedStates[index]}
-                  onChange={(e) => {
-                    e.stopPropagation();
-                    handleCheckboxChange(index);
-                  }}
+                  readOnly
                 />
+                <div 
+                  className={`w-6 h-6 rounded-md border-2 transition-all flex items-center justify-center ${
+                    checkedStates[index] 
+                      ? "bg-white border-white" 
+                      : "border-white/30 bg-transparent"
+                  }`}
+                >
+                  {checkedStates[index] && (
+                    <svg className="w-4 h-4 text-[#8E69B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </div>
               </div>
               <span className="text-lg leading-snug">{text}</span>
             </li>

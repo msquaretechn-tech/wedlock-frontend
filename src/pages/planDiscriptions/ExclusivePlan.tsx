@@ -1,20 +1,28 @@
 import React from "react";
 import { MdCheckCircle } from "react-icons/md";
 
-const ExclusivePlan: React.FC = () => {
+interface ExclusivePlanProps {
+    planType?: string;
+}
+
+const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType }) => {
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <section>
                 <h2 className="text-xl font-bold text-gray-800 mb-4 border-l-4 border-purple-500 pl-3">Pricing</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="bg-purple-50 p-4 rounded-xl border border-purple-200">
-                        <p className="text-sm text-purple-600 font-medium">1 Month</p>
-                        <p className="text-2xl font-bold text-purple-900">AU $1</p>
-                    </div>
-                    <div className="bg-purple-50 p-4 rounded-xl border border-purple-200">
-                        <p className="text-sm text-purple-600 font-medium">12 Months</p>
-                        <p className="text-2xl font-bold text-purple-900">AU $89.88</p>
-                    </div>
+                    {(!planType || planType.toLowerCase().includes("month")) && (
+                        <div className="bg-purple-50 p-4 rounded-xl border border-purple-200">
+                            <p className="text-sm text-purple-600 font-medium">1 Month</p>
+                            <p className="text-2xl font-bold text-purple-900">AU $1</p>
+                        </div>
+                    )}
+                    {(!planType || planType.toLowerCase().includes("year") || planType.toLowerCase().includes("annual")) && (
+                        <div className="bg-purple-50 p-4 rounded-xl border border-purple-200">
+                            <p className="text-sm text-purple-600 font-medium">12 Months</p>
+                            <p className="text-2xl font-bold text-purple-900">AU $89.88</p>
+                        </div>
+                    )}
                 </div>
             </section>
 

@@ -1,6 +1,19 @@
+import { useState } from 'react';
 import '../../font.css';
 
 const GetApp = () => {
+    const [qrImage, setQrImage] = useState("/qr.svg"); // Default QR
+
+    const handleAppStoreClick = () => {
+        // window.open("https://apps.apple.com/app/id...", "_blank");
+        setQrImage("/qr.svg"); // Update with actual Apple QR image if available
+    };
+
+    const handlePlayStoreClick = () => {
+        window.open("https://play.google.com/store/apps/details?id=com.wedlock.wedlock_application", "_blank");
+        setQrImage("/qr.svg"); // Update with actual Google QR image if available
+    };
+
     return (
         <div className="w-full h-auto bg-[#007EAF] relative">
             <div className="text-white relative overflow-hidden px-5 sm:px-20 container m-auto space-y-6 py-5 md:py-12">
@@ -17,21 +30,22 @@ const GetApp = () => {
                             </div>
                             <div className="flex flex-row space-x-4 mt-4 lg:mt-16">
                                 <button
-                                    className="p-0 m-0 flex items-center"
-                                    onClick={() => window.open("https://play.google.com/store/apps/details?id=com.wedlock.wedlock_application", "_blank")}
-                                >
-                                    <img
-                                        src="/googleplay.png"
-                                        alt="Play Store"
-                                        className="h-16 md:h-20 lg:h-24"
-                                    />
-                                </button>
-                                <button
-                                    className="p-0 m-0 flex items-center"
+                                    className="p-0 m-0 flex items-center transition-transform hover:scale-105 active:scale-95"
+                                    onClick={handleAppStoreClick}
                                 >
                                     <img
                                         src="/appstore.png"
                                         alt="Apple Store"
+                                        className="h-16 md:h-20 lg:h-24"
+                                    />
+                                </button>
+                                <button
+                                    className="p-0 m-0 flex items-center transition-transform hover:scale-105 active:scale-95"
+                                    onClick={handlePlayStoreClick}
+                                >
+                                    <img
+                                        src="/googleplay.png"
+                                        alt="Play Store"
                                         className="h-16 md:h-20 lg:h-24"
                                     />
                                 </button>
@@ -46,9 +60,9 @@ const GetApp = () => {
                                 />
                                 <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[45%] h-[45%] flex items-center justify-center">
                                     <img 
-                                        src="/qr.svg" 
+                                        src={qrImage} 
                                         alt="QR code"
-                                        className="w-full h-full object-contain" 
+                                        className="w-full h-full object-contain transition-opacity duration-300" 
                                     />
                                 </div>
                             </div>

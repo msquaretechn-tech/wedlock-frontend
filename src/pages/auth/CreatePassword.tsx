@@ -50,9 +50,19 @@ const CreatePassword = () => {
 
   type CreatePasswordInputs = z.infer<typeof createPasswordSchema>;
 
-  const { register, handleSubmit, formState: { errors } } = useForm<CreatePasswordInputs>({
+  const { register, handleSubmit, watch, formState: { errors } } = useForm<CreatePasswordInputs>({
     resolver: zodResolver(createPasswordSchema),
   });
+
+  const password = watch("password", "");
+
+  const requirements = [
+    { label: "At least 8 characters", valid: password.length >= 8 },
+    { label: "Uppercase letter", valid: /[A-Z]/.test(password) },
+    { label: "Lowercase letter", valid: /[a-z]/.test(password) },
+    { label: "Number", valid: /\d/.test(password) },
+    { label: "Special character", valid: /[\W_]/.test(password) },
+  ];
 
   type ApiResponse = {
     success: boolean;
@@ -119,7 +129,7 @@ const CreatePassword = () => {
   };
 
   return (
-    <div className={`min-w-screen h-screen flex flex-col items-center justify-center ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'}`}>
+    <div className={`min-w-screen h-screen flex flex-col items-center justify-center ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'} overflow-y-auto py-10`}>
       <div className="flex items-center justify-center mb-2 md:mb-10">
         <Link to="/">
           <img src="/logowhite.png" alt="" className='w-72 h-24 top-10' />
@@ -133,13 +143,12 @@ const CreatePassword = () => {
         </div>
         <div className="flex flex-col items-center justify-center text-white mt-2">
           <h1 className="text-3xl font-bold">Create Your Password</h1>
-          <p className="mt-4 md:text-lg text-center">
-            Choose a strong password that is long, random, and unique. <br className="hidden md:inline" />
-            It's best to avoid using common words and personal information.
+          <p className="mt-4 md:text-lg text-center px-4">
+            Choose a strong password that is long, random, and unique.
           </p>
         </div>
       </div>
-      <div className="w-full max-w-md px-2 py-4 mt-4">
+      <div className="w-full max-w-md px-6 py-4 mt-4 bg-white/10 rounded-2xl backdrop-blur-sm mx-4">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4 relative">
             <Input
@@ -148,15 +157,29 @@ const CreatePassword = () => {
               type={showPassword ? "text" : "password"}
               {...register('password')}
               className={`w-full rounded-md border-2 p-2 pr-10 ${errors.password ? 'border-red-500' : 'border-gray-300'}`}
+              labelStyle={{ color: 'white' }}
             />
             <span
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute  top-12 right-3 cursor-pointer text-gray-600"
+              className="absolute top-10 right-3 cursor-pointer text-gray-600"
             >
               {showPassword ? <FaEyeSlash /> : <IoEyeOutline />}
             </span>
+            
+            {/* Password Complexity Checklist */}
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              {requirements.map((req, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  <div className={`w-2 h-2 rounded-full ${req.valid ? 'bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]' : 'bg-white/30'}`} />
+                  <span className={`text-xs ${req.valid ? 'text-green-300 font-medium' : 'text-white/60'}`}>
+                    {req.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
             {errors.password && (
-              <p className="text-orange-200 text-sm">{errors.password.message}</p>
+              <p className="text-orange-200 text-sm mt-2">{errors.password.message}</p>
             )}
           </div>
 
@@ -167,15 +190,16 @@ const CreatePassword = () => {
               type={showConfirmPassword ? "text" : "password"}
               {...register('confirmPassword')}
               className={`w-full rounded-md border-2 p-2 pr-10 ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'}`}
+              labelStyle={{ color: 'white' }}
             />
             <span
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute top-12 right-3 cursor-pointer text-gray-600"
+              className="absolute top-10 right-3 cursor-pointer text-gray-600"
             >
               {showConfirmPassword ? <FaEyeSlash /> : <IoEyeOutline />}
             </span>
             {errors.confirmPassword && (
-              <p className="text-orange-200 text-sm">{errors.confirmPassword.message}</p>
+              <p className="text-orange-200 text-sm mt-2">{errors.confirmPassword.message}</p>
             )}
           </div>
 
