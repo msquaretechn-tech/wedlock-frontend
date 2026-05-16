@@ -36,7 +36,7 @@ const GetApp = () => {
                                     <img
                                         src="/appstore.png"
                                         alt="Apple Store"
-                                        className="h-16 md:h-20 lg:h-24"
+                                        className="h-14 md:h-20 lg:h-24"
                                     />
                                 </button>
                                 <button
@@ -46,23 +46,23 @@ const GetApp = () => {
                                     <img
                                         src="/googleplay.png"
                                         alt="Play Store"
-                                        className="h-16 md:h-20 lg:h-24"
+                                        className="h-14 md:h-20 lg:h-24"
                                     />
                                 </button>
                             </div>
                         </div>
                         <div className="relative mt-8 lg:mt-0 w-full max-w-[300px] md:max-w-[350px]">
                             <div className="relative w-full h-full">
-                                <img 
-                                    src="/ph.svg" 
-                                    alt="Phone" 
-                                    className="w-full" 
+                                <img
+                                    src="/ph.svg"
+                                    alt="Phone"
+                                    className="w-full"
                                 />
                                 <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[45%] h-[45%] flex items-center justify-center">
-                                    <img 
-                                        src={qrImage} 
+                                    <img
+                                        src={qrImage}
                                         alt="QR code"
-                                        className="w-full h-full object-contain transition-opacity duration-300" 
+                                        className="w-full h-full object-contain transition-opacity duration-300"
                                     />
                                 </div>
                             </div>

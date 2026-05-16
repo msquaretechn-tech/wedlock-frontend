@@ -4,7 +4,7 @@ import Select from 'react-select';
 const question = [
   {
     id: 7,
-    text: "I am age",
+    text: "I am of age",
     summary:
       "Knowing your age allows us to create matches that are compatible and appropriate for your life stage.",
     options: Array.from({ length: 85 - 18 + 1 }, (_, i) => String(i + 18)),
