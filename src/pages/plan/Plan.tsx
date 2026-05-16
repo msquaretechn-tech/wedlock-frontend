@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import PremiumPlan from "../planDiscriptions/PremiumPlan";
 import ExclusivePlan from "../planDiscriptions/ExclusivePlan";
+import { Typography } from "@mui/material";
 
 
 const PricingPage = () => {
@@ -127,14 +128,16 @@ const PricingPage = () => {
 
   return (
     <>
-      <div className="px-2">
+      <div className=" ">
         <div className="flex flex-col items-center justify-between md:flex-row">
-          <div className="flex flex-col space-y-4 p-4 md:p-8 ">
-            <h3 className="text-5xl max-md:text-xl  font-semibold">Subscription tiers</h3>
+          <div className="flex flex-col space-y-4 mt-8 ">
+            <h3 className="text-3xl max-md:text-xl  font-semibold">Subscription Plans</h3>
             <div>
-              <p className="mt-4 text-2xl max-md:text-md text-[#000000] md:mt-0">
-                Upgrade to Premium or Exclusive for an enhanced Wedlock experience.
-              </p>
+              <Typography variant="subtitle1" fontWeight={400} sx={{ color: "inherit" }}>
+
+                Choose a plan to enhance your experience.
+
+              </Typography>
 
             </div>
           </div>
@@ -265,43 +268,48 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: 
 
   if (!isOpen) return null;
 
+  const isExclusiveTheme = title.toLowerCase().includes("exclusive");
+  const themeColor = isExclusiveTheme ? "#60457E" : "#007EAF";
+  const themeBgFull = isExclusiveTheme ? "bg-[#60457E]" : "bg-[#007EAF]";
+  const themeTextFull = "text-white";
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-white rounded-2xl w-full max-w-3xl flex flex-col max-h-[90vh] shadow-2xl overflow-hidden border border-gray-100">
-        <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
-          <h2 className="text-2xl font-bold text-[#007EAF]">{title}</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors">
+      <div className={`${themeBgFull} ${themeTextFull} rounded-2xl w-full max-w-3xl flex flex-col max-h-[90vh] shadow-2xl overflow-hidden border border-white/10`}>
+        <div className={`p-6 border-b border-white/10 flex justify-between items-center`}>
+          <h2 className={`text-3xl font-bold`}>{title}</h2>
+          <button onClick={onClose} className="text-white/80 hover:text-white transition-colors">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-8 bg-white custom-scrollbar">
+        <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
           {children}
         </div>
 
-        <div className="p-6 border-t border-gray-100 bg-gray-50 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className={`p-6 border-t border-white/10 bg-black/10 flex flex-col sm:flex-row items-center justify-between gap-4`}>
           <div className="flex flex-col gap-2">
             <label className="flex items-center gap-3 cursor-pointer group">
               <input
                 type="checkbox"
-                className="w-5 h-5 rounded border-gray-300 text-[#007EAF] focus:ring-[#007EAF] cursor-pointer transition-all"
+                className="w-5 h-5 rounded border-white/30 bg-white/10 text-white focus:ring-white/50 cursor-pointer transition-all"
                 checked={isAcknowledged}
                 onChange={(e) => setIsAcknowledged(e.target.checked)}
               />
-              <span className="text-sm font-medium text-gray-600 group-hover:text-gray-800 transition-colors">
+              <span className="text-sm font-medium text-white/90 group-hover:text-white transition-colors">
                 Payment not refundable
               </span>
             </label>
             <label className="flex items-center gap-3 cursor-pointer group">
               <input
                 type="checkbox"
-                className="w-5 h-5 rounded border-gray-300 text-[#007EAF] focus:ring-[#007EAF] cursor-pointer transition-all"
+                className="w-5 h-5 rounded border-white/30 bg-white/10 text-white focus:ring-white/50 cursor-pointer transition-all"
                 checked={isAcknowledgedPolicy}
                 onChange={(e) => setIsAcknowledgedPolicy(e.target.checked)}
               />
-              <span className="text-sm font-medium text-gray-600 group-hover:text-gray-800 transition-colors">
+              <span className="text-sm font-medium text-white/90 group-hover:text-white transition-colors">
                 Accepted Wedlock privacy policy & terms
               </span>
             </label>
@@ -316,9 +324,10 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: 
             </button>
             <button
               className={`px-8 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md flex items-center justify-center gap-2 flex-1 sm:flex-none ${isAcknowledged && isAcknowledgedPolicy
-                ? "bg-[#007EAF] text-white hover:bg-[#005f85] scale-100"
+                ? "text-white scale-100"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed scale-[0.98]"
                 }`}
+              style={{ backgroundColor: isAcknowledged && isAcknowledgedPolicy ? themeColor : undefined }}
               onClick={onContinue}
               disabled={!isAcknowledged || !isAcknowledgedPolicy}
             >
@@ -406,12 +415,11 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: EligibilityP
                   checked={checkedStates[index]}
                   readOnly
                 />
-                <div 
-                  className={`w-6 h-6 rounded-md border-2 transition-all flex items-center justify-center ${
-                    checkedStates[index] 
-                      ? "bg-white border-white" 
-                      : "border-white/30 bg-transparent"
-                  }`}
+                <div
+                  className={`w-6 h-6 rounded-md border-2 transition-all flex items-center justify-center ${checkedStates[index]
+                    ? "bg-white border-white"
+                    : "border-white/30 bg-transparent"
+                    }`}
                 >
                   {checkedStates[index] && (
                     <svg className="w-4 h-4 text-[#8E69B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">

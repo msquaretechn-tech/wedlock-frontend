@@ -15,7 +15,7 @@ const WhatsAppButton: React.FC = () => {
             to={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110 z-5"
+            className="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg mb-10 transition-transform transform hover:scale-110 z-5"
         >
             <FaWhatsapp size={35} />
         </Link>

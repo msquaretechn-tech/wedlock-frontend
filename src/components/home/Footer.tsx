@@ -77,12 +77,12 @@ const Footer = () => {
 
           {/* Mission Links */}
           <div>
-            
-           
+
+
             <ul className="font-Proxima-Nova-Regular space-y-2">
-            <li>
+              <li>
                 <Link to="/mission" className="hover:text-[#007EAF]">
-                Mission
+                  Mission
                 </Link>
               </li>
               <li>
@@ -120,14 +120,14 @@ const Footer = () => {
 
           {/* About Us Links */}
           <div>
-            
+
             <ul className="font-Proxima-Nova-Regular space-y-2">
-            <li>
+              <li>
                 <Link
                   to="/about-us"
                   className="hover:text-[#007EAF]"
                 >
-                  About Us 
+                  About Us
                 </Link>
               </li>
               <li>
@@ -138,7 +138,7 @@ const Footer = () => {
                   Community Guidelines
                 </Link>
               </li>
-             
+
               <li>
                 <Link to="/terms-conditions" className="hover:text-[#007EAF]">
                   Terms & Conditions

@@ -9,18 +9,18 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType }) => {
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <section>
-                <h2 className="text-xl font-bold text-gray-800 mb-4 border-l-4 border-purple-500 pl-3">Pricing</h2>
+                <h2 className="text-xl font-bold text-white mb-4 border-l-4 border-white/50 pl-3">Pricing</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {(!planType || planType.toLowerCase().includes("month")) && (
-                        <div className="bg-purple-50 p-4 rounded-xl border border-purple-200">
-                            <p className="text-sm text-purple-600 font-medium">1 Month</p>
-                            <p className="text-2xl font-bold text-purple-900">AU $1</p>
+                        <div className="bg-white/10 p-4 rounded-xl border border-white/20">
+                            <p className="text-sm text-white/70 font-medium">1 Month</p>
+                            <p className="text-2xl font-bold text-white">AU $1</p>
                         </div>
                     )}
                     {(!planType || planType.toLowerCase().includes("year") || planType.toLowerCase().includes("annual")) && (
-                        <div className="bg-purple-50 p-4 rounded-xl border border-purple-200">
-                            <p className="text-sm text-purple-600 font-medium">12 Months</p>
-                            <p className="text-2xl font-bold text-purple-900">AU $89.88</p>
+                        <div className="bg-white/10 p-4 rounded-xl border border-white/20">
+                            <p className="text-sm text-white/70 font-medium">12 Months</p>
+                            <p className="text-2xl font-bold text-white">AU $89.88</p>
                         </div>
                     )}
                 </div>
@@ -28,8 +28,8 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <section>
-                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
-                        <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-white/50 rounded-full"></span>
                         Basic Access
                     </h3>
                     <ul className="space-y-3">
@@ -42,8 +42,8 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType }) => {
                 </section>
 
                 <section>
-                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
-                        <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-white/50 rounded-full"></span>
                         Searching
                     </h3>
                     <ul className="space-y-3">
@@ -55,8 +55,8 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType }) => {
                 </section>
 
                 <section>
-                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
-                        <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-white/50 rounded-full"></span>
                         Communication
                     </h3>
                     <ul className="space-y-3">
@@ -70,8 +70,8 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType }) => {
                 </section>
 
                 <section>
-                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
-                        <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-white/50 rounded-full"></span>
                         Profile & Matchmaking
                     </h3>
                     <ul className="space-y-3">
@@ -85,16 +85,16 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType }) => {
                 </section>
             </div>
 
-            <section className="bg-purple-900/5 p-6 rounded-2xl border border-purple-100">
-                <h3 className="text-lg font-bold text-gray-700 mb-4">Security</h3>
+            <section className="bg-white/5 p-6 rounded-2xl border border-white/10">
+                <h3 className="text-lg font-bold text-white mb-4">Security</h3>
                 <div className="flex flex-wrap gap-4">
-                    <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-purple-100 shadow-sm">
-                        <MdCheckCircle className="text-purple-500" />
-                        <span className="text-sm font-medium text-gray-600">Profile verification</span>
+                    <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/10 shadow-sm">
+                        <MdCheckCircle className="text-green-400" />
+                        <span className="text-sm font-medium text-white/90">Profile verification</span>
                     </div>
-                    <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-purple-100 shadow-sm">
-                        <MdCheckCircle className="text-purple-500" />
-                        <span className="text-sm font-medium text-gray-600">Password & OTP</span>
+                    <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/10 shadow-sm">
+                        <MdCheckCircle className="text-green-400" />
+                        <span className="text-sm font-medium text-white/90">Password & OTP</span>
                     </div>
                 </div>
             </section>
@@ -104,8 +104,8 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType }) => {
 
 const FeatureItem = ({ text }: { text: string }) => (
     <li className="flex items-start gap-3 group">
-        <MdCheckCircle className="text-purple-500 mt-1 shrink-0 group-hover:scale-110 transition-transform" />
-        <span className="text-sm text-gray-600 font-medium">
+        <MdCheckCircle className="text-white/80 mt-1 shrink-0 group-hover:scale-110 transition-transform" />
+        <span className="text-sm text-white font-medium">
             {text}
         </span>
     </li>

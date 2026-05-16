@@ -104,20 +104,20 @@ const register = () => {
         </div>
       </div>
 
-      <div className="w-full max-w-md px-2 py-4 mt-10">
-        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <div className="w-full max-w-md px-2 py-4 mt-7">
+        <form className="space-y-2" onSubmit={handleSubmit(onSubmit)}>
           <Input
             label="Email"
             type="email"
             {...register("email")}
             placeholder="Enter your email"
-            labelStyle={{ color: "white", fontSize: "20px" }}
+            labelStyle={{ color: "white", fontSize: "12px" }}
           />
           {errors.email && <p className="text-orange-200">{errors.email.message}</p>}
 
           <button
             type="submit"
-            className={`w-full py-2 px-4 ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"} rounded bg-[#ffffff] font-bold`}
+            className={`w-full py-2 px-4 ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"} rounded bg-[#ffffff]`}
             disabled={isSubmitting}
           >
             {isLoading ? <LoadingOutlined className={`${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} animate-spin`} /> : '         Create an account'}

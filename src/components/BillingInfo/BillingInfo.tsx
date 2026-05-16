@@ -107,40 +107,40 @@ const BillingInfo = () => {
   if (error) return <Typography color="error">Error loading billing info</Typography>;
 
   const isExpired = Number(billingData.remainingDays) <= 0 && billingData.expirationDate !== "N/A";
-  const displayPlanName = isExpired ? "Standard Plan" : (billingData.currentPlan || "—");
+  const displayPlanName = isExpired ? "Standard" : (billingData.currentPlan || "—");
 
   return (
     <Box>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-        <h2 className="text-3xl font-bold mb-2">
-          Exclusive Plan Details
+        <h2 className="text-3xl font-bold mb-5">
+          Plan and Billing Details
         </h2>
 
         <Typography variant="subtitle1" fontWeight={400} sx={{ color: isExpired ? "inherit" : "inherit" }}>
-          Current Plan : {displayPlanName}
+          Current Plan: {displayPlanName}
 
         </Typography>
         {isExpired && (
           <Typography variant="subtitle1" fontWeight={400} sx={{ color: isExpired ? "red" : "inherit" }}>
-            Expired: {billingData.currentPlan}
+            Expired Plan: {billingData.currentPlan}
           </Typography>
         )}
-        <Typography variant="body2" color="text.secondary" mb={2}>
-          {isExpired ? "Your previous plan has expired. Please renew or change your plan." : "A simple start for everyone"}
+        <Typography variant="body2" color="text.secondary" mb={2} mt={2}>
+          {isExpired ? "Your purchased plan has expired. Please renew or change your plan." : "A simple start for everyone"}
         </Typography>
 
         <Typography variant="subtitle1" mb={2}>
           {billingData.expirationDate === "N/A"
             ? "Active"
             : isExpired
-              ? `Expired on ${billingData.expirationDate}`
+              ? `Plan expired on ${billingData.expirationDate}`
               : `Active until ${billingData.expirationDate}`}
         </Typography>
         <Typography variant="body2" color="text.secondary" mb={2}>
-          We will send you a notification upon subscription expiration
+          Wedlock sends a notification email upon subscription expiration.
         </Typography>
 
-        <Typography variant="h6">
+        <Typography variant="subtitle1">
           {billingData.price}
           {billingData.price !== "Free" && ` / ${billingData.planType}`}
         </Typography>
@@ -156,7 +156,7 @@ const BillingInfo = () => {
               }}
               onClick={handleUpgrade}
             >
-              Extend Plan
+              Renew Plan
             </Button>
           )}
 
@@ -206,7 +206,7 @@ const BillingInfo = () => {
               sx={{ mt: 1, mb: 1, height: 8, borderRadius: 5, backgroundColor: isExpired ? "#ffdada" : "inherit" }}
               color={isExpired ? "error" : "primary"}
             />
-            <Typography variant="caption" color={isExpired ? "error" : "text.secondary"}>
+            <Typography variant="caption" sx={{ fontSize: "0.9rem" }} color={isExpired ? "error" : "text.secondary"}>
               {isExpired ? "Plan expired" : `${billingData.remainingDays} days left before renewal`}
             </Typography>
           </Box>
@@ -270,45 +270,53 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: 
 
   if (!isOpen) return null;
 
+  const isExclusiveTheme = title.toLowerCase().includes("exclusive");
+  const themeBgFull = isExclusiveTheme ? "bg-[#60457E]" : "bg-[#007EAF]";
+  const themeTextFull = "text-white";
+
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-white rounded-2xl w-full max-w-3xl flex flex-col max-h-[90vh] shadow-2xl overflow-hidden border border-gray-100">
-        <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
-          <h2 className="text-3xl font-bold text-[#007EAF]">{title}</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors">
+      <div className={`${themeBgFull} ${themeTextFull} rounded-2xl w-full max-w-3xl flex flex-col max-h-[90vh] shadow-2xl overflow-hidden border border-white/10`}>
+        <div className={`p-6 border-b border-white/10 flex justify-between items-center`}>
+          <h2 className="text-3xl font-bold">{title}</h2>
+          <button onClick={onClose} className="text-white/80 hover:text-white transition-colors">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
-        <div className="flex-1 overflow-y-auto p-8 bg-white custom-scrollbar">
+        <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
           {children}
         </div>
-        <div className="p-6 border-t border-gray-100 bg-gray-50 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="p-6 border-t border-white/10 bg-black/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-col gap-2">
             <label className="flex items-center gap-3 cursor-pointer group">
               <input
                 type="checkbox"
-                className="w-5 h-5 rounded border-gray-300 text-[#007EAF] focus:ring-[#007EAF] cursor-pointer"
+                className="w-5 h-5 rounded border-white/30 bg-white/10 text-white focus:ring-white/50 cursor-pointer"
                 checked={isAcknowledged}
                 onChange={(e) => setIsAcknowledged(e.target.checked)}
               />
-              <span className="text-sm font-medium text-gray-600">Payment not refundable</span>
+              <span className="text-sm font-medium text-white/90">Payment not refundable</span>
             </label>
             <label className="flex items-center gap-3 cursor-pointer group">
               <input
                 type="checkbox"
-                className="w-5 h-5 rounded border-gray-300 text-[#007EAF] focus:ring-[#007EAF] cursor-pointer"
+                className="w-5 h-5 rounded border-white/30 bg-white/10 text-white focus:ring-white/50 cursor-pointer"
                 checked={isAcknowledgedPolicy}
                 onChange={(e) => setIsAcknowledgedPolicy(e.target.checked)}
               />
-              <span className="text-sm font-medium text-gray-600">Accepted Wedlock privacy policy & terms</span>
+              <span className="text-sm font-medium text-white/90">Accepted Wedlock privacy policy & terms</span>
             </label>
           </div>
           <div className="flex gap-4 w-full sm:w-auto">
             <button className="px-6 py-2.5 bg-gray-200 text-gray-700 rounded-xl font-semibold" onClick={onClose}>Cancel</button>
             <button
-              className={`px-8 py-2.5 rounded-xl font-semibold transition-all shadow-md ${isAcknowledged && isAcknowledgedPolicy ? "bg-[#007EAF] text-white" : "bg-gray-300 text-gray-500 cursor-not-allowed"}`}
+              className={`px-8 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md flex items-center justify-center gap-2 flex-1 sm:flex-none ${isAcknowledged && isAcknowledgedPolicy
+                ? "text-white scale-100"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed scale-[0.98]"
+                }`}
+              style={{ backgroundColor: isAcknowledged && isAcknowledgedPolicy ? (isExclusiveTheme ? "#60457E" : "#007EAF") : undefined }}
               onClick={onContinue}
               disabled={!isAcknowledged || !isAcknowledgedPolicy}
             >
