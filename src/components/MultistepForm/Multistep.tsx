@@ -326,9 +326,8 @@ const Multistep = () => {
 
   return (
     <div
-      className={`min-w-screen relative flex min-h-screen flex-col items-center ${
-        isExclusive ? "bg-[#60457E]" : "bg-[#007EAF]"
-      } px-2 text-white md:px-28 lg:px-60 3xl:px-60`}
+      className={`min-w-screen relative flex min-h-screen flex-col items-center ${isExclusive ? "bg-[#60457E]" : "bg-[#007EAF]"
+        } px-2 text-white md:px-28 lg:px-60 3xl:px-60`}
     >
       <div className="relative mt-5 w-full md:mt-10 h-[80px]">
         {/* Logo centered relative to the screensaf */}
@@ -368,29 +367,27 @@ const Multistep = () => {
             <div className="form-body  ">{PageDisplay()}</div>
 
             <div className="form-footer">
-            <div className="max-md:bottom-5 2xl:bottom-10 flex w-full items-center justify-end md:absolute md:right-20 lg:right-40 xl:mt-6 3xl:right-60 px-4">
-  <div className="flex w-full flex-row items-center justify-between gap-3 md:justify-end md:gap-10">
-    <button
-      type="button"
-      className={`flex h-[48px] w-[48%] md:w-[160px] items-center justify-center gap-2 rounded-md bg-white px-4 py-2 font-medium ${
-        isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
-      }`}
-      onClick={page > 0 ? handlePrevious : () => navigate("/")}
-    >
-      <FaArrowLeftLong /> Back
-    </button>
+              <div className="max-md:bottom-5 2xl:bottom-10 flex w-full items-center justify-end md:absolute md:right-20 lg:right-40 xl:mt-6 3xl:right-60 px-4">
+                <div className="flex w-full flex-row items-center justify-between gap-3 md:justify-end md:gap-10 mb-2">
+                  <button
+                    type="button"
+                    className={`flex h-[48px] w-[48%] md:w-[160px] items-center justify-center gap-2 rounded-md bg-white px-4 py-2 font-medium ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
+                      }`}
+                    onClick={page > 0 ? handlePrevious : () => navigate("/")}
+                  >
+                    <FaArrowLeftLong /> Back
+                  </button>
 
-    <button
-      type="button"
-      className={`flex h-[48px] w-[48%] md:w-[160px] items-center justify-center gap-2 rounded-md bg-white px-4 py-2 font-medium ${
-        isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
-      }`}
-      onClick={handleNext}
-    >
-      Continue <FaArrowRightLong />
-    </button>
-  </div>
-</div>
+                  <button
+                    type="button"
+                    className={`flex h-[48px] w-[48%] md:w-[160px] items-center justify-center gap-2 rounded-md bg-white px-4 py-2 font-medium ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
+                      }`}
+                    onClick={handleNext}
+                  >
+                    Continue <FaArrowRightLong />
+                  </button>
+                </div>
+              </div>
 
             </div>
           </div>

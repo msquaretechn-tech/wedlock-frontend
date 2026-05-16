@@ -112,18 +112,19 @@ const BillingInfo = () => {
   return (
     <Box>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-        <Typography variant="h6" gutterBottom>
-          Current Plan
-        </Typography>
+        <h2 className="text-3xl font-bold mb-2">
+          Exclusive Plan Details
+        </h2>
 
-        <Typography variant="subtitle1" fontWeight={600} sx={{ color: isExpired ? "red" : "inherit" }}>
-          Your Current Plan is {displayPlanName}
-          {isExpired && (
-            <Typography component="span" variant="caption" sx={{ ml: 1, color: "gray", fontWeight: 400 }}>
-              (Expired: {billingData.currentPlan})
-            </Typography>
-          )}
+        <Typography variant="subtitle1" fontWeight={400} sx={{ color: isExpired ? "inherit" : "inherit" }}>
+          Current Plan : {displayPlanName}
+
         </Typography>
+        {isExpired && (
+          <Typography variant="subtitle1" fontWeight={400} sx={{ color: isExpired ? "red" : "inherit" }}>
+            Expired: {billingData.currentPlan}
+          </Typography>
+        )}
         <Typography variant="body2" color="text.secondary" mb={2}>
           {isExpired ? "Your previous plan has expired. Please renew or change your plan." : "A simple start for everyone"}
         </Typography>
@@ -131,12 +132,12 @@ const BillingInfo = () => {
         <Typography variant="subtitle1" mb={2}>
           {billingData.expirationDate === "N/A"
             ? "Active"
-            : isExpired 
+            : isExpired
               ? `Expired on ${billingData.expirationDate}`
               : `Active until ${billingData.expirationDate}`}
         </Typography>
         <Typography variant="body2" color="text.secondary" mb={2}>
-          We will send you a notification upon Subscription expiration
+          We will send you a notification upon subscription expiration
         </Typography>
 
         <Typography variant="h6">
@@ -150,6 +151,7 @@ const BillingInfo = () => {
               variant="contained"
               sx={{
                 backgroundColor: "#007EAF",
+                textTransform: "none",
                 ":hover": { backgroundColor: "#005f80" },
               }}
               onClick={handleUpgrade}
@@ -162,6 +164,7 @@ const BillingInfo = () => {
             variant="contained"
             sx={{
               backgroundColor: "#007EAF",
+              textTransform: "none",
               ":hover": { backgroundColor: "#005f80" },
             }}
             onClick={() => setShowPricing(true)}
@@ -198,7 +201,7 @@ const BillingInfo = () => {
               value={
                 Math.max(0, (Number(billingData.remainingDays) /
                   Number(billingData.totalDays)) *
-                100)
+                  100)
               }
               sx={{ mt: 1, mb: 1, height: 8, borderRadius: 5, backgroundColor: isExpired ? "#ffdada" : "inherit" }}
               color={isExpired ? "error" : "primary"}
@@ -233,6 +236,10 @@ const BillingInfo = () => {
         isOpen={showExclusiveModal}
         onClose={() => setShowExclusiveModal(false)}
         onEligible={handleEligible}
+        onBack={() => {
+          setShowExclusiveModal(false);
+          setShowExclusiveDescription(true);
+        }}
       />
     </Box>
   );
@@ -267,7 +274,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: 
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
       <div className="bg-white rounded-2xl w-full max-w-3xl flex flex-col max-h-[90vh] shadow-2xl overflow-hidden border border-gray-100">
         <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
-          <h2 className="text-2xl font-bold text-[#007EAF]">{title}</h2>
+          <h2 className="text-3xl font-bold text-[#007EAF]">{title}</h2>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -324,7 +331,7 @@ const criteria = [
   "Graduation completed (required)"
 ];
 
-const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: { isOpen: boolean; onClose: () => void; onEligible: () => void }) => {
+const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: { isOpen: boolean; onClose: () => void; onEligible: () => void; onBack: () => void }) => {
   const [checkedStates, setCheckedStates] = useState<boolean[]>(Array(criteria.length).fill(false));
 
   useEffect(() => {
@@ -343,8 +350,19 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: { isOpen: bo
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
       <div className="bg-[#8E69B4] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
         <div className="mb-6">
-          <h2 className="text-3xl font-bold mb-2">Exclusive Matchmaking Eligibility</h2>
-          <p className="text-purple-100 opacity-90">Please confirm all conditions before proceeding.</p>
+          <div className="flex items-center gap-3 mb-2">
+            <button
+              onClick={onBack}
+              className="p-2 hover:bg-white/10 rounded-full transition-colors"
+              title="Back to Plan Details"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+            </button>
+            <h2 className="text-3xl font-bold">Exclusive Matchmaking Eligibility</h2>
+          </div>
+          <p className="text-purple-100 opacity-90 ml-11">Please confirm all conditions before proceeding.</p>
         </div>
         <ul className="space-y-4 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
           {criteria.map((text, index) => (
@@ -360,12 +378,11 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: { isOpen: bo
                   checked={checkedStates[index]}
                   readOnly
                 />
-                <div 
-                  className={`w-6 h-6 rounded-md border-2 transition-all flex items-center justify-center ${
-                    checkedStates[index] 
-                      ? "bg-white border-white" 
-                      : "border-white/30 bg-transparent"
-                  }`}
+                <div
+                  className={`w-6 h-6 rounded-md border-2 transition-all flex items-center justify-center ${checkedStates[index]
+                    ? "bg-white border-white"
+                    : "border-white/30 bg-transparent"
+                    }`}
                 >
                   {checkedStates[index] && (
                     <svg className="w-4 h-4 text-[#8E69B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">

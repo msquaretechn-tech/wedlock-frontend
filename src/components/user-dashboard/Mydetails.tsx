@@ -454,7 +454,7 @@ const MyDetails = () => {
                       const isExpired = Number(billingData?.data?.remainingDays) <= 0 && billingData?.data?.expirationDate !== "N/A";
                       const displayPlan = isExpired ? "Standard" : (billingData?.data?.currentPlan || "Standard");
                       const planColor = displayPlan === "Exclusive" ? "#60457E" : (displayPlan === "Premium" ? "#007EAF" : "#8c8c8c");
-                      
+
                       return (
                         <Button
                           variant="contained"
@@ -565,10 +565,15 @@ const MyDetails = () => {
                     />
                   </div>
 
-                  <p className="text-lg font-[Proxima-Nova-Regular] text-center">
+                  {/* <p className="text-lg font-[Proxima-Nova-Regular] text-center">
                     Complete at least 50% of your profile to unlock messaging. Our
                     tip: Answer more profile questions.
+                  </p> */}
+
+                  <p className="text-lg font-[Proxima-Nova-Regular] text-center">
+                    The more complete your profile is, the better matches you’ll get. Complete your profile to stand out, increase visibility, and connect with people who match your interests.
                   </p>
+
                   {/* <div className="mt-2 text-center text-lg text-[#007EAF] underline">
                   <Link to={"/questions"}> Click to complete profile</Link>
                 </div> */}

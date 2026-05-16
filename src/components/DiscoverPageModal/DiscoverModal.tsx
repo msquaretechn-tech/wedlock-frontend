@@ -74,7 +74,7 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
   const { data: smokingHabbitData, isLoading: isSmokingHabbitLoading } = useGetSmokingHabbitQuery();
   const { data: occupationData, isLoading: isOccupationLoading } = useGetOccupationQuery();
   const { data: qualificationData, isLoading: isQualificationLoading } = useGetQualificationQuery();
-  const {data: maritalStatusData , isLoading:isMaritalStatusLoading} = useGetMaritalStatusQuery();
+  const { data: maritalStatusData, isLoading: isMaritalStatusLoading } = useGetMaritalStatusQuery();
 
   const [communities, setcommunities] = useState<{ id: string; value: string }[]>([]);
   const [diet, setDiet] = useState<{ id: string; value: string }[]>([]);
@@ -98,8 +98,6 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
     }
     [];
   });
-
-
 
   useEffect(() => {
 
@@ -140,13 +138,13 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
       setQualification((qualificationData as any).data)
     }
 
-    if(maritalStatusData){
+    if (maritalStatusData) {
       setMaritalStatus((maritalStatusData as any).data)
     }
 
 
 
-  }, [communityData, dietData, ethnicityData, heightData, incomeData, religionData, smokingHabbitData, occupationData, qualificationData,maritalStatusData])
+  }, [communityData, dietData, ethnicityData, heightData, incomeData, religionData, smokingHabbitData, occupationData, qualificationData, maritalStatusData])
 
 
 
@@ -156,7 +154,7 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
 
   const handleRadioChange = (e: any) => {
     setSelectedRadio(e.target.value);
-  }; 
+  };
 
 
   const classNames = {
@@ -175,7 +173,7 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
 
   const handleFormSubmit = async (values: any) => {
     const data: any = {};
-  
+
     if (values.ageMin && values.ageMax) data.ageRange = `${values.ageMin}-${values.ageMax}`;
     if (values.heightMin && values.heightMax) data.height = `${values.heightMin}-${values.heightMax}`;
     if (values.income) data.income = values.income;
@@ -187,13 +185,13 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
     if (values.maritalStatus) data.maritalStatus = values.maritalStatus;
     if (values.eatingHabits) data.eatingHabbits = values.eatingHabits;
     if (values.caste) data.caste = values.caste;
-  
+
     console.log(data);
-  
+
     onFormSubmit(data);
     onClose();
   };
-  
+
 
 
 
@@ -254,229 +252,187 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
       </div>
 
       {
-         (isCommunityLoading  && isDietLoading && isEthnicityLoading && isHeightLoading && isMaritalStatusLoading  && isOccupationLoading && isOccupationLoading && isReligionLoading && isSmokingHabbitLoading && isIncomeLoading && isOccupationLoading && isQualificationLoading) ? (
-          <Loading/>
-        ) : 
+        (isCommunityLoading && isDietLoading && isEthnicityLoading && isHeightLoading && isMaritalStatusLoading && isOccupationLoading && isOccupationLoading && isReligionLoading && isSmokingHabbitLoading && isIncomeLoading && isOccupationLoading && isQualificationLoading) ? (
+          <Loading />
+        ) :
 
 
-     
 
-      <Form form={form} onFinish={handleFormSubmit} layout="vertical">
-        <Form.Item
-          label={
-            <label
-              style={{
-                color: `${isExclusive ? "#60457E" : "#007EAF"}`,
-                fontStyle: "Proxima-Nova-Semibold",
-                fontWeight: "bold",
-              }}
+
+          <Form form={form} onFinish={handleFormSubmit} layout="vertical">
+            <Form.Item
+              label={
+                <label
+                  style={{
+                    color: `${isExclusive ? "#60457E" : "#007EAF"}`,
+                    fontStyle: "Proxima-Nova-Semibold",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Age
+                </label>
+              }
+              style={{ marginBottom: 0 }}
             >
-              Age
-            </label>
-          }
-          style={{ marginBottom: 0 }}
-        >
-          <Row gutter={2}>
-            <Col span={12}>
-              <Form.Item name="ageMin">
-                <Select placeholder="Select minimum age" className="w-full">
-                  {
-                    Array.from({ length: 67 }, (_, index) => index + 18).map(
-                      (number) => (
-                        <Select.Option key={number} value={number.toString()}>
-                          {number}
-                        </Select.Option>
-                      )
-                    )
+              <Row gutter={2}>
+                <Col span={12}>
+                  <Form.Item name="ageMin">
+                    <Select placeholder="Select minimum age" className="w-full">
+                      {
+                        Array.from({ length: 67 }, (_, index) => index + 18).map(
+                          (number) => (
+                            <Select.Option key={number} value={number.toString()}>
+                              {number}
+                            </Select.Option>
+                          )
+                        )
 
-                  }
-                </Select>
-              </Form.Item>
-            </Col>
+                      }
+                    </Select>
+                  </Form.Item>
+                </Col>
 
-            <Col span={12}>
-              <Form.Item name="ageMax">
-                <Select placeholder="Select maximum age" className="w-full">
-                  {
-                    Array.from({ length: 67 }, (_, index) => index + 18).map(
-                      (number) => (
-                        <Select.Option key={number} value={number.toString()}>
-                          {number}
-                        </Select.Option>
-                      )
-                    )
-                  }
-                </Select>
-              </Form.Item>
-            </Col>
-          </Row>
-        </Form.Item>
+                <Col span={12}>
+                  <Form.Item name="ageMax">
+                    <Select placeholder="Select maximum age" className="w-full">
+                      {
+                        Array.from({ length: 67 }, (_, index) => index + 18).map(
+                          (number) => (
+                            <Select.Option key={number} value={number.toString()}>
+                              {number}
+                            </Select.Option>
+                          )
+                        )
+                      }
+                    </Select>
+                  </Form.Item>
+                </Col>
+              </Row>
+            </Form.Item>
 
-        <Form.Item
-          label={
-            <label
-              style={{
-                color: `${isExclusive ? "#60457E" : "#007EAF"}`,
-                fontStyle: "Proxima-Nova-Semibold",
-                fontWeight: "bold",
-              }}
+            <Form.Item
+              label={
+                <label
+                  style={{
+                    color: `${isExclusive ? "#60457E" : "#007EAF"}`,
+                    fontStyle: "Proxima-Nova-Semibold",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Height
+                </label>
+              }
+              style={{ marginBottom: 0 }}
             >
-              Height
-            </label>
-          }
-          style={{ marginBottom: 0 }}
-        >
-          <Row gutter={2} className="w-full">
-            <Col span={12}>
-              <Form.Item name="heightMin">
-                <Select placeholder="Select minimum height" className="w-full">
-                  {
-                    height.map((value) => (
-                      <Select.Option key={value.id} value={value.value}>
-                        {value.value}
-                      </Select.Option>
-                    ))
+              <Row gutter={2} className="w-full">
+                <Col span={12}>
+                  <Form.Item name="heightMin">
+                    <Select placeholder="Select minimum height" className="w-full">
+                      {
+                        height.map((value) => (
+                          <Select.Option key={value.id} value={value.value}>
+                            {value.value}
+                          </Select.Option>
+                        ))
 
-                  }
-                </Select>
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item name="heightMax">
-                <Select placeholder="Select maximum height" className="w-full">
-                  {
-                    height.map((value) => (
-                      <Select.Option key={value.id} value={value.value}>
-                        {value.value}
-                      </Select.Option>
-                    ))
+                      }
+                    </Select>
+                  </Form.Item>
+                </Col>
+                <Col span={12}>
+                  <Form.Item name="heightMax">
+                    <Select placeholder="Select maximum height" className="w-full">
+                      {
+                        height.map((value) => (
+                          <Select.Option key={value.id} value={value.value}>
+                            {value.value}
+                          </Select.Option>
+                        ))
 
-                  }
-                </Select>
-              </Form.Item>
-            </Col>
-          </Row>
-        </Form.Item>
+                      }
+                    </Select>
+                  </Form.Item>
+                </Col>
+              </Row>
+            </Form.Item>
 
-        <Form.Item
-          name={"income"}
-          label={
-            <label
-              style={{
-                color: `${isExclusive ? "#60457E" : "#007EAF"}`,
-                fontStyle: "Proxima-Nova-Semibold",
-                fontWeight: "bold",
-              }}
+            <Form.Item
+              name={"income"}
+              label={
+                <label
+                  style={{
+                    color: `${isExclusive ? "#60457E" : "#007EAF"}`,
+                    fontStyle: "Proxima-Nova-Semibold",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Income
+                </label>
+              }
             >
-              Income
-            </label>
-          }
-        >
-          <Select placeholder="Select  income">
-            {
-              income.map((value) => (
-                <Select.Option key={value.id} value={value.value}>
-                  {value.value}
-                </Select.Option>
-              ))
-            }
-          </Select>
-        </Form.Item>
+              <Select placeholder="Select  income">
+                {
+                  income.map((value) => (
+                    <Select.Option key={value.id} value={value.value}>
+                      {value.value}
+                    </Select.Option>
+                  ))
+                }
+              </Select>
+            </Form.Item>
 
-        <Form.Item
-          name="maritalStatus"
-          label={
-            <label
-              style={{
-                color: `${isExclusive ? "#60457E" : "#007EAF"}`,
-                fontStyle: "Proxima-Nova-Semibold",
-                fontWeight: "bold",
-              }}
+            <Form.Item
+              name="maritalStatus"
+              label={
+                <label
+                  style={{
+                    color: `${isExclusive ? "#60457E" : "#007EAF"}`,
+                    fontStyle: "Proxima-Nova-Semibold",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Has Children
+                </label>
+              }
+              className="h-auto rounded bg-[#EAF2FF] p-4"
             >
-              Has Children
-            </label>
-          }
-          className="h-auto rounded bg-[#EAF2FF] p-4"
-        >
-          <Radio.Group className="space-y-2" onChange={handleRadioChange}>
-            <Radio
-              value="no"
-              style={{ flexDirection: "row-reverse", alignItems: "center" }}
-              className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${selectedRadio === "no"
-                ? "border border-[#007EAF] text-[#53389E]"
-                : ""
-                }`}
-            >
-              I don&apos;t mind
-            </Radio>
-            <Radio
-              value="yes"
-              style={{ flexDirection: "row-reverse", alignItems: "center" }}
-              className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${selectedRadio === "yes"
-                ? "border border-[#007EAF] text-[#53389E]"
-                : ""
-                }`}
-            >
-              No, matches shouldn&apos;t have children
-            </Radio>
-
-            <Radio
-              value="notInHousehold"
-              style={{ flexDirection: "row-reverse", alignItems: "center" }}
-              className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${selectedRadio === "notInHousehold"
-                ? "border border-[#007EAF] text-[#53389E]"
-                : ""
-                }`}
-            >
-              Yes, matches should have children
-            </Radio>
-          </Radio.Group>
-        </Form.Item>
-
-        <Form.Item
-          name="religion"
-          label={
-            <label
-              style={{
-                color: `${isExclusive ? "#60457E" : "#007EAF"}`,
-                fontStyle: "Proxima-Nova-Semibold",
-                fontWeight: "bold",
-              }}
-            >
-              Religion
-            </label>
-          }
-          className="h-auto rounded bg-[#EAF2FF] p-4"
-        >
-          <Checkbox.Group
-            className="space-x-2 space-y-2"
-            onChange={handleCheckboxChange}
-          >
-
-            {
-              [
-                // { name: "All", value: "all" },
-                ...religion
-              ].map((rel) => (
-                <Checkbox
+              <Radio.Group className="space-y-2" onChange={handleRadioChange}>
+                <Radio
+                  value="no"
                   style={{ flexDirection: "row-reverse", alignItems: "center" }}
-                  value={rel.value}
-                  className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(rel.value)
+                  className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${selectedRadio === "no"
                     ? "border border-[#007EAF] text-[#53389E]"
                     : ""
                     }`}
                 >
-                  {rel.value}
-                </Checkbox>
-              ))
-            }
+                  I don&apos;t mind
+                </Radio>
+                <Radio
+                  value="yes"
+                  style={{ flexDirection: "row-reverse", alignItems: "center" }}
+                  className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${selectedRadio === "yes"
+                    ? "border border-[#007EAF] text-[#53389E]"
+                    : ""
+                    }`}
+                >
+                  No, matches shouldn&apos;t have children
+                </Radio>
 
-          </Checkbox.Group>
-        </Form.Item>
-        <Row >
-          <Col >
+                <Radio
+                  value="notInHousehold"
+                  style={{ flexDirection: "row-reverse", alignItems: "center" }}
+                  className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${selectedRadio === "notInHousehold"
+                    ? "border border-[#007EAF] text-[#53389E]"
+                    : ""
+                    }`}
+                >
+                  Yes, matches should have children
+                </Radio>
+              </Radio.Group>
+            </Form.Item>
+
             <Form.Item
-              name={"ethnicity"}
+              name="religion"
               label={
                 <label
                   style={{
@@ -485,44 +441,137 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
                     fontWeight: "bold",
                   }}
                 >
-                  Ethnicity
+                  Religion
                 </label>
               }
               className="h-auto rounded bg-[#EAF2FF] p-4"
             >
               <Checkbox.Group
-                className="gap-4"
+                className="space-x-2 space-y-2"
                 onChange={handleCheckboxChange}
               >
 
                 {
                   [
-
-                    // { value: "All" },
-                    ...ethnicity
-
-                  ].map((eth) => (
+                    // { name: "All", value: "all" },
+                    ...religion
+                  ].map((rel) => (
                     <Checkbox
                       style={{ flexDirection: "row-reverse", alignItems: "center" }}
-                      value={eth.value}
-                      className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(eth.value)
+                      value={rel.value}
+                      className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(rel.value)
                         ? "border border-[#007EAF] text-[#53389E]"
                         : ""
                         }`}
                     >
-                      {eth.value}
+                      {rel.value}
                     </Checkbox>
                   ))
                 }
 
-
-
               </Checkbox.Group>
             </Form.Item>
-          </Col>
-          <Col >
+            <Row >
+              <Col >
+                <Form.Item
+                  name={"ethnicity"}
+                  label={
+                    <label
+                      style={{
+                        color: `${isExclusive ? "#60457E" : "#007EAF"}`,
+                        fontStyle: "Proxima-Nova-Semibold",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Ethnicity
+                    </label>
+                  }
+                  className="h-auto rounded bg-[#EAF2FF] p-4"
+                >
+                  <Checkbox.Group
+                    className="gap-4"
+                    onChange={handleCheckboxChange}
+                  >
+
+                    {
+                      [
+
+                        // { value: "All" },
+                        ...ethnicity
+
+                      ].map((eth) => (
+                        <Checkbox
+                          style={{ flexDirection: "row-reverse", alignItems: "center" }}
+                          value={eth.value}
+                          className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(eth.value)
+                            ? "border border-[#007EAF] text-[#53389E]"
+                            : ""
+                            }`}
+                        >
+                          {eth.value}
+                        </Checkbox>
+                      ))
+                    }
+
+
+
+                  </Checkbox.Group>
+                </Form.Item>
+              </Col>
+              <Col >
+                <Form.Item
+                  name={"qualification"}
+                  label={
+                    <label
+                      style={{
+                        color: `${isExclusive ? "#60457E" : "#007EAF"}`,
+                        fontStyle: "Proxima-Nova-Semibold",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Highest Qualification
+                    </label>
+                  }
+                  className="h-auto rounded bg-[#EAF2FF] p-4"
+                >
+                  <Checkbox.Group
+                    className="gap-4"
+                    onChange={handleCheckboxChange}
+                  >
+
+
+                    {
+                      [
+                        // { value : "All" },
+                        ...qualification.filter(value => !value.value.startsWith("--"))
+
+                      ]
+                        .map((qual) => (
+
+                          <Checkbox
+                            style={{ flexDirection: "row-reverse", alignItems: "center" }}
+                            value={qual.value}
+                            className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(qual.value)
+                              ? "border border-[#007EAF] text-[#53389E]"
+                              : ""
+                              }`}
+                          >
+                            {qual.value}
+                          </Checkbox>
+
+
+                        ))
+
+                    }
+
+
+                  </Checkbox.Group>
+                </Form.Item>
+              </Col>
+            </Row>
+
             <Form.Item
-              name={"qualification"}
+              name={"smokingHabits"}
               label={
                 <label
                   style={{
@@ -531,147 +580,184 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
                     fontWeight: "bold",
                   }}
                 >
-                  Highest Qualification
+                  Smoking Habits
                 </label>
               }
               className="h-auto rounded bg-[#EAF2FF] p-4"
             >
-              <Checkbox.Group
-                className="gap-4"
-                onChange={handleCheckboxChange}
-              >
-
+              <Radio.Group className="space-y-2" onChange={handleRadioChange}>
 
                 {
                   [
-                    // { value : "All" },
-                    ...qualification.filter(value => !value.value.startsWith("--"))
-
+                    // {
+                    //   value: "All",
+                    // },
+                    ...smokingHabits
                   ]
-                    .map((qual) => (
-
-                      <Checkbox
+                    .map((smoke) => (
+                      <Radio
+                        value={smoke.value}
                         style={{ flexDirection: "row-reverse", alignItems: "center" }}
-                        value={qual.value}
-                        className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(qual.value)
+                        className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${selectedRadio === smoke.value
                           ? "border border-[#007EAF] text-[#53389E]"
                           : ""
                           }`}
                       >
-                        {qual.value}
-                      </Checkbox>
-
-
+                        {smoke.value}
+                      </Radio>
                     ))
-
                 }
-
-
-              </Checkbox.Group>
+              </Radio.Group>
             </Form.Item>
-          </Col>
-        </Row>
 
-        <Form.Item
-          name={"smokingHabits"}
-          label={
-            <label
-              style={{
-                color: `${isExclusive ? "#60457E" : "#007EAF"}`,
-                fontStyle: "Proxima-Nova-Semibold",
-                fontWeight: "bold",
-              }}
+            <Col
+
+              style={{ display: "flex", flexDirection: "column" }}
             >
-              Smoking Habits
-            </label>
-          }
-          className="h-auto rounded bg-[#EAF2FF] p-4"
-        >
-          <Radio.Group className="space-y-2" onChange={handleRadioChange}>
-
-            {
-              [
-                // {
-                //   value: "All",
-                // },
-                ...smokingHabits
-              ]
-                .map((smoke) => (
-                  <Radio
-                    value={smoke.value}
-                    style={{ flexDirection: "row-reverse", alignItems: "center" }}
-                    className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${selectedRadio === smoke.value
-                      ? "border border-[#007EAF] text-[#53389E]"
-                      : ""
-                      }`}
+              <Form.Item
+                name={"occupation"}
+                label={
+                  <label
+                    style={{
+                      color: `${isExclusive ? "#60457E" : "#007EAF"}`,
+                      fontStyle: "Proxima-Nova-Semibold",
+                      fontWeight: "bold",
+                    }}
                   >
-                    {smoke.value}
-                  </Radio>
-                ))
-            }
-          </Radio.Group>
-        </Form.Item>
-
-        <Col
-
-          style={{ display: "flex", flexDirection: "column" }}
-        >
-          <Form.Item
-            name={"occupation"}
-            label={
-              <label
-                style={{
-                  color: `${isExclusive ? "#60457E" : "#007EAF"}`,
-                  fontStyle: "Proxima-Nova-Semibold",
-                  fontWeight: "bold",
-                }}
+                    Working As
+                  </label>
+                }
+                className="h-full flex-grow rounded bg-[#EAF2FF] p-4"
               >
-                Working As
-              </label>
-            }
-            className="h-full flex-grow rounded bg-[#EAF2FF] p-4"
-          >
-            <Checkbox.Group
-              className="gap-4"
-              onChange={handleCheckboxChange}
-            >
+                <Checkbox.Group
+                  className="gap-4"
+                  onChange={handleCheckboxChange}
+                >
 
-              {
-                [
-                  // { value: "All" },
-                  ...occupation.filter(value => !value.value.startsWith("FREQUENTLY USED") && !value.value.startsWith("--"))
-                ]
-                  .map((occ) => (
-                    <Checkbox
-                      style={{ flexDirection: "row-reverse", alignItems: "center" }}
-                      value={occ.value}
-                      className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(occ.value)
-                        ? "border border-[#007EAF] text-[#53389E]"
-                        : ""
-                        }`}
+                  {
+                    [
+                      // { value: "All" },
+                      ...occupation.filter(value => !value.value.startsWith("FREQUENTLY USED") && !value.value.startsWith("--"))
+                    ]
+                      .map((occ) => (
+                        <Checkbox
+                          style={{ flexDirection: "row-reverse", alignItems: "center" }}
+                          value={occ.value}
+                          className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(occ.value)
+                            ? "border border-[#007EAF] text-[#53389E]"
+                            : ""
+                            }`}
+                        >
+                          {occ.value}
+                        </Checkbox>
+                      ))
+
+                  }
+
+
+                </Checkbox.Group>
+              </Form.Item>
+            </Col>
+
+
+            <Row gutter={20} style={{ display: "flex", flexWrap: "wrap" }}>
+
+              <Col
+                xs={24}
+                sm={12}
+                md={16}
+                style={{ display: "flex", flexDirection: "column" }}
+              >
+                <Form.Item
+                  name={"maritalStatus"}
+                  label={
+                    <label
+                      style={{
+                        color: `${isExclusive ? "#60457E" : "#007EAF"}`,
+                        fontStyle: "Proxima-Nova-Semibold",
+                        fontWeight: "bold",
+                      }}
                     >
-                      {occ.value}
-                    </Checkbox>
-                  ))
+                      Martial Status
+                    </label>
+                  }
+                  className="h-full flex-grow rounded bg-[#EAF2FF] p-4"
+                >
+                  <Checkbox.Group
+                    className="gap-4"
+                    onChange={handleCheckboxChange}
+                  >
 
-              }
+                    {
+                      [
+                        // { value: "All" },
+                        ...maritalStatus
+                      ].map((marital) => (
+                        <Checkbox
+                          style={{ flexDirection: "row-reverse", alignItems: "center" }}
+                          value={marital.value}
+                          className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(marital.value)
+                            ? "border border-[#007EAF] text-[#53389E]"
+                            : ""
+                            }`}
+                        >
+                          {marital.value}
+                        </Checkbox>
+                      ))
+                    }
+                  </Checkbox.Group>
+                </Form.Item>
+              </Col>
+              <Col
+                xs={24}
+                sm={12}
+                md={8}
+                style={{ display: "flex", flexDirection: "column" }}
+              >
+                <Form.Item
+                  name={"eatingHabits"}
+                  label={
+                    <label
+                      style={{
+                        color: `${isExclusive ? "#60457E" : "#007EAF"}`,
+                        fontStyle: "Proxima-Nova-Semibold",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Eating Habits
+                    </label>
+                  }
+                  className="h-full flex-grow rounded bg-[#EAF2FF] p-4"
+                >
+                  <Checkbox.Group
+                    className="gap-4"
+                    onChange={handleCheckboxChange}
+                  >
 
+                    {
+                      [
+                        // { value: "All" },
+                        ...diet
+                      ].map((diet) => (
+                        <Checkbox
+                          style={{ flexDirection: "row-reverse", alignItems: "center" }}
+                          value={diet.value}
+                          className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(diet.value)
+                            ? "border border-[#007EAF] text-[#53389E]"
+                            : ""
+                            }`}
+                        >
+                          {diet.value}
+                        </Checkbox>
+                      ))
+                    }
+                  </Checkbox.Group>
+                </Form.Item>
+              </Col>
+            </Row>
 
-            </Checkbox.Group>
-          </Form.Item>
-        </Col>
-
-
-        <Row gutter={20} style={{ display: "flex", flexWrap: "wrap" }}>
-
-          <Col
-            xs={24}
-            sm={12}
-            md={16}
-            style={{ display: "flex", flexDirection: "column" }}
-          >
             <Form.Item
-              name={"maritalStatus"}
+              name={"caste"}
               label={
                 <label
                   style={{
@@ -680,123 +766,35 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
                     fontWeight: "bold",
                   }}
                 >
-                  Martial Status
+                  Community
                 </label>
               }
-              className="h-full flex-grow rounded bg-[#EAF2FF] p-4"
+              className="h-auto rounded bg-[#EAF2FF] p-4"
             >
-              <Checkbox.Group
-                className="gap-4"
-                onChange={handleCheckboxChange}
-              >
+              <Checkbox.Group className=" gap-4" onChange={handleCheckboxChange}>
 
                 {
                   [
                     // { value: "All" },
-                    ...maritalStatus
-                  ].map((marital) => (
+                    ...communities.filter((value) => !value.value.includes("Frequently used Communities")),
+                  ].map((community) => (
                     <Checkbox
+                      key={community.value}
                       style={{ flexDirection: "row-reverse", alignItems: "center" }}
-                      value={marital.value}
-                      className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(marital.value)
+                      value={community.value}
+                      className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(community.value)
                         ? "border border-[#007EAF] text-[#53389E]"
                         : ""
                         }`}
                     >
-                      {marital.value}
+                      {community.value}
                     </Checkbox>
                   ))
                 }
+
               </Checkbox.Group>
             </Form.Item>
-          </Col>
-          <Col
-            xs={24}
-            sm={12}
-            md={8}
-            style={{ display: "flex", flexDirection: "column" }}
-          >
-            <Form.Item
-              name={"eatingHabits"}
-              label={
-                <label
-                  style={{
-                    color: `${isExclusive ? "#60457E" : "#007EAF"}`,
-                    fontStyle: "Proxima-Nova-Semibold",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Eating Habits
-                </label>
-              }
-              className="h-full flex-grow rounded bg-[#EAF2FF] p-4"
-            >
-              <Checkbox.Group
-                className="gap-4"
-                onChange={handleCheckboxChange}
-              >
-
-                {
-                  [
-                    // { value: "All" },
-                    ...diet
-                  ].map((diet) => (
-                    <Checkbox
-                      style={{ flexDirection: "row-reverse", alignItems: "center" }}
-                      value={diet.value}
-                      className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(diet.value)
-                        ? "border border-[#007EAF] text-[#53389E]"
-                        : ""
-                        }`}
-                    >
-                      {diet.value}
-                    </Checkbox>
-                  ))
-                }
-              </Checkbox.Group>
-            </Form.Item>
-          </Col>
-        </Row>
-
-        <Form.Item
-          name={"caste"}
-          label={
-            <label
-              style={{
-                color: `${isExclusive ? "#60457E" : "#007EAF"}`,
-                fontStyle: "Proxima-Nova-Semibold",
-                fontWeight: "bold",
-              }}
-            >
-              Community
-            </label>
-          }
-          className="h-auto rounded bg-[#EAF2FF] p-4"
-        >
-          <Checkbox.Group className=" gap-4" onChange={handleCheckboxChange}>
-
-            {
-              [
-                // { value: "All" },
-                ...communities.filter((value) => !value.value.includes("Frequently used Communities")),
-              ].map((community) => (
-                <Checkbox
-                  key={community.value}
-                  style={{ flexDirection: "row-reverse", alignItems: "center" }}
-                  value={community.value}
-                  className={`rounded-md bg-[#ffff] p-1 text-[#344054] ${checkedValues.includes(community.value)
-                    ? "border border-[#007EAF] text-[#53389E]"
-                    : ""
-                    }`}
-                >
-                  {community.value}
-                </Checkbox>
-              ))
-            }
-
-          </Checkbox.Group>
-        </Form.Item>
-        {/* <Form.Item className="rounded-md border border-[#E4E7EC] p-4">
+            {/* <Form.Item className="rounded-md border border-[#E4E7EC] p-4">
           <Row align="middle" justify="space-between">
             <Col className="flex items-center">
               <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F4EBFF] p-4 text-[#007EAF]">
@@ -823,8 +821,8 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
             </Col>
           </Row>
         </Form.Item> */}
-      </Form>
-       }
+          </Form>
+      }
     </Modal>
   );
 };
