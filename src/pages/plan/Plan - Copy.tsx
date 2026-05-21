@@ -5,6 +5,7 @@ import "../../font.css";
 import { useGetPlansQuery } from "../../Redux/Api/plan.api";
 import PlanCard from "../../components/PlanCard/PlanCard";
 import Loading from "../../components/Loading";
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query/react';
 import { useCreateCheckoutSessionMutation } from "../../Redux/Api/checkout.api";
 import { toast } from 'sonner';
 import { RootState } from "./../../Redux/store";
@@ -16,18 +17,13 @@ import ExclusivePlan from "../planDiscriptions/ExclusivePlan";
 import { Typography } from "@mui/material";
 
 
-
 const PricingPage = () => {
   const { user } = useSelector((state: RootState) => state.userReducer);
   const [activeTab, setActiveTab] = useState("Monthly");
   const [showExclusiveModal, setShowExclusiveModal] = useState(false);
   const [showPremiumDescription, setShowPremiumDescription] = useState(false);
   const [showExclusiveDescription, setShowExclusiveDescription] = useState(false);
-  const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<"stripe" | "paypal">("stripe");
-  const [paymentModalTitle, setPaymentModalTitle] = useState<string>("");
-  const [paymentModalMessage, setPaymentModalMessage] = useState<string>("");
 
 
 
@@ -68,55 +64,43 @@ const PricingPage = () => {
   if (isLoading) return <div><Loading /></div>;
   if (error || !planData?.data) return <div style={{ padding: 24, color: 'red' }}>Error loading plans. Check console.</div>;
 
-  const handleCheckout = async (id: string, paymentMethod: "stripe" | "paypal" = "stripe") => {
+  type ApiResponse = {
+    success: boolean;
+    message: string;
+    url: string;
+  };
+
+  type FetchBaseQueryErrorWithData = FetchBaseQueryError & {
+    data: ApiResponse;
+  };
+
+  const handleCheckout = async (id: string) => {
     try {
-      console.log("checkout payload", { planId: id, paymentMethod });
-      const successData = await createCheckoutSession({ planId: id, paymentMethod }).unwrap();
-      console.log("Checkout session created successfully:", successData);
+      const res = await createCheckoutSession(id);
 
-      const redirectUrl = successData?.url || successData?.paypalUrl || successData?.redirectUrl || successData?.redirect || successData?.paymentUrl;
-      if (redirectUrl) {
-        window.location.href = redirectUrl;
-
-        console.log("Redirecting to:", redirectUrl);
-        return;
+      if ("error" in res && res.error) {
+        const errorData = res.error as FetchBaseQueryErrorWithData;
+        if (errorData.data?.success === false) {
+          toast.error(errorData.data.message);
+          return;
+        }
       }
-      console.error('No redirect URL returned from createCheckoutSession:', successData);
-      toast.error('No redirect URL returned from server.');
-    } catch (err: any) {
-      const message = err?.data?.message || err?.error?.message || err?.message || "Failed to create checkout session. Please try again later.";
-      console.error("Checkout failed", err);
-      toast.error(message);
+
+      const successData = res.data as ApiResponse;
+      window.location.href = successData.url;
+    } catch {
+      toast.error("An error occurred");
     }
   };
 
-  const handlePlanClick = (planId: string, planName: string) => {
-  const normalized = planName.toLowerCase();
-
-  setSelectedPlanId(planId);
-  setSelectedPaymentMethod("stripe");
-
-  if (normalized.includes("exclusive")) {
-    setShowExclusiveDescription(true);
-    setShowPremiumDescription(false);
-    setShowPaymentModal(false);
-  } 
-  else if (normalized.includes("premium")) {
-    setShowPremiumDescription(true);
-    setShowExclusiveDescription(false);
-    setShowPaymentModal(false);
-  } 
-  else {
-    setShowPaymentModal(true);
-    setShowPremiumDescription(false);
-    setShowExclusiveDescription(false);
-  }
-};
-
-  const handlePaymentContinue = () => {
-    setShowPaymentModal(false);
-    if (selectedPlanId) {
-      handleCheckout(selectedPlanId, selectedPaymentMethod);
+  const handlePlanClick = (planId: string, planName: string,) => {
+    setSelectedPlanId(planId);
+    if (planName === "Exclusive") {
+      setShowExclusiveDescription(true);
+    } else if (planName === "Premium") {
+      setShowPremiumDescription(true);
+    } else {
+      handleCheckout(planId);
     }
   };
 
@@ -124,14 +108,14 @@ const PricingPage = () => {
     setShowExclusiveModal(false);
 
     if (selectedPlanId) {
-      handleCheckout(selectedPlanId, selectedPaymentMethod);
+      handleCheckout(selectedPlanId);
     }
   };
 
   const handlePremiumContinue = () => {
     setShowPremiumDescription(false);
     if (selectedPlanId) {
-      handleCheckout(selectedPlanId, selectedPaymentMethod);
+      handleCheckout(selectedPlanId);
     }
   };
 
@@ -227,8 +211,6 @@ const PricingPage = () => {
           onClose={() => setShowPremiumDescription(false)}
           onContinue={handlePremiumContinue}
           title="Premium Plan Details"
-          paymentMethod={selectedPaymentMethod}
-          onPaymentMethodChange={setSelectedPaymentMethod}
         >
           <PremiumPlan planType={activeTab} />
         </PlanDescriptionModal>
@@ -239,24 +221,8 @@ const PricingPage = () => {
           onClose={() => setShowExclusiveDescription(false)}
           onContinue={handleExclusiveContinue}
           title="Exclusive Plan Details"
-          paymentMethod={selectedPaymentMethod}
-          onPaymentMethodChange={setSelectedPaymentMethod}
         >
           <ExclusivePlan planType={activeTab} />
-        </PlanDescriptionModal>
-
-        {/* Generic Payment Method Modal */}
-        <PlanDescriptionModal
-          isOpen={showPaymentModal}
-          onClose={() => setShowPaymentModal(false)}
-          onContinue={handlePaymentContinue}
-          title={paymentModalTitle || "Choose Payment Method"}
-          paymentMethod={selectedPaymentMethod}
-          onPaymentMethodChange={setSelectedPaymentMethod}
-        >
-          <div className="space-y-4 text-white/90">
-            <p>{paymentModalMessage || "Select a payment method before proceeding."}</p>
-          </div>
         </PlanDescriptionModal>
 
         {/* Exclusive Eligibility Checklist */}
@@ -287,21 +253,16 @@ interface ModalProps {
   onContinue: () => void;
   title: string;
   children: React.ReactNode;
-  paymentMethod?: "stripe" | "paypal";
-  onPaymentMethodChange?: (method: "stripe" | "paypal") => void;
 }
 
-const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, paymentMethod, onPaymentMethodChange }: ModalProps) => {
+const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: ModalProps) => {
   const [isAcknowledged, setIsAcknowledged] = useState(false);
   const [isAcknowledgedPolicy, setIsAcknowledgedPolicy] = useState(false);
-  const [hasChosenPayment, setHasChosenPayment] = useState(false);
 
   // Reset acknowledgement when modal opens
   useEffect(() => {
     if (isOpen) {
       setIsAcknowledged(false);
-      setIsAcknowledgedPolicy(false);
-      setHasChosenPayment(false);
     }
   }, [isOpen]);
 
@@ -326,27 +287,6 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
 
         <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
           {children}
-          {onPaymentMethodChange && (
-            <div className="mt-8 rounded-2xl border border-white/20 bg-white/10 p-4">
-              <p className="mb-3 text-sm font-semibold text-white">Select payment method</p>
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  type="button"
-                  onClick={() => { onPaymentMethodChange("stripe"); setHasChosenPayment(true); }}
-                  className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${paymentMethod === "stripe" ? "border-[#00D1FF] bg-[#00D1FF]/15 text-white" : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"}`}
-                >
-                  Stripe Pay
-                </button>
-                <button
-                  type="button"
-                  onClick={() => { onPaymentMethodChange("paypal"); setHasChosenPayment(true); }}
-                  className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${paymentMethod === "paypal" ? "border-[#FFD43B] bg-[#FFD43B]/15 text-white" : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"}`}
-                >
-                  PayPal
-                </button>
-              </div>
-            </div>
-          )}
         </div>
 
         <div className={`p-6 border-t border-white/10 bg-black/10 flex flex-col sm:flex-row items-center justify-between gap-4`}>
@@ -383,13 +323,13 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
               Cancel
             </button>
             <button
-              className={`px-8 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md flex items-center justify-center gap-2 flex-1 sm:flex-none ${isAcknowledged && isAcknowledgedPolicy && (!onPaymentMethodChange || hasChosenPayment)
+              className={`px-8 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md flex items-center justify-center gap-2 flex-1 sm:flex-none ${isAcknowledged && isAcknowledgedPolicy
                 ? "text-white scale-100"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed scale-[0.98]"
                 }`}
-              style={{ backgroundColor: isAcknowledged && isAcknowledgedPolicy && (!onPaymentMethodChange || hasChosenPayment) ? themeColor : undefined }}
+              style={{ backgroundColor: isAcknowledged && isAcknowledgedPolicy ? themeColor : undefined }}
               onClick={onContinue}
-              disabled={!isAcknowledged || !isAcknowledgedPolicy || (onPaymentMethodChange && !hasChosenPayment)}
+              disabled={!isAcknowledged || !isAcknowledgedPolicy}
             >
               Get Started
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -427,7 +367,7 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: EligibilityP
     Array(criteria.length).fill(false)
   );
 
-  // RESET CHECKBOXES WHEN MODAL OPENS
+  // ✅ RESET CHECKBOXES WHEN MODAL OPENS
   useEffect(() => {
     if (isOpen) {
       setCheckedStates(Array(criteria.length).fill(false));

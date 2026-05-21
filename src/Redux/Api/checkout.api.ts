@@ -5,10 +5,10 @@ export const checkoutApi = apiSlice.injectEndpoints({
   
     endpoints: (builder) => ({
         createCheckoutSession: builder.mutation({
-            query: (planId: string) => ({
+            query: ({ planId, paymentMethod }: { planId: string; paymentMethod?: string }) => ({
                 url: '/subscription/createCheckoutSession',
                 method: 'POST',
-                body: { planId },
+                body: { planId, paymentMethod },
             }),
         }),
 

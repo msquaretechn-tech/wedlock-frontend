@@ -51,7 +51,7 @@ const BillingInfo = () => {
 
   const handleCheckout = async (id: string) => {
     try {
-      const res: any = await createCheckoutSession(id).unwrap();
+      const res: any = await createCheckoutSession({ planId: id }).unwrap();
       if (res?.url) {
         window.location.href = res.url;
       }

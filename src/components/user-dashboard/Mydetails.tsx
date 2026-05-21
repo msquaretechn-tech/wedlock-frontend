@@ -530,7 +530,7 @@ const MyDetails = () => {
                         Phone {" "}
                       </div>
                       <div className="justify-center self-start rounded-[100px] bg-blue-100 px-3 py-1.5 text-center text-base font-medium capitalize leading-4 tracking-normal text-violet-600">
-                        <ContactNumberView userId={user?.userId} />
+                        <ContactNumberView userId={user?.userId} />{user?.userId}
                       </div>
                     </div>
                   </div>

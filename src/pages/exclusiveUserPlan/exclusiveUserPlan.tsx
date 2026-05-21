@@ -48,7 +48,7 @@ const PricingPage = () => {
 
   const handleCheckout = async (id: string) => {
     try {
-      const res = await createCheckoutSession(id);
+      const res = await createCheckoutSession({ planId: id });
       if ("error" in res && res.error) {
         const errorData = res.error as FetchBaseQueryErrorWithData;
         if (errorData.data?.success === false) {
