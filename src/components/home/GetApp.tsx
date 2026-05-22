@@ -36,7 +36,7 @@ const GetApp = () => {
                                     <img
                                         src="/appstore.png"
                                         alt="Apple Store"
-                                        className="h-14 md:h-20 lg:h-24"
+                                        className="h-14 md:h-20 lg:h-22"
                                     />
                                 </button>
                                 <button
@@ -46,7 +46,7 @@ const GetApp = () => {
                                     <img
                                         src="/googleplay.png"
                                         alt="Play Store"
-                                        className="h-14 md:h-20 lg:h-24"
+                                        className="h-14 md:h-20 lg:h-22"
                                     />
                                 </button>
                             </div>

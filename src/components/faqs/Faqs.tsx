@@ -1,7 +1,7 @@
 import { RootState } from "./../../Redux/store";
 import { useSelector } from "react-redux";
 
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 type FAQ = {
   question: string;
@@ -59,7 +59,7 @@ const faqs: FAQ[] = [
   },
   {
     question: 'How can I contact customer support if I have questions?',
-    answer: 'You can reach our customer support team via email at info@wedlock.au or by calling our dedicated support line listed on our website. We’re here to assist you with any inquiries or issues you may encounter.'
+    answer: 'You can reach our customer support team via email at info@Wedlock.com.au or by calling our dedicated support line listed on our website. We’re here to assist you with any inquiries or issues you may encounter.'
   },
   {
     question: 'Does Wedlock offer any events or workshops?',
@@ -83,7 +83,7 @@ type FAQItemProps = {
 
 
 const FAQ: React.FC = () => {
-  const {user } = useSelector((state: RootState) => state.userReducer) ;
+  const { user } = useSelector((state: RootState) => state.userReducer);
 
   const [isExclusive, setIsExclusive] = useState(false);
 
@@ -117,10 +117,10 @@ const FAQ: React.FC = () => {
       )}
     </div>
   );
-  
- 
+
+
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  
+
 
   const handleClick = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -131,7 +131,7 @@ const FAQ: React.FC = () => {
       <div className="w-full max-w-2xl mt-2 mb-2 space-y-12">
         <h2 className="text-5xl text-center text-black mb-4 mt-10">Frequently asked questions</h2>
         <p className="text-gray-400 mb-8">
-        We understand that finding compatibility for matrimony is a significant step, and you may have questions about how our platform works. Here, we’ve compiled answers to some of the most common queries to help you navigate your journey with ease. Whether it’s about our process, features, or security measures, you’ll find all the information you need right here.
+          We understand that finding compatibility for matrimony is a significant step, and you may have questions about how our platform works. Here, we’ve compiled answers to some of the most common queries to help you navigate your journey with ease. Whether it’s about our process, features, or security measures, you’ll find all the information you need right here.
         </p>
         <div className="rounded-2xl space-y-5  ">
           {faqs.map((faq, index) => (
@@ -144,7 +144,7 @@ const FAQ: React.FC = () => {
           ))}
         </div>
       </div>
-     
+
     </div>
   );
 };

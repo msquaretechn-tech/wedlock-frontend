@@ -13,7 +13,7 @@ const ChildSafety = () => {
                 <h1 className=" text-2xl md:text-4xl font-semibold">Wedlock Child Safety Policy
                 </h1>
                 <p className="text-[#475467] text-md md:text-xl text-balance">
-                We are committed to creating a safe and supportive environment for all users, especially minors. To ensure child safety on our platform
+                    We are committed to creating a safe and supportive environment for all users, especially minors. To ensure child safety on our platform
                 </p>
             </div>
             <div className="px-4 py-4 flex md:flex-row flex-col gap-7">
@@ -77,7 +77,7 @@ const ChildSafety = () => {
                         <li className="pb-4">
                             We have designated a Child Safety Representative who is responsible for addressing child safety concerns and taking necessary actions on reported content.
                             This representative serves as the point of contact for Google Play notifications regarding CSAE content on our platform.
-                            Contact details for child safety concerns: (info@wedlock.au)
+                            Contact details for child safety concerns: (info@Wedlock.com.au)
                         </li>
                     </ul>
 
@@ -98,7 +98,7 @@ const ChildSafety = () => {
                             By using Wedlock, users agree to comply with our Child Safety Policy. Any violations may result in account termination, legal action, or reporting to authorities.
                         </li>
                     </ul>
-                    <h4>For any concerns related to child safety, please reach out to our Child Safety Team at <span className="font-semibold underline">info@wedlock.au.</span> </h4>
+                    <h4>For any concerns related to child safety, please reach out to our Child Safety Team at <span className="font-semibold underline">info@Wedlock.com.au.</span> </h4>
 
                 </div>
             </div>

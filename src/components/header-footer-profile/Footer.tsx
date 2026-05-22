@@ -1,6 +1,6 @@
 import "../../font.css";
 import { BiLogoPlayStore } from "react-icons/bi";
-import{Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaApple } from "react-icons/fa";
 
 
@@ -17,9 +17,9 @@ const Footer = () => {
             <div className="flex flex-col items-center justify-center space-y-10 px-4 md:flex-row md:justify-between md:space-y-0 md:px-10 ">
               <div className="w-full md:w-auto">
                 <ul className="text-md flex flex-wrap items-center justify-center gap-6 md:justify-start">
-                 <li><Link to="/mission">Mission</Link></li>
-                 <li><Link to="/advice">Advice</Link></li>
-                 <li><Link to="/help">Help</Link></li>
+                  <li><Link to="/mission">Mission</Link></li>
+                  <li><Link to="/advice">Advice</Link></li>
+                  <li><Link to="/help">Help</Link></li>
                   <li><Link to="/contact-us">Contact</Link></li>
                   <li><Link to="/services">Services</Link></li>
                   <li><Link to="/faqs">FAQs</Link></li>
@@ -51,12 +51,12 @@ const Footer = () => {
                     fontFamily: "Proxima-Nova-ExtraBold-Italic, sans-serif",
                   }}
                 >
-              Connecting Hearts Worldwide
-            </h4>
+                  Connecting Hearts Worldwide
+                </h4>
                 <p className="text-sm">
-                This website is strictly for matrimonial purposes only and not a dating website.
+                  This website is strictly for matrimonial purposes only and not a dating website.
 
-</p>
+                </p>
               </div>
               <div className="text-center md:text-right">
                 <span className="text-sm">© {currentYear} Wedlock Global Services (Australia) Pty Ltd.   All rights reserved.</span>

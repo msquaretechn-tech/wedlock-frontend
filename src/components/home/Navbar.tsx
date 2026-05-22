@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <div
-        className={`absolute navbar z-50 w-full h-auto 3xl:px-32 7xl:px-32 8xl:px-32 xl:px-10 text-white ${isBlueBgRoute ? "bg-[#007eb0] h-20" : " "
+        className={`absolute navbar z-50 w-full h-auto 3xl:px-32 7xl:px-32 8xl:px-32 xl:px-10 text-white ${isBlueBgRoute ? "bg-[#007eb0] h-20" : "bg-black/30"
           }`}
       >
         <WhatsAppButton />
@@ -113,11 +113,11 @@ const Navbar: React.FC = () => {
               ) : (
                 <button
                   className={`flex items-center justify-center ${isBlueBgRoute ? "hidden" : "block"
-                    } md:gap-3 md:text-[24px] text-white font-Proxima-Nova-SemiBold  md:rounded-full rounded-3xl border-white font-bold border md:w-[170px] md:h-[69px] px-3`}
+                    } md:gap-3 md:text-[24px] text-white font-Proxima-Nova-SemiBold  md:rounded-full rounded-3xl border-white font-bold border md:w-[150px] md:h-[49px] px-2`}
                   onClick={openLogin}
                 >
-                  Login
-                  <RiArrowDropDownLine className="text-5xl" />
+                  Log in
+                  <RiArrowDropDownLine className="text-4xl" />
                 </button>
               )}
               <img

@@ -11,7 +11,7 @@ const Contact = () => {
   const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const countryIsoCode = e.target.value;
     console.log(phoneCode);
-    
+
     setSelectedCountry(countryIsoCode);
     const countryData = Country.getAllCountries().find(c => c.isoCode === countryIsoCode);
     setPhoneCode(countryData ? `+${countryData.phonecode}` : "");
@@ -31,7 +31,7 @@ const Contact = () => {
       phoneNumber: formData.get("phoneNumber") as string,
       message: formData.get("message") as string,
     };
-    
+
 
     try {
       const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/v1/contact/contact`, {
@@ -157,16 +157,16 @@ const Contact = () => {
         </p>
         <h3 className="mt-6 text-md font-bold text-[#101828]">Help / Support</h3>
         <p className="text-[#475467] pb-4">For all things technical, App and website related.</p>
-        <h3 className="text-md font-bold">Contact Us or reach us by:</h3>
+        {/* <h3 className="text-md font-bold">Contact Us or reach us by:</h3> */}
         <p className="text-black pb-4">
-          <span className="font-medium">Phone: </span>+61 (1300 9335625)
+          <span className="font-medium">Phone: </span>1300 933 562
         </p>
         <p className="text-black pb-4">
           <span className="font-medium">Email:</span>{" "}
-          <a href="mailto:info@wedlock.au" className="underline">info@wedlock.au</a>
+          <a href="mailto:info@Wedlock.com.au" className="underline">info@wedlock.com.au</a>
         </p>
         <p className="text-black">
-          <span className="font-medium">Address:</span> Victoria, Australia
+          <span className="font-medium">Address:</span> Level 3, Suite 329/98/100 Elizabeth St, Melbourne VIC 3000
         </p>
       </div>
     </div>

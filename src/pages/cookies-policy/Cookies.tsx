@@ -21,12 +21,12 @@ const page = () => {
           <Nav activeSectionData={"COOKIES POLICY"} />
         </div>
         <div className="">
-            <p className="pb-4">
+          <p className="pb-4">
             Cookies Policy Your trust, privacy and data are important to us and
             we are committed to being transparent about our data practices and
             how we use and protect your data. We use cookies and similar
             technologies when you use the Wedlock mobile application (including
-            the desktop version) (“App”) or websites (such as Wedlock.au)
+            the desktop version) (“App”) or websites (such as Wedlock.com.au)
             (“Websites”). This policy provides more detail about the cookies and
             tracking technologies we use and should be read in conjunction with
             our Privacy Policy and the information available in our “Manage
@@ -65,7 +65,7 @@ const page = () => {
             function like cookies and web beacons. For simplicity, in this
             Policy we also refer to these technologies as “Cookies”.
           </p>
-          
+
           <h3 className="text-md font-bold">What the types of Cookies?</h3>
           <p className="pb-4">These Cookies are necessary for the App and Websites to function and cannot be switched off in our systems, or our App and Websites will not work properly. They are usually only set in response to actions made by you which amount to a request of services, such as setting your privacy preferences, logging in or filling in forms, making payments, uploading photographs, chatting or to localise your experience, such as when you’ve requested to view Wedlock’s Site in your local language or when you’ve asked Wedlock to ‘remember me’, etc. You can always control the Websites’ strictly necessary Cookies in your browser, as explained below.</p>
 
@@ -84,7 +84,7 @@ const page = () => {
 
           <h3 className="text-md font-bold pb-4">Advertising Cookies</h3>
           <p className="pb-4">These   Cookies may be set on our Websites and App by us or our advertising partners.   They may be used to build a profile of your interests and show you relevant   adverts on our App and Websites or other Websites you visit, as well as to   improve reporting on any advertising campaign and to avoid showing you ads   that you have already seen.</p>
-          
+
           <h3 className="text-md font-bold pb-4">
             2. Cookies lifespan and third parties placing Cookies
           </h3>
@@ -121,7 +121,7 @@ const page = () => {
             <li>
               in the “Manage Cookies” section linked at the bottom of our
               Websites.
-            </li> 
+            </li>
           </ul>
           <h3 className="text-md font-bold pb-4">3. How can you refuse or withdraw consent to the use of Cookies?</h3>
           <p className="pb-4">When using our Websites, you are in control and may refuse to accept Cookies at any time by managing your preferences in the “Manage Cookies” section (linked at the bottom of our Websites) or by altering the settings on your internet browser (for example Internet Explorer, Chrome and Firefox).</p>

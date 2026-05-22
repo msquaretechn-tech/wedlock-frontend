@@ -53,8 +53,8 @@ const DeleteAccount = () => {
           <h3 className="text-md font-bold pb-2">5. Contact Us</h3>
           <p className="pb-4">
             If you need help deleting your account or have any questions regarding your data privacy, you can contact our support team at{" "}
-            <Link to="mailto:support@wedlock.au" className="underline text-blue-600">
-            info@wedlock.au
+            <Link to="mailto:support@Wedlock.com.au" className="underline text-blue-600">
+              info@Wedlock.com.au
             </Link>
           </p>
 

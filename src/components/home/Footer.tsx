@@ -80,7 +80,7 @@ const Footer = () => {
 
 
             <ul className="font-Proxima-Nova-Regular space-y-2">
-              <li>
+              {/* <li>
                 <Link to="/mission" className="hover:text-[#007EAF]">
                   Mission
                 </Link>
@@ -89,7 +89,7 @@ const Footer = () => {
                 <Link to="/advice" className="hover:text-[#007EAF]">
                   Advice
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/services" className="hover:text-[#007EAF]">
                   Services
@@ -100,14 +100,14 @@ const Footer = () => {
                   Subscription Tiers
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/help" className="hover:text-[#007EAF]">
                   Help
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/faqs" className="hover:text-[#007EAF]">
-                  FAQs
+                  Frequently Asked Questions
                 </Link>
               </li>
               <li>
@@ -141,7 +141,7 @@ const Footer = () => {
 
               <li>
                 <Link to="/terms-conditions" className="hover:text-[#007EAF]">
-                  Terms & Conditions
+                  Terms and Conditions
                 </Link>
               </li>
               <li>
@@ -170,7 +170,7 @@ const Footer = () => {
                 <FaFacebookF />
               </a>
               <a
-                href="https://x.com/wedlockglobal?s=11"
+                href="https://x.com/thewedlockAU"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-[#007EAF]"
@@ -186,7 +186,7 @@ const Footer = () => {
                 <FaYoutube />
               </a>
               <a
-                href="https://www.instagram.com/wedlock_global?igsh=MWF5NWU0M2sxeXdlMQ%3D%3D&utm_source=qr"
+                href="https://www.instagram.com/auwedlockofficial/"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-[#007EAF]"
@@ -221,7 +221,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-6">
           <div className="font-Proxima-Nova-Regular">
             <h1 className="font-semibold text-base md:text-lg italic">
-              Connecting Hearts Worldwide
+              The Art of Meaningful Matchmaking
             </h1>
             <p className="text-xs md:text-sm">
               This website is strictly for matrimonial purposes only and not a

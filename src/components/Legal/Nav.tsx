@@ -2,14 +2,15 @@
 import { Link } from "react-router-dom";
 
 const sections = [
+
+  { title: "About Us", links: "/about-us" },
   { title: "Community Guidelines", links: "/community-guidelines" },
-  { title: "About", links: "/about-us" },
-  { title: "TERMS", links: "/terms-conditions" },
-  { title: "PRIVACY", links: "/privacy-policy" },
-  { title: "COOKIES POLICY", links: "/cookies-policy" },
-  { title:"Services",links:"/services"},
-  { title:"Child Safety", links:"/child-safety-policy"},
-  {title:"Delete Account",links:"/delete-account"}
+  { title: "Terms and Conditions", links: "/terms-conditions" },
+  { title: "Privacy Policy", links: "/privacy-policy" },
+  { title: "Cookies Policy", links: "/cookies-policy" },
+  // { title: "Services", links: "/services" },
+  // { title: "Child Safety", links: "/child-safety-policy" },
+  // { title: "Delete Account", links: "/delete-account" }
 ];
 
 interface activeSectionProps {
@@ -18,7 +19,7 @@ interface activeSectionProps {
 
 const Nav: React.FC<activeSectionProps> = ({
 }: activeSectionProps) => {
-  
+
 
   return (
     <div className="w-full md:w-72 p-4 bg-white shadow-md">
