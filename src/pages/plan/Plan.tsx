@@ -26,11 +26,7 @@ const PricingPage = () => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<"stripe" | "paypal">("stripe");
-  const [paymentModalTitle, setPaymentModalTitle] = useState<string>("");
-  const [paymentModalMessage, setPaymentModalMessage] = useState<string>("");
-
-
-
+  
 
   const currentPlan = user?.usertype;
 
@@ -250,12 +246,12 @@ const PricingPage = () => {
           isOpen={showPaymentModal}
           onClose={() => setShowPaymentModal(false)}
           onContinue={handlePaymentContinue}
-          title={paymentModalTitle || "Choose Payment Method"}
+          title={"Choose Payment Method"}
           paymentMethod={selectedPaymentMethod}
           onPaymentMethodChange={setSelectedPaymentMethod}
         >
           <div className="space-y-4 text-white/90">
-            <p>{paymentModalMessage || "Select a payment method before proceeding."}</p>
+            <p>Select a payment method before proceeding.</p>
           </div>
         </PlanDescriptionModal>
 
