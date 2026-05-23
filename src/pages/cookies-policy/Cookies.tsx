@@ -10,7 +10,7 @@ const page = () => {
     updatedAt: `Current as of ${currentDate.toLocaleString()}`,
     title: "Cookies Policy",
     description:
-      "Your trust, privacy and data are important to us and we are committed to being transparent about our data practices and how we use and protect your data",
+      "Your trust, privacy and data are important to us and we are committed to being transparent about our data practices and how we use and protect your data.",
   };
 
   return (
@@ -21,8 +21,10 @@ const page = () => {
           <Nav activeSectionData={"COOKIES POLICY"} />
         </div>
         <div className="">
+          <h1 className=" text-lg md:text-4xl font-semibold mb-2">Cookies Policy</h1>
           <p className="pb-4">
-            Cookies Policy Your trust, privacy and data are important to us and
+
+            Your trust, privacy and data are important to us and
             we are committed to being transparent about our data practices and
             how we use and protect your data. We use cookies and similar
             technologies when you use the Wedlock mobile application (including

@@ -15,40 +15,40 @@ function Hero() {
       <div className="absolute inset-0"></div>
 
       <div className="relative 3xl:pl-30  bg-black bg-opacity-40 text-white min-h-screen md:pl-16 md:flex md:px-10 gap-80 ">
-        <div className="  2xl:px-20 py-28 max-md:mt-0 mt-28 xl:w-[100%] flex justify-center items-start">
+        <div className="  2xl:px-20 py-28 max-md:mt-0 mt-36 xl:w-[100%] flex justify-center items-start">
           <div className=" text-center container   xl:w-[100%]  hero_content ">
             <p
-              className="text-[#059cdc] text-[22px] xl:text-[32px] xl:pt-5 px-2 font-Proxima-Nova-Regular"
+              className="hidden md:block text-[#059cdc] text-[22px] xl:text-[32px] xl:pt-5 px-2 font-Proxima-Nova-Regular"
               style={{
                 lineHeight: "42px",
                 letterSpacing: "2%",
-                fontWeight: "400",
+                fontWeight: "600",
               }}
             >
               Australia’s Trusted Platform for Serious Relationships
             </p>
 
-            <h1 className="text-[2rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[60px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] pt-5 xl:-tracking-normal">
+            <h1 className="text-[2rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[60px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-5 pt-16 xl:-tracking-normal">
               The Art of Meaningful Matchmaking
             </h1>
 
             <p
-              className="  text-[#FFFFFF] py-10 text-[18px] xl:text-[26px] xl:pt-5 px-2 font-Proxima-Nova-Regular"
+              className="  text-[#FFFFFF] py-8 text-[18px] xl:text-[26px] xl:pt-4 px-2 font-Proxima-Nova-Regular"
               style={{
                 lineHeight: "42px",
                 letterSpacing: "2%",
                 fontWeight: "400",
               }}
             >
-              Powered by intelligent compatibility matching to help you find a meaningful long-term partner
+              Advanced AI-powered compatibility matching for genuine connections
 
             </p>
 
             <Link
               to="/questions"
-              className="relative z-10 flex items-center justify-center bg-[#009BDA] rounded-full w-[249px] h-[64px] text-[22px] text-white mx-auto xl:mt-8 font-Proxima-Nova-SemiBold"
+              className="relative z-10 flex items-center justify-center bg-[#009BDA] rounded-full  xl:w-[200px] xl:h-[64px]  xl:text-[22px] w-[135px] h-[40px] text-white mx-auto xl:mt-8 xl:font-Proxima-Nova-SemiBold"
             >
-              <span>Start free today</span>
+              <span>Create account</span>
             </Link>
           </div>
 
@@ -60,10 +60,8 @@ function Hero() {
           className="absolute  bottom-36 -right-7 sm:pt-40  md:bottom-[15rem] md:right-[4rem] xl:bottom-60   xl:right-[4rem] 2xl:rigth-[4rem]  3xl:ml-[18%]  "
           style={{ transform: "translateY(50%)" }}
         >
-          <div className="flex flex-col items-center gap-2  w-[24rem]">
-            <p
-              className="text-[18px] max-md:text-[14px]  mt-[14rem] italic font-Proxima-Nova-Light "
-            >
+          <div className="hidden md:flex flex-col items-center gap-2 w-[24rem]">
+            <p className="text-[18px] mt-[14rem] italic font-Proxima-Nova-Light">
               All photos are used for illustrative purposes only.
             </p>
           </div>

@@ -19,7 +19,7 @@ const Terms = () => {
         </div>
         <div className=" ">
           <h1 className="text-md font-bold pb-4">
-            Wedlock Terms and Conditions of Use
+            Terms and Conditions
           </h1>
           <p className="pb-4">
             Welcome to Wedlock’s Terms and Conditions of Use (these “Terms”).

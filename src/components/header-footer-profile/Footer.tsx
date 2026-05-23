@@ -51,10 +51,10 @@ const Footer = () => {
                     fontFamily: "Proxima-Nova-ExtraBold-Italic, sans-serif",
                   }}
                 >
-                  Connecting Hearts Worldwide
+                  The Art of Meaningful Matchmaking
                 </h4>
                 <p className="text-sm">
-                  This website is strictly for matrimonial purposes only and not a dating website.
+                  This platform is strictly for matrimonial purposes only and not a dating platform.
 
                 </p>
               </div>

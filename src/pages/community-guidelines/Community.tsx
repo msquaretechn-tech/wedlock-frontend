@@ -2,7 +2,7 @@ import Nav from "../../components/Legal/Nav";
 
 
 const Community = () => {
- 
+
   const currentDate = new Date().toDateString();
   return (
     <div className="flex flex-col mt-20">
@@ -10,9 +10,9 @@ const Community = () => {
         <h3 className="text-[#007EAF] font-semibold text-base">
           Current as of {currentDate.toLocaleString()}
         </h3>
-        <h1 className=" text-2xl md:text-4xl font-semibold">Wedlock Community Guidelines</h1>
+        <h1 className=" text-2xl md:text-4xl font-semibold">Community Guidelines</h1>
         <p className="text-[#475467] text-md md:text-xl text-balance">
-        To ensure a positive experience for everyone, we ask that all users adhere to our Community Guidelines. These guidelines are here to promote respect, <br /> integrity, and inclusivity on the platform and to protect the safety and privacy of all members.
+          To ensure a positive experience for everyone, we ask that all users adhere to our community guidelines. These guidelines are here to promote respect, <br /> integrity, and inclusivity on the platform and to protect the safety and privacy of all members.
 
         </p>
       </div>
@@ -22,7 +22,7 @@ const Community = () => {
         </div>
         <div className=" flex flex-col items-start md:pr-10">
           <h2 className="font-bold text-xl pb-4 "> Community Guidelines</h2>
-          <h3 className="font-bold text-md">Wedlock Community Guidelines</h3>
+          {/* <h3 className="font-bold text-md">Community Guidelines</h3> */}
 
           <p className="#475467 pb-4">
             Wedlock is a space to make kind connections in a safe, inclusive,
@@ -94,7 +94,7 @@ const Community = () => {
 
           <h3 className="font-bold text-md">Bullying and Abusive Conduct</h3>
           <p className="pb-4">
-             Our community is for creating kind
+            Our community is for creating kind
             connections. We don’t allow content or behaviour that makes any
             individual or group feel harassed, bullied, or targeted. This
             includes belittling, insulting, or intimidating behaviour; making
@@ -104,7 +104,7 @@ const Community = () => {
           </p>
           <h3 className="font-bold text-md">Child Sexual Exploitation and Abuse</h3>
           <p className="pb-4">
-             We have a zero tolerance towards
+            We have a zero tolerance towards
             any form of child sexual exploitation and abuse. We don’t allow
             content that sexualises or endangers children, real or fictional
             (e.g. anime, media, text, illustrations, or digital images). This
@@ -119,7 +119,7 @@ const Community = () => {
           <h3 className="font-bold text-md">Commercial and Promotional Activity
           </h3>
           <p className="pb-4">
-          Our platform is not a
+            Our platform is not a
             marketplace. We don’t allow using Wedlock for unsolicited commercial
             or promotional purposes.
           </p>
@@ -144,7 +144,7 @@ const Community = () => {
 
           <h3 className="font-bold text-md">Identity-Based Hate</h3>
           <p className="pb-4">
-          We aim to foster a diverse and inclusive community on Wedlock. We prohibit content or behaviour that promotes or condones hate, dehumanisation, degradation, or contempt against marginalised or minoritised communities based on the following protected attributes: race/ethnicity, national origin/nationality/immigration status, caste, sex, gender identity or expression, sexual orientation, disability or serious health condition, or religion/belief. 
+            We aim to foster a diverse and inclusive community on Wedlock. We prohibit content or behaviour that promotes or condones hate, dehumanisation, degradation, or contempt against marginalised or minoritised communities based on the following protected attributes: race/ethnicity, national origin/nationality/immigration status, caste, sex, gender identity or expression, sexual orientation, disability or serious health condition, or religion/belief.
 
           </p>
           <h3 className="font-bold text-md">Inauthentic Profiles </h3>
@@ -168,7 +168,7 @@ const Community = () => {
           </p>
           <h3 className="font-bold text-md">Physical and Sexual Violence </h3>
           <p className="pb-4">
-             We don’t tolerate any content, imagery,
+            We don’t tolerate any content, imagery,
             or behaviour that commits or threatens credible acts of physical or
             sexual violence. This includes physical stalking, using our platform
             to assist, facilitate or support exploitation or human trafficking,
@@ -178,7 +178,7 @@ const Community = () => {
 
           <h3 className="font-bold text-md">Scam and Theft</h3>
           <p className="pb-4">
-             Wedlock prohibits any scam or theft activity
+            Wedlock prohibits any scam or theft activity
             intended to defraud or manipulate members out of financial or
             material resources. This includes requesting or seeking financial
             support, lying about your intentions for financial gain, or faking
@@ -205,7 +205,7 @@ const Community = () => {
             our platform to engage in unwanted interactions.
           </p>
 
-          <h3 className="font-bold text-md">Suicide and Self-Injury Promotion</h3>      
+          <h3 className="font-bold text-md">Suicide and Self-Injury Promotion</h3>
           <p className="pb-4">
             Suicide and Self-Injury Promotion We care deeply about our members
             and understand that some may struggle with mental health,
@@ -239,14 +239,14 @@ const Community = () => {
             moderators and automated systems to monitor and review Wedlock
             accounts and interactions for content that may be against our
             Community Guidelines, against our Terms and Conditions, or otherwise
-            harmful. 
+            harmful.
           </p>
           <p className="pb-4">Our members play a critical role in the safety of Wedlock
             by reporting content or behavior that may violate our Community
             Guidelines. If anything happens that makes you feel uncomfortable or
             unsafe, we highly encourage you to Unmatch with the member.</p>
           <p className="pb-4">
-          However, please consider that disagreeing with or disliking a member or their content is not necessarily a reason to report them. We may take action against a member if we’e found them to be intentionally creating false or inappropriate reports against other members solely based on their protected attributes. This includes reporting transgender or nonbinary members for no reason other than their gender identity or expression or repeatedly sending false reports of bad behaviour.
+            However, please consider that disagreeing with or disliking a member or their content is not necessarily a reason to report them. We may take action against a member if we’e found them to be intentionally creating false or inappropriate reports against other members solely based on their protected attributes. This includes reporting transgender or nonbinary members for no reason other than their gender identity or expression or repeatedly sending false reports of bad behaviour.
           </p>
           <h3 className="text-md font-bold">Enforcement Philosophy</h3>
           <p className="pb-4">All members must comply with the platform rules described and referenced in our Community Guidelines. If you behave in a way that goes against Wedlock’s Community Guidelines, values, or otherwise act in any way we believe to be potentially harmful to Wedlock or its members, we may take a range of actions on your account. When determining the penalty for violating our community guidelines, we consider a number of factors.</p>
@@ -256,10 +256,10 @@ const Community = () => {
             <li>Issue a warning</li>
             <li>Ban the offending member from some or all Wedlock Inc. apps</li>
 
-            </ul>
-            <p className="pb-4">When necessary, we also may cooperate with law enforcement to assist in potential criminal investigations related to member conduct.</p>
-            <p className="pb-4">Your treatment towards others outside of the Wedlock app can also result in action against your account. If we’re made aware of harm between members on dates, meetups with friends, via text message or direct messaging platforms, or relevant alleged criminal or harmful conduct committed in your past or outside of Wedlock, we may take action as if it happened on our platform.</p>
-            <p className="pb-4">If you believe we’ve made a mistake in taking action on your account or content, you can always contact us here</p>
+          </ul>
+          <p className="pb-4">When necessary, we also may cooperate with law enforcement to assist in potential criminal investigations related to member conduct.</p>
+          <p className="pb-4">Your treatment towards others outside of the Wedlock app can also result in action against your account. If we’re made aware of harm between members on dates, meetups with friends, via text message or direct messaging platforms, or relevant alleged criminal or harmful conduct committed in your past or outside of Wedlock, we may take action as if it happened on our platform.</p>
+          <p className="pb-4">If you believe we’ve made a mistake in taking action on your account or content, you can always contact us here</p>
         </div>
       </div>
     </div>

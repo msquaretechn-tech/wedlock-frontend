@@ -9,7 +9,7 @@ function Pre() {
           className="absolute  w-[38rem] right-1 -top-40"
         />
         <div className=" ">
-          <h1 className="text-[#007EAF]  font-Proxima-Nova-Bold text-h2-mobile md:text-h2-desktop">
+          <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[55px] text-[#007EAF]">
             The premier matrimony platform{" "}
           </h1>
           <p className="text-[#475467] text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">

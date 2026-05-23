@@ -224,8 +224,8 @@ const Footer = () => {
               The Art of Meaningful Matchmaking
             </h1>
             <p className="text-xs md:text-sm">
-              This website is strictly for matrimonial purposes only and not a
-              dating website.
+              This platform is strictly for matrimonial purposes only and not a
+              dating platform.
             </p>
           </div>
           <div className="text-left md:text-right">

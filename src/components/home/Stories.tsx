@@ -95,7 +95,7 @@ const Stories = () => {
         />
         <div className="  happy_story">
           <div className="flex items-center justify-between gap-5">
-            <h1 className="font-Proxima-Nova-Bold text-h2-mobile md:text-h2-desktop">
+            <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[55px] ">
               Inspiring Wedlock stories
             </h1>
             <div className="flex items-center gap-4 z-10">
@@ -131,9 +131,9 @@ const Stories = () => {
               <div
                 key={index}
                 className={`relative ${index >= adjustedStartIndex &&
-                    index < adjustedStartIndex + cardsPerSlide
-                    ? "block"
-                    : "hidden"
+                  index < adjustedStartIndex + cardsPerSlide
+                  ? "block"
+                  : "hidden"
                   }`}
               >
                 <StoryCard

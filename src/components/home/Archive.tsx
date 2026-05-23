@@ -11,13 +11,13 @@ const Archive = () => {
           <h1 className="md:text-[40px] text-[30px]  ">100% Verified  <br /> Member Profiles
           </h1>
           <p className="text-md md:text-lg xl:text-xl  font-Proxima-Nova-Light " >
-            Digitally Verified & Genuine Community Members
+            Digitally Verified and Genuine Community Members
           </p>
         </div>
         <div className="flex flex-col items-center achieve justify-center gap-3 text-center bg-[#007EAF] py-8">
           <CiHeart className="text-4xl" />
           <h1 className="md:text-[40px] text-[30px]  ">99% Member  <br /> Satisfaction</h1>
-          <p className="text-md md:text-lg xl:text-xl font-Proxima-Nova-Light " >Secure, Private & Compatibility-Focused </p>
+          <p className="text-md md:text-lg xl:text-xl font-Proxima-Nova-Light " >Secure, Private and Compatibility-Focused </p>
         </div>
         <div className="flex flex-col items-center achieve justify-center gap-3 text-center  py-12">
           <CiHeart className="text-4xl" />

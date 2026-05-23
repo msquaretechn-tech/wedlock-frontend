@@ -11,7 +11,7 @@ const Search = () => {
     "Nationality": [
       { img: "/Avatar-2.png", ct: "Australia" },
       { img: "/Avatar-1.png", ct: "India" },
-    
+
       { img: "/Avatar-3.png", ct: "Canada" },
       { img: "/Avatar-4.png", ct: "United Kingdom" },
       { img: "/Avatar-5.png", ct: "United States of America" },
@@ -62,22 +62,22 @@ const Search = () => {
 
   return (
     <div className="w-100  bg-[#E6F2F7] ">
-  <div className="relative z-0 overflow-hidden px-5 sm:px-20 container m-auto space-y-6 py-5 md:py-12">
-  <img
-    src="/curvesm.svg"
-    alt="arw"
-    className="absolute w-[48rem] -right-60 top-2 z-[-1]"
-  />
+      <div className="relative z-0 overflow-hidden px-5 sm:px-20 container m-auto space-y-6 py-5 md:py-12">
+        <img
+          src="/curvesm.svg"
+          alt="arw"
+          className="absolute w-[48rem] -right-60 top-2 z-[-1]"
+        />
 
 
         <div className="">
           <div className="flex items-center justify-between w-[100%] browse">
-            <h1 className="text-h2-mobile md:text-h2-desktop  font-[Proxima-Nova-Bold]  text-[#007EAF]">
+            <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[55px] text-[#007EAF]">
               Find Your Perfect Match
             </h1>
           </div>
           <p className="text-[#101828E5] text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">
-            Because meaningful relationships start with the right connection,   we make it easy to find someone who  truly complements your matrimonial 
+            Because meaningful relationships start with the right connection,   we make it easy to find someone who  truly complements your matrimonial
             journey.
           </p>
         </div>
@@ -89,8 +89,8 @@ const Search = () => {
               key={tab}
               onClick={() => setSelectedTab(tab)}
               className={`rounded-full text-nowrap text-[16px] z-50 cursor-pointer p-4 md:text-[24px] transition-colors ${selectedTab === tab
-                  ? "bg-[#009BDA] text-white"
-                  : "text-[#838E9E] hover:bg-[#009BDA] hover:text-white"
+                ? "bg-[#009BDA] text-white"
+                : "text-[#838E9E] hover:bg-[#009BDA] hover:text-white"
                 }`}
               style={{
                 fontFamily: "Proxima-Nova-Regular, sans-serif",

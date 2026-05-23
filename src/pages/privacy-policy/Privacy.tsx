@@ -450,6 +450,9 @@ const Privacy = () => {
           <p className="text-md font-semibold pb-4">
             4. Information We Collect
           </p>
+          <p className='pb-4'>
+            We may collect the following categories of information:
+          </p>
 
           <p className="text-md font-semibold pb-4">
             4.1 Account Registration Information
@@ -486,6 +489,78 @@ const Privacy = () => {
           <p className="pb-4">
             • Biometric comparison data solely for identity verification purposes
           </p>
+          <p className='pb-4'>
+            Verification helps reduce fake accounts, scams, impersonation, and malicious activity — an approach similarly adopted across leading matchmaking platforms.
+          </p>
+          <p className='pb-4'>
+            Biometric or identity verification information is encrypted and retained only as long as reasonably necessary for verification and legal compliance.
+          </p>
+          <p className="text-md font-semibold pb-4">
+            4.3 AI Matchmaking & Compatibility
+          </p>
+          <p className='pb-4'>
+            Information Wedlock’s matchmaking engine may analyse:
+          </p>
+          <p className="pb-4">• Profile preferences </p>
+          <p className="pb-4">• Interests and hobbies </p>
+          <p className="pb-4">• Lifestyle indicators  </p>
+          <p className="pb-4">• Relationship goals  </p>
+          <p className="pb-4">• Interaction behaviour  </p>
+          <p className="pb-4">• Communication preferences </p>
+          <p className="pb-4">• Compatibility indicators  </p>
+
+          <p className='pb-4'>
+            This enables personalised recommendations and advanced AI-powered compatibility matching.
+          </p>
+          <p className='pb-4'>
+            Wedlock does not make legally significant decisions solely through automated processing.
+          </p>
+
+          <p className="text-md font-semibold pb-4">
+            4.4 Usage & Device Information
+          </p>
+          <p className='pb-4'>
+            We may automatically collect:
+          </p>
+          <p className="pb-4">• IP address  </p>
+          <p className="pb-4">• Device identifiers </p>
+          <p className="pb-4">• Browser type </p>
+          <p className="pb-4">• Operating system </p>
+          <p className="pb-4">• App version </p>
+          <p className="pb-4">• Log files </p>
+          <p className="pb-4">• Crash reports </p>
+          <p className="pb-4">• Session duration  </p>
+          <p className="pb-4">• Clickstream data  </p>
+          <p className="pb-4">• General geographic location  </p>
+          <p className='pb-4'>
+            This information helps improve performance, security, fraud detection, and user experience.
+          </p>
+
+          <p className="text-md font-semibold pb-4">
+            4.5 Communications
+          </p>
+          <p className='pb-4'>
+            We may collect information when you:
+          </p>
+          <p className="pb-4">• Contact customer support  </p>
+          <p className="pb-4">• Participate in surveys   </p>
+          <p className="pb-4">• Report users  </p>
+          <p className="pb-4">• Submit freedback </p>
+          <p className="pb-4">• Communicate with matches via our platform </p>
+
+          <p className='pb-4'>
+            Messages may be monitored using automated and manual moderation systems to detect fraud, harassment, abuse, scams, or violations of our Terms of Service.
+          </p>
+
+          <p className="text-md font-semibold pb-4">
+            4.6 Payment Information
+          </p>
+          <p className='pb-4'>
+            For premium subscriptions or paid services, payments may be processed by secure third-party payment providers.
+          </p>
+          <p className='pb-4'>
+            Wedlock does not store complete credit card details on its servers.
+          </p>
 
           <p className="text-md font-semibold pb-4">
             5. How We Use Your Information
@@ -506,6 +581,90 @@ const Privacy = () => {
             • Improve platform functionality and AI systems
           </p>
           <p className="pb-4">• Meet legal and regulatory obligations</p>
+          <p className="text-md font-semibold pb-4">
+            6. AI-Based Matchmaking & Automated Processing
+          </p>
+          <p className="pb-4">
+            Wedlock uses advanced AI technologies to improve compatibility matching and user experience.
+          </p>
+          <p className='pb-4'>
+            This may include:
+          </p>
+          <p className="pb-4">• Match recommendations </p>
+          <p className="pb-4">• Profile ranking</p>
+          <p className="pb-4">• Fraud detection</p>
+          <p className="pb-4">• Behavioural risk monitoring</p>
+          <p className="pb-4">• Content moderation</p>
+          <p className='pb-4'>
+            AI systems are designed to support — not replace — human oversight.
+          </p>
+          <p className='pb-4'>
+            Users may contact us to request review of certain automated decisions affecting their account.
+          </p>
+          <p className='pb-4'>
+            Given increasing public concerns regarding AI transparency in applications, Wedlock is committed to ethical and responsible AI implementation.
+          </p>
+          <p className="text-md font-semibold pb-4">
+            7. Disclosure of Information
+          </p>
+          <p className='pb-4'>
+            We may disclose information:
+          </p>
+          <p className='text-md font-semibold pb-4'>
+            To Other Members
+          </p>
+          <p className='pb-4'>
+            Certain profile information is visible to matched or potential members, including:
+          </p>
+          <p className="pb-4">• First name </p>
+          <p className="pb-4">• Age</p>
+          <p className="pb-4">• Profile photos</p>
+          <p className="pb-4">• Community and lifestyle preferences</p>
+          <p className="pb-4">• Profile descriptions</p>
+          <p className='pb-4'>
+            Users should avoid sharing sensitive personal details publicly.
+          </p>
+          <p className='text-md font-semibold pb-4'>
+            To Service Providers
+          </p>
+          <p className='pb-4'>
+            We may share information with trusted third parties assisting with:
+          </p>
+          <p className="pb-4">• Cloud hosting</p>
+          <p className="pb-4">• Payment processing</p>
+          <p className="pb-4">• Identity verification </p>
+          <p className="pb-4">• Analytics </p>
+          <p className="pb-4">• Security monitoring</p>
+          <p className="pb-4">• Customer support</p>
+          <p className="pb-4">• AI and moderation services</p>
+          <p className='pb-4'>
+            All providers are contractually obligated to protect your information.
+          </p>
+          <p className='text-md font-semibold pb-4'>
+            Legal & Safety Requirements
+          </p>
+          <p className='pb-4'>
+            We may disclose information where required by law or reasonably necessary to:
+          </p>
+          <p className="pb-4">• Comply with legal obligations </p>
+          <p className="pb-4">• Prevent fraud or cybercrime </p>
+          <p className="pb-4">• Investigate misconduct </p>
+          <p className="pb-4">• Protect user safety </p>
+          <p className="pb-4">• Enforce our Terms </p>
+          <p className='text-md font-semibold pb-4'>
+            8. International Data Transfers
+          </p>
+          <p className="pb-4">
+            Wedlock may use international service providers and cloud infrastructure.
+          </p>
+          <p className="pb-4">
+            Where personal information is transferred outside Australia, we take reasonable steps to ensure overseas recipients comply with privacy obligations substantially similar to the Australian Privacy Principles.
+          </p>
+
+
+
+
+
 
           <p className="text-md font-semibold pb-4">9. Data Security</p>
           <p className="pb-4">
@@ -518,6 +677,14 @@ const Privacy = () => {
           <p className="pb-4">• Monitoring and threat detection</p>
           <p className="pb-4">• Fraud prevention systems</p>
           <p className="pb-4">• Internal privacy controls</p>
+          <p className="pb-4">
+            While we take reasonable steps to protect information, no online platform can guarantee absolute security. Users should maintain strong passwords and practice safe online behaviour.
+          </p>
+          <p className="pb-4">
+            Privacy and security vulnerabilities have historically impacted online dating platforms globally, reinforcing the importance of strong data protection practices.
+          </p>
+
+
           <p className="text-md font-semibold pb-4">
             10. Retention of Information
           </p>

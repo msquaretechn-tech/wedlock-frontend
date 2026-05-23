@@ -21,7 +21,7 @@ const GetApp = () => {
                     <div className="flex flex-col lg:flex-row items-center lg:items-start w-full justify-between">
                         <div className="max-w-[600px]">
                             <div className="get_app">
-                                <h1 className="text-[28px] md:text-[48px] xl:text-[64px] xl:leading-[83.2px] font-[Proxima-Nova-Bold] tracking-[-0.02em]">
+                                <h1 className="text-[28px] md:text-[48px] xl:text-[55px] xl:leading-[83.2px] font-[Proxima-Nova-Bold] tracking-[-0.02em]">
                                     Get the app!
                                 </h1>
                                 <p className="text-[20px] font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start">
@@ -36,7 +36,7 @@ const GetApp = () => {
                                     <img
                                         src="/appstore.png"
                                         alt="Apple Store"
-                                        className="h-14 md:h-20 lg:h-22"
+                                        className="h-14 md:h-20 lg:h-20"
                                     />
                                 </button>
                                 <button
@@ -46,7 +46,7 @@ const GetApp = () => {
                                     <img
                                         src="/googleplay.png"
                                         alt="Play Store"
-                                        className="h-14 md:h-20 lg:h-22"
+                                        className="h-14 md:h-20 lg:h-20"
                                     />
                                 </button>
                             </div>

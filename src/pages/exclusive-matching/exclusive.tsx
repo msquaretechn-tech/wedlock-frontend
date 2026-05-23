@@ -5,7 +5,7 @@ const Exclusive = () => {
   const navigate = useNavigate();
   const [checkedStates, setCheckedStates] = useState([false, false, false, false, false, false]);
 
-  const handleCheckboxChange = (index:any) => {
+  const handleCheckboxChange = (index: any) => {
     const updatedStates = [...checkedStates];
     updatedStates[index] = !updatedStates[index];
     setCheckedStates(updatedStates);
@@ -24,7 +24,7 @@ const Exclusive = () => {
       <img src="/logowhite.png" alt="Logo" className="w-42 h-20 top-8" />
 
       <div className="text-center mb-10 max-md:mt-10 mt-4">
-        <h1 className="max-lg:text-3xl text-4xl font-Proxima-Nova-Bold mb-4">
+        <h1 className="max-lg:text-3xl text-[55px] font-Proxima-Nova-Bold mb-4">
           Exclusive matchmaking
         </h1>
         <p className="text-base whitespace-nowrap mx-auto font-Proxima-Nova-Light">
@@ -44,14 +44,14 @@ const Exclusive = () => {
             "Graduation completed (required)"
           ].map((text, index) => (
             <li className="flex items-center space-x-4 " key={index}>
-                <div className="flex-shrink-0" key={index}>
+              <div className="flex-shrink-0" key={index}>
 
-              <input
-                type="checkbox"
-                className="w-5 h-5 accent-pink-500 border-2 border-white rounded  focus:ring-pink-500"
-                checked={checkedStates[index]}
-                onChange={() => handleCheckboxChange(index)}
-              />
+                <input
+                  type="checkbox"
+                  className="w-5 h-5 accent-pink-500 border-2 border-white rounded  focus:ring-pink-500"
+                  checked={checkedStates[index]}
+                  onChange={() => handleCheckboxChange(index)}
+                />
               </div>
               <p className="font-Proxima-Nova-SemiBold">{text}</p>
             </li>
@@ -67,9 +67,8 @@ const Exclusive = () => {
           Cancel
         </button>
         <button
-          className={`px-4 py-2 rounded-md text-white ${
-            isAllChecked ? "bg-[#553985]" : "bg-gray-400 cursor-not-allowed"
-          }`}
+          className={`px-4 py-2 rounded-md text-white ${isAllChecked ? "bg-[#553985]" : "bg-gray-400 cursor-not-allowed"
+            }`}
           onClick={handleContinue}
           disabled={!isAllChecked}
         >
