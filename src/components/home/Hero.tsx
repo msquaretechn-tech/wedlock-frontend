@@ -28,12 +28,12 @@ function Hero() {
               Australia’s Trusted Platform for Serious Relationships
             </p>
 
-            <h1 className="text-[2rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[60px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-5 pt-16 xl:-tracking-normal">
+            <h1 className="text-[2.2rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[60px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 pt-16 xl:-tracking-normal mt-20">
               The Art of Meaningful Matchmaking
             </h1>
 
-            <p
-              className="  text-[#FFFFFF] py-8 text-[18px] xl:text-[26px] xl:pt-4 px-2 font-Proxima-Nova-Regular"
+           <p
+              className="hidden md:block text-[#FFFFFF] py-8 text-[18px] xl:text-[26px] xl:pt-4 px-2 font-Proxima-Nova-Regular"
               style={{
                 lineHeight: "42px",
                 letterSpacing: "2%",
@@ -41,15 +41,17 @@ function Hero() {
               }}
             >
               Advanced AI-powered compatibility matching for genuine connections
-
             </p>
 
             <Link
-              to="/questions"
-              className="relative z-10 flex items-center justify-center bg-[#009BDA] rounded-full  xl:w-[200px] xl:h-[64px]  xl:text-[22px] w-[135px] h-[40px] text-white mx-auto xl:mt-8 xl:font-Proxima-Nova-SemiBold"
-            >
-              <span>Create account</span>
-            </Link>
+                to="/questions"
+                className="relative z-10 flex items-center justify-center bg-[#009BDA] rounded-full
+                mt-6 xl:mt-8
+                xl:w-[200px] xl:h-[64px] xl:text-[22px]
+                w-[145px] h-[50px] text-white mx-auto xl:font-Proxima-Nova-SemiBold"
+              >
+                <span className="text-semibold">Create account</span>
+              </Link>
           </div>
 
           {/* mobile card in hero section 

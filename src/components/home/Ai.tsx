@@ -4,7 +4,7 @@ import Aicard from './Aicard';
 const Ai = () => {
   return (
     <div className="w-full   bg-[#009BDA] overflow-hidden " >
-      <div className="relative overflow-hidden px-5 sm:px-20  container m-auto space-y-6  pt-5 md:pt-12">
+      <div className="relative overflow-hidden px-5 sm:px-20  container m-auto space-y-2  pt-5 md:pt-12">
         <img
           src="/curvewhite.svg"
           alt="Curve"
@@ -13,11 +13,11 @@ const Ai = () => {
         <div className="relative  space-y-20 md:space-y-28 text-white ">
           <div className="relative  space-y-6">
             <h1
-              className="font-Proxima-Nova-Bold text-[40px] md:text-[55px] "
+              className="font-Proxima-Nova-Bold text-[2.5rem] md:text-[48px] text-white "
             >
-              Smarter connections with <br className='block max-md:hidden text-pretty' />AI-powered match suggestions
+              Smarter connections with <br className='hidden xl:block' />AI-powered match suggestions
             </h1>
-            <p className="text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]  xl:text-[28px] pt-[16px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">
+            <p className="text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]  xl:text-[28px] pt-[8px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">
               Match recommendations to suit your preferences and interests. Our AI-powered algorithm ensures you connect with the right people.
             </p>
 

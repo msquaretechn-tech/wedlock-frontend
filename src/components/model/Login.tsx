@@ -166,7 +166,7 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose }) => {
             {isLoading ? (
               <LoadingOutlined className="text-white animate-spin" />
             ) : (
-              "Login"
+              "Log in"
             )}
           </button>
         </form>

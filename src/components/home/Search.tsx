@@ -61,8 +61,8 @@ const Search = () => {
   };
 
   return (
-    <div className="w-100  bg-[#E6F2F7] ">
-      <div className="relative z-0 overflow-hidden px-5 sm:px-20 container m-auto space-y-6 py-5 md:py-12">
+    <div className="w-100  bg-[#E6F2F7]  ">
+      <div className="relative z-0 overflow-hidden px-5 sm:px-20 container m-auto  md:py-8">
         <img
           src="/curvesm.svg"
           alt="arw"
@@ -71,19 +71,19 @@ const Search = () => {
 
 
         <div className="">
-          <div className="flex items-center justify-between w-[100%] browse">
-            <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[55px] text-[#007EAF]">
+          <div className="flex items-center justify-between w-[100%] mt-8 browse">
+            <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[48px] text-[#007EAF]">
               Find Your Perfect Match
             </h1>
           </div>
-          <p className="text-[#101828E5] text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">
+          <p className="text-[#101828E5] text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[8px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">
             Because meaningful relationships start with the right connection,   we make it easy to find someone who  truly complements your matrimonial
             journey.
           </p>
         </div>
 
         {/* Tabs Section */}
-        <div className="flex justify-start gap-10 items-center my-10 overflow-x-auto whitespace-nowrap  ">
+        <div className="flex justify-start gap-10 items-center my-8 overflow-x-auto whitespace-nowrap  ">
           {(Object.keys(categories) as CategoryKey[]).map((tab) => (
             <button
               key={tab}

@@ -7,7 +7,7 @@ import {
 const Feature = () => {
   return (
     <div className="w-full h-auto bg-[#007EAF]">
-      <div className="relative overflow-hidden px-5 sm:px-20 container mx-auto space-y-6 py-5 md:py-12">
+      <div className="relative overflow-hidden px-5 sm:px-20 container mx-auto space-y-3 py-5 md:py-12">
         <img
           src="/curvewhite.svg"
           alt="arw"
@@ -15,11 +15,11 @@ const Feature = () => {
         />
 
         <div className="relative space-y-6 xl:hidden block">
-          <h1 className="font-Proxima-Nova-Bold text-h2-mobile md:text-h2-desktop text-white">
+          <h1 className="font-Proxima-Nova-Bold text-[2.5rem] md:text-[48px] text-white">
             Connect with matches <br className="hidden xl:block" /> the way you like
           </h1>
           <p className="text-p-mobile md:text-p-desktop font-Proxima-Nova-Regular text-white">
-            At Wedlock Australia, we understand that building a meaningful connection happens at your own pace.
+            At Wedlock, we understand that building a meaningful connection happens at your own pace.
           </p>
         </div>
 
@@ -28,11 +28,11 @@ const Feature = () => {
           <div className="w-full lg:w-1/2 space-y-6">
 
             <div className="relative space-y-6 xl:block hidden">
-              <h1 className="font-Proxima-Nova-Bold text-h2-mobile md:text-h2-desktop text-white">
+              <h1 className="font-Proxima-Nova-Bold text-h2-mobile md:text-[48px] text-white">
                 Connect with matches <br className="hidden xl:block" /> the way you like
               </h1>
-              <p className="text-p-mobile md:text-p-desktop font-Proxima-Nova-Regular text-white">
-                At Wedlock Australia, we understand that building a meaningful connection happens at your own pace.
+              <p className="text-p-mobile md:text-p-desktop pt-[12px] font-Proxima-Nova-Regular text-white">
+                At Wedlock, we understand that building a meaningful connection happens at your own pace.
               </p>
             </div>
 

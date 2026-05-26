@@ -16,12 +16,12 @@ const page = () => {
   return (
     <div className="flex flex-col ">
       <Hero {...HeroData} />
-      <div className="flex flex-col md:flex-row flex-grow gap-5 p-4 md:p-16">
+      <div className="flex flex-col md:flex-row flex-grow gap-5 p-4 md:p-4">
         <div className="">
           <Nav activeSectionData={"COOKIES POLICY"} />
         </div>
         <div className="">
-          <h1 className=" text-lg md:text-4xl font-semibold mb-2">Cookies Policy</h1>
+          <h1 className=" text-lg md:text-xl font-semibold mb-2">Cookies Policy</h1>
           <p className="pb-4">
 
             Your trust, privacy and data are important to us and
@@ -37,7 +37,7 @@ const page = () => {
             Privacy” {">"} “Privacy Settings” on iOS and Android) where you can
             adjust your cookie settings at any time.
           </p>
-          <p className="pb-4">This Cookie Policy explains what cookies are and how we use them.</p>
+          <p className="pb-4">This Cookies Policy explains what cookies are and how we use them.</p>
           <h3 className="text-md font-bold">
             {" "}
             1. What are 'cookies' and which 'cookies' does Wedlock use?

@@ -16,19 +16,19 @@ const GetApp = () => {
 
     return (
         <div className="w-full h-auto bg-[#007EAF] relative">
-            <div className="text-white relative overflow-hidden px-5 sm:px-20 container m-auto space-y-6 py-5 md:py-12">
+            <div className="text-white relative overflow-hidden px-5 sm:px-20 container m-auto space-y-2 py-5 md:py-12">
                 <div className="flex flex-col md:flex-row justify-between items-center lg:items-start flex-wrap">
                     <div className="flex flex-col lg:flex-row items-center lg:items-start w-full justify-between">
                         <div className="max-w-[600px]">
                             <div className="get_app">
-                                <h1 className="text-[28px] md:text-[48px] xl:text-[55px] xl:leading-[83.2px] font-[Proxima-Nova-Bold] tracking-[-0.02em]">
+                                <h1 className="text-[40px] md:text-[48px] xl:text-[55px] xl:leading-[83.2px] font-[Proxima-Nova-Bold] tracking-[-0.02em]">
                                     Get the app!
                                 </h1>
                                 <p className="text-[20px] font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start">
                                     Download our app now to discover meaningful <br className='hidden md:block' /> matches with smart AI compatibility.
                                 </p>
                             </div>
-                            <div className="flex flex-row space-x-4 mt-4 lg:mt-16">
+                            <div className="flex flex-row space-x-4 mt-5 lg:mt-12">
                                 <button
                                     className="p-0 m-0 flex items-center transition-transform hover:scale-105 active:scale-95"
                                     onClick={handleAppStoreClick}

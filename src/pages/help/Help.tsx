@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Help = () => {
     return (
         <div className='pt-[83.5px] font-lato'>
-          <div className='flex flex-col items-center justify-center py-16 gap-9'>
+          {/* <div className='flex flex-col items-center justify-center py-16 gap-9'>
             <span className='text-blue-600'>FAQs</span>
             <h1 className='text-5xl'>Help</h1>
             <h4 className='text-[#475467]'>Have questions? We’re here to help.</h4>
@@ -15,7 +15,7 @@ const Help = () => {
             placeholder='Search'
             />
             </div>
-          </div>
+          </div> */}
          <FAQ/>
           <div className="py-20 text-center bg-white space-y-10">
             <p className="font-bold">Still have questions?</p>

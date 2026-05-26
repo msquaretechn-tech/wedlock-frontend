@@ -13,12 +13,12 @@ const Terms = () => {
   return (
     <div className=" flex flex-col">
       <Hero {...HeroData} />
-      <div className="flex flex-col md:flex-row flex-grow gap-5 p-4 md:p-16">
+      <div className="flex flex-col md:flex-row flex-grow gap-5 p-4 md:p-4">
         <div className="">
           <Nav activeSectionData={"TERMS"} />
         </div>
         <div className=" ">
-          <h1 className="text-md font-bold pb-4">
+          <h1 className="text-xl font-bold pb-4">
             Terms and Conditions
           </h1>
           <p className="pb-4">
@@ -28,8 +28,8 @@ const Terms = () => {
             before you use the Wedlock website or application (“Wedlock” or the
             “App”). Please take a few moments to read these Terms before
             enjoying the App,{" "}
-          </p>
-          <p className="pb">
+          
+          
             because once you access, view or use the App, you are going to be
             legally bound by these Terms (so probably best to read them first!).
             Please also read our Community Guidelines (which form part of these

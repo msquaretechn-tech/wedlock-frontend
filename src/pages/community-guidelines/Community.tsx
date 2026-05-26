@@ -25,7 +25,7 @@ const Community = () => {
           {/* <h3 className="font-bold text-md">Community Guidelines</h3> */}
 
           <p className="#475467 pb-4">
-            Wedlock is a space to make kind connections in a safe, inclusive,
+            Wedlock.com.au is a space to make kind connections in a safe, inclusive,
             and respectful way. In order to foster healthy and equitable
             relationships for matrimonial purpose, we hold our members
             accountable for the way they treat each other.

@@ -8,7 +8,7 @@ const Matching = () => {
     return (
         <div className="bg-[#DCD1E8] bg-gradient-to-bl from-[white] to-[#DCD1E8]     relative w-100   ">
 
-            <div className="relative overflow-hidden px-5 sm:px-20   container m-auto space-y-6  py-5 md:py-12">
+            <div className="relative overflow-hidden px-5 sm:px-20   container m-auto space-y-2  py-5 md:py-12">
             <div className="bg-[url('/shadow.png')] -rotate-342 absolute w-[80rem] h-[100%]  top-0 right-0  sm:hidden hidden  "></div>
             <img
                 src="/curve.png"
@@ -19,11 +19,11 @@ const Matching = () => {
             <div className=" flex   flex-col  justify-between w-full">
 
             <div
-                className="text-[#60457E] w-100  ">
-                <h1 className="font-Proxima-Nova-Bold text-h2-mobile md:text-h2-desktop text-[#4E3A63] ">Exclusive
+                className="text-[#60457E] w-100 flex flex-col gap-6 ">
+                <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[48px] text-[#4E3A63] ">Exclusive
                     matchmaking</h1>
-                <p className="text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1 ">
-                Our Exclusive Matchmaking service is designed for exceptional individuals who prioritise meaningful, long-term relationships. Whether you're ready to find your life partner or are looking for someone who shares your vision of a future together, our approach is tailored to your unique needs.
+                <p className="text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px]  leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1 ">
+                Our exclusive matchmaking service is designed for exceptional individuals who prioritise meaningful, long-term relationships. Whether you're ready to find your life partner or are looking for someone who shares your vision of a future together, our approach is tailored to your unique needs.
                 </p>
             </div>
 

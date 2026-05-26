@@ -395,7 +395,7 @@ const Privacy = () => {
 
         </div> */}
         <div className=" flex flex-col items-start md:pr-10">
-          <h2 className="font-bold text-md pb-4 text-lg ">Privacy Policy</h2>
+          <h2 className="font-bold text-md pb-4 text-xl ">Privacy Policy</h2>
           <h3 className="text-md font-semibold pb-4">1. Introduction</h3>
           <p className="pb-4">
             Welcome to Wedlock.com.au (“Wedlock”, “we”, “our”, or “us”).

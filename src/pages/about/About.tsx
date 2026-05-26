@@ -20,7 +20,7 @@ const About = () => {
           <Nav activeSectionData={"About"} />
         </div>
         <div className=" flex flex-col items-start md:pr-10">
-          <h2 className="font-bold text-xl pb-4 "> About Us</h2>
+          {/* <h2 className="font-bold text-xl pb-4 "> About Us</h2> */}
           <p>Founded in 2026, Wedlock.com.au is rapidly emerging as one of Australia’s fastest-growing matrimonial and matchmaking platforms across web and mobile. Designed for individuals seeking meaningful, long-term relationships, Wedlock expands opportunities to connect with compatible life partners across diverse communities, cultures, and nationalities. <br />
 
 

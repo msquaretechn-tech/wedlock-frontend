@@ -2,17 +2,17 @@
 function Pre() {
   return (
     <div className="w-100 h-auto bg-[#E6F2F7]  ">
-      <div className="  bg-[#E6F2F7] relative overflow-hidden px-5 sm:px-20  container m-auto space-y-6  py-5 md:py-12">
+      <div className="  bg-[#E6F2F7] relative overflow-hidden px-5 sm:px-20  container m-auto  py-5 md:py-9">
         <img
           src="/Vector.png"
           alt="arw"
           className="absolute  w-[38rem] right-1 -top-40"
         />
-        <div className=" ">
-          <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[55px] text-[#007EAF]">
+        <div className="">
+          <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[48px] text-[#007EAF]">
             The premier matrimony platform{" "}
           </h1>
-          <p className="text-[#475467] text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">
+          <p className="text-[#475467] text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[8px] pb-[21px]  leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">
             Trusted matchmaking, delivered by our professional team.
           </p>
         </div>

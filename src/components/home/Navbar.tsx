@@ -85,13 +85,13 @@ const Navbar: React.FC = () => {
             <div className="text-white hidden md:flex flex-1 pt-20 lg:pt-0  justify-start ml-12">
               <ul className="flex gap-5 text-[22px] font-Proxima-Nova-SemiBold">
                 <li>
-                  <Link to="/mission">Mission</Link>
+                  <Link to="/mission" className="text-[20px]" >Mission</Link>
                 </li>
                 <li>
-                  <Link to="/advice">Advice</Link>
+                  <Link to="/advice" className="text-[20px]" >Advice</Link>
                 </li>
                 <li>
-                  <Link to="/help">Help</Link>
+                  <Link to="/help" className="text-[20px]" >FAQs</Link>
                 </li>
 
               </ul>
@@ -125,7 +125,7 @@ const Navbar: React.FC = () => {
                 alt="lang"
                 className={`hidden md:block w-10 h-12`}
               />
-              <button className="md:hidden text-3xl" onClick={toggleSidebar}>
+              <button className="md:hidden text-3xl mr-4" onClick={toggleSidebar}>
                 <GiHamburgerMenu />
               </button>
             </div>
@@ -139,13 +139,13 @@ const Navbar: React.FC = () => {
         >
           <div className="flex justify-between items-center p-4">
             <Link to={"/"}>
-              <img src="/Logo.png" alt="logo" className="w-36 h-10" />
+              <img src="/WedLockLogo.png" alt="logo" className="w-36 h-10" />
             </Link>
             <button className="text-3xl text-white" onClick={toggleSidebar}>
               <RiCloseLine />
             </button>
           </div>
-          <nav className="flex flex-col p-4 text-[20px] items-center">
+          <nav className="flex flex-col p-4 text-[16px] items-start ml-5">
             <Link
               to="/mission"
               className="py-1 text-white"
@@ -160,13 +160,13 @@ const Navbar: React.FC = () => {
             >
               Advice
             </Link>
-            <Link
+            {/* <Link
               to="/help"
               className="py-1 text-white"
               onClick={toggleSidebar}
             >
               Help
-            </Link>
+            </Link> */}
 
 
             <Link to="/services" className="py-1 text-white"

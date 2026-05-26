@@ -1,24 +1,24 @@
 import { Link } from 'react-router-dom';
 import FAQ from '../../components/faqs/Faqs';
-import { CiSearch, CiHeart } from "react-icons/ci";
+import { CiHeart, CiSearch } from "react-icons/ci";
 
 
 
 const Faqs = () => {
   return (
     <div className=" font-Proxima-Nova-Regular z-10">
-      <div className="flex flex-col items-center justify-center py-16 gap-9 bg-[#E6F2F7] px-[16px]">
-        <span className="text-blue-600 ">FAQs</span>
-        <h1 className="text-5xl font-semibold ">Frequently asked questions</h1>
-        <h4 className="text-[#475467]">Have questions? We’re here to help.</h4>
-        <div className="flex items-center border-2 border-[#D0D5DD] rounded h-10 w-60 bg-white">
+      <div className="flex flex-col items-center justify-center py-12 gap-9 bg-[#E6F2F7] px-[16px]">
+        {/* <span className="text-blue-600 ">FAQs</span> */}
+        {/* <h1 className="text-5xl font-semibold mt-4">Frequently asked questions</h1> */}
+        {/* <h4 className="text-[#475467]">Have questions? We’re here to help.</h4> */}
+        {/* <div className="flex items-center border-2 border-[#D0D5DD] rounded h-10 w-60 bg-white">
           <CiSearch className="text-3xl" />
           <input
             type="text"
             className="w-full h-full rounded-[8px] border-none"
             placeholder="Search"
           />
-        </div>
+        </div> */}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3  gap-8 bg-[#F5F4F4] px-4  md:px-20 py-10 card_container">
         <div className="flex flex-col items-center justify-center gap-8 faqs_card">
@@ -27,10 +27,10 @@ const Faqs = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center gap-3 w-full">
-          <h1 className="text-xl font-semibold">What is Wedlock Australia?
+          <h1 className="text-xl font-semibold">What is Wedlock.com.au?
           </h1>
           <p className="text-[#475467] text-center">
-          Wedlock Australia is an AI-powered matrimonial platform designed for individuals seeking meaningful, long-term relationships.
+          Wedlock.com.au is an AI-powered matrimonial platform designed for individuals seeking meaningful, long-term relationships.
           </p>
           </div>
         </div>
@@ -51,7 +51,7 @@ const Faqs = () => {
             <CiHeart className="text-[#007EAF] text-2xl"/>
           </div>
           <div className="flex flex-col items-center justify-center gap-3">
-          <h1 className="text-xl font-semibold">Is Wedlock Australia free to use?</h1>
+          <h1 className="text-xl font-semibold">Is Wedlock.com.au free to use?</h1>
           <p className="text-[#475467] text-center">
           We offer a free Explorer plan with limited features and paid plans for enhanced matchmaking options.
           </p>
@@ -84,7 +84,7 @@ const Faqs = () => {
             <CiHeart className="text-[#007EAF] text-2xl"/>
           </div>
           <div className="flex flex-col items-center justify-center gap-3 text-center">
-          <h1 className="text-xl font-semibold">How does Wedlock Australia handle cultural or religious preferences?</h1>
+          <h1 className="text-xl font-semibold">How does Wedlock.com.au handle cultural or religious preferences?</h1>
           <p className="text-[#475467] text-center">
           Our platform allows you to specify cultural or religious preferences in your profile. This ensures matches are tailored to align with your personal values and traditions.
           </p>

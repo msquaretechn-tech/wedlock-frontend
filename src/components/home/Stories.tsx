@@ -87,7 +87,7 @@ const Stories = () => {
 
   return (
     <div className="w-full h-auto  bg-[#007EAF] ">
-      <div className="overflow-hidden px-5 sm:px-20  container m-auto space-y-6  py-5 md:py-12 bg-[#007EAF] text-white relative">
+      <div className="overflow-hidden px-5 sm:px-20  container m-auto   py-5 md:py-10 bg-[#007EAF] text-white relative">
         <img
           src="/curvewhite.svg"
           alt="arw"
@@ -95,7 +95,7 @@ const Stories = () => {
         />
         <div className="  happy_story">
           <div className="flex items-center justify-between gap-5">
-            <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[55px] ">
+            <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[48px] ">
               Inspiring Wedlock stories
             </h1>
             <div className="flex items-center gap-4 z-10">
