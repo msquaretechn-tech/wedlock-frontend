@@ -13,7 +13,7 @@ const Ai = () => {
         <div className="relative  space-y-20 md:space-y-28 text-white ">
           <div className="relative  space-y-6">
             <h1
-              className="font-Proxima-Nova-Bold text-[2.5rem] md:text-[48px] text-white "
+              className="font-Proxima-Nova-Bold text-[2.5rem] md:text-[48px] leading-normal md:leading-none text-white"
             >
               Smarter connections with <br className='hidden xl:block' />AI-powered match suggestions
             </h1>

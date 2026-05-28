@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
                   <Link to="/advice" className="text-[20px]" >Advice</Link>
                 </li>
                 <li>
-                  <Link to="/help" className="text-[20px]" >FAQs</Link>
+                  <Link to="/help" className="text-[20px]" >Help</Link>
                 </li>
 
               </ul>
@@ -178,7 +178,7 @@ const Navbar: React.FC = () => {
 
 
             <Link to="/faqs" className="py-1 text-white"
-              onClick={toggleSidebar}>FAQs</Link>
+              onClick={toggleSidebar}>Help</Link>
 
 
             <Link to="/contact-us" className="py-1 text-white"

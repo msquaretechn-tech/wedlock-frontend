@@ -5,12 +5,12 @@ const Mission = () => {
     <div className="pt-[83.5px] ">
       <div className=" pt-5 mb-4 md:mb-0 md:pt-16 space-y-14">
         <div className=" flex flex-col md:flex-row justify-between items-center w-[79%] m-auto ">
-          <h1 className="text-[#101828E5] text-5xl font-bold xl:text-7xl ">
-            Redefining Matrimony,
+          <h1 className="text-[#101828E5] text-5xl font-bold xl:text-6xl xl:p-2">
+            Redefining Matrimony, 
             <br /> One Match at a Time
           </h1>
           <p className="text-[#42526B] text-md md:text-lg    md:w-[56%] py-4 w-full ">
-            At Wedlock Australia, our mission is to help you find meaningful
+            At Wedlock, our mission is to help you find meaningful
             connections that lead to lifelong happiness. We’re committed to
             fostering a safe, respectful, and inclusive platform where users can
             explore relationships that align with their personal values,

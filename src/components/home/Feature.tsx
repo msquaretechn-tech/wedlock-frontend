@@ -18,7 +18,7 @@ const Feature = () => {
           <h1 className="font-Proxima-Nova-Bold text-[2.5rem] md:text-[48px] text-white">
             Connect with matches <br className="hidden xl:block" /> the way you like
           </h1>
-          <p className="text-p-mobile md:text-p-desktop font-Proxima-Nova-Regular text-white">
+          <p className="text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1 mb-9 text-white">
             At Wedlock, we understand that building a meaningful connection happens at your own pace.
           </p>
         </div>
@@ -28,10 +28,10 @@ const Feature = () => {
           <div className="w-full lg:w-1/2 space-y-6">
 
             <div className="relative space-y-6 xl:block hidden">
-              <h1 className="font-Proxima-Nova-Bold text-h2-mobile md:text-[48px] text-white">
+              <h1 className="font-Proxima-Nova-Bold text-[2.5rem] md:text-[48px] leading-none text-white">
                 Connect with matches <br className="hidden xl:block" /> the way you like
               </h1>
-              <p className="text-p-mobile md:text-p-desktop pt-[12px] font-Proxima-Nova-Regular text-white">
+              <p className="text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]  xl:text-[28px] pt-[8px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1 text-white">
                 At Wedlock, we understand that building a meaningful connection happens at your own pace.
               </p>
             </div>

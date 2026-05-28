@@ -16,7 +16,7 @@ const Help = () => {
             </div>
           </div> */}
          <FAQ/>
-          <div className="py-20 text-center bg-white space-y-10">
+          <div className="mb-12 text-center bg-white space-y-4">
             <p className="font-bold">Still have questions?</p>
             <p className='text-[#475467] pb-5'>Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
             <Link to={'/contact-us'} className="bg-[#007EAF] text-white py-2 px-4 rounded 2">Get in touch</Link>

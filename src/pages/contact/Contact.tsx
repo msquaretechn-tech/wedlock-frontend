@@ -156,7 +156,7 @@ const Contact = () => {
           Got something you want to talk about? Contact us or email us and we promise to get back to you as soon as we can.
         </p>
         <h3 className="mt-6 text-md font-bold text-[#101828]">Help / Support</h3>
-        <p className="text-[#475467] pb-4">For all things technical, App and website related.</p>
+        <p className="text-[#475467] pb-4">For all technical and platform related queries:</p>
         {/* <h3 className="text-md font-bold">Contact Us or reach us by:</h3> */}
         <p className="text-black pb-4">
           <span className="font-medium">Phone: </span>1300 933 562
