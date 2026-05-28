@@ -1,4 +1,3 @@
-import { CiSearch } from "react-icons/ci";
 import FAQ from '../../components/faqs/Faqs';
 import { Link } from "react-router-dom";
 
