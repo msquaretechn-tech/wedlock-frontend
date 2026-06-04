@@ -321,79 +321,85 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
         </div>
 
         <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
-          {children}
-          {onPaymentMethodChange && (
-            <div className="mt-8 rounded-2xl border border-white/20 bg-white/10 p-4">
-              <p className="mb-3 text-sm font-semibold text-white">Select payment method</p>
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  type="button"
-                  onClick={() => { onPaymentMethodChange("stripe"); setHasChosenPayment(true); }}
-                  className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${paymentMethod === "stripe" ? "border-[#00D1FF] bg-[#00D1FF]/15 text-white" : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"}`}
-                >
-                  Stripe Pay
-                </button>
-                <button
-                  type="button"
-                  onClick={() => { onPaymentMethodChange("paypal"); setHasChosenPayment(true); }}
-                  className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${paymentMethod === "paypal" ? "border-[#FFD43B] bg-[#FFD43B]/15 text-white" : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"}`}
-                >
-                  PayPal
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
+  {children}
+</div>
 
-        <div className={`p-6 border-t border-white/10 bg-black/10 flex flex-col sm:flex-row items-center justify-between gap-4`}>
-          <div className="flex flex-col gap-2">
-            <label className="flex items-center gap-3 cursor-pointer group">
-              <input
-                type="checkbox"
-                className="w-5 h-5 rounded border-white/30 bg-white/10 text-white focus:ring-white/50 cursor-pointer transition-all"
-                checked={isAcknowledged}
-                onChange={(e) => setIsAcknowledged(e.target.checked)}
-              />
-              <span className="text-sm font-medium text-white/90 group-hover:text-white transition-colors">
-                Payment not refundable
-              </span>
-            </label>
-            <label className="flex items-center gap-3 cursor-pointer group">
-              <input
-                type="checkbox"
-                className="w-5 h-5 rounded border-white/30 bg-white/10 text-white focus:ring-white/50 cursor-pointer transition-all"
-                checked={isAcknowledgedPolicy}
-                onChange={(e) => setIsAcknowledgedPolicy(e.target.checked)}
-              />
-              <span className="text-sm font-medium text-white/90 group-hover:text-white transition-colors">
-                Accepted Wedlock privacy policy & terms
-              </span>
-            </label>
-          </div>
+<div className="p-6 border-t border-white/10 bg-black/10">
+  {/* Payment Methods */}
+  {onPaymentMethodChange && (
+    <div className="mb-6 rounded-2xl border border-white/20 bg-white/10 p-4">
+      <p className="mb-3 text-sm font-semibold text-white">
+        Select payment method
+      </p>
 
-          <div className="flex gap-4 w-full sm:w-auto">
-            <button
-              className="px-6 py-2.5 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-all duration-200 flex-1 sm:flex-none"
-              onClick={onClose}
-            >
-              Cancel
-            </button>
-            <button
-              className={`px-8 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md flex items-center justify-center gap-2 flex-1 sm:flex-none ${isAcknowledged && isAcknowledgedPolicy && (!onPaymentMethodChange || hasChosenPayment)
-                ? "text-white scale-100"
-                : "bg-gray-300 text-gray-500 cursor-not-allowed scale-[0.98]"
-                }`}
-              style={{ backgroundColor: isAcknowledged && isAcknowledgedPolicy && (!onPaymentMethodChange || hasChosenPayment) ? themeColor : undefined }}
-              onClick={onContinue}
-              disabled={!isAcknowledged || !isAcknowledgedPolicy || (onPaymentMethodChange && !hasChosenPayment)}
-            >
-              Get Started
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </button>
-          </div>
-        </div>
+      <div className="grid grid-cols-2 gap-3">
+        <button
+          type="button"
+          onClick={() => {
+            onPaymentMethodChange("stripe");
+            setHasChosenPayment(true);
+          }}
+          className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
+            paymentMethod === "stripe"
+              ? "border-[#00D1FF] bg-[#00D1FF]/15 text-white"
+              : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"
+          }`}
+        >
+          Stripe Pay
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            onPaymentMethodChange("paypal");
+            setHasChosenPayment(true);
+          }}
+          className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
+            paymentMethod === "paypal"
+              ? "border-[#FFD43B] bg-[#FFD43B]/15 text-white"
+              : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"
+          }`}
+        >
+          PayPal
+        </button>
+      </div>
+    </div>
+  )}
+
+  {/* Footer */}
+  <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div className="flex flex-col gap-2">
+      <label className="flex items-center gap-3 cursor-pointer group">
+        <input
+          type="checkbox"
+          className="w-5 h-5 rounded border-white/30 bg-white/10 text-white"
+          checked={isAcknowledged}
+          onChange={(e) => setIsAcknowledged(e.target.checked)}
+        />
+        <span className="text-sm font-medium text-white/90">
+          Payment not refundable
+        </span>
+      </label>
+
+      <label className="flex items-center gap-3 cursor-pointer group">
+        <input
+          type="checkbox"
+          className="w-5 h-5 rounded border-white/30 bg-white/10 text-white"
+          checked={isAcknowledgedPolicy}
+          onChange={(e) => setIsAcknowledgedPolicy(e.target.checked)}
+        />
+        <span className="text-sm font-medium text-white/90">
+          Accepted Wedlock privacy policy & terms
+        </span>
+      </label>
+    </div>
+
+    <div className="flex gap-4 w-full sm:w-auto">
+      {/* Cancel & Continue buttons */}
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   );
