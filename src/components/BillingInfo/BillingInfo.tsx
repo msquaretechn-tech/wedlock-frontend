@@ -42,6 +42,8 @@ const BillingInfo = () => {
   const { data: billingInfo, error, isLoading } = useGetBillingInfoQuery<any>();
   const { data: plansData } = useGetPlansQuery<any>();
   const [createCheckoutSession] = useCreateCheckoutSessionMutation();
+  const [selectedPaymentMethod, setSelectedPaymentMethod] =
+  useState<"stripe" | "paypal">("stripe");
 
   useEffect(() => {
     if (billingInfo?.success) {
@@ -49,9 +51,9 @@ const BillingInfo = () => {
     }
   }, [billingInfo]);
 
-  const handleCheckout = async (id: string) => {
+  const handleCheckout = async (id: string, paymentMethod: "stripe" | "paypal") => {
     try {
-      const res: any = await createCheckoutSession({ planId: id }).unwrap();
+      const res: any = await createCheckoutSession({ planId: id, paymentMethod }).unwrap();
       if (res?.url) {
         window.location.href = res.url;
       }
@@ -81,7 +83,7 @@ const BillingInfo = () => {
       } else if (currentPlanInfo.planName === "Premium") {
         setShowPremiumDescription(true);
       } else {
-        handleCheckout(currentPlanInfo.id);
+        handleCheckout(currentPlanInfo.id, selectedPaymentMethod);
       }
     } else {
       toast.error(`Plan '${billingData.currentPlan}' with type '${billingData.planType}' not found.`);
@@ -90,7 +92,7 @@ const BillingInfo = () => {
 
   const handlePremiumContinue = () => {
     setShowPremiumDescription(false);
-    if (selectedPlanId) handleCheckout(selectedPlanId);
+    if (selectedPlanId) handleCheckout(selectedPlanId, selectedPaymentMethod);
   };
 
   const handleExclusiveContinue = () => {
@@ -100,7 +102,7 @@ const BillingInfo = () => {
 
   const handleEligible = () => {
     setShowExclusiveModal(false);
-    if (selectedPlanId) handleCheckout(selectedPlanId);
+    if (selectedPlanId) handleCheckout(selectedPlanId, selectedPaymentMethod);
   };
 
   if (isLoading) return <Loading />;
@@ -219,6 +221,8 @@ const BillingInfo = () => {
         onClose={() => setShowPremiumDescription(false)}
         onContinue={handlePremiumContinue}
         title="Premium Plan Details"
+        paymentMethod={selectedPaymentMethod}
+        onPaymentMethodChange={setSelectedPaymentMethod}
       >
         <PremiumPlan planType={billingData.planType} />
       </PlanDescriptionModal>
@@ -228,6 +232,8 @@ const BillingInfo = () => {
         onClose={() => setShowExclusiveDescription(false)}
         onContinue={handleExclusiveContinue}
         title="Exclusive Plan Details"
+        paymentMethod={selectedPaymentMethod}
+        onPaymentMethodChange={setSelectedPaymentMethod}
       >
         <ExclusivePlan planType={billingData.planType} />
       </PlanDescriptionModal>
@@ -255,16 +261,20 @@ interface ModalProps {
   onContinue: () => void;
   title: string;
   children: React.ReactNode;
+  paymentMethod?: "stripe" | "paypal";
+  onPaymentMethodChange?: (method: "stripe" | "paypal") => void;
 }
 
-const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: ModalProps) => {
+const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, paymentMethod, onPaymentMethodChange }: ModalProps) => {
   const [isAcknowledged, setIsAcknowledged] = useState(false);
   const [isAcknowledgedPolicy, setIsAcknowledgedPolicy] = useState(false);
+  const [hasChosenPayment, setHasChosenPayment] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       setIsAcknowledged(false);
       setIsAcknowledgedPolicy(false);
+      setHasChosenPayment(true); // Stripe already selected
     }
   }, [isOpen]);
 
@@ -288,6 +298,46 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: 
         <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
           {children}
         </div>
+
+        {onPaymentMethodChange && (
+  <div className="mb-6 rounded-2xl border border-white/20 bg-white/10 p-4">
+    <p className="mb-3 text-sm font-semibold text-white">
+      Select payment method
+    </p>
+
+    <div className="grid grid-cols-2 gap-3">
+      <button
+        type="button"
+        onClick={() => {
+          onPaymentMethodChange("stripe");
+          setHasChosenPayment(true);
+        }}
+        className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
+          paymentMethod === "stripe"
+            ? "border-[#00D1FF] bg-[#00D1FF]/15 text-white"
+            : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"
+        }`}
+      >
+        Stripe Pay
+      </button>
+
+      <button
+        type="button"
+        onClick={() => {
+          onPaymentMethodChange("paypal");
+          setHasChosenPayment(true);
+        }}
+        className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
+          paymentMethod === "paypal"
+            ? "border-[#FFD43B] bg-[#FFD43B]/15 text-white"
+            : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"
+        }`}
+      >
+        PayPal
+      </button>
+    </div>
+  </div>
+ )} 
         <div className="p-6 border-t border-white/10 bg-black/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-col gap-2">
             <label className="flex items-center gap-3 cursor-pointer group">
@@ -312,13 +362,13 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children }: 
           <div className="flex gap-4 w-full sm:w-auto">
             <button className="px-6 py-2.5 bg-gray-200 text-gray-700 rounded-xl font-semibold" onClick={onClose}>Cancel</button>
             <button
-              className={`px-8 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md flex items-center justify-center gap-2 flex-1 sm:flex-none ${isAcknowledged && isAcknowledgedPolicy
+              className={`px-8 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md flex items-center justify-center gap-2 flex-1 sm:flex-none ${isAcknowledged && isAcknowledgedPolicy && (!onPaymentMethodChange || hasChosenPayment)
                 ? "text-white scale-100"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed scale-[0.98]"
                 }`}
               style={{ backgroundColor: isAcknowledged && isAcknowledgedPolicy ? (isExclusiveTheme ? "#60457E" : "#007EAF") : undefined }}
               onClick={onContinue}
-              disabled={!isAcknowledged || !isAcknowledgedPolicy}
+              disabled={!isAcknowledged || !isAcknowledgedPolicy || (onPaymentMethodChange && !hasChosenPayment) }
             >
               Get Started
             </button>

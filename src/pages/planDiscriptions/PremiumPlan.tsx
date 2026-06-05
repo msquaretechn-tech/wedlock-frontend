@@ -105,7 +105,7 @@ const PremiumPlan: React.FC<PremiumPlanProps> = ({ planType }) => {
 const FeatureItem = ({ text, active }: { text: string; active: boolean }) => (
     <li className="flex items-start gap-3 group">
         {active ? (
-            <MdCheckCircle className="text-[#FFC759] mt-1 shrink-0 group-hover:scale-110 transition-transform" />
+            <MdCheckCircle className="text-[#fffff] mt-1 shrink-0 group-hover:scale-110 transition-transform" />
         ) : (
             <MdCancel className="text-white/30 mt-1 shrink-0" />
         )}

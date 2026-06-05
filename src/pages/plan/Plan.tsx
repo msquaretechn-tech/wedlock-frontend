@@ -396,6 +396,56 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
 
     <div className="flex gap-4 w-full sm:w-auto">
       {/* Cancel & Continue buttons */}
+      <div className="flex gap-4 w-full sm:w-auto">
+  <button
+    type="button"
+    className="px-6 py-2.5 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-all duration-200 flex-1 sm:flex-none"
+    onClick={onClose}
+  >
+    Cancel
+  </button>
+
+  <button
+    type="button"
+    className={`px-8 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md flex items-center justify-center gap-2 flex-1 sm:flex-none ${
+      isAcknowledged &&
+      isAcknowledgedPolicy &&
+      (!onPaymentMethodChange || hasChosenPayment)
+        ? "text-white"
+        : "bg-gray-300 text-gray-500 cursor-not-allowed"
+    }`}
+    style={{
+      backgroundColor:
+        isAcknowledged &&
+        isAcknowledgedPolicy &&
+        (!onPaymentMethodChange || hasChosenPayment)
+          ? themeColor
+          : undefined,
+    }}
+    onClick={onContinue}
+    disabled={
+      !isAcknowledged ||
+      !isAcknowledgedPolicy ||
+      (onPaymentMethodChange && !hasChosenPayment)
+    }
+  >
+    Get Started
+    <svg
+      className="w-5 h-5"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M14 5l7 7m0 0l-7 7m7-7H3"
+      />
+    </svg>
+  </button>
+</div>
+      
     </div>
   </div>
 </div>
