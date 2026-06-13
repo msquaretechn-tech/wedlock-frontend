@@ -464,7 +464,8 @@ const MyDetails = () => {
                             borderRadius: "100px",
                             textTransform: "capitalize",
                             boxShadow: "none",
-                            fontWeight: "bold"
+                            fontWeight: "bold",
+                            height: "30px"
                           }}
                           className="my-auto justify-center self-stretch whitespace-nowrap px-3 py-1.5 text-center tracking-normal"
                         >
@@ -536,8 +537,8 @@ const MyDetails = () => {
                   </div>
                 </div>
                 <div className="h-[28rem] xl:w-[30%]  w-auto rounded-lg bg-[#FEE7BD]  md:p-5 md:h-[26rem]">
-                  <h2 className="font-[Proxima-Nova-Semibold] text-xl md:text-2xl text-center mt-2 md:text-start">Complete your profile</h2>
-                  <div className="flex flex-col items-center justify-center p-5">
+                  <h2 className="font-[Proxima-Nova-Semibold] text-xl md:text-2xl text-center mt-2 md:text-start">Profile Completion Percentage</h2>
+                  <div className="flex flex-col items-center justify-center p-1">
                     <Gauge
                       width={230}
                       height={150}
@@ -545,7 +546,7 @@ const MyDetails = () => {
                       startAngle={-90}
                       endAngle={90}
                       text={({ valueMax }) =>
-                        `Completed ${(Math.round((Percentage / valueMax) * 100)).toFixed(0)}%`
+                        `Your profile ${(Math.round((Percentage / valueMax) * 100)).toFixed(0)}%`
                       }
                       sx={(theme) => ({
                         [`& .${gaugeClasses.valueText}`]: {
@@ -571,7 +572,7 @@ const MyDetails = () => {
                   </p> */}
 
                   <p className="text-lg font-[Proxima-Nova-Regular] text-center">
-                    The more complete your profile is, the better matches you’ll get. Complete your profile to stand out, increase visibility, and connect with people who match your interests.
+                    Complete your profile to improve match quality, increase visibility, and connect with people who share your values, interests, and relationship goals.
                   </p>
 
                   {/* <div className="mt-2 text-center text-lg text-[#007EAF] underline">
@@ -581,7 +582,7 @@ const MyDetails = () => {
               </div>
             </div>
 
-            {/* Family details */}
+            {/* Family Details */}
 
             <div className="w-75% mb-4  xl:mb-0 flex flex-col rounded-xl bg-white md:w-auto h-[17rem]">
               {/* <div className="flex flex-col pb-6 bg-white rounded-xl shadow-sm max-md:max-w-full"> */}
@@ -590,7 +591,7 @@ const MyDetails = () => {
                 style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
               >
                 <div className="flex items-center justify-between">
-                  Family details
+                  Family Details
                   <div className="flex gap-4">
                     <button className="w-2 text-2xl" onClick={openFamilyModel}>
                       <FaEdit />
@@ -698,7 +699,7 @@ const MyDetails = () => {
                       <CiMap />
                     </div>
                     <div className="text-lg leading-8 tracking-wide text-slate-600 md:text-xl">
-                      Body Type
+                      Body type
                     </div>
                   </div>
                   <div className={`text-md ml-8 mt-2 flex justify-center gap-1.5 self-start rounded-[100px] border border-solid border-gray-200 bg-blue-50 bg-opacity-50 px-5 py-2 font-medium capitalize leading-7 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} max-md:ml-2.5 md:py-4 md:text-md`}>
@@ -723,7 +724,7 @@ const MyDetails = () => {
                     </div>
 
                     <div className="text-lg leading-8 text-slate-600 md:text-xl">
-                      Smoking habbits
+                      Smoking status
                     </div>
                   </div>
                   <div className="text-md ml-9 mt-2 justify-center self-start rounded-[100px] bg-green-100 px-3 py-1.5 text-center font-medium capitalize leading-7 text-green-700 max-md:ml-2.5 md:text-md">
@@ -737,7 +738,7 @@ const MyDetails = () => {
 
                     <div className="text-lg leading-8 text-slate-600 md:text-xl">
                       {" "}
-                      Drinking habbit
+                      Drinking status
                     </div>
                   </div>
                   <div className="text-md ml-7 mt-2 justify-center self-start rounded-[100px] bg-gray-200 px-3 py-1.5 text-center font-medium capitalize leading-7 text-slate-900 max-md:ml-2.5 md:text-md">
@@ -878,7 +879,7 @@ const MyDetails = () => {
                 style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
               >
                 <div className="flex items-center justify-between">
-                  Location
+                  Location Details
                   <div className="flex gap-4">
                     <button
                       className="w-2 text-2xl"

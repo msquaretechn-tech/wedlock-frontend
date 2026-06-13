@@ -103,24 +103,34 @@ const UserDashboard: React.FC = () => {
 
   const items: TabsProps["items"] = [
     {
-      key: "details",
-      label: `My Details`,
-      children: <MyDetails />,
-    },
-    {
       key: "discover",
-      label: `Discover`,
+      label: `Discover Matches`,
       children: <Discover />,
     },
     {
       key: "Connections",
-      label: `Connections`,
+      label: `My Connections`,
       children: <Connections />,
     },
     {
+      key: "chats",
+      label: (
+        <span className="flex items-center gap-2">
+          Messages 
+          {totalUnread > 0 && <Badge count={totalUnread} size="small" style={{ backgroundColor: isExclusive ? "#60457E" : "#007EAF" }} />}
+        </span>
+      ),
+      children: <ChatScreen />,
+    },
+    {
       key: "favorite-profiles",
-      label: `Favourite Profiles`,
+      label: `Saved Favourites`,
       children: <Favourate />,
+    },
+    {
+      key: "details",
+      label: `My Profile`,
+      children: <MyDetails />,
     },
     // {
     //   key: "plans",
@@ -129,7 +139,7 @@ const UserDashboard: React.FC = () => {
     // },
     {
       key: "billings",
-      label: `Plan & Billing`,
+      label: `Subscription & Billing`,
       children: <BillingInfo />,
     },
     {
@@ -137,19 +147,10 @@ const UserDashboard: React.FC = () => {
       label: `Notifications`,
       children: <Notification />,
     },
-    {
-      key: "chats",
-      label: (
-        <span className="flex items-center gap-2">
-          Chats 
-          {totalUnread > 0 && <Badge count={totalUnread} size="small" style={{ backgroundColor: isExclusive ? "#60457E" : "#007EAF" }} />}
-        </span>
-      ),
-      children: <ChatScreen />,
-    },
+    
     {
       key: "faqs",
-      label: `Frequently Asked Questions`,
+      label: `FAQs`,
       children: <Faqs />,
     },
 

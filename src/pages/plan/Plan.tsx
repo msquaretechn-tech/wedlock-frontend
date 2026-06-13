@@ -297,7 +297,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
     if (isOpen) {
       setIsAcknowledged(false);
       setIsAcknowledgedPolicy(false);
-      setHasChosenPayment(false);
+      setHasChosenPayment(true); // Stripe already selected
     }
   }, [isOpen]);
 
@@ -571,6 +571,5 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: EligibilityP
     </div>
   );
 };
-
 
 
