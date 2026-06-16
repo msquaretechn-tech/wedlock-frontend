@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import FAQ from '../../components/faqs/Faqs';
-import { CiHeart } from "react-icons/ci";
+//import { CiHeart } from "react-icons/ci";
 
 
 
