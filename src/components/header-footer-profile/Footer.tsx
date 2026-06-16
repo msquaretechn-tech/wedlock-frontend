@@ -51,11 +51,10 @@ const Footer = () => {
                     fontFamily: "Proxima-Nova-ExtraBold-Italic, sans-serif",
                   }}
                 >
-                  The Art of Meaningful Matchmaking
+                  Next-Gen Matchmaking
                 </h4>
                 <p className="text-sm">
-                  This platform is strictly for matrimonial purposes only and not a dating platform.
-
+                  Trusted Matrimonial Platform in Australia for Serious Relationships.
                 </p>
               </div>
               <div className="text-center md:text-right">

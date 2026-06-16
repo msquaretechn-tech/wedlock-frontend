@@ -73,7 +73,7 @@ const Search = () => {
         <div className="">
           <div className="flex items-center justify-between w-[100%]  browse">
             <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[48px] mt-5 text-[#007EAF]">
-              Find Your Perfect Match
+              Find your perfect match
             </h1>
           </div>
           <p className="text-[#101828E5] text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[8px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">

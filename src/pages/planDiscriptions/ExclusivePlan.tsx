@@ -13,13 +13,13 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {(!planType || planType.toLowerCase().includes("month")) && (
                         <div className="bg-white/10 p-4 rounded-xl border border-white/20">
-                            <p className="text-sm text-white/70 font-medium">1 Month</p>
+                            <p className="text-sm text-white/70 font-medium">1 Month (calendar month, no auto-renewal)</p>
                             <p className="text-2xl font-bold text-white">AU $1</p>
                         </div>
                     )}
                     {(!planType || planType.toLowerCase().includes("year") || planType.toLowerCase().includes("annual")) && (
                         <div className="bg-white/10 p-4 rounded-xl border border-white/20">
-                            <p className="text-sm text-white/70 font-medium">12 Months</p>
+                            <p className="text-sm text-white/70 font-medium">12 Months (365 days, no auto-renewal)</p>
                             <p className="text-2xl font-bold text-white">AU $89.88</p>
                         </div>
                     )}

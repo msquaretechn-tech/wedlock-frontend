@@ -28,7 +28,7 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
           type="button"
           className={`flex h-[48px] w-full items-center justify-center gap-2 rounded-md bg-white md:px-40 py-2 ${
             isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
-          } md:w-auto xl:mt-20 md:mt-0`}
+          } md:w-auto xl:mt-5 md:mt-0`}
           onClick={handleNext}
         >
           Click to continue

@@ -27,21 +27,27 @@ const Exclusive = () => {
         <h1 className="max-lg:text-3xl text-[55px] font-Proxima-Nova-Bold mb-4">
           Exclusive matchmaking
         </h1>
+        <h2 className="text-[1.2rem] text-base whitespace-nowrap mx-auto font-Proxima-Nova-Light">
+          Eligibility Criteria for an Exclusive Profile on Wedlock
+        </h2>
         <p className="text-base whitespace-nowrap mx-auto font-Proxima-Nova-Light">
-          Eligibility Criteria for Creating an Exclusive Profile on Wedlock Australia
-        </p>
+          To maintain the quality, integrity, and exclusivity of our membership community,
+        </p>  
+        <p className="text-base whitespace-nowrap mx-auto font-Proxima-Nova-Light">
+          applicants for an Exclusive Profile should generally meet the following criteria:
+        </p> 
       </div>
 
       <div className="w-[90%] max-md:w-[90%] max-w-2xl bg-white bg-opacity-10 rounded-lg max-md:p-4 p-8 container">
         <ul className="text-white space-y-6">
           {[
-            "A minimum age of 18 years for females and 21 years for males.",
-            "A minimum annual income threshold $80,000+",
-            "Professional achievements or established career in a reputable industry.",
-            "Comprehensive profile verification, including identity and occupation checks.",
-            "Active membership in prestigious clubs.",
-            "Background aligned with community and family values.",
-            "Graduation completed (required)"
+            "Minimum age of 18 years for females and 21 years for males",
+            "Minimum annual income of $100,000+.",
+            "Graduate degree or higher qualification.",
+            "Demonstrated professional achievements or an established career in a reputable industry.",
+            "Background aligned with strong community and family values.",
+            "No criminal background.",
+            "Willingness to undergo comprehensive profile verification, including identity and occupation checks, where required."
           ].map((text, index) => (
             <li className="flex items-center space-x-4 " key={index}>
               <div className="flex-shrink-0" key={index}>
@@ -58,6 +64,10 @@ const Exclusive = () => {
           ))}
         </ul>
       </div>
+      <p>&nbsp;</p>
+      <p className="text-base whitespace-nowrap mx-auto font-Proxima-Nova-Light">
+        Eligibility criteria are considered holistically, and exceptional candidates may be assessed on a case-by-case basis.
+      </p>
 
       <div className="flex space-x-4 mt-4 mb-4">
         <button

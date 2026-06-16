@@ -7,7 +7,7 @@ import { CiHeart } from "react-icons/ci";
 const Faqs = () => {
   return (
     <div className=" font-Proxima-Nova-Regular z-10">
-      <div className="flex flex-col items-center justify-center py-12 gap-9 bg-[#E6F2F7] px-[16px]">
+      {/*<div className="flex flex-col items-center justify-center py-12 gap-9 bg-[#E6F2F7] px-[16px]"> */}
         {/* <span className="text-blue-600 ">FAQs</span> */}
         {/* <h1 className="text-5xl font-semibold mt-4">Frequently asked questions</h1> */}
         {/* <h4 className="text-[#475467]">Have questions? We’re here to help.</h4> */}
@@ -19,8 +19,9 @@ const Faqs = () => {
             placeholder="Search"
           />
         </div> */}
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3  gap-8 bg-[#F5F4F4] px-4  md:px-20 py-10 card_container">
+      {/*</div>*/}
+
+      {/* <div className="grid grid-cols-1 md:grid-cols-3  gap-8 bg-[#F5F4F4] px-4  md:px-20 py-10 card_container">
         <div className="flex flex-col items-center justify-center gap-8 faqs_card">
           <div className="rounded-full bg-[#F4EBFF] w-10 h-10 flex items-center justify-center">
             <CiHeart className="text-[#007EAF] text-2xl"/>
@@ -90,9 +91,10 @@ const Faqs = () => {
           </p>
           </div>
         </div>
-        
-      </div>
+      </div> */}
+
       <FAQ /> 
+      
       <div className="py-20 text-center bg-[#F5F4F4] space-y-8">
         <p className="font-bold">Still have questions?</p>
         <p className='text-[#475467] pb-5 '>Can’t find the answer you’re looking for? Please chat to our friendly team.</p>

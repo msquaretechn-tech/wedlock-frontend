@@ -75,7 +75,7 @@ const Subscription: React.FC = () => {
               </tr>
               <tr className="border-b-2">
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-left ">
-                  1 Month
+                  1 Month (calendar month, no auto-renewal)
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
                   Free
@@ -89,7 +89,7 @@ const Subscription: React.FC = () => {
               </tr>
               <tr className="border-b-2">
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-left ">
-                  12 Months
+                  12 Months (365 days, no auto-renewal)
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
                   Free

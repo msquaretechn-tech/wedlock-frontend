@@ -221,11 +221,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-6">
           <div className="font-Proxima-Nova-Regular">
             <h1 className="font-semibold text-base md:text-lg italic">
-              The Art of Meaningful Matchmaking
+              Next-Gen Matchmaking
             </h1>
             <p className="text-xs md:text-sm">
-              This platform is strictly for matrimonial purposes only and not a
-              dating platform.
+              This platform is strictly for matrimonial purposes only and not a dating platform.
             </p>
           </div>
           <div className="text-left md:text-right">

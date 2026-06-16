@@ -115,7 +115,7 @@ const BillingInfo = () => {
     <Box>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
         <h2 className="text-3xl font-bold mb-5">
-          Plan and Billing Details
+          Subscription & Billing Details
         </h2>
 
         <Typography variant="subtitle1" fontWeight={400} sx={{ color: isExpired ? "inherit" : "inherit" }}>
@@ -152,7 +152,7 @@ const BillingInfo = () => {
             <Button
               variant="contained"
               sx={{
-                backgroundColor: "#007EAF",
+                backgroundColor: "#007eaf",
                 textTransform: "none",
                 ":hover": { backgroundColor: "#005f80" },
               }}
@@ -165,7 +165,7 @@ const BillingInfo = () => {
           <Button
             variant="contained"
             sx={{
-              backgroundColor: "#007EAF",
+              backgroundColor: "#007eaf",
               textTransform: "none",
               ":hover": { backgroundColor: "#005f80" },
             }}
@@ -281,7 +281,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
   if (!isOpen) return null;
 
   const isExclusiveTheme = title.toLowerCase().includes("exclusive");
-  const themeBgFull = isExclusiveTheme ? "bg-[#60457E]" : "bg-[#007EAF]";
+  const themeBgFull = isExclusiveTheme ? "bg-[#007eaf]" : "bg-[#007eaf]";
   const themeTextFull = "text-white";
 
   return (
@@ -347,7 +347,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
                 checked={isAcknowledged}
                 onChange={(e) => setIsAcknowledged(e.target.checked)}
               />
-              <span className="text-sm font-medium text-white/90">Payment not refundable</span>
+              <span className="text-sm font-medium text-white/90">I understand and agree that all payments are non-refundable</span>
             </label>
             <label className="flex items-center gap-3 cursor-pointer group">
               <input
@@ -356,7 +356,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
                 checked={isAcknowledgedPolicy}
                 onChange={(e) => setIsAcknowledgedPolicy(e.target.checked)}
               />
-              <span className="text-sm font-medium text-white/90">Accepted Wedlock privacy policy & terms</span>
+              <span className="text-sm font-medium text-white/90">I agree to the Privacy Policy and consent to data sharing as described</span>
             </label>
           </div>
           <div className="flex gap-4 w-full sm:w-auto">
@@ -366,7 +366,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
                 ? "text-white scale-100"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed scale-[0.98]"
                 }`}
-              style={{ backgroundColor: isAcknowledged && isAcknowledgedPolicy ? (isExclusiveTheme ? "#60457E" : "#007EAF") : undefined }}
+              style={{ backgroundColor: isAcknowledged && isAcknowledgedPolicy ? (isExclusiveTheme ? "#007eaf" : "#007eaf") : undefined }}
               onClick={onContinue}
               disabled={!isAcknowledged || !isAcknowledgedPolicy || (onPaymentMethodChange && !hasChosenPayment) }
             >
@@ -406,7 +406,7 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: { is
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-[#8E69B4] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
+      <div className="bg-[#007eaf] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-2">
             <button

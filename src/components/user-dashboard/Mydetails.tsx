@@ -441,7 +441,7 @@ const MyDetails = () => {
                   </div>
 
                   <div className="mt-2.5 flex flex-wrap py-6 items-center gap-2.5 self-start text-base font-medium  leading-4 text-slate-900">
-                    <div className={`self-stretch text-xl font-bold leading-10 bg ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} lg:text-3xl`}>
+                    <div className={`self-stretch text-xl font-bold leading-10 bg ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} lg:text-3xl`}>
                       {`${capitalize(myDetails?.basic_and_lifestyle?.firstName)} ${capitalize(myDetails?.basic_and_lifestyle?.lastName)}`}
                     </div>
                     <div className="my-auto justify-center self-stretch whitespace-nowrap rounded-[100px] bg-orange-100 px-3 py-1.5 text-center capitalize tracking-normal">
@@ -453,7 +453,7 @@ const MyDetails = () => {
                     {(() => {
                       const isExpired = Number(billingData?.data?.remainingDays) <= 0 && billingData?.data?.expirationDate !== "N/A";
                       const displayPlan = isExpired ? "Standard" : (billingData?.data?.currentPlan || "Standard");
-                      const planColor = displayPlan === "Exclusive" ? "#60457E" : (displayPlan === "Premium" ? "#007EAF" : "#8c8c8c");
+                      const planColor = displayPlan === "Exclusive" ? "#007eaf" : (displayPlan === "Premium" ? "#007eaf" : "#8c8c8c");
 
                       return (
                         <Button
@@ -491,9 +491,9 @@ const MyDetails = () => {
                   <div className="mt-6 flex flex-col rounded-xl bg-cyan-600 bg-opacity-20 px-6 py-3 max-md:max-w-full max-md:px-5">
                     <div className="text-base font-bold leading-6 tracking-wide text-gray-900 text-opacity-90 max-md:max-w-full">
                       About{" "}
-                      {myDetails?.basic_and_lifestyle?.firstName +
+                      {capitalize(myDetails?.basic_and_lifestyle?.firstName) +
                         " " +
-                        myDetails?.basic_and_lifestyle?.lastName}
+                        capitalize(myDetails?.basic_and_lifestyle?.lastName)}
                     </div>
                     <div className="mt-4 text-sm leading-7 tracking-wide text-slate-600 max-md:max-w-full md:text-lg">
                       {myDetails?.basic_and_lifestyle?.about}
@@ -554,7 +554,7 @@ const MyDetails = () => {
                           fontWeight: 'bold',
                         },
                         [`& .${gaugeClasses.valueArc}`]: {
-                          fill: `${isExclusive ? '#60457E' : '#007EAF'}`,
+                          fill: `${isExclusive ? '#007eaf' : '#007EAF'}`,
                         },
                         [`& .${gaugeClasses.referenceArc}`]: {
                           fill: theme.palette.text.disabled,
@@ -587,7 +587,7 @@ const MyDetails = () => {
             <div className="w-75% mb-4  xl:mb-0 flex flex-col rounded-xl bg-white md:w-auto h-[17rem]">
               {/* <div className="flex flex-col pb-6 bg-white rounded-xl shadow-sm max-md:max-w-full"> */}
               <div
-                className={`w-full justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} max-md:max-w-full max-md:px-5 md:text-xl`}
+                className={`w-full justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:max-w-full max-md:px-5 md:text-xl`}
                 style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
               >
                 <div className="flex items-center justify-between">
@@ -649,7 +649,7 @@ const MyDetails = () => {
             <div className="row-span-3 lg:row-span-3 mb-4  xl:mb-0 rounded-xl bg-white ">
               <div className="flex flex-col rounded-xl bg-white pb-6 shadow-sm">
                 <div
-                  className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} max-md:px-5 md:text-xl`}
+                  className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:px-5 md:text-xl`}
                   style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
                 >
                   <div className="flex items-center justify-between">
@@ -673,40 +673,40 @@ const MyDetails = () => {
                 </div>
                 <div className="mt-6 flex flex-col px-6 max-md:px-5 xl:gap-3 ">
                   <div className="flex items-center gap-1 whitespace-nowrap">
-                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} md:text-3xl`}>
+                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} md:text-3xl`}>
                       <CiMap />
                     </div>
                     <div className="text-lg leading-8 text-slate-600 md:text-xl">
                       Height
                     </div>
                   </div>
-                  <div className={`text-md ml-8 mt-2 justify-center self-start rounded-[100px] bg-blue-50 px-3 py-1.5 text-center font-medium capitalize leading-7 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} max-md:ml-2.5 md:text-md`}>
+                  <div className={`text-md ml-8 mt-2 justify-center self-start rounded-[100px] bg-blue-50 px-3 py-1.5 text-center font-medium capitalize leading-7 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:ml-2.5 md:text-md`}>
                     {myDetails?.personal_background?.height}
                   </div>
                   <div className="mt-6 flex items-center gap-1 whitespace-nowrap">
-                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} md:text-3xl`}>
+                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} md:text-3xl`}>
                       <CiMap />
                     </div>
                     <div className="text-lg leading-8 tracking-wide text-slate-600 md:text-xl">
                       Weight
                     </div>
                   </div>
-                  <div className={`text-md ml-8 mt-2 justify-center self-start rounded-[100px] bg-blue-50 px-3 py-1.5 text-center font-medium capitalize leading-7 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} max-md:ml-2.5 md:text-md`}>
+                  <div className={`text-md ml-8 mt-2 justify-center self-start rounded-[100px] bg-blue-50 px-3 py-1.5 text-center font-medium capitalize leading-7 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:ml-2.5 md:text-md`}>
                     {myDetails?.personal_background?.weight}
                   </div>
                   <div className="mt-6 flex items-center gap-1">
-                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} md:text-3xl`}>
+                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} md:text-3xl`}>
                       <CiMap />
                     </div>
                     <div className="text-lg leading-8 tracking-wide text-slate-600 md:text-xl">
                       Body type
                     </div>
                   </div>
-                  <div className={`text-md ml-8 mt-2 flex justify-center gap-1.5 self-start rounded-[100px] border border-solid border-gray-200 bg-blue-50 bg-opacity-50 px-5 py-2 font-medium capitalize leading-7 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} max-md:ml-2.5 md:py-4 md:text-md`}>
+                  <div className={`text-md ml-8 mt-2 flex justify-center gap-1.5 self-start rounded-[100px] border border-solid border-gray-200 bg-blue-50 bg-opacity-50 px-5 py-2 font-medium capitalize leading-7 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:ml-2.5 md:py-4 md:text-md`}>
                     {myDetails?.personal_background?.bodyType}
                   </div>
                   <div className="mt-6 flex items-center gap-1 whitespace-nowrap text-xl leading-8 tracking-wide text-slate-600">
-                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} md:text-3xl`}>
+                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} md:text-3xl`}>
                       <IoLanguage />
                     </div>
 
@@ -718,7 +718,7 @@ const MyDetails = () => {
                     {myDetails?.personal_background?.language}
                   </div>
                   <div className="mt-6 flex items-center gap-1 text-xl leading-8 tracking-wide text-slate-600">
-                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} md:text-3xl`}>
+                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} md:text-3xl`}>
                       {" "}
                       <FaSmoking />
                     </div>
@@ -731,7 +731,7 @@ const MyDetails = () => {
                     {myDetails?.personal_background?.smokingHabbit}
                   </div>
                   <div className="mt-6 flex items-center gap-1 text-xl leading-8 tracking-wide text-slate-600">
-                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} md:text-3xl`}>
+                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} md:text-3xl`}>
                       {" "}
                       <FaWineGlassAlt />{" "}
                     </div>
@@ -745,7 +745,7 @@ const MyDetails = () => {
                     {myDetails?.personal_background?.drinkingHabbit}
                   </div>
                   <div className="mt-6 flex items-center gap-1 whitespace-nowrap">
-                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} md:text-3xl`}>
+                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} md:text-3xl`}>
                       <CiMap />
                     </div>
                     <div className="text-lg leading-8 tracking-wide text-slate-600 md:text-xl">
@@ -756,7 +756,7 @@ const MyDetails = () => {
                     {myDetails?.personal_background?.diet}
                   </div>
                   <div className="mt-6 flex items-center gap-2 whitespace-nowrap">
-                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} md:text-3xl`}>
+                    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} md:text-3xl`}>
                       <CiMap />
                     </div>
                     <div className="text-lg leading-8 tracking-wide text-slate-600 md:text-xl">
@@ -774,7 +774,7 @@ const MyDetails = () => {
             <div className="h-[31rem] md:h-[28rem] mb-4 xl:mb-0 rounded-xl bg-white">
               <div className="flex h-[28rem] flex-col rounded-xl bg-white pb-6 shadow-sm max-md:max-w-full">
                 <div
-                  className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} max-md:max-w-full max-md:px-5 md:text-xl`}
+                  className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:max-w-full max-md:px-5 md:text-xl`}
                   style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
                 >
                   <div className="flex items-center justify-between">
@@ -875,7 +875,7 @@ const MyDetails = () => {
 
             <div className="h-auto py-4  rounded-xl mb-4 xl:mb-0 bg-white">
               <div
-                className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} max-md:max-w-full max-md:px-5 md:text-xl`}
+                className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:max-w-full max-md:px-5 md:text-xl`}
                 style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
               >
                 <div className="flex items-center justify-between">
@@ -964,29 +964,87 @@ const MyDetails = () => {
               </div>
             </div>
 
-            {/* Interest and hobbies */}
-            <div className="h-auto py-4 rounded-xl">
-              <div className=" flex max-w-[499px] flex-col pb-9 leading-8 text-slate-900">
-                <div className={`flex items-center justify-between text-lg font-semibold leading-[110%] ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} md:text-xl`}>
-                  Interest and hobbies
-                  {/* <div className="flex gap-4 ${isExclusive? 'text-[#60457E]': 'text-[#007EAF]'}">
-                  <button
-                    className="w-2 text-2xl"
-                    onClick={openInterestHobbiesModal}
-                  >
-                    <FaEdit />
-                  </button>
-                  <InterestHobbiesModal
-                    isVisible={interestHobbiesModalOpen}
-                    onClose={closeInterestHobbiesModal}
-                  />
-                  <div>
-                    <Switch defaultChecked />
+            {/* Partner Preferences */}
+            <div className="h-auto rounded-xl bg-white mb-10 overflow-hidden">
+              <div className="flex flex-col rounded-xl border border-solid border-gray-200 bg-white pb-6 shadow-sm">
+                <div
+                  className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:px-5 md:text-xl`}
+                  style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
+                >
+                  <div className="flex items-center justify-between">
+                    Partner Preferences
+                    <div className="flex gap-4">
+                      <button
+                        className="w-2 text-2xl"
+                        onClick={openPartnerPreferenceModal}
+                      >
+                        <FaEdit />
+                      </button>
+                      <PartnerPreferenceModal
+                        isVisible={partnerPreferenceModalOpen}
+                        onClose={closePartnerPreferenceModal}
+                        initialValues={preferencesData?.preferences}
+                      />
+                    </div>
                   </div>
-                </div> */}
                 </div>
+                <div className="mt-6 px-6 max-md:px-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-12 gap-y-6">
+                    {/* Row 1 */}
+                    <div className="border-b border-gray-50 pb-2">
+                      <div className="text-slate-600 font-medium">Looking For</div>
+                      <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.lookingFor || "Not Specified"}</div>
+                    </div>
+                    <div className="border-b border-gray-50 pb-2">
+                      <div className="text-slate-600 font-medium">Age Range</div>
+                      <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.lookingPartnerAge ? `${preferencesData?.preferences?.lookingPartnerAge} Years` : "Not Specified"}</div>
+                    </div>
+                    <div className="border-b border-gray-50 pb-2">
+                      <div className="text-slate-600 font-medium">Wedding Goals</div>
+                      <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.weddingGoals || "Not Specified"}</div>
+                    </div>
 
-                <div className="mt-4 flex  gap-2.5 whitespace-nowrap  capitalize tracking-wide max-md:pr-5 flex-wrap">
+                    {/* Row 2 */}
+                    <div className="border-b border-gray-50 pb-2">
+                      <div className="text-slate-600 font-medium">My Gender</div>
+                      <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.gender || "Not Specified"}</div>
+                    </div>
+                    <div className="border-b border-gray-50 pb-2">
+                      <div className="text-slate-600 font-medium">My Age</div>
+                      <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.age ? `${preferencesData?.preferences?.age} Years` : "Not Specified"}</div>
+                    </div>
+                    <div className="border-b border-gray-50 pb-2">
+                      <div className="text-slate-600 font-medium">Living in Australia?</div>
+                      <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.livingInAustralia || "Not Specified"}</div>
+                    </div>
+
+                    {/* Row 3 */}
+                    <div className="border-b border-gray-50 pb-2">
+                      <div className="text-slate-600 font-medium">Horoscope Match</div>
+                      <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.horoscopeMatch || "Not Specified"}</div>
+                    </div>
+                    <div className="border-b border-gray-50 pb-2">
+                      <div className="text-slate-600 font-medium">Caste/Religion Matter?</div>
+                      <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.castReligionMatterOrNot || "Not Specified"}</div>
+                    </div>
+                  </div>
+
+                  {/* Interests & Hobbies section */}
+                  <div className="mt-8 border-t pt-6">
+                    <h4 className="text-slate-600 font-medium mb-4">Interests & Hobbies</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {preferencesData?.preferences?.interest_and_hobbies?.length > 0 ? (
+                        preferencesData.preferences.interest_and_hobbies.map((hobby: string) => (
+                          <span key={hobby} className="bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-sm font-medium border border-cyan-100">
+                            {hobby}
+                          </span>
+                        ))
+                      ) : (
+                        <span className="text-gray-400 italic"></span>
+                      )}
+                    </div>
+
+                  <div className="mt-4 flex  gap-2.5 whitespace-nowrap  capitalize tracking-wide max-md:pr-5 flex-wrap">
                   {myDetails?.interest_and_hobbies?.map(
                     (interest: string) => (
                       <div
@@ -998,18 +1056,22 @@ const MyDetails = () => {
                     )
                   )}
                 </div>
+
+
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* education and finacial */}
-            <div className="h-auto  rounded-xl bg-white">
-              <div className="flex flex-col rounded-xl border border-solid border-gray-200 bg-white pb-6 shadow-sm">
+            {/* Education & Financial Details */}
+            <div className="h-auto  rounded-xl">
+              <div className="flex flex-col rounded-xl bg-white border border-solid border-gray-200 bg-white pb-6 shadow-sm">
                 <div
-                  className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} max-md:px-5 md:text-xl`}
+                  className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:px-5 md:text-xl`}
                   style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
                 >
                   <div className="flex items-center justify-between">
-                    Education and financial
+                    Education & Financial Details
                     <div className="flex gap-4">
                       <button
                         className="w-2 text-2xl"
@@ -1031,7 +1093,7 @@ const MyDetails = () => {
                 <div className="mt-6 flex flex-col px-6 max-md:px-5">
                   <div className="flex justify-between gap-2 whitespace-nowrap pr-8 max-md:pr-5">
                     <div className="text-md flex items-center justify-between gap-2 self-start leading-8 tracking-wide text-slate-600 md:text-xl">
-                      <span className={`${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'}`}>
+                      <span className={`${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'}`}>
                         <FaUserGraduate />
                       </span>
                       <div>Qualification</div>
@@ -1043,7 +1105,7 @@ const MyDetails = () => {
 
                   <div className="mt-4 flex justify-between gap-2 whitespace-nowrap pr-8 max-md:pr-5">
                     <div className="text-md flex items-center justify-between gap-2 self-start leading-8 tracking-wide text-slate-600 md:text-xl">
-                      <span className={`${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'}`}>
+                      <span className={`${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'}`}>
                         <FaUserGraduate />
                       </span>
                       <div>Occupation</div>
@@ -1055,7 +1117,7 @@ const MyDetails = () => {
 
                   <div className="mt-4 flex justify-between gap-2 whitespace-nowrap pr-8 max-md:pr-5">
                     <div className="text-md flex items-center justify-between gap-2 self-start leading-8 tracking-wide text-slate-600 md:text-xl">
-                      <span className={`${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'}`}>
+                      <span className={`${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'}`}>
                         <FaUserGraduate />
                       </span>
                       <div>Working Status</div>
@@ -1067,7 +1129,7 @@ const MyDetails = () => {
 
                   <div className="mt-4 flex justify-between gap-2 pr-8 max-md:pr-5">
                     <div className="text-md flex items-center justify-around gap-2 self-start whitespace-nowrap leading-8 tracking-wide text-slate-600 md:text-xl">
-                      <span className={`${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'}`}>
+                      <span className={`${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'}`}>
                         <FaUserGraduate />
                       </span>
                       <div>Income</div>
@@ -1083,89 +1145,7 @@ const MyDetails = () => {
               </div>
             </div>
 
-            {/* Partner Preference */}
-            <div className="h-auto rounded-xl bg-white mb-10 overflow-hidden">
-              <div className="flex flex-col rounded-xl border border-solid border-gray-200 bg-white pb-6 shadow-sm">
-                <div
-                  className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} max-md:px-5 md:text-xl`}
-                  style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
-                >
-                  <div className="flex items-center justify-between">
-                    Partner Preference
-                    <div className="flex gap-4">
-                      <button
-                        className="w-2 text-2xl"
-                        onClick={openPartnerPreferenceModal}
-                      >
-                        <FaEdit />
-                      </button>
-                      <PartnerPreferenceModal
-                        isVisible={partnerPreferenceModalOpen}
-                        onClose={closePartnerPreferenceModal}
-                        initialValues={preferencesData?.preferences}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 px-6 max-md:px-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6">
-                    {/* Row 1 */}
-                    <div className="flex justify-between items-center border-b border-gray-50 pb-2">
-                      <span className="text-slate-600 font-medium">Looking For</span>
-                      <span className="text-gray-900 font-semibold">{preferencesData?.preferences?.lookingFor || "Not Specified"}</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-gray-50 pb-2">
-                      <span className="text-slate-600 font-medium">Age Range</span>
-                      <span className="text-gray-900 font-semibold">{preferencesData?.preferences?.lookingPartnerAge ? `${preferencesData?.preferences?.lookingPartnerAge} Years` : "Not Specified"}</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-gray-50 pb-2">
-                      <span className="text-slate-600 font-medium">Wedding Goals</span>
-                      <span className="text-gray-900 font-semibold text-right">{preferencesData?.preferences?.weddingGoals || "Not Specified"}</span>
-                    </div>
-
-                    {/* Row 2 */}
-                    <div className="flex justify-between items-center border-b border-gray-50 pb-2">
-                      <span className="text-slate-600 font-medium">My Gender</span>
-                      <span className="text-gray-900 font-semibold">{preferencesData?.preferences?.gender || "Not Specified"}</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-gray-50 pb-2">
-                      <span className="text-slate-600 font-medium">My Age</span>
-                      <span className="text-gray-900 font-semibold">{preferencesData?.preferences?.age ? `${preferencesData?.preferences?.age} Years` : "Not Specified"}</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-gray-50 pb-2">
-                      <span className="text-slate-600 font-medium">Living in Australia?</span>
-                      <span className="text-gray-900 font-semibold">{preferencesData?.preferences?.livingInAustralia || "Not Specified"}</span>
-                    </div>
-
-                    {/* Row 3 */}
-                    <div className="flex justify-between items-center border-b border-gray-50 pb-2">
-                      <span className="text-slate-600 font-medium">Horoscope Match</span>
-                      <span className="text-gray-900 font-semibold">{preferencesData?.preferences?.horoscopeMatch || "Not Specified"}</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-gray-50 pb-2">
-                      <span className="text-slate-600 font-medium">Caste/Religion Matter?</span>
-                      <span className="text-gray-900 font-semibold">{preferencesData?.preferences?.castReligionMatterOrNot || "Not Specified"}</span>
-                    </div>
-                  </div>
-
-                  {/* Interests & Hobbies section */}
-                  <div className="mt-8 border-t pt-6">
-                    <h4 className="text-slate-600 font-medium mb-4">Interests & Hobbies</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {preferencesData?.preferences?.interest_and_hobbies?.length > 0 ? (
-                        preferencesData.preferences.interest_and_hobbies.map((hobby: string) => (
-                          <span key={hobby} className="bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-sm font-medium border border-cyan-100">
-                            {hobby}
-                          </span>
-                        ))
-                      ) : (
-                        <span className="text-gray-400 italic">None specified</span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       )}

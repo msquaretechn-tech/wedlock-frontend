@@ -113,7 +113,7 @@ const Stories = () => {
             Witness real-life success stories from members who found love with
             Wedlock. Our platform fosters meaningful relationships, bringing
             together people from all walks of life. Hear from couples who found
-            their perfect match on Wedlock Australia.
+            their perfect match on Wedlock.
           </p>
         </div>
 

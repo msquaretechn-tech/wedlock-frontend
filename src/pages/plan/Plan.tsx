@@ -208,7 +208,7 @@ const PricingPage = () => {
                 Available plan types from API: {planData?.data?.map((p: any) => p.planType).join(", ") || "none"}
               </p>
               <button
-                className="mt-4 px-6 py-2 rounded-full bg-[#007EAF] text-white text-sm font-semibold hover:bg-[#005f85] transition"
+                className="mt-4 px-6 py-2 rounded-full bg-[#007eaf] text-white text-sm font-semibold hover:bg-[#005f85] transition"
                 onClick={() => setActiveTab(activeTab === "Monthly" ? "Yearly" : "Monthly")}
               >
                 Try {activeTab === "Monthly" ? "Yearly" : "Monthly"} plans
@@ -304,8 +304,8 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
   if (!isOpen) return null;
 
   const isExclusiveTheme = title.toLowerCase().includes("exclusive");
-  const themeColor = isExclusiveTheme ? "#60457E" : "#007EAF";
-  const themeBgFull = isExclusiveTheme ? "bg-[#60457E]" : "bg-[#007EAF]";
+  const themeColor = isExclusiveTheme ? "#007eaf" : "#007eaf";
+  const themeBgFull = isExclusiveTheme ? "bg-[#007eaf]" : "bg-[#007eaf]";
   const themeTextFull = "text-white";
 
   return (
@@ -377,7 +377,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
           onChange={(e) => setIsAcknowledged(e.target.checked)}
         />
         <span className="text-sm font-medium text-white/90">
-          Payment not refundable
+          I understand and agree that all payments are non-refundable
         </span>
       </label>
 
@@ -389,7 +389,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
           onChange={(e) => setIsAcknowledgedPolicy(e.target.checked)}
         />
         <span className="text-sm font-medium text-white/90">
-          Accepted Wedlock privacy policy & terms
+          I agree to the Privacy Policy and consent to data sharing as described
         </span>
       </label>
     </div>
@@ -503,7 +503,7 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: EligibilityP
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-[#8E69B4] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
+      <div className="bg-[#007eaf] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
         <div className="mb-6">
           <h2 className="text-3xl font-bold mb-2">
             Exclusive Matchmaking Eligibility

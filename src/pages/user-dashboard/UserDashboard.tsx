@@ -117,7 +117,7 @@ const UserDashboard: React.FC = () => {
       label: (
         <span className="flex items-center gap-2">
           Messages 
-          {totalUnread > 0 && <Badge count={totalUnread} size="small" style={{ backgroundColor: isExclusive ? "#60457E" : "#007EAF" }} />}
+          {totalUnread > 0 && <Badge count={totalUnread} size="small" style={{ backgroundColor: isExclusive ? "#007eaf" : "#007eaf" }} />}
         </span>
       ),
       children: <ChatScreen />,
@@ -172,7 +172,7 @@ const UserDashboard: React.FC = () => {
             <ConfigProvider
               theme={{
                 token: {
-                  colorPrimary: isExclusive ? "#60457E" : "#007EAF",
+                  colorPrimary: isExclusive ? "#007eaf" : "#007eaf",
                 },
                 components: {
                   Tabs: {

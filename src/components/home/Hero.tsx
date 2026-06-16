@@ -25,11 +25,11 @@ function Hero() {
                 fontWeight: "600",
               }}
             >
-              Australia’s Trusted Platform for Serious Relationships
+              Trusted Matrimonial Platform for Serious Relationships
             </p>
 
             <h1 className="text-[2.5rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[60px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 pt-16 xl:-tracking-normal mt-15">
-              Match Beyond The Swipe
+              Next-Gen Matchmaking
             </h1>
 
            <p

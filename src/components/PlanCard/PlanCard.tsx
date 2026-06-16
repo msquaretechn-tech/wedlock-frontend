@@ -25,7 +25,7 @@ const PlanCard = ({
   return (
 
     <div
-      className={`space-y-4 flex flex-col rounded-lg p-6 h-full ${isHighlighted ? "bg-[#60457E] text-white" : "bg-[#007EAF] shadow text-white border"
+      className={`space-y-4 flex flex-col rounded-lg p-6 h-full ${isHighlighted ? "bg-[#007eaf] text-white" : "bg-[#007EAF] shadow text-white border"
         }`}
     >
       <div className="space-y-4">
@@ -34,24 +34,47 @@ const PlanCard = ({
           {price !== "Free" ? `AU $${price}` : price}
           <span
             className={`text-base font-normal text-white`}
-          >{` / ${duration}`}</span>
+          >{` / ${duration}`}<sup>*</sup></span>
         </h1>
       </div>
 
       {/* Features Section - Flex Grow Ensures It Pushes the Button to Bottom */}
       <div className="space-y-3 flex-grow">
-        {features.map((feature, idx) => (
-          <div key={idx} className="flex items-center gap-3">
-            <div
-              className={`flex h-5 w-5 items-center justify-center rounded-full ${isHighlighted ? "bg-[#007EAF] text-[#DDDDDD]" : "bg-[#F0F5FF] text-[#007EAF]"
-                }`}
-            >
-              <MdDone />
-            </div>
-            <h1 className={isHighlighted ? "" : "text-white"}>{feature}</h1>
-          </div>
-        ))}
+  {features.map((feature, idx) => (
+    <div key={idx} className="flex items-center gap-3">
+      <div
+        className={`flex h-5 w-5 items-center justify-center rounded-full ${
+          isHighlighted
+            ? "bg-[#007EAF] text-[#DDDDDD]"
+            : "bg-[#F0F5FF] text-[#007EAF]"
+        }`}
+      >
+        <MdDone />
       </div>
+
+      <h1 className={isHighlighted ? "" : "text-white"}>
+        {feature}
+      </h1>
+    </div>
+  ))}
+
+  {/* Footer note */}
+  <div className="flex items-center gap-3">
+    <div
+      className={`flex h-5 w-5 items-center justify-center rounded-full ${
+        isHighlighted
+          ? "bg-[#007EAF] text-[#DDDDDD]"
+          : "bg-[#F0F5FF] text-[#007EAF]"
+      }`}
+    >
+      <MdDone />
+    </div>
+
+    <h1 className="text-white">
+      *Per calendar month, no auto-renewal
+    </h1>
+  </div>
+</div>
 
       {/* Button Wrapper - Centered and Fixed at Bottom */}
       <div className="mt-auto flex justify-start">

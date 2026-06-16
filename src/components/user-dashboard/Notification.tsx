@@ -98,17 +98,9 @@ const Notification = () => {
           console.log(notification, "notification"),
           <div
             key={notification.notificationId}
-            className="p-4 bg-white border rounded-lg shadow-md mb-4"
+            className="p-4 bg-white border rounded-lg shadow-md mb-4 flex justify-between items-center"
           >
-            <div className="flex justify-end">
-              <button
-                className="mt-2 text-red-500"
-                onClick={() => handleRemoveNotification(notification.notificationId)}
-              >
-                Remove
-              </button>
-            </div>
-            
+            <div className="inline-block">
             {notification.body?.type === "connection_request" ?(
             
               <Connection
@@ -157,6 +149,16 @@ const Notification = () => {
               <ConnectionAccepted senderImage={notification.body?.senderImage} senderName={notification.body?.senderName} />
             
             )}
+           </div>
+
+             <div className="text-end inline-block">
+              <button
+                className="mt-2 text-red-500"
+                onClick={() => handleRemoveNotification(notification.notificationId)}
+              >
+                Remove
+              </button>
+            </div>
           </div>
         ))
       )}
