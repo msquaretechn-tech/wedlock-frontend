@@ -19,7 +19,7 @@ const PaymentCancelPage = () => {
   };
 
   return (
-    <div className={`flex min-h-screen flex-col items-center ${isExclusive? 'bg-[#8E69B4]': 'bg-[#007EAF]'} px-5 md:px-20 lg:px-40 3xl:px-60 py-4`}>
+    <div className={`flex min-h-screen flex-col items-center ${isExclusive? 'bg-[#60457e]': 'bg-[#007EAF]'} px-5 md:px-20 lg:px-40 3xl:px-60 py-4`}>
       <img
         src="/logowhite.png"
         alt="logo"

@@ -23,7 +23,7 @@ const Archive = () => {
           <CiHeart className="text-2xl" />
           <h1 className="md:text-[30px] text-[30px] ">95% Match <br /> Accuracy</h1>
           <p className="text-md md:text-lg text-[1.1rem] font-Proxima-Nova-Light " >
-            AI-Powered Compatibility Matching
+            AI-powered Compatibility Matching
           </p>
         </div>
       </div>

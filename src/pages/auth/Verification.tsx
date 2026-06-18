@@ -132,7 +132,7 @@ const Verification = () => {
   
 
   return (
-    <div className={`min-w-screen min-h-screen flex flex-col items-center justify-center ${isExclusive? 'bg-[#8E69B4]': 'bg-[#007EAF]'}`}>
+    <div className={`min-w-screen min-h-screen flex flex-col items-center justify-center ${isExclusive? 'bg-[#60457e]': 'bg-[#007EAF]'}`}>
       <div className="flex items-center justify-center mb-14">
         <Link to={"/"} className='fixed top-4'>
         <img src="/logowhite.png" alt="" className='w-72 h-24 ' />

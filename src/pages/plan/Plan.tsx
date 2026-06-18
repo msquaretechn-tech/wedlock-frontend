@@ -260,6 +260,10 @@ const PricingPage = () => {
           isOpen={showExclusiveModal}
           onClose={() => setShowExclusiveModal(false)}
           onEligible={handleEligible}
+          onBack={() => {
+          setShowExclusiveModal(false);
+          setShowExclusiveDescription(true);
+        }}
         />
 
       </div>
@@ -305,7 +309,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
 
   const isExclusiveTheme = title.toLowerCase().includes("exclusive");
   const themeColor = isExclusiveTheme ? "#007eaf" : "#007eaf";
-  const themeBgFull = isExclusiveTheme ? "bg-[#007eaf]" : "bg-[#007eaf]";
+  const themeBgFull = isExclusiveTheme ? "bg-[#60457e]" : "bg-[#007eaf]";
   const themeTextFull = "text-white";
 
   return (
@@ -430,7 +434,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
     }
   >
     Get Started
-    <svg
+    {/* <svg
       className="w-5 h-5"
       fill="none"
       stroke="currentColor"
@@ -442,7 +446,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
         strokeWidth="2"
         d="M14 5l7 7m0 0l-7 7m7-7H3"
       />
-    </svg>
+    </svg> */}
   </button>
 </div>
       
@@ -462,19 +466,20 @@ interface EligibilityProps {
   isOpen: boolean;
   onClose: () => void;
   onEligible: () => void;
+  onBack: () => void
 }
 
 const criteria = [
-  "A minimum age of 18 years for females and 21 years for males.",
-  "A minimum annual income threshold $80,000+",
-  "Professional achievements or established career in a reputable industry.",
-  "Comprehensive profile verification, including identity and occupation checks.",
-  "Active membership in prestigious clubs.",
-  "Background aligned with community and family values.",
-  "Graduation completed (required)"
+  "Minimum age of 18 years for females and 21 years for males.",
+  "Minimum annual income of $100,000+.",
+  "Graduate degree or higher qualification.",
+  "Demonstrated professional achievements or an established career in a reputable industry.",
+  "Background aligned with strong community and family values.",
+  "No criminal background.",
+  "Willingness to undergo comprehensive profile verification, including identity and occupation checks, where required."
 ];
 
-const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: EligibilityProps) => {
+const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: EligibilityProps) => {
   const [checkedStates, setCheckedStates] = useState<boolean[]>(
     Array(criteria.length).fill(false)
   );
@@ -503,7 +508,7 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: EligibilityP
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-[#007eaf] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
+      <div className="bg-[#60457e] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
         <div className="mb-6">
           <h2 className="text-3xl font-bold mb-2">
             Exclusive Matchmaking Eligibility
@@ -534,7 +539,7 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: EligibilityP
                     }`}
                 >
                   {checkedStates[index] && (
-                    <svg className="w-4 h-4 text-[#8E69B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
+                    <svg className="w-4 h-4 text-[#60457e]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   )}
@@ -546,6 +551,14 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible }: EligibilityP
         </ul>
 
         <div className="flex justify-end gap-4 mt-8 pt-6 border-t border-white/20">
+          <button
+              onClick={onBack}
+              className="px-6 py-2.5 bg-white/20 rounded-xl font-semibold"
+              title="Back to Plan Details"
+            >
+              Back
+          </button>
+
           <button
             className="px-6 py-2.5 bg-white/20 hover:bg-white/30 rounded-xl font-semibold transition-all duration-200"
             onClick={onClose}

@@ -192,7 +192,7 @@ const Verify = () => {
             
 
 
-            <button className={`bg-white ${isExclusive? 'text-[#8E69B4]': 'text-[#007EAF]'} w-full h-12 rounded-xl mt-6`}>
+            <button className={`bg-white ${isExclusive? 'text-[#60457e]': 'text-[#007EAF]'} w-full h-12 rounded-xl mt-6`}>
               {isLoading ? <LoadingOutlined className={`${isExclusive? 'text-[#60457E]': 'text-[#007EAF]'} animate-spin`} /> : 'Verify'}
             </button>
           </form>

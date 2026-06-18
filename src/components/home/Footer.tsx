@@ -107,7 +107,7 @@ const Footer = () => {
               </li> */}
               <li>
                 <Link to="/faqs" className="hover:text-[#007EAF]">
-                  Frequently Asked Questions
+                  FAQs
                 </Link>
               </li>
               <li>

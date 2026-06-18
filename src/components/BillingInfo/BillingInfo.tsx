@@ -281,7 +281,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
   if (!isOpen) return null;
 
   const isExclusiveTheme = title.toLowerCase().includes("exclusive");
-  const themeBgFull = isExclusiveTheme ? "bg-[#007eaf]" : "bg-[#007eaf]";
+  const themeBgFull = isExclusiveTheme ? "bg-[#60457e]" : "bg-[#007eaf]";
   const themeTextFull = "text-white";
 
   return (
@@ -380,13 +380,13 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
 };
 
 const criteria = [
-  "A minimum age of 18 years for females and 21 years for males.",
-  "A minimum annual income threshold $80,000+",
-  "Professional achievements or established career in a reputable industry.",
-  "Comprehensive profile verification, including identity and occupation checks.",
-  "Active membership in prestigious clubs.",
-  "Background aligned with community and family values.",
-  "Graduation completed (required)"
+  "Minimum age of 18 years for females and 21 years for males.",
+  "Minimum annual income of $100,000+.",
+  "Graduate degree or higher qualification.",
+  "Demonstrated professional achievements or an established career in a reputable industry.",
+  "Background aligned with strong community and family values.",
+  "No criminal background.",
+  "Willingness to undergo comprehensive profile verification, including identity and occupation checks, where required."
 ];
 
 const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: { isOpen: boolean; onClose: () => void; onEligible: () => void; onBack: () => void }) => {
@@ -406,18 +406,9 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: { is
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-[#007eaf] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
+      <div className="bg-[#60457e] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-2">
-            <button
-              onClick={onBack}
-              className="p-2 hover:bg-white/10 rounded-full transition-colors"
-              title="Back to Plan Details"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-            </button>
             <h2 className="text-3xl font-bold">Exclusive Matchmaking Eligibility</h2>
           </div>
           <p className="text-purple-100 opacity-90 ml-11">Please confirm all conditions before proceeding.</p>
@@ -443,7 +434,7 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: { is
                     }`}
                 >
                   {checkedStates[index] && (
-                    <svg className="w-4 h-4 text-[#8E69B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
+                    <svg className="w-4 h-4 text-[#60457e]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   )}
@@ -454,6 +445,13 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: { is
           ))}
         </ul>
         <div className="flex justify-end gap-4 mt-8 pt-6 border-t border-white/20">
+          <button
+              onClick={onBack}
+              className="px-6 py-2.5 bg-white/20 rounded-xl font-semibold"
+              title="Back to Plan Details"
+            >
+              Back
+          </button>
           <button className="px-6 py-2.5 bg-white/20 rounded-xl font-semibold" onClick={onClose}>Cancel</button>
           <button
             className={`px-8 py-2.5 rounded-xl font-semibold transition-all ${isAllChecked ? "bg-[#553985] text-white" : "bg-white/20 text-white/50 cursor-not-allowed"}`}

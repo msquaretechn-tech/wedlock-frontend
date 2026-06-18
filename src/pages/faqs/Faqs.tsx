@@ -9,7 +9,7 @@ const Faqs = () => {
     <div className=" font-Proxima-Nova-Regular z-10">
       {/*<div className="flex flex-col items-center justify-center py-12 gap-9 bg-[#E6F2F7] px-[16px]"> */}
         {/* <span className="text-blue-600 ">FAQs</span> */}
-        {/* <h1 className="text-5xl font-semibold mt-4">Frequently asked questions</h1> */}
+        {/* <h1 className="text-5xl font-semibold mt-4">FAQs</h1> */}
         {/* <h4 className="text-[#475467]">Have questions? We’re here to help.</h4> */}
         {/* <div className="flex items-center border-2 border-[#D0D5DD] rounded h-10 w-60 bg-white">
           <CiSearch className="text-3xl" />

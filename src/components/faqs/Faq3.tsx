@@ -68,7 +68,7 @@ const FAQ: React.FC = () => {
     <div className="flex  flex-col items-center justify-center bg-white p-8">
       <div className="w-full max-w-2xl space-y-12">
         <h2 className="mb-4 text-center text-5xl font-bold">
-          Frequently asked questions
+          FAQs
         </h2>
         <p className="mb-8 text-[#101828E5]">
           Aenean quis est erat. Pellentesque pretium convallis ligula, vitae

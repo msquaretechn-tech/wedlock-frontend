@@ -140,7 +140,7 @@ const Discover = () => {
             ))
           ) : (
             <div className="col-span-full h-[60vh] flex items-center justify-center text-center text-gray-500">
-              No profiles found matching your criteria
+              No favourite profiles found!
             </div>
           )}
         </div>

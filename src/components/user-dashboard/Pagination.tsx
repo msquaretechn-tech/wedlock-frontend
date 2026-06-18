@@ -41,7 +41,7 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className="flex items-center justify-center space-x-2 py-4">
       <button
-        className={`flex items-center gap-2 rounded bg-gray-200 px-3 py-1 ${isExclusive? 'text-[#8E69B4]': 'text-[#007EAF]'} disabled:opacity-50`}
+        className={`flex items-center gap-2 rounded bg-gray-200 px-3 py-1 ${isExclusive? 'text-[#60457e]': 'text-[#007EAF]'} disabled:opacity-50`}
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
@@ -54,7 +54,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           key={page}
           className={`rounded px-3 py-1 ${
-            currentPage === page ? `${isExclusive? 'bg-[#8E69B4]': 'bg-[#007EAF]'} text-white` : `${isExclusive? 'text-[#8E69B4]': 'text-[#007EAF]'}`
+            currentPage === page ? `${isExclusive? 'bg-[#60457e]': 'bg-[#007EAF]'} text-white` : `${isExclusive? 'text-[#60457e]': 'text-[#007EAF]'}`
           }`}
           onClick={() => onPageChange(page)}
         >
@@ -62,7 +62,7 @@ const Pagination: React.FC<PaginationProps> = ({
         </button>
       ))}
       <button
-        className={`flex items-center gap-2 rounded bg-gray-200 px-3 py-1 ${isExclusive? 'text-[#8E69B4]': 'text-[#007EAF]'} disabled:opacity-50`}
+        className={`flex items-center gap-2 rounded bg-gray-200 px-3 py-1 ${isExclusive? 'text-[#60457e]': 'text-[#007EAF]'} disabled:opacity-50`}
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >

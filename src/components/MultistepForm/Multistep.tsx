@@ -367,7 +367,7 @@ const Multistep = () => {
             <div className="form-body  ">{PageDisplay()}</div>
 
             <div className="form-footer">
-              <div className="max-md:bottom-5 2xl:bottom-10 flex w-full items-center justify-end md:absolute md:right-20 xl:mt-6 3xl:right-60 px-4">
+              <div className="max-md:bottom-5 2xl:bottom-10  xl:mt-6 3xl:right-60 px-4">
                 <div className="flex w-full flex-row items-center justify-between gap-3 md:justify-center md:gap-10 mb-2">
                   <button
                     type="button"

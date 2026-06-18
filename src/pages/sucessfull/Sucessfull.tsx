@@ -31,7 +31,7 @@ const Successful = () => {
   const isExclusive = subscriptionStatus === "Exclusive";
 
   return (
-    <div className={`flex min-h-screen flex-col items-center ${isExclusive ? "bg-[#8E69B4]" : "bg-[#007EAF]"} px-5 md:px-20 lg:px-40 3xl:px-60`}>
+    <div className={`flex min-h-screen flex-col items-center ${isExclusive ? "bg-[#60457e]" : "bg-[#007EAF]"} px-5 md:px-20 lg:px-40 3xl:px-60`}>
       <img src="/logowhite.png" alt="logo" className="mb-10 mt-10 h-auto w-40 md:w-36 lg:w-60" />
 
       <div className="flex flex-grow flex-col items-center justify-start text-center md:flex-grow-0 md:justify-center">

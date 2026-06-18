@@ -20,20 +20,20 @@ const Exclusive = () => {
   const isAllChecked = checkedStates.every((state) => state);
 
   return (
-    <div className="min-w-screen min-h-screen flex flex-col items-center justify-center bg-[#8E69B4] text-white">
+    <div className="min-w-screen min-h-screen flex flex-col items-center justify-center bg-[#60457e] text-white">
       <img src="/logowhite.png" alt="Logo" className="w-42 h-20 top-8" />
 
-      <div className="text-center mb-10 max-md:mt-10 mt-4">
+      <div className="text-center mb-5 max-md:mt-10 mt-4">
         <h1 className="max-lg:text-3xl text-[55px] font-Proxima-Nova-Bold mb-4">
           Exclusive matchmaking
         </h1>
-        <h2 className="text-[1.2rem] text-base whitespace-nowrap mx-auto font-Proxima-Nova-Light">
+        <h2 className="text-[1.2rem] whitespace-nowrap mx-auto font-Proxima-Nova-Light">
           Eligibility Criteria for an Exclusive Profile on Wedlock
         </h2>
-        <p className="text-base whitespace-nowrap mx-auto font-Proxima-Nova-Light">
+        <p className="text-base  mx-auto font-Proxima-Nova-Light text-left" style={{ lineHeight: "2rem" }}>
           To maintain the quality, integrity, and exclusivity of our membership community,
         </p>  
-        <p className="text-base whitespace-nowrap mx-auto font-Proxima-Nova-Light">
+        <p className="text-base  mx-auto font-Proxima-Nova-Light text-left" style={{ lineHeight: "2rem" }}>
           applicants for an Exclusive Profile should generally meet the following criteria:
         </p> 
       </div>
@@ -41,7 +41,7 @@ const Exclusive = () => {
       <div className="w-[90%] max-md:w-[90%] max-w-2xl bg-white bg-opacity-10 rounded-lg max-md:p-4 p-8 container">
         <ul className="text-white space-y-6">
           {[
-            "Minimum age of 18 years for females and 21 years for males",
+            "Minimum age of 18 years for females and 21 years for males.",
             "Minimum annual income of $100,000+.",
             "Graduate degree or higher qualification.",
             "Demonstrated professional achievements or an established career in a reputable industry.",
@@ -65,7 +65,7 @@ const Exclusive = () => {
         </ul>
       </div>
       <p>&nbsp;</p>
-      <p className="text-base whitespace-nowrap mx-auto font-Proxima-Nova-Light">
+      <p className="text-base  mx-auto font-Proxima-Nova-Light">
         Eligibility criteria are considered holistically, and exceptional candidates may be assessed on a case-by-case basis.
       </p>
 

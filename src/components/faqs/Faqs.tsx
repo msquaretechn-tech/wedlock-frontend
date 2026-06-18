@@ -129,7 +129,7 @@ const FAQ: React.FC = () => {
   return (
     <div className="bg-white min-h-screen flex  flex-col items-center justify-center px-[16px]  11xl-[100%]">
       <div className="w-full max-w-2xl mt-2 mb-2 space-y-12">
-        <h2 className="text-5xl text-center text-black mb-4 mt-10">Frequently asked questions</h2>
+        <h2 className="text-5xl text-center text-black mb-4 mt-10">FAQs</h2>
         <p className="text-gray-400 mb-8">
           We understand that finding compatibility for matrimony is a significant step, and you may have questions about how our platform works. Here, we’ve compiled answers to some of the most common queries to help you navigate your journey with ease. Whether it’s about our process, features, or security measures, you’ll find all the information you need right here.
         </p>

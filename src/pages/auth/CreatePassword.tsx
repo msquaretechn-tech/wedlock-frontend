@@ -203,7 +203,7 @@ const CreatePassword = () => {
             )}
           </div>
 
-          <button type="submit" className={`bg-white ${isExclusive ? 'text-[#8E69B4]' : 'text-[#007EAF]'} w-full h-10 rounded-md mt-4`}>
+          <button type="submit" className={`bg-white ${isExclusive ? 'text-[#60457e]' : 'text-[#007EAF]'} w-full h-10 rounded-md mt-4`}>
             {isLoading ? (
               <LoadingOutlined className={`${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} animate-spin`} />
             ) : (

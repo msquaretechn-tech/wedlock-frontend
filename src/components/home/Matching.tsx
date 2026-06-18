@@ -40,7 +40,7 @@ const Matching = () => {
                     </div>
                 </div>
                 <div className="space-y-10 relative  top_rating lg:w-1/2">
-                  <h2 className="w-[100%] text-white pt-6  sm:pt-0 text-[24px] font-Proxima-Nova-SemiBold max-md:text-[16px] text-center  lg:text-start">
+                  <h2 className="w-[100%] text-white pt-10  sm:pt-0 text-[24px] font-Proxima-Nova-SemiBold max-md:text-[20px] text-center  lg:text-start">
                     Key Features
                   </h2>
                   <div className="space-y-2 ">
