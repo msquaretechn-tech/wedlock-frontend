@@ -5,7 +5,7 @@ import heroImg from "../../assets/Banner-2.jpg";
 function Hero() {
   return (
     <div
-      className="relative hero_section bg-cover  bg-no-repeat bg-black  overflow-hidden min-h-screen 7xl:h-[100vh]   top-0 py-0   sm:py-0 3xl:h-[100vh]  xl:h-[100vh]   5xl:h-[100vh]   4xl:h-[100vh]  "
+      className="relative hero_section bg-cover bg-no-repeat bg-black  overflow-hidden min-h-screen 7xl:h-[100vh]   top-0 py-0   sm:py-0 3xl:h-[100vh]  xl:h-[100vh]   5xl:h-[100vh]   4xl:h-[100vh]  "
       style={{
         backgroundImage: `url(${heroImg})`,
         width: "100%",
@@ -15,8 +15,8 @@ function Hero() {
       <div className="absolute inset-0"></div>
 
       <div className="relative 3xl:pl-30 bg-black bg-opacity-40 text-white min-h-screen md:pl-16 md:flex md:px-10 gap-80 ">
-        <div className="  2xl:px-20 py-28 max-md:mt-0 mt-36 xl:w-[100%] flex justify-center items-start">
-          <div className=" text-center container   xl:w-[100%]  hero_content xl:space-y-4  md:space-y-4 space-y-14">
+        <div className=" 2xl:px-20 py-28 max-md:mt-0 mt-36 xl:w-[100%] flex justify-center items-start">
+          <div className="text-center container xl:w-[100%]  hero_content xl:space-y-4  md:space-y-4 space-y-14">
             <p
               className="hidden md:block text-[#059cdc] text-[22px] xl:text-[32px] xl:pt-5 px-2 font-Proxima-Nova-Regular"
               style={{
@@ -28,7 +28,7 @@ function Hero() {
               Trusted Matrimonial Platform for Serious Relationships
             </p>
 
-            <h1 className="text-[2.5rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[60px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 pt-16 xl:-tracking-normal mt-[120px] lg:mt-[60px]">
+            <h1 className="text-[2.5rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[60px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 xl:-tracking-normal">
               Next-Gen Matchmaking
             </h1>
 
