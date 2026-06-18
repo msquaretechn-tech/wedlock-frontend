@@ -23,17 +23,17 @@ const Exclusive = () => {
     <div className="min-w-screen min-h-screen flex flex-col items-center justify-center bg-[#60457e] text-white">
       <img src="/logowhite.png" alt="Logo" className="w-42 h-20 top-8" />
 
-      <div className="text-center mb-5 max-md:mt-10 mt-4">
+      <div className="text-center mb-5 max-md:mt-10 mt-4 px-5">
         <h1 className="max-lg:text-3xl text-[55px] font-Proxima-Nova-Bold mb-4">
           Exclusive matchmaking
         </h1>
-        <h2 className="text-[1.2rem] whitespace-nowrap mx-auto font-Proxima-Nova-Light">
+        <h2 className="text-[1.2rem] mx-auto font-Proxima-Nova-Light">
           Eligibility Criteria for an Exclusive Profile on Wedlock
         </h2>
-        <p className="text-base  mx-auto font-Proxima-Nova-Light text-left" style={{ lineHeight: "2rem" }}>
+        <p className="text-base mx-auto font-Proxima-Nova-Light text-left" style={{ lineHeight: "2rem" }}>
           To maintain the quality, integrity, and exclusivity of our membership community,
         </p>  
-        <p className="text-base  mx-auto font-Proxima-Nova-Light text-left" style={{ lineHeight: "2rem" }}>
+        <p className="text-base mx-auto font-Proxima-Nova-Light text-left" style={{ lineHeight: "2rem" }}>
           applicants for an Exclusive Profile should generally meet the following criteria:
         </p> 
       </div>
@@ -51,7 +51,6 @@ const Exclusive = () => {
           ].map((text, index) => (
             <li className="flex items-center space-x-4 " key={index}>
               <div className="flex-shrink-0" key={index}>
-
                 <input
                   type="checkbox"
                   className="w-5 h-5 accent-pink-500 border-2 border-white rounded  focus:ring-pink-500"
@@ -65,7 +64,7 @@ const Exclusive = () => {
         </ul>
       </div>
       <p>&nbsp;</p>
-      <p className="text-base  mx-auto font-Proxima-Nova-Light">
+      <p className="text-base mx-auto font-Proxima-Nova-Light px-5">
         Eligibility criteria are considered holistically, and exceptional candidates may be assessed on a case-by-case basis.
       </p>
 
