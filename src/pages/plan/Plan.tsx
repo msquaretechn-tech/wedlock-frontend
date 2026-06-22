@@ -222,7 +222,7 @@ const PricingPage = () => {
           isOpen={showPremiumDescription}
           onClose={() => setShowPremiumDescription(false)}
           onContinue={handlePremiumContinue}
-          title="Premium Plan Details"
+          title="Premium Plan"
           paymentMethod={selectedPaymentMethod}
           onPaymentMethodChange={setSelectedPaymentMethod}
         >
@@ -234,7 +234,7 @@ const PricingPage = () => {
           isOpen={showExclusiveDescription}
           onClose={() => setShowExclusiveDescription(false)}
           onContinue={handleExclusiveContinue}
-          title="Exclusive Plan Details"
+          title="Exclusive Plan"
           paymentMethod={selectedPaymentMethod}
           onPaymentMethodChange={setSelectedPaymentMethod}
         >

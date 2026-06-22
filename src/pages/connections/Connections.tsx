@@ -113,7 +113,7 @@ const Connections = () => {
     <div className="p-4 md:p-10">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-10">
         <div>
-          <h1 className="font-semibold">Connections</h1>
+          <h1 className="font-semibold text-[19px]">My Connections </h1>
           <p className="text-[#475467] mt-2">Manage your connections, sent requests, and profile views</p>
         </div>
         

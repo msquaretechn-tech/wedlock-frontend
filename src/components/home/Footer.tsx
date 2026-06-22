@@ -76,9 +76,7 @@ const Footer = () => {
           </div>
 
           {/* Mission Links */}
-          <div>
-
-
+          <div className="mt-3">
             <ul className="font-Proxima-Nova-Regular space-y-2">
               {/* <li>
                 <Link to="/mission" className="hover:text-[#007EAF]">
@@ -119,7 +117,7 @@ const Footer = () => {
           </div>
 
           {/* About Us Links */}
-          <div>
+          <div className="mt-3">
 
             <ul className="font-Proxima-Nova-Regular space-y-2">
               <li>
@@ -158,7 +156,7 @@ const Footer = () => {
           </div>
 
           {/* Social Links - Now appears after Mission on tablet */}
-          <div className="md:col-span-2 lg:col-span-1">
+          <div className="md:col-span-2 lg:col-span-1 mt-3">
             <h3 className="font-Proxima-Nova-Bold text-lg mb-4">Social</h3>
             <div className="flex gap-5 text-2xl">
               <a

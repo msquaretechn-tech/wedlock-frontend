@@ -28,12 +28,12 @@ const Exclusive = () => {
           Exclusive matchmaking
         </h1>
         <h2 className="text-[1.2rem] mx-auto font-Proxima-Nova-Light">
-          Eligibility Criteria for an Exclusive Profile on Wedlock
+          Eligibility criteria for an Exclusive profile on Wedlock
         </h2>
-        <p className="text-base mx-auto font-Proxima-Nova-Light text-left" style={{ lineHeight: "2rem" }}>
+        <p className="text-base mx-auto font-Proxima-Nova-Light text-left mt-5 leading-[2rem]">
           To maintain the quality, integrity, and exclusivity of our membership community,
         </p>  
-        <p className="text-base mx-auto font-Proxima-Nova-Light text-left" style={{ lineHeight: "2rem" }}>
+        <p className="text-base mx-auto font-Proxima-Nova-Light text-left leading-[3rem]">
           applicants for an Exclusive Profile should generally meet the following criteria:
         </p> 
       </div>

@@ -311,7 +311,7 @@ return (
             <div className="flex w-full flex-col  items-center justify-between gap-10 xl:flex-row">
                <div className=" xl:w-[70%] w-full ">
                   <div className="items-center justify-between self-start  text-xl font-semibold leading-5 text-zinc-900">
-                     <h1 className="text-center">Basic & Lifestyle</h1>
+                     <h1>Basic & Lifestyle</h1>
                      <div className="flex gap-4 text-cyan-600">
                         {/* 
                         <button
@@ -356,7 +356,8 @@ return (
                   textTransform: "capitalize",
                   boxShadow: "none",
                   fontWeight: "bold",
-                  height: "30px"
+                  height: "30px",
+                  padding: "4px 12px",
                   }}
                   className="my-auto justify-center self-stretch whitespace-nowrap px-3 py-1.5 text-center tracking-normal"
                   >
@@ -430,7 +431,7 @@ return (
                </div>
             </div>
             <div className="h-[28rem] xl:w-[30%]  w-auto rounded-lg bg-[#FEE7BD]  md:p-5 md:h-[26rem]">
-               <h2 className="font-[Proxima-Nova-Semibold] text-xl md:text-2xl text-center mt-2 md:text-start">Profile Completion Percentage</h2>
+               <h2 className="font-[Proxima-Nova-Semibold] text-center mt-2 md:text-start text-[17px]">Profile Completion Percentage</h2>
                <div className="flex flex-col items-center justify-center p-1">
                   <Gauge
                   width={230}
@@ -439,11 +440,11 @@ return (
                   startAngle={-90}
                   endAngle={90}
                   text={({ valueMax }) =>
-                  `Your profile is ${(Math.round((Percentage / valueMax) * 100)).toFixed(0)}%`
+                  `Your profile is ${(Math.round((Percentage / valueMax) * 100)).toFixed(0)}% complete`
                   }
                   sx={(theme) => ({
                   [`& .${gaugeClasses.valueText}`]: {
-                  fontSize: 20,
+                  fontSize: 16,
                   fontWeight: 'bold',
                   },
                   [`& .${gaugeClasses.valueArc}`]: {

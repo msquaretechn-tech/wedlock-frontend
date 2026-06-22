@@ -115,7 +115,7 @@ const BillingInfo = () => {
     <Box>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
         <h2 className="text-3xl font-bold mb-5">
-          Subscription & Billing Details
+          Subscription & Billing
         </h2>
 
         <Typography variant="subtitle1" fontWeight={400} sx={{ color: isExpired ? "inherit" : "inherit" }}>
@@ -220,7 +220,7 @@ const BillingInfo = () => {
         isOpen={showPremiumDescription}
         onClose={() => setShowPremiumDescription(false)}
         onContinue={handlePremiumContinue}
-        title="Premium Plan Details"
+        title="Premium Plan"
         paymentMethod={selectedPaymentMethod}
         onPaymentMethodChange={setSelectedPaymentMethod}
       >
@@ -231,7 +231,7 @@ const BillingInfo = () => {
         isOpen={showExclusiveDescription}
         onClose={() => setShowExclusiveDescription(false)}
         onContinue={handleExclusiveContinue}
-        title="Exclusive Plan Details"
+        title="Exclusive Plan"
         paymentMethod={selectedPaymentMethod}
         onPaymentMethodChange={setSelectedPaymentMethod}
       >

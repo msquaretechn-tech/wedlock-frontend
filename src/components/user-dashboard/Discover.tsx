@@ -110,7 +110,7 @@ const Discover = () => {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h1 className="font-semibold">Discover your matches</h1>
+        <h1 className="font-semibold text-[19px]">Discover your matches</h1>
         <div className="flex items-center gap-10">
           <h1 className="text-[#475467]">Filter by your preference</h1>
           <button onClick={openFilterModel}>
@@ -140,7 +140,7 @@ const Discover = () => {
             ))
           ) : (
             <div className="col-span-full h-[60vh] flex items-center justify-center text-center text-gray-500">
-              No favourite profiles found!
+              No Fav profiles found!
             </div>
           )}
         </div>

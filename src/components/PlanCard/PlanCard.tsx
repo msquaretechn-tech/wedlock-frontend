@@ -53,23 +53,24 @@ className={`space-y-4 flex flex-col rounded-lg p-6 h-full ${isHighlighted ? "bg-
 </div>
 ))}
 {/* Footer note */}
-<div className="flex items-center gap-3">
-   <div
-   className={`flex h-5 w-5 items-center justify-center rounded-full ${
-   isHighlighted
-   ? "bg-[#F0F5FF] text-[#007EAF]"
-   : "bg-[#F0F5FF] text-[#007EAF]"
-   }`}
-   >
-   <MdDone />
-</div>
-<h1 className="text-white">
-   {duration === "Per Month"
-    ? "*Per calendar month, no auto-renewal"
-    : duration === "Per Year"
-    ? "*365 days, no auto-renewal"
-    : ""}
-</h1>
+<div className="flex items-start gap-3 mt-2">
+  {/* {!isHighlighted && (
+    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F0F5FF] text-[#007EAF]">
+      <MdDone />
+    </div>
+  )} */}
+
+  <h1
+    className={`text-white italic text-sm ${
+      isHighlighted ? "ml-0" : ""
+    }`}
+  >
+    {duration === "Per Month"
+      ? "*Per calendar month, no auto-renewal"
+      : duration === "Per Year"
+      ? "*365 days, no auto-renewal"
+      : ""}
+  </h1>
 </div>
 </div>
 

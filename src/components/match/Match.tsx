@@ -228,7 +228,7 @@ const Match: React.FC<MatchProps> = ({ userId }) => {
             <div
               className={`self-stretch text-xl font-bold leading-10  ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
                 }
- lg:text-3xl`}
+lg:text-3xl`}
             >
               <h1>
                 {profileData?.basic_and_lifestyle?.displayName ||
