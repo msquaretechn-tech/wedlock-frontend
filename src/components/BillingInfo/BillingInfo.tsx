@@ -370,7 +370,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
               onClick={onContinue}
               disabled={!isAcknowledged || !isAcknowledgedPolicy || (onPaymentMethodChange && !hasChosenPayment) }
             >
-              Get Started
+              Continue
             </button>
           </div>
         </div>
@@ -409,9 +409,11 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: { is
       <div className="bg-[#60457e] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-2">
-            <h2 className="text-3xl font-bold">Exclusive Matchmaking Eligibility</h2>
+            <h2 className="text-3xl font-bold">Exclusive Plan Eligibility Criteria</h2>
           </div>
-          <p className="text-purple-100 opacity-90 ml-11">Please confirm all conditions before proceeding.</p>
+          <p className="">To maintain the quality, integrity, and exclusivity of our membership community, applicants for an Exclusive profile
+
+should generally meet the following criteria:</p>
         </div>
         <ul className="space-y-4 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
           {criteria.map((text, index) => (
@@ -444,6 +446,9 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: { is
             </li>
           ))}
         </ul>
+
+        <p className="mt-10">Eligibility criteria are considered holistically, and exceptional candidates may be assessed on a case-by-case basis.</p> 
+
         <div className="flex justify-end gap-4 mt-8 pt-6 border-t border-white/20">
           <button
               onClick={onBack}
@@ -458,7 +463,7 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: { is
             disabled={!isAllChecked}
             onClick={() => { localStorage.setItem("exclusiveEligible", "true"); onEligible(); }}
           >
-            Continue
+            Get Started
           </button>
         </div>
       </div>

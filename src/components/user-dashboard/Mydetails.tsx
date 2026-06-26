@@ -307,11 +307,11 @@ return (
          )}
       </div>
       <div className="col-span-1 xl:grid w-full md:col-span-2 gap-10">
-         <div className="col-span-1 mb-4 xl:mb-0 rounded-xl bg-white p-6 md:col-span-2   md:w-auto  xl:h-[29rem]">
+         <div className="col-span-1 mb-4 xl:mb-0 rounded-xl bg-white p-6 md:col-span-2   md:w-auto  xl:h-[30rem]">
             <div className="flex w-full flex-col  items-center justify-between gap-10 xl:flex-row">
                <div className=" xl:w-[70%] w-full ">
-                  <div className="items-center justify-between self-start  text-xl font-semibold leading-5 text-zinc-900">
-                     <h1>Basic & Lifestyle</h1>
+                  <div className="justify-center text-lg leading-6 tracking-wide text-[#007EAF] max-md:max-w-full max-md:px-5 md:text-xl" style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}>
+                     <div>Basic & Lifestyle</div>
                      <div className="flex gap-4 text-cyan-600">
                         {/* 
                         <button
@@ -431,7 +431,7 @@ return (
                </div>
             </div>
             <div className="h-[28rem] xl:w-[30%]  w-auto rounded-lg bg-[#FEE7BD]  md:p-5 md:h-[26rem]">
-               <h2 className="font-[Proxima-Nova-Semibold] text-center mt-2 md:text-start text-[17px]">Profile Completion Percentage</h2>
+               <h2 className="font-[Proxima-Nova-Semibold] text-center mt-2 text-[17px]">Profile Completion Percentage</h2>
                <div className="flex flex-col items-center justify-center p-1">
                   <Gauge
                   width={230}
@@ -440,7 +440,7 @@ return (
                   startAngle={-90}
                   endAngle={90}
                   text={({ valueMax }) =>
-                  `Your profile is ${(Math.round((Percentage / valueMax) * 100)).toFixed(0)}% complete`
+                  `Your profile is ${(Math.round((Percentage / valueMax) * 100)).toFixed(0)}%\n complete`
                   }
                   sx={(theme) => ({
                   [`& .${gaugeClasses.valueText}`]: {
@@ -462,7 +462,7 @@ return (
                   tip: Answer more profile questions.
                </p>
                */}
-               <p className="text-lg font-[Proxima-Nova-Regular] text-center">
+               <p className="text-lg font-[Proxima-Nova-Regular] text-center mt-8">
                   Complete your profile to improve match quality, increase visibility, and connect with people who share your values, interests, and relationship goals.
                </p>
                {/* 
@@ -512,7 +512,7 @@ return (
                <div className="text-md flex-1 font-normal leading-8 tracking-wide text-slate-600 md:text-xl">
                   Mother occupation
                </div>
-               <div className="justify-center self-start rounded-[100px] bg-neutral-100 px-3 py-1.5 text-center text-base font-medium capitalize leading-4 tracking-normal text-slate-900">
+               <div className="justify-center self-start rounded-[100px] bg-gray-200 px-3 py-1.5 text-center text-base font-medium capitalize leading-4 tracking-normal text-slate-900">
                   {myDetails?.family_details?.motherOccupation}
                </div>
             </div>
@@ -594,7 +594,7 @@ return (
    Body type
 </div>
 </div>
-<div className={`text-md ml-8 mt-2 flex justify-center gap-1.5 self-start rounded-[100px] border border-solid border-gray-200 bg-blue-50 bg-opacity-50 px-5 py-2 font-medium capitalize leading-7 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:ml-2.5 md:py-4 md:text-md`}>
+<div className={`text-md ml-8 mt-2 justify-center self-start rounded-[100px] bg-blue-50 px-3 py-1.5 text-center font-medium capitalize leading-7 text-[#007EAF] max-md:ml-2.5 md:text-md`}>
 {myDetails?.personal_background?.bodyType}
 </div>
 <div className="mt-6 flex items-center gap-1 whitespace-nowrap text-xl leading-8 tracking-wide text-slate-600">
@@ -631,18 +631,21 @@ return (
    Drinking status
 </div>
 </div>
-<div className="text-md ml-7 mt-2 justify-center self-start rounded-[100px] bg-gray-200 px-3 py-1.5 text-center font-medium capitalize leading-7 text-slate-900 max-md:ml-2.5 md:text-md">
+
+<div className="text-md ml-8 mt-2 justify-center self-start whitespace-nowrap rounded-[100px] bg-gray-200 px-3 py-1.5 text-center font-medium capitalize leading-7 text-slate-900 max-md:ml-2.5 md:text-md">
    {myDetails?.personal_background?.drinkingHabbit}
 </div>
+
 <div className="mt-6 flex items-center gap-1 whitespace-nowrap">
    <div className={`text-xl leading-8 ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} md:text-3xl`}>
    <CiMap />
 </div>
+
 <div className="text-lg leading-8 tracking-wide text-slate-600 md:text-xl">
    Diet
 </div>
 </div>
-<div className="text-md ml-8 mt-2 justify-center self-start whitespace-nowrap rounded-[100px] bg-neutral-100 px-3 py-1.5 text-center font-medium capitalize leading-7 text-slate-900 max-md:ml-2.5 md:text-md">
+<div className="text-md ml-8 mt-2 justify-center self-start whitespace-nowrap rounded-[100px] bg-gray-200 px-3 py-1.5 text-center font-medium capitalize leading-7 text-slate-900 max-md:ml-2.5 md:text-md">
    {myDetails?.personal_background?.diet}
 </div>
 <div className="mt-6 flex items-center gap-2 whitespace-nowrap">
@@ -653,7 +656,7 @@ return (
    Complexion
 </div>
 </div>
-<div className="text-md ml-8 mt-2 justify-center self-start rounded-[100px] bg-neutral-100 px-3 py-1.5 text-center font-medium capitalize leading-7 text-slate-900 max-md:ml-2.5 md:text-md">
+<div className="text-md ml-8 mt-2 justify-center self-start rounded-[100px] bg-gray-200 px-3 py-1.5 text-center font-medium capitalize leading-7 text-slate-900 max-md:ml-2.5 md:text-md">
    {myDetails?.personal_background?.complexion}
 </div>
 </div>
@@ -863,47 +866,87 @@ return (
          </div>
       </div>
    </div>
+
    <div className="mt-6 px-6 max-md:px-5">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-12 gap-y-6">
-         {/* Row 1 */}
-         <div className="border-b border-gray-50 pb-2">
-            <div className="text-slate-600 font-medium">Looking For</div>
-            <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.lookingFor || "Not Specified"}</div>
-         </div>
-         <div className="border-b border-gray-50 pb-2">
-            <div className="text-slate-600 font-medium">Age Range</div>
-            <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.lookingPartnerAge ? `${preferencesData?.preferences?.lookingPartnerAge} Years` : "Not Specified"}</div>
-         </div>
-         <div className="border-b border-gray-50 pb-2">
-            <div className="text-slate-600 font-medium">Wedding Goals</div>
-            <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.weddingGoals || "Not Specified"}</div>
-         </div>
-         {/* Row 2 */}
-         <div className="border-b border-gray-50 pb-2">
-            <div className="text-slate-600 font-medium">Gender</div>
-            <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.gender || "Not Specified"}</div>
-         </div>
-         <div className="border-b border-gray-50 pb-2">
-            <div className="text-slate-600 font-medium">Age</div>
-            <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.age ? `${preferencesData?.preferences?.age} Years` : "Not Specified"}</div>
-         </div>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-12 gap-y-6">
+{/* Row 1 */}
+<div className="border-b border-gray-50 pb-2">
+   <div className="text-slate-600 font-medium">Looking For</div>
+   <div className="mt-2 justify-center">
+      <span className="inline-block rounded-full bg-gray-200 px-3 py-1.5 text-md">
+      {preferencesData?.preferences?.lookingFor || "Not Specified"}
+      </span>
+   </div>
+</div>
+
+<div className="border-b border-gray-50 pb-2">
+   <div className="text-slate-600 font-medium">Age Range</div>
+   <div className="mt-2 justify-center">
+      <span className="inline-block rounded-full bg-gray-200 px-3 py-1.5 text-md">
+      {preferencesData?.preferences?.lookingPartnerAge ? `${preferencesData?.preferences?.lookingPartnerAge} Years` : "Not Specified"}
+      </span>
+   </div>
+</div>
+<div className="border-b border-gray-50 pb-2">
+   <div className="text-slate-600 font-medium">Wedding Goals</div>
+   <div className="mt-2 justify-center">
+      <span className="inline-block rounded-full bg-gray-200 px-3 py-1.5 text-md">
+      {preferencesData?.preferences?.weddingGoals || "Not Specified"}
+      </span>
+   </div>
+</div>
+{/* Row 2 */}
+<div className="border-b border-gray-50 pb-2">
+   <div className="text-slate-600 font-medium">Gender</div>
+   <div className="mt-2 justify-center">
+      <span className="inline-block rounded-full bg-gray-200 px-3 py-1.5 text-md">
+      {preferencesData?.preferences?.gender || "Not Specified"}
+      </span>
+   </div>
+</div>
+<div className="border-b border-gray-50 pb-2">
+   <div className="text-slate-600 font-medium">Age</div>
+   <div className="mt-2 justify-center">
+      <span className="inline-block rounded-full bg-gray-200 px-3 py-1.5 text-md">
+      {preferencesData?.preferences?.age ? `${preferencesData?.preferences?.age} Years` : "Not Specified"}
+      </span>
+   </div>
+</div>
          <div className="border-b border-gray-50 pb-2">
             <div className="text-slate-600 font-medium">Living in Australia?</div>
-            <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.livingInAustralia || "Not Specified"}</div>
+<div className="mt-2 justify-center">
+    <span className="inline-block rounded-full bg-gray-200 px-3 py-1.5 text-md">
+      {preferencesData?.preferences?.livingInAustralia || "Not Specified"}
+    </span>
+  </div>
+
+            
          </div>
          {/* Row 3 */}
          <div className="border-b border-gray-50 pb-2">
             <div className="text-slate-600 font-medium">Horoscope Match</div>
-            <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.horoscopeMatch || "Not Specified"}</div>
+<div className="mt-2 justify-center">
+    <span className="inline-block rounded-full bg-gray-200 px-3 py-1.5 text-md">
+      {preferencesData?.preferences?.horoscopeMatch || "Not Specified"}
+    </span>
+  </div>
+
+            
          </div>
          <div className="border-b border-gray-50 pb-2">
             <div className="text-slate-600 font-medium">Caste/Religion Matter?</div>
-            <div className="text-gray-900 font-semibold">{preferencesData?.preferences?.castReligionMatterOrNot || "Not Specified"}</div>
+<div className="mt-2 justify-center">
+    <span className="inline-block rounded-full bg-gray-200 px-3 py-1.5 text-md">
+      {preferencesData?.preferences?.castReligionMatterOrNot || "Not Specified"}
+    </span>
+  </div>
+
          </div>
       </div>
    </div>
 </div>
 </div>
+
 {/* Education & Financial Details */}
 <div className="h-auto  rounded-xl">
    <div className="flex flex-col rounded-xl bg-white border border-solid border-gray-200 bg-white pb-6 shadow-sm">
@@ -938,7 +981,7 @@ return (
             </span>
             <div>Qualification</div>
          </div>
-         <div className="justify-center rounded-[100px] bg-orange-100 px-3 py-1.5 text-center text-[12px] font-medium capitalize leading-7 text-slate-900 md:text-md">
+         <div className="justify-center rounded-[100px] bg-orange-100 px-3 py-1.5 text-center text-base font-medium capitalize leading-7 text-slate-900 md:text-md">
             {myDetails?.education_and_financial?.qualification}
          </div>
       </div>
@@ -949,7 +992,7 @@ return (
             </span>
             <div>Occupation</div>
          </div>
-         <div className="justify-center rounded-[100px] bg-orange-100 px-3 py-1.5 text-center text-[12px] font-medium capitalize leading-7 text-slate-900 md:text-md">
+         <div className="justify-center rounded-[100px] bg-orange-100 px-3 py-1.5 text-center text-base font-medium capitalize leading-7 text-slate-900 md:text-md">
             {myDetails?.education_and_financial?.occupation}
          </div>
       </div>
@@ -960,7 +1003,7 @@ return (
             </span>
             <div>Working Status</div>
          </div>
-         <div className="justify-center rounded-[100px] bg-orange-100 px-3 py-1.5 text-center text-[12px] font-medium capitalize leading-7 text-slate-900 md:text-md">
+         <div className="justify-center rounded-[100px] bg-orange-100 px-3 py-1.5 text-center text-base font-medium capitalize leading-7 text-slate-900 md:text-md">
             {myDetails?.education_and_financial?.workingStatus}
          </div>
       </div>
@@ -971,7 +1014,7 @@ return (
             </span>
             <div>Income</div>
          </div>
-         <div className="justify-center rounded-[100px] bg-orange-100 px-3 py-1.5 text-center text-[12px] font-medium capitalize leading-7 text-slate-900 md:text-md">
+         <div className="justify-center rounded-[100px] bg-orange-100 px-3 py-1.5 text-center text-base font-medium capitalize leading-7 text-slate-900 md:text-md">
             <span className="">
             {myDetails?.education_and_financial?.income}
             </span>
@@ -988,10 +1031,10 @@ return (
       style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
       >
       <div className="flex items-center justify-between">
-         Interests & Hobbies section
+         Interests & Hobbies
       </div>
    </div>
-   <div className="mt-6 flex flex-col px-6 max-md:px-5">
+   <div className="flex flex-col px-6 max-md:px-5">
       <div className="flex flex-wrap gap-2">
          {preferencesData?.preferences?.interest_and_hobbies?.length > 0 ? (
          preferencesData.preferences.interest_and_hobbies.map((hobby: string) => (
@@ -1000,7 +1043,7 @@ return (
          </span>
          ))
          ) : (
-         <span className="text-gray-400 italic"></span>
+         <div></div>
          )}
       </div>
       <div className="mt-4 flex  gap-2.5 whitespace-nowrap  capitalize tracking-wide max-md:pr-5 flex-wrap">

@@ -290,13 +290,13 @@ export default function ChatScreen() {
           className={`px-4 py-2 font-medium ${activeTab === 'connected' ? 'text-[#007EAF] border-b-2 border-[#007EAF]' : 'text-gray-500'}`}
           onClick={() => setActiveTab('connected')}
         >
-          Connected People
+          Connected
         </button>
         <button
           className={`px-4 py-2 font-medium ${activeTab === 'blocked' ? 'text-[#007EAF] border-b-2 border-[#007EAF]' : 'text-gray-500'}`}
           onClick={() => setActiveTab('blocked')}
         >
-          Blocked Users
+          Blocked
         </button>
       </div>
 

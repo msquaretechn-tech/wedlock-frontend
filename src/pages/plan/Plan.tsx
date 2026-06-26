@@ -433,7 +433,7 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
       (onPaymentMethodChange && !hasChosenPayment)
     }
   >
-    Get Started
+    Continue
     {/* <svg
       className="w-5 h-5"
       fill="none"
@@ -511,10 +511,12 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: Elig
       <div className="bg-[#60457e] text-white rounded-2xl w-full max-w-2xl p-8 shadow-2xl overflow-hidden border border-[#7a599b]">
         <div className="mb-6">
           <h2 className="text-3xl font-bold mb-2">
-            Exclusive Matchmaking Eligibility
+            Exclusive Plan Eligibility Criteria 
           </h2>
-          <p className="text-purple-100 opacity-90">
-            Please confirm all conditions before proceeding to ensure the best matchmaking experience.
+          <p className="">
+            To maintain the quality, integrity, and exclusivity of our membership community, applicants for an Exclusive profile
+
+should generally meet the following criteria:
           </p>
         </div>
 
@@ -550,6 +552,8 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: Elig
           ))}
         </ul>
 
+        <p className="mt-10">Eligibility criteria are considered holistically, and exceptional candidates may be assessed on a case-by-case basis.</p>
+
         <div className="flex justify-end gap-4 mt-8 pt-6 border-t border-white/20">
           <button
               onClick={onBack}
@@ -574,10 +578,7 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: Elig
             disabled={!isAllChecked}
             onClick={handleContinue}
           >
-            Continue
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            Get Started
           </button>
         </div>
       </div>

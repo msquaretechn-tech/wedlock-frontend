@@ -140,7 +140,7 @@ const Discover = () => {
             ))
           ) : (
             <div className="col-span-full h-[60vh] flex items-center justify-center text-center text-gray-500">
-              No Fav profiles found!
+              No profiles match your current preferences. Try adjusting your search criteria to discover more potential matches.
             </div>
           )}
         </div>

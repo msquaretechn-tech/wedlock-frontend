@@ -79,7 +79,7 @@ const Favourate = () => {
             ))
           ) : (
             <div className="col-span-full h-[60vh] flex items-center justify-center text-center text-gray-500">
-              No Fav profiles found!
+              You haven't added any profiles to your favourites yet. Explore profiles and save the ones you're interested in.
             </div>
           )}
         </div>
