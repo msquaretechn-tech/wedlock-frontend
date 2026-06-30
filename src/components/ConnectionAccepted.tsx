@@ -20,7 +20,7 @@ const ConnectionAccepted = ({
 
       <div className="flex-1 max-md:text-center">
         <h4 className="text-lg font-medium text-gray-800">{senderName}</h4>
-        <p className="text-sm text-gray-500">accepted your connection request</p>
+        <p className="text-sm text-gray-500">Accepted your connection request</p>
       </div>
     </div>
   );

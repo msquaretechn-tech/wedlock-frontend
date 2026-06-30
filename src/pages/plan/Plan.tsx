@@ -548,6 +548,7 @@ should generally meet the following criteria:
                 </div>
               </div>
               <span className="text-lg leading-snug">{text}</span>
+
             </li>
           ))}
         </ul>
