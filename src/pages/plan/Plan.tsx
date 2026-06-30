@@ -433,7 +433,10 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
       (onPaymentMethodChange && !hasChosenPayment)
     }
   >
-    Continue
+    {
+      title === "Premium Plan" ? "Purchase" : "Continue"
+    }
+    
     {/* <svg
       className="w-5 h-5"
       fill="none"
@@ -513,7 +516,7 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: Elig
           <h2 className="text-3xl font-bold mb-2">
             Exclusive Plan Eligibility Criteria 
           </h2>
-          <p className="">
+          <p className="" style={{fontSize: "14px"}}>
             To maintain the quality, integrity, and exclusivity of our membership community, applicants for an Exclusive profile
 
 should generally meet the following criteria:
@@ -547,13 +550,13 @@ should generally meet the following criteria:
                   )}
                 </div>
               </div>
-              <span className="text-lg leading-snug">{text}</span>
+              <span className="leading-snug" style={{fontSize:"1rem"}}>{text}</span>
 
             </li>
           ))}
         </ul>
 
-        <p className="mt-10">Eligibility criteria are considered holistically, and exceptional candidates may be assessed on a case-by-case basis.</p>
+        <p className="mt-5" style={{fontSize:"14px"}}>Eligibility criteria are considered holistically, and exceptional candidates may be assessed on a case-by-case basis.</p>
 
         <div className="flex justify-end gap-4 mt-8 pt-6 border-t border-white/20">
           <button
@@ -579,7 +582,7 @@ should generally meet the following criteria:
             disabled={!isAllChecked}
             onClick={handleContinue}
           >
-            Get Started
+            Purchase
           </button>
         </div>
       </div>

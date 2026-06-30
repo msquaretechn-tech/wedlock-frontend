@@ -411,7 +411,7 @@ const ExclusiveEligibilityModal = ({ isOpen, onClose, onEligible, onBack }: { is
           <div className="flex items-center gap-3 mb-2">
             <h2 className="text-3xl font-bold">Exclusive Plan Eligibility Criteria</h2>
           </div>
-          <p className="">To maintain the quality, integrity, and exclusivity of our membership community, applicants for an Exclusive profile
+          <p className="" style={{fontSize: "14px"}}>To maintain the quality, integrity, and exclusivity of our membership community, applicants for an Exclusive profile
 
 should generally meet the following criteria:</p>
         </div>
@@ -442,12 +442,12 @@ should generally meet the following criteria:</p>
                   )}
                 </div>
               </div>
-              <span className="text-lg leading-snug">{text}</span>
+              <span className="leading-snug" style={{fontSize:"1rem"}}>{text}</span>
             </li>
           ))}
         </ul>
 
-        <p className="mt-10">Eligibility criteria are considered holistically, and exceptional candidates may be assessed on a case-by-case basis.</p> 
+        <p className="mt-5" style={{fontSize:"14px"}}>Eligibility criteria are considered holistically, and exceptional candidates may be assessed on a case-by-case basis.</p> 
 
         <div className="flex justify-end gap-4 mt-8 pt-6 border-t border-white/20">
           <button
@@ -463,7 +463,7 @@ should generally meet the following criteria:</p>
             disabled={!isAllChecked}
             onClick={() => { localStorage.setItem("exclusiveEligible", "true"); onEligible(); }}
           >
-            Get Started
+            Purchase
           </button>
         </div>
       </div>

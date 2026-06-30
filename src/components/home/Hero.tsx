@@ -15,12 +15,12 @@ function Hero() {
       <div className="absolute inset-0"></div>
 
       <div className="relative 3xl:pl-30 bg-black bg-opacity-40 text-white min-h-screen md:pl-16 md:flex md:px-10 gap-80 ">
-        <div className="2xl:px-20 pt-[22rem] md:pt-44 pb-28 max-md:mt-0 mt-36 xl:w-full flex justify-center items-start">
+        <div className="2xl:px-20 pt-[13rem] md:pt-44 pb-28 max-md:mt-0 mt-36 xl:w-full flex justify-center items-start">
           <div className="text-center container xl:w-[100%]  hero_content xl:space-y-4  md:space-y-4 ">
             <p
               className="hidden md:block text-[#059cdc] text-[22px] xl:text-[32px] xl:pt-5 px-2 font-Proxima-Nova-Regular"
               style={{
-                lineHeight: "42px",
+                lineHeight: "24px",
                 letterSpacing: "2%",
                 fontWeight: "600",
               }}
@@ -28,14 +28,14 @@ function Hero() {
               Trusted Matrimonial Platform for Serious Relationships
             </p>
 
-            <h1 className="text-[3rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[60px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 xl:-tracking-normal">
+            <h1 className="text-[3rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[48px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 xl:-tracking-normal mb-[35px] md:mb-[10px]">
               Next-Gen Matchmaking
             </h1>
 
            <p
               className="md:block text-[#FFFFFF] pb-8 text-[18px] xl:text-[26px] leading-[1.4] xl:leading-normal xl:pt-4 px-2 font-Proxima-Nova-Regular"
               style={{
-                lineHeight: "42px",
+                lineHeight: "24px",
                 letterSpacing: "2%",
                 fontWeight: "400",
               }}
@@ -50,7 +50,7 @@ function Hero() {
                 xl:w-[200px] xl:h-[64px] xl:text-[22px]
                 w-[145px] h-[50px]  text-white mx-auto xl:font-Proxima-Nova-SemiBold"
               >
-                <span className="text-semibold">Create account</span>
+                <span className="text-semibold" style={{fontWeight:"bold"}}>Create account</span>
               </Link>
           </div>
 

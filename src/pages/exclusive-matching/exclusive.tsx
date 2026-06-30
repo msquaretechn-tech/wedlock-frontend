@@ -29,15 +29,13 @@ const Exclusive = () => {
         <h1 className="max-lg:text-3xl text-[55px] font-Proxima-Nova-Bold mb-4">
           Exclusive matchmaking
         </h1>
-        <h2 className="text-[1.5rem] mx-auto font-Proxima-Nova-Light">
+        <h2 className="mx-auto font-Proxima-Nova-Light text-[15px] md:text-[22px]">
           Eligibility criteria for an Exclusive profile on Wedlock
         </h2>
-        <p className="text-base mx-auto font-Proxima-Nova-Light text-left mt-5 leading-[2rem]">
-          To maintain the quality, integrity, and exclusivity of our membership community, applicants for an Exclusive profile
+        <p className="text-base mx-auto font-Proxima-Nova-Light text-left mt-5 leading-[1.3rem]">
+          To maintain the quality, integrity, and exclusivity of our membership community, applicants for an Exclusive profile should generally meet the following criteria:
         </p>  
-        <p className="text-base mx-auto font-Proxima-Nova-Light text-left leading-[1rem]">
-          should generally meet the following criteria:
-        </p> 
+       
       </div>
 
       <div className="w-[90%] max-md:w-[90%] max-w-2xl bg-white bg-opacity-10 rounded-lg max-md:p-4 p-8 container">
