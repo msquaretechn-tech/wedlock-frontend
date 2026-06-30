@@ -15,7 +15,7 @@ function Hero() {
       <div className="absolute inset-0"></div>
 
       <div className="relative 3xl:pl-30 bg-black bg-opacity-40 text-white min-h-screen md:pl-16 md:flex md:px-10 gap-80 ">
-        <div className="2xl:px-20 pt-[13rem] md:pt-44 pb-28 max-md:mt-0 mt-36 xl:w-full flex justify-center items-start">
+        <div className="2xl:px-20 pt-[15rem] md:pt-44 pb-28 max-md:mt-0 mt-36 xl:w-full flex justify-center items-start">
           <div className="text-center container xl:w-[100%]  hero_content xl:space-y-4  md:space-y-4 ">
             <p
               className="hidden md:block text-[#059cdc] text-[22px] xl:text-[32px] xl:pt-5 px-2 font-Proxima-Nova-Regular"

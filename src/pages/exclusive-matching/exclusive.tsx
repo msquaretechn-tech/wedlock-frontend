@@ -29,7 +29,7 @@ const Exclusive = () => {
         <h1 className="max-lg:text-3xl text-[55px] font-Proxima-Nova-Bold mb-4">
           Exclusive matchmaking
         </h1>
-        <h2 className="mx-auto font-Proxima-Nova-Light text-[15px] md:text-[22px]">
+        <h2 className="mx-auto font-Proxima-Nova-Light text-[18px] md:text-[22px]">
           Eligibility criteria for an Exclusive profile on Wedlock
         </h2>
         <p className="text-base mx-auto font-Proxima-Nova-Light text-left mt-5 leading-[1.3rem]">
@@ -68,7 +68,7 @@ const Exclusive = () => {
         Eligibility criteria are considered holistically, and exceptional candidates may be assessed on a case-by-case basis.
       </p>
 
-      <div className="flex space-x-4 mt-10 mb-4">
+      <div className="flex space-x-4 mt-6 mb-4">
         <button
           className="px-4 py-2 bg-white bg-opacity-20 rounded-md text-white"
           onClick={() => navigate("/")}
