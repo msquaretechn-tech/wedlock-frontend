@@ -22,6 +22,8 @@ const ConnectionCard = ({ userId, isFavourite, handleToggleFav }: ConnectionItem
     const getProfileDetails = async () => {
       try {
         const response = await fetchProfile(userId).unwrap();
+        //console.log("Profile API Response:", response);
+
         if (response.success && response.data?.[0]) {
           setProfileData(response.data[0]);
         }
@@ -37,29 +39,44 @@ const ConnectionCard = ({ userId, isFavourite, handleToggleFav }: ConnectionItem
   if (isError) return null; // Silent skip for failed profiles
 
   const mapToProfile = (data: any) => {
-    const firstName = data.basic_and_lifestyle?.firstName || "Unknown";
-    const lastName = data.basic_and_lifestyle?.lastName || "";
-    
-    return {
-      id: data._id || data.id,
-      userId: data.userId || data._id,
-      profileImages: data.profileImage || [],
-      userType: data.userType || "Standard",
-      gender: data.basic_and_lifestyle?.gender || "N/A",
-      age: data.basic_and_lifestyle?.age || "N/A",
-      match_percentage: data.match_percentage || "0",
-      displayName: `${firstName} ${lastName}`.trim(),
-      firstName: firstName,
-      occupation: data.personal_background?.occupation || data.occupation || "Not specified",
-      religion: data.religious_background?.religion || data.basic_and_lifestyle?.religion || "Not specified",
-      verified: data.verified || false,
-      country: data.location_details?.country || "N/A",
-      state: data.location_details?.state || "N/A",
-      maritalStatus: data.basic_and_lifestyle?.maritalStatus || "N/A",
-    };
+  const firstName = data.basic_and_lifestyle?.firstName || "Unknown";
+  const lastName = data.basic_and_lifestyle?.lastName || "";
+
+  return {
+    id: data.uid || data._id,
+    userId:
+      data.basic_and_lifestyle?.userId || // <-- THIS IS THE IMPORTANT CHANGE
+      data.userId ||
+      data.uid ||
+      data._id,
+
+    profileImages: data.profileImage || [],
+    userType: data.userType || "Standard",
+    gender: data.basic_and_lifestyle?.gender || "N/A",
+    age: data.basic_and_lifestyle?.age || "N/A",
+    match_percentage: data.match_percentage || "0",
+    displayName: `${firstName} ${lastName}`.trim(),
+    firstName,
+    occupation:
+      data.personal_background?.occupation ||
+      data.occupation ||
+      "Not specified",
+    religion:
+      data.religious_background?.religion ||
+      "Not specified",
+    verified: data.verified || false,
+    country: data.location_background?.country || "N/A",
+    state: data.location_background?.state || "N/A",
+    maritalStatus:
+      data.basic_and_lifestyle?.maritalStatus || "N/A",
   };
+};
 
   const profile = mapToProfile(profileData);
+
+  // console.log("profile.userId:", profile.userId);
+  // console.log("profile:", profile);
+  // console.log("profileData:", profileData);
 
   return (
     <ProfileCard
@@ -96,24 +113,21 @@ const Connections = () => {
   const items = getRawData() || [];
 
   const handleToggleFav = async (userId: string) => {
-  try {
-    const response = await toggleFav(userId).unwrap();
-    console.log("Success:", response);
-
-    toast.success(response.message);
-    refetchFav();
-  } catch (error: any) {
-    console.log("Toggle Favorite Error:", error);
-    console.log("Status:", error?.status);
-    console.log("Data:", error?.data);
-
-    toast.error(error?.data?.message || "Failed to update favorites");
-  }
-};
+    console.log("User ID:", userId);
+    
+    try {
+      const response = await toggleFav(userId).unwrap();
+      toast.success(response.message);
+      refetchFav();
+    } catch (error) {
+      toast.error("Failed to update favorites");
+    }
+  };
 
   const isFavourite = (userId: string) => {
     return favData?.data?.some((fav: any) => fav.userId === userId);
   };
+  
 
   return (
     <div className="p-4 md:p-10">
