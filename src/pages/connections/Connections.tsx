@@ -96,14 +96,20 @@ const Connections = () => {
   const items = getRawData() || [];
 
   const handleToggleFav = async (userId: string) => {
-    try {
-      const response = await toggleFav(userId).unwrap();
-      toast.success(response.message);
-      refetchFav();
-    } catch (error) {
-      toast.error("Failed to update favorites");
-    }
-  };
+  try {
+    const response = await toggleFav(userId).unwrap();
+    console.log("Success:", response);
+
+    toast.success(response.message);
+    refetchFav();
+  } catch (error: any) {
+    console.log("Toggle Favorite Error:", error);
+    console.log("Status:", error?.status);
+    console.log("Data:", error?.data);
+
+    toast.error(error?.data?.message || "Failed to update favorites");
+  }
+};
 
   const isFavourite = (userId: string) => {
     return favData?.data?.some((fav: any) => fav.userId === userId);
