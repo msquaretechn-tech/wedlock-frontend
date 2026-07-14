@@ -25,6 +25,7 @@ const PricingPage = () => {
   const [showExclusiveDescription, setShowExclusiveDescription] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<any>(null);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<"stripe" | "paypal">("stripe");
   
 
@@ -86,10 +87,11 @@ const PricingPage = () => {
     }
   };
 
-  const handlePlanClick = (planId: string, planName: string) => {
+  const handlePlanClick = (planId: string, planName: string, plan?: any) => {
   const normalized = planName.toLowerCase();
 
   setSelectedPlanId(planId);
+  setSelectedPlan(plan || null);
   setSelectedPaymentMethod("stripe");
 
   if (normalized.includes("exclusive")) {
@@ -196,7 +198,7 @@ const PricingPage = () => {
                 features={plan.featureList}
                 isDisabled={plan.planName === currentPlan && plan.planType === activeTab}
                 id={plan.id}
-                onClick={() => handlePlanClick(plan.id, plan.planName)}
+                onClick={() => handlePlanClick(plan.id, plan.planName, plan)}
               />
             ))
           ) : (
@@ -226,7 +228,7 @@ const PricingPage = () => {
           paymentMethod={selectedPaymentMethod}
           onPaymentMethodChange={setSelectedPaymentMethod}
         >
-          <PremiumPlan planType={activeTab} />
+          <PremiumPlan planType={activeTab} plan={selectedPlan} />
         </PlanDescriptionModal>
 
         {/* Exclusive Description Modal */}
@@ -238,7 +240,7 @@ const PricingPage = () => {
           paymentMethod={selectedPaymentMethod}
           onPaymentMethodChange={setSelectedPaymentMethod}
         >
-          <ExclusivePlan planType={activeTab} />
+          <ExclusivePlan planType={activeTab} plan={selectedPlan} />
         </PlanDescriptionModal>
 
         {/* Generic Payment Method Modal */}

@@ -3,26 +3,41 @@ import { MdCheckCircle } from "react-icons/md";
 
 interface ExclusivePlanProps {
     planType?: string;
+    plan?: {
+        price?: string | number;
+        planName?: string;
+        planType?: string;
+    };
 }
 
-const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType }) => {
+const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType, plan }) => {
+    const formatPrice = (price?: string | number) => {
+        if (price === undefined || price === null || price === "") {
+            return "Price unavailable";
+        }
+
+        const numericPrice = Number(price);
+        if (!Number.isNaN(numericPrice)) {
+            return `AU $${numericPrice.toFixed(2)}`;
+        }
+
+        return `AU $${price}`;
+    };
+
+    const isYearly = (planType || "").toLowerCase().includes("year") || (planType || "").toLowerCase().includes("annual");
+    const periodLabel = isYearly
+        ? "12 Months (365 days, no auto-renewal)"
+        : "1 Month (calendar month, no auto-renewal)";
+
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <section>
                 <h2 className="text-xl font-bold text-white mb-4 border-l-4 border-white/50 pl-3">Pricing</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {(!planType || planType.toLowerCase().includes("month")) && (
-                        <div className="bg-white/10 p-4 rounded-xl border border-white/20">
-                            <p className="text-sm text-white/70 font-medium">1 Month (calendar month, no auto-renewal)</p>
-                            <p className="text-2xl font-bold text-white">AU $1</p>
-                        </div>
-                    )}
-                    {(!planType || planType.toLowerCase().includes("year") || planType.toLowerCase().includes("annual")) && (
-                        <div className="bg-white/10 p-4 rounded-xl border border-white/20">
-                            <p className="text-sm text-white/70 font-medium">12 Months (365 days, no auto-renewal)</p>
-                            <p className="text-2xl font-bold text-white">AU $89.88</p>
-                        </div>
-                    )}
+                <div className="grid grid-cols-1 gap-4">
+                    <div className="bg-white/10 p-4 rounded-xl border border-white/20">
+                        <p className="text-sm text-white/70 font-medium">{periodLabel}</p>
+                        <p className="text-2xl font-bold text-white">{formatPrice(plan?.price)}</p>
+                    </div>
                 </div>
             </section>
 

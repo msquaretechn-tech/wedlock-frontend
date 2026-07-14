@@ -28,6 +28,7 @@ const BillingInfo = () => {
   const [showExclusiveDescription, setShowExclusiveDescription] = useState(false);
   const [showExclusiveModal, setShowExclusiveModal] = useState(false);
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<any>(null);
 
   const [billingData, setBillingData] = useState<BillingData>({
     currentPlan: "",
@@ -78,6 +79,7 @@ const BillingInfo = () => {
 
     if (currentPlanInfo) {
       setSelectedPlanId(currentPlanInfo.id);
+      setSelectedPlan(currentPlanInfo);
       if (currentPlanInfo.planName === "Exclusive") {
         setShowExclusiveDescription(true);
       } else if (currentPlanInfo.planName === "Premium") {
@@ -224,7 +226,7 @@ const BillingInfo = () => {
         paymentMethod={selectedPaymentMethod}
         onPaymentMethodChange={setSelectedPaymentMethod}
       >
-        <PremiumPlan planType={billingData.planType} />
+        <PremiumPlan planType={billingData.planType} plan={selectedPlan || { price: billingData.price, planName: billingData.currentPlan, planType: billingData.planType }} />
       </PlanDescriptionModal>
 
       <PlanDescriptionModal
@@ -235,7 +237,7 @@ const BillingInfo = () => {
         paymentMethod={selectedPaymentMethod}
         onPaymentMethodChange={setSelectedPaymentMethod}
       >
-        <ExclusivePlan planType={billingData.planType} />
+        <ExclusivePlan planType={billingData.planType} plan={selectedPlan || { price: billingData.price, planName: billingData.currentPlan, planType: billingData.planType }} />
       </PlanDescriptionModal>
 
       <ExclusiveEligibilityModal
