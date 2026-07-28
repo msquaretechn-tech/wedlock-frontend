@@ -394,6 +394,11 @@ class CallService {
     const snap = await get(ref(db, `calls/${this.userId}`));
     if (!snap.exists()) return;
     const callerId = (snap.val() as CallData).from;
+    
+    // Set receiver's references so cleanup works for both sides
+    this.currentReceiverId = callerId;
+    this.currentRoomId = roomId;
+    
     await update(ref(db, `calls/${this.userId}`), { status: "accepted" });
     await update(ref(db, `calls/${callerId}`), { status: "accepted" });
     this.isCalling = true;
@@ -422,6 +427,16 @@ class CallService {
   private joinRoom(roomId: string, isVideo: boolean) {
     if (this.hasJoinedCall) return;
 
+    const appID = Number(import.meta.env.VITE_ZEGO_APP_ID);
+    const serverSecret = import.meta.env.VITE_ZEGO_SERVER_SECRET;
+
+    if (!appID || isNaN(appID) || !serverSecret) {
+      console.error("[CallService] Missing Zego credentials - VITE_ZEGO_APP_ID:", import.meta.env.VITE_ZEGO_APP_ID, "VITE_ZEGO_SERVER_SECRET:", serverSecret ? "present" : "MISSING");
+      this.showSnackbar("Call service configuration error. Please contact support.", "error");
+      this.cleanUp();
+      return;
+    }
+
     // Store current page state before taking over
     this.storeCurrentPageState();
 
@@ -431,88 +446,99 @@ class CallService {
     document.body.style.padding = '0';
     document.body.style.overflow = 'hidden';
 
-    const token = ZegoUIKitPrebuilt.generateKitTokenForTest(
-      Number(import.meta.env.VITE_ZEGO_APP_ID),
-      import.meta.env.VITE_ZEGO_SERVER_SECRET!,
-      roomId,
-      this.userId!,
-      this.userName!
-    );
+    try {
+      const token = ZegoUIKitPrebuilt.generateKitTokenForTest(
+        appID,
+        serverSecret,
+        roomId,
+        this.userId!,
+        this.userName!
+      );
 
-    this.hasJoinedCall = true;
-    this.zegoInstance = ZegoUIKitPrebuilt.create(token);
+      this.hasJoinedCall = true;
+      this.zegoInstance = ZegoUIKitPrebuilt.create(token);
 
-    const container = document.createElement('div');
-    container.id = 'zego-call-container';
-    Object.assign(container.style, {
-      position: 'fixed',
-      top: '0',
-      left: '0',
-      width: '100vw',
-      height: '100vh',
-      background: '#1a1a1a',
-      zIndex: '9998',
-      display: 'flex',
-      flexDirection: 'column',
-    });
+      if (!this.zegoInstance) {
+        throw new Error("Failed to create Zego instance");
+      }
 
-    // Call header with info and controls
-    const header = document.createElement('div');
-    header.style.cssText = `
-      padding: 16px;
-      background: rgba(0,0,0,0.7);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1;
-    `;
+      const container = document.createElement('div');
+      container.id = 'zego-call-container';
+      Object.assign(container.style, {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100vw',
+        height: '100vh',
+        background: '#1a1a1a',
+        zIndex: '9998',
+        display: 'flex',
+        flexDirection: 'column',
+      });
 
-    const title = document.createElement('div');
-    title.textContent = `${isVideo ? 'Video' : 'Voice'} call`;
-    title.style.fontWeight = '500';
+      // Call header with info and controls
+      const header = document.createElement('div');
+      header.style.cssText = `
+        padding: 16px;
+        background: rgba(0,0,0,0.7);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+      `;
 
-    const endButton = document.createElement('button');
-    endButton.textContent = 'End Call';
-    endButton.style.cssText = `
-      padding: 8px 16px;
-      background: #ff4444;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-weight: 500;
-      cursor: pointer;
-    `;
-    endButton.onclick = () => this.endCall(this.currentReceiverId);
+      const title = document.createElement('div');
+      title.textContent = `${isVideo ? 'Video' : 'Voice'} call`;
+      title.style.fontWeight = '500';
 
-    header.appendChild(title);
-    header.appendChild(endButton);
-    container.appendChild(header);
-    document.body.appendChild(container);
+      const endButton = document.createElement('button');
+      endButton.textContent = 'End Call';
+      endButton.style.cssText = `
+        padding: 8px 16px;
+        background: #ff4444;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-weight: 500;
+        cursor: pointer;
+      `;
+      endButton.onclick = () => this.endCall(this.currentReceiverId);
 
-    this.zegoInstance.joinRoom({
-      container: container,
-      scenario: { mode: ZegoUIKitPrebuilt.OneONoneCall },
-      turnOnCameraWhenJoining: isVideo,
-      showRoomTimer: true,
-      showPreJoinView: false,
-      turnOnMicrophoneWhenJoining: true,
-      // showScreenSharingButton: isVideo,
-      showScreenSharingButton: false,
-      showMyCameraToggleButton: isVideo,
-      showAudioVideoSettingsButton: isVideo,
-      onLeaveRoom: () => {
-        this.endCall(this.currentReceiverId);
-        this.restorePreviousPage();
-        reloadOnce();
-      },
-      onUserLeave: () => {
-        this.showSnackbar('Other user left the call', 'info');
-        this.endCall(this.currentReceiverId);
-        this.restorePreviousPage();
-        reloadOnce();
-      },
-    });
+      header.appendChild(title);
+      header.appendChild(endButton);
+      container.appendChild(header);
+      document.body.appendChild(container);
+
+      this.zegoInstance.joinRoom({
+        container: container,
+        scenario: { mode: ZegoUIKitPrebuilt.OneONoneCall },
+        turnOnCameraWhenJoining: isVideo,
+        showRoomTimer: true,
+        showPreJoinView: false,
+        turnOnMicrophoneWhenJoining: true,
+        // showScreenSharingButton: isVideo,
+        showScreenSharingButton: false,
+        showMyCameraToggleButton: isVideo,
+        showAudioVideoSettingsButton: isVideo,
+        onLeaveRoom: () => {
+          this.endCall(this.currentReceiverId);
+          this.restorePreviousPage();
+          reloadOnce();
+        },
+        onUserLeave: () => {
+          this.showSnackbar('Other user left the call', 'info');
+          this.endCall(this.currentReceiverId);
+          this.restorePreviousPage();
+          reloadOnce();
+        },
+      });
+    } catch (error) {
+      console.error("[CallService] Error joining room:", error);
+      this.showSnackbar("Failed to start call. Please try again.", "error");
+      this.restorePreviousPage();
+      this.cleanUp();
+    }
   }
 
   private setTimeoutCheck(receiverId: string) {
