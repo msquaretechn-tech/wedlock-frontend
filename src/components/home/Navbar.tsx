@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
         <div className={`${isBlueBgRoute ? " " : " bg-[#007eb0] "}`}></div>
         <div className="flex justify-between items-center container w-full m-auto">
           <div className="flex items-center justify-between w-full">
-            <div className="text-white hidden md:flex flex-1 pt-20 lg:pt-0  justify-start ml-12">
+            {/* <div className="text-white hidden md:flex flex-1 pt-20 lg:pt-0  justify-start ml-12">
               <ul className="flex gap-5 text-[22px] font-Proxima-Nova-SemiBold">
                 <li>
                   <Link to="/mission" className="text-[20px]" >Mission</Link>
@@ -95,11 +95,11 @@ const Navbar: React.FC = () => {
                 </li>
 
               </ul>
-            </div>
+            </div> */}
             <div className="flex justify-center ">
               <Link to={"/"}>
                 <img
-                  src="/newlogo.png"
+                  src="/wedlock-h-logo.png"
                   alt="logo"
                   className="w-[11rem] h-[4rem] xl:w-[18rem] xl:h-[6rem]"
                 />
@@ -117,7 +117,7 @@ const Navbar: React.FC = () => {
                   onClick={openLogin}
                 >
                   Log in
-                  <RiArrowDropDownLine className="text-4xl" />
+                  
                 </button>
               )}
               <img

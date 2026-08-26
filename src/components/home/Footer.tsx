@@ -64,7 +64,7 @@ const Footer = () => {
           {/* About Section */}
           <div className="space-y-5 lg:col-span-2">
             <div className="flex items-center">
-              <img src="/newlogo.png" alt="logo" className="w-42 h-16" />
+              <img src="/wedlock-logo.png" alt="logo" className="w-42 h-32" />
             </div>
             <p className="font-Proxima-Nova-Regular text-pretty">
               In the spirit of reconciliation, Wedlock acknowledges the
@@ -78,7 +78,7 @@ const Footer = () => {
           {/* Mission Links */}
           <div className="mt-3">
             <ul className="font-Proxima-Nova-Regular space-y-2">
-              {/* <li>
+              <li>
                 <Link to="/mission" className="hover:text-[#007EAF]">
                   Mission
                 </Link>
@@ -87,7 +87,7 @@ const Footer = () => {
                 <Link to="/advice" className="hover:text-[#007EAF]">
                   Advice
                 </Link>
-              </li> */}
+              </li>
               <li>
                 <Link to="/services" className="hover:text-[#007EAF]">
                   Services
@@ -111,6 +111,11 @@ const Footer = () => {
               <li>
                 <Link to="/contact-us" className="hover:text-[#007EAF]">
                   Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/help" className="hover:text-[#007EAF]">
+                  Help
                 </Link>
               </li>
             </ul>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 // import heroImg from "../../assets/bg.png";
-import heroImg from "../../assets/Banner-2.jpg";
+import heroImg from "../../assets/header-bg.png";
 
 function Hero() {
   return (
@@ -18,17 +18,23 @@ function Hero() {
         <div className="2xl:px-20 pt-[15rem] md:pt-44 pb-28 max-md:mt-0 mt-36 xl:w-full flex justify-center items-start">
           <div className="text-center container xl:w-[100%]  hero_content xl:space-y-4  md:space-y-4 ">
             <p
-              className="hidden md:block text-[#059cdc] text-[22px] xl:text-[32px] xl:pt-5 px-2 font-Proxima-Nova-Regular"
+              className="hidden md:block text-[#059cdc] text-[24px] xl:text-[30px] xl:pt-5 px-2 font-Proxima-Nova-Regular"
               style={{
                 lineHeight: "24px",
                 letterSpacing: "2%",
                 fontWeight: "600",
+                textAlign: "left",
+                fontSize: "22px",
               }}
             >
-              Trusted Matrimonial Platform for Serious Relationships
+              TRUSTED MATRIMONIAL PLATFORM FOR SERIOUS RELATIONSHIPS
             </p>
 
-            <h1 className="text-[3rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[48px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 xl:-tracking-normal mb-[35px] md:mb-[10px]">
+            <h1 className="text-[3rem] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-[60px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[48px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 xl:-tracking-normal mb-[35px] md:mb-[10px]"
+            style={{
+              textAlign: "left",
+            }}    
+            >
               Next-Gen Matchmaking
             </h1>
 
@@ -38,6 +44,7 @@ function Hero() {
                 lineHeight: "24px",
                 letterSpacing: "2%",
                 fontWeight: "400",
+                textAlign: "left",
               }}
             >
               Advanced AI-powered compatibility matching for genuine connections
@@ -47,10 +54,14 @@ function Hero() {
                 to="/questions"
                 className="relative z-10 flex items-center justify-center bg-[#009BDA] rounded-full
                 mt-6 xl:mt-8
-                xl:w-[200px] xl:h-[64px] xl:text-[22px]
+                xl:w-[250px] xl:h-[64px] xl:text-[22px]
                 w-[145px] h-[50px]  text-white mx-auto xl:font-Proxima-Nova-SemiBold"
+                style={{
+                  float: "left",
+                  marginTop: "35px",
+                }}  
               >
-                <span className="text-semibold" style={{fontWeight:"bold"}}>Create account</span>
+                <span className="text-semibold">Get Started Free</span>
               </Link>
           </div>
 
@@ -58,7 +69,7 @@ function Hero() {
           <div className="absolute top-[60px] right-[130px] backdrop-blur backdrop-brightness-125 rounded-3xl w-[25%] h-[73%]   border-8 border-white-2 flex items-center justify-center hidden  md:block 3xl:mr-[5%] lg:hidden" ></div>
          */}
         </div>
-        <div
+        {/* <div
           className="absolute  bottom-36 -right-7 sm:pt-40  md:bottom-[15rem] md:right-[4rem] xl:bottom-60   xl:right-[4rem] 2xl:rigth-[4rem]  3xl:ml-[18%]  "
           style={{ transform: "translateY(50%)" }}
         >
@@ -67,7 +78,7 @@ function Hero() {
               All photos are used for illustrative purposes only.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

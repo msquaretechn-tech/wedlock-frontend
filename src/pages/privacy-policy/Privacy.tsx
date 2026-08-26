@@ -6,7 +6,7 @@ const Privacy = () => {
     <div className="flex flex-col mt-20">
       <div className="bg-[#E6F2F7] text-center px-6 py-6 md:p-24 space-y-8">
         <h3 className="text-[#007EAF] font-semibold text-base">
-          Current as of {currentDate.toLocaleString()}
+          Last Updated On : 1st September 2026
         </h3>
         <h1 className=" text-2xl md:text-4xl font-semibold">Privacy Policy</h1>
         <p className="text-[#475467] text-md md:text-xl text-balance">

@@ -11,7 +11,7 @@ const YouTube = () => {
           alt="arw"
           className="absolute  w-[52rem] -right-56 top-2 z-10"
         />
-        <div className='   youtube'>
+        <div className='youtube'>
 
           <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[48px] text-[#007EAF]">Introducing: A new Wedlock experience
           </h1>
@@ -24,7 +24,7 @@ const YouTube = () => {
             <iframe
               width="100%"
               height="630"
-              src="https://www.youtube.com/embed/Oo5KLeuczgw?si=PO7xh8if6hAGUqK-"
+              src="https://www.youtube.com/embed/FWLSosPv5SM"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
