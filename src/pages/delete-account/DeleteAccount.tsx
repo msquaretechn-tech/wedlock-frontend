@@ -3,7 +3,7 @@ import Nav from "../../components/Legal/Nav";
 import { Link } from "react-router-dom";
 
 const DeleteAccount = () => {
-  const currentDate = new Date().toDateString();
+  
   const HeroData = {
     updatedAt: `Last Updated On: 01 September 2026`,
     title: "Delete Account Policy",

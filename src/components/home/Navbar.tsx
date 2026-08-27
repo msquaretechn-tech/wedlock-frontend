@@ -65,6 +65,7 @@ const Navbar: React.FC = () => {
     "/cancel",
     "/exclusive",
   ];
+  
 
   const isHiddenRoute = hiddenRoutes.some((route) =>
     pathname.startsWith(route)

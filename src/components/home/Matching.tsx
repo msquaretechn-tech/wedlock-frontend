@@ -28,7 +28,6 @@ const Matching = () => {
                 </p>
             </div>
 
-
             <div className="lg:flex m-auto mt-9 justify-between items-center w-full max-w-[1200px] gap-12 bg-[#60457E] rounded-3xl px-4 lg:px-12 py-5 md:py-10 opacity-95">
  
                 <div className="relative  h-full flex justify-center items-center lg:w-1/2 ">

@@ -1,7 +1,6 @@
 import Nav from "../../components/Legal/Nav";
 
 
-
 const ChildSafety = () => {
 
     return (

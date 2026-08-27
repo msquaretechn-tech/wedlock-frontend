@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 const page = () => {
-  const currentDate = new Date().toDateString();
+  
   const HeroData = {
     updatedAt: `Last Updated On: 01 September 2026`,
     title: "Cookies Policy",

@@ -2,7 +2,7 @@ import Hero from '../../components/Legal/Hero';
 import Nav from '../../components/Legal/Nav';
 
 const Terms = () => {
-  const currentDate = new Date().toDateString();
+  
   const HeroData = {
     updatedAt: `Last Updated On: 01 September 2026`,
     title: "Terms and Conditions ",

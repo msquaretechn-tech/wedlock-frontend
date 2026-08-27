@@ -1,6 +1,5 @@
 import Nav from '../../components/Legal/Nav';
 
-
 const Privacy = () => {
   
   return (

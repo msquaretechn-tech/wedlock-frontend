@@ -53,7 +53,6 @@ function Hero() {
             </p>
 
             
-
             <Link
   to="/questions"
   className="

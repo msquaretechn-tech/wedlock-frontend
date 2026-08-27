@@ -12,6 +12,7 @@ const About = () => {
 
         </p>
       </div>
+      
       <div className="px-4 py-4 flex md:flex-row flex-col gap-7">
         <div className="">
           <Nav activeSectionData={"About"} />
