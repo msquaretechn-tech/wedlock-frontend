@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const DeleteAccount = () => {
   const currentDate = new Date().toDateString();
   const HeroData = {
-    updatedAt: `Current as of ${currentDate.toLocaleString()}`,
+    updatedAt: `Last Updated On: 01 September 2026`,
     title: "Delete Account Policy",
     description:
       "Your trust, privacy, and data are important to us. This page outlines how you can delete your account and what happens to your data after deletion.",

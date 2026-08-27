@@ -34,7 +34,7 @@ const Ai = () => {
                   name="Utkarsh Sinha"
                   description="Hi, I’m Utkarsh Sinha, a software developer based in Melbourne. I’ve joined Wedlock Australia to find a meaningful and lasting relationship. Outside of work, I love traveling, cooking, and staying active with fitness. I’m looking for a partner who values open communication, kindness, and the journey of growing together through life’s adventures. I believe that cultural harmony and mutual respect are the foundations of a strong and happy relationship.
 "
-                  imageSrc="/utkarsh.svg"
+                  imageSrc="/utkarsh.png"
                 />
               </div>
 

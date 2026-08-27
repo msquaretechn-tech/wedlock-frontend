@@ -88,7 +88,7 @@ const Feature = () => {
           {/* Image Column - Takes half width on lg screens */}
           <div className="w-full lg:w-1/2 flex items-center justify-center">
             <img
-              src="/main.svg"
+              src="/main.png"
               alt="Main visual"
               className="w-full h-auto object-contain max-h-[64rem] lg:max-h-[50rem] xl:max-h-[56rem]"
             />

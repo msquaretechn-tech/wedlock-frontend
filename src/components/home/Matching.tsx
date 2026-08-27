@@ -34,7 +34,7 @@ const Matching = () => {
                 <div className="relative  h-full flex justify-center items-center lg:w-1/2 ">
                     <div className="">
                         <img
-                            src="/matching.svg"
+                            src="/matching.png"
                             alt="couple"
                             className="max-w-full max-h-full  object-contain"
                         />

@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
               ) : (
                 <button
                   className={`flex items-center justify-center ${isBlueBgRoute ? "hidden" : "block"
-                    } md:gap-3 md:text-[24px] text-white font-Proxima-Nova-SemiBold  md:rounded-full rounded-3xl border-white font-bold border md:w-[150px] md:h-[49px] px-2`}
+                    } md:gap-3 md:text-[24px] text-white font-Proxima-Nova-SemiBold  md:rounded-full rounded-3xl border-white font-bold border md:w-[120px] md:h-[49px] px-2`}
                   onClick={openLogin}
                 >
                   Log in

@@ -4,7 +4,7 @@ import Nav from '../../components/Legal/Nav';
 const Terms = () => {
   const currentDate = new Date().toDateString();
   const HeroData = {
-    updatedAt: `Current as of ${currentDate.toLocaleString()}`,
+    updatedAt: `Last Updated On: 01 September 2026`,
     title: "Terms and Conditions ",
     description:
       "Terms and Conditions are subject to change by Wedlock in its sole discretion at any time. We will notify you of any such changes by posting an updated version of the agreement on this page. Your continued use of the Services after the posting of revisions to this agreement will constitute your acceptance of such revisions.",
