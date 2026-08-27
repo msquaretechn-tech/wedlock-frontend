@@ -3,7 +3,6 @@ import '../../font.css';
 const YouTube = () => {
   return (
 
-
     <div className='w-100 h-auto bg-[#E6F2F7] '>
       <div className='relative overflow-hidden px-5 sm:px-20  container m-auto  py-5 md:py-10' >
         <img

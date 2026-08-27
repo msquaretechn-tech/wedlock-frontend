@@ -9,6 +9,7 @@ import { MdKeyboardArrowUp } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 import "../../font.css";
 
+
 const Footer = () => {
   const { pathname } = useLocation();
   // Determine if the footer should be hidden

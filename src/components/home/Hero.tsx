@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 // import heroImg from "../../assets/bg.png";
 import heroImg from "../../assets/header-bg.png";
 
+
 function Hero() {
   return (
     <div

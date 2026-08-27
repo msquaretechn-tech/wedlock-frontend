@@ -1,4 +1,6 @@
 import Nav from "../../components/Legal/Nav";
+ 
+
 
 
 const Community = () => {
