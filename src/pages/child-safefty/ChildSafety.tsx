@@ -3,7 +3,6 @@ import Nav from "../../components/Legal/Nav";
 
 const ChildSafety = () => {
 
-    const currentDate = new Date().toDateString();
     return (
         <div className="flex flex-col mt-20">
             <div className="bg-[#E6F2F7] text-center px-6 py-6 md:p-24 space-y-8">

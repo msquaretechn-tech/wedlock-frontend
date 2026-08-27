@@ -10,6 +10,7 @@ function Hero() {
         backgroundImage: `url(${heroImg})`,
         width: "100%",
         // Zoom effect (adjust percentage as needed)
+        
       }}
     >
       <div className="absolute inset-0"></div>

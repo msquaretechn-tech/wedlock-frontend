@@ -10,7 +10,7 @@ import WhatsAppButton from "./Whatsapp";
 const Navbar: React.FC = () => {
   const { accessToken } = useSelector((state: RootState) => state.userReducer);
 
-  const location = useLocation(); // Use useLocation to get the current path
+  const location = useLocation();    // Use useLocation to get the current path
   const pathname = location.pathname;
 
   const [isLoginOpen, setLoginOpen] = useState(false);
@@ -19,6 +19,7 @@ const Navbar: React.FC = () => {
   const openLogin = () => setLoginOpen(true);
   const closeLogin = () => setLoginOpen(false);
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
+  
 
   const isBlueBgRoute = [
     "/mission",
