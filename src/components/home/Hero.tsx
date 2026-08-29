@@ -6,7 +6,7 @@ import heroImg from "../../assets/header-bg.png";
 function Hero() {
   return (
     <div
-      className="relative hero_section bg-cover bg-no-repeat bg-black  overflow-hidden min-h-screen 7xl:h-[100vh]   top-0 py-0   sm:py-0 3xl:h-[100vh]  xl:h-[100vh]   5xl:h-[100vh]   4xl:h-[100vh]  "
+      className="relative hero_section bg-cover bg-no-repeat overflow-hidden min-h-screen 7xl:h-[100vh]   top-0 py-0   sm:py-0 3xl:h-[100vh]  xl:h-[100vh]   5xl:h-[100vh]   4xl:h-[100vh]  "
       style={{
         backgroundImage: `url(${heroImg})`,
         width: "100%",
@@ -16,7 +16,7 @@ function Hero() {
     >
       <div className="absolute inset-0"></div>
 
-      <div className="relative 3xl:pl-30 bg-black bg-opacity-40 text-white min-h-screen md:pl-16 md:flex md:px-10 gap-80 ">
+      <div className="relative 3xl:pl-30 bg-opacity-40 text-white min-h-screen md:pl-16 md:flex md:px-10 gap-80 ">
         <div className="2xl:px-20 pt-[15rem] md:pt-44 pb-28 max-md:mt-0 mt-5 xl:w-full flex justify-center items-start">
           <div className="text-center container xl:w-[100%]  hero_content xl:space-y-4  md:space-y-4 ">
             <p
@@ -39,7 +39,7 @@ function Hero() {
 </h1>
 
            <p
-              className="md:block text-[#FFFFFF] text-[18px] xl:text-left xl:text-[26px] font-Proxima-Nova-Regular"
+              className="md:block text-[#FFFFFF] text-[18px] xl:text-left xl:text-[23px] font-Proxima-Nova-Regular"
               style={{
                 letterSpacing: "2%",
                 fontWeight: "400",
@@ -58,14 +58,15 @@ function Hero() {
   className="
     relative z-10 flex items-center justify-center
     bg-[#009BDA] rounded-full
+    w-[155px] h-[45px]
     mt-6 xl:mt-[80px]
-    xl:w-[180px] xl:h-[54px] xl:text-[18px]
-    w-[150px] h-[40px] text-black
+    xl:w-[175px] xl:h-[40px] xl:text-[18px]
+    text-black
     mx-auto
     xl:float-left xl:justify-start xl:pl-6
     xl:font-Proxima-Nova-SemiBold
   "
-  style={{marginTop: "45px"}}
+  style={{marginTop: "60px"}}
 >
   <span>Get Started Free</span>
 </Link>

@@ -116,8 +116,9 @@ const Navbar: React.FC = () => {
               ) : (
                 <button
                   className={`flex items-center justify-center ${isBlueBgRoute ? "hidden" : "block"
-                    } md:gap-3 md:text-[24px] text-white font-Proxima-Nova-SemiBold  md:rounded-full rounded-3xl border-white font-bold border md:w-[120px] md:h-[49px] px-2`}
-                  onClick={openLogin}
+                    } md:gap-3 md:text-[20px] text-white font-Proxima-Nova-SemiBold  md:rounded-full rounded-3xl border-white font-bold border xl:w-[100px] xl:h-[40px] px-2`} onClick={openLogin}
+                    style={{width:"95px", height:"38px"}}
+                
                 >
                   Log in
                   
@@ -142,7 +143,7 @@ const Navbar: React.FC = () => {
         >
           <div className="flex justify-between items-center p-4">
             <Link to={"/"}>
-              <img src="/WedLockLogo.png" alt="logo" className="w-36 h-10" />
+              <img src="/wedlock-h-logo.png" alt="logo" className="w-36 h-10" />
             </Link>
             <button className="text-3xl text-white" onClick={toggleSidebar}>
               <RiCloseLine />

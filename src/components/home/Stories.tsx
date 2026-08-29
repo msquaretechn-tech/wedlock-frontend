@@ -12,21 +12,21 @@ const Stories = () => {
       src: "/inspiring1 (1).png",
       title: "Sophia & Arjun",
       description:
-        "We met on Wedlock, and despite being from two different countries, we found common ground through our shared values and goals. The platform’s AI technology truly understood what we were looking for in a partner. After months of late-night calls and video chats, we finally met in person, and it was everything we had hoped for. Today, we’re married, and Wedlock helped make it happen.",
+        "We met on Wedlock, and despite being from two different countries, we found common ground through our shared values and goals. The platform truly understood what we were looking for in a partner. After months of late-night calls and video chats, we finally met in person, and it was everything we had hoped for. Today, we’re married, and Wedlock helped make it happen.",
       index: 0,
     },
     {
       src: "/inspiring1 (2).png",
       title: "Emily & John",
       description:
-        "Both of us had been through previous relationships that didn’t work out, but Wedlock gave us hope again. We were both looking for something deeper—someone who understood our past and was willing to build a future together. The AI matched us based on our shared experiences and values, and from the first conversation, we felt a connection. Now, we’re planning our wedding and couldn’t be happier.",
+        "Both of us had been through previous relationships that didn’t work out, but Wedlock gave us hope again. We were both looking for something deeper—someone who understood our past and was willing to build a future together. The platform matched us based on our shared experiences and values, and from the first conversation, we felt a connection. Now, we’re planning our wedding and couldn’t be happier.",
       index: 1,
     },
     {
       src: "/inspiring1 (3).png",
       title: "Isabella & Liam",
       description:
-        "When we first matched, we weren’t even sure we were ready for a serious relationship, but something clicked. We started with casual conversations, but as we got to know each other, we realized we had so much in common. Wedlock’s AI did a fantastic job of finding someone who matched both our personalities and our long-term goals. We’re now happily engaged!",
+        "When we first matched, we weren’t even sure we were ready for a serious relationship, but something clicked. We started with casual conversations, but as we got to know each other, we realized we had so much in common. Wedlock did a fantastic job of finding someone who matched both our personalities and our long-term goals. We’re now happily engaged!",
       index: 2,
     },
     {
