@@ -32,12 +32,7 @@ const YouTube = () => {
             ></iframe>
           </div>
 
-
-
-
-
         </div>
-
 
       </div>
 

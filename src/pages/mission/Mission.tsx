@@ -36,7 +36,7 @@ const Mission = () => {
             Relationships are at the core of everything we do.
           </h1>
           <p className="text-lg mb-12">
-            At Wedlock Australia, relationships are more than just
+            At Wedlock, relationships are more than just
             connections—they’re the heart of our mission and the foundation of
             our platform. We believe in fostering partnerships built on mutual
             respect, shared values, and long-term compatibility. Every feature

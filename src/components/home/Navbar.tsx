@@ -143,7 +143,7 @@ const Navbar: React.FC = () => {
         >
           <div className="flex justify-between items-center p-4">
             <Link to={"/"}>
-              <img src="/wedlock-h-logo.png" alt="logo" className="w-36 h-10" />
+              <img src="/wedlock-h-logo.png" alt="logo" className="h-10" />
             </Link>
             <button className="text-3xl text-white" onClick={toggleSidebar}>
               <RiCloseLine />

@@ -105,11 +105,11 @@ const Footer = () => {
                   Help
                 </Link>
               </li> */}
-              <li>
+              {/* <li>
                 <Link to="/faqs" className="hover:text-[#007EAF]">
                   FAQs
                 </Link>
-              </li>
+              </li> */}
                <li>
                 <Link to="/help" className="hover:text-[#007EAF]">
                   Help
@@ -227,7 +227,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-6">
           <div className="font-Proxima-Nova-Regular">
             <h1 className="font-semibold text-base md:text-lg italic">
-              Next-Gen Matchmaking
+              Next-Gen Matchmaking for Real, Global Relationships
             </h1>
             <p className="text-xs md:text-sm">
               This platform is strictly for matrimonial purposes only and not a dating platform.
@@ -235,7 +235,7 @@ const Footer = () => {
           </div>
           <div className="text-left md:text-right">
             <p className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">
-              © {currentYear} Wedlock Global Services (Australia) Pty Ltd. All
+              © {currentYear} WGS (Australia) Pty Ltd. All
               rights reserved.
             </p>
             <p className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">

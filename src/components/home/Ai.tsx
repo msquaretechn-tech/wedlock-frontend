@@ -31,8 +31,8 @@ const Ai = () => {
             <div className="bg-[#D3D3D380] mt-0 md:mt-20 lg:mt-0  border-[#FFFFFF] border rounded-t-3xl   lg:w-[55rem] md:h-[28.5rem] h-[28rem] lg:h-[37.5rem] xl:h-[38.5rem]  relative mx-auto">
               <div className="relative  md:bottom-44 lg:bottom-10   bottom-14  max-md:left-7 md:h-[40rem]   left-12 h-[44rem] w-[85%] lg:left-40 md:w-[85%] xl:h-[41rem]">
                 <Aicard
-                  name="Utkarsh Sinha"
-                  description="Hi, I’m Utkarsh Sinha, a software developer based in Melbourne. I’ve joined Wedlock Australia to find a meaningful and lasting relationship. Outside of work, I love traveling, cooking, and staying active with fitness. I’m looking for a partner who values open communication, kindness, and the journey of growing together through life’s adventures. I believe that cultural harmony and mutual respect are the foundations of a strong and happy relationship.
+                  name="Mark Eibl"
+                  description="Hi, I’m Mark Eibl, a software developer based in Melbourne. I’ve joined Wedlock to find a meaningful and lasting relationship. Outside of work, I love traveling, cooking, and staying active with fitness. I’m looking for a partner who values open communication, kindness, and the journey of growing together through life’s adventures. I believe that cultural harmony and mutual respect are the foundations of a strong and happy relationship.
 "
                   imageSrc="/utkarsh.png"
                 />

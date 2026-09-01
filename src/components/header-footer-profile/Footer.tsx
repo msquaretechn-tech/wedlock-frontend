@@ -54,11 +54,11 @@ const Footer = () => {
                   Next-Gen Matchmaking
                 </h4>
                 <p className="text-sm">
-                  Trusted Matrimonial Platform in Australia for Serious Relationships.
+                  Trusted Matrimonial Platform for Serious Relationships.
                 </p>
               </div>
               <div className="text-center md:text-right">
-                <span className="text-sm">© {currentYear} Wedlock Global Services (Australia) Pty Ltd.   All rights reserved.</span>
+                <span className="text-sm">© {currentYear} WGS (Australia) Pty Ltd.   All rights reserved.</span>
               </div>
             </div>
           </div>

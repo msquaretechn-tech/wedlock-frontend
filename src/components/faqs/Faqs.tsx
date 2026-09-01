@@ -11,8 +11,8 @@ type FAQ = {
 
 const faqs: FAQ[] = [
   {
-    question: 'What is Wedlock Australia?',
-    answer: 'Wedlock Australia is an innovative, subscription-based matrimonial and matchmaking service powered by artificial intelligence. We connect individuals from diverse nationalities, communities, and religious backgrounds, making it easier for people to find meaningful relationships in Australia and around the globe.'
+    question: 'What is Wedlock?',
+    answer: 'Wedlock is an innovative, subscription-based matrimonial and matchmaking service powered by artificial intelligence. We connect individuals from diverse nationalities, communities, and religious backgrounds, making it easier for people to find meaningful relationships around the globe.'
   },
   {
     question: 'How does the matchmaking process work?',
@@ -26,7 +26,7 @@ const faqs: FAQ[] = [
       Exclusive Membership: Tailored service for elite members seeking personalized matchmaking support.`
   },
   {
-    question: 'Can I use Wedlock Australia for free?',
+    question: 'Can I use Wedlock for free?',
     answer: 'Yes! The Standard Membership plan allows you to create a profile and access limited matches at no cost. This is a great way to explore our platform before deciding to upgrade to a paid subscription.'
   },
   {
@@ -55,7 +55,7 @@ const faqs: FAQ[] = [
   },
   {
     question: 'Are there any age restrictions for using Wedlock?',
-    answer: 'Yes, users must be at least 18 years old to create an account on Wedlock Australia. This ensures that all members are legally able to enter into relationships.'
+    answer: 'Yes, users must be at least 18 years old to create an account on Wedlock. This ensures that all members are legally able to enter into relationships.'
   },
   {
     question: 'How can I contact customer support if I have questions?',

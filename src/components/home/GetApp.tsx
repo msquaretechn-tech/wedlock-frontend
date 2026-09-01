@@ -2,16 +2,16 @@ import { useState } from 'react';
 import '../../font.css';
 
 const GetApp = () => {
-    const [qrImage, setQrImage] = useState("/qr.svg"); // Default QR
+    const [qrImage, setQrImage] = useState("/Wedlock Play Store QR Wallpaper (Rounded) - Galaxy S24.png"); // Default QR
 
     const handleAppStoreClick = () => {
         // window.open("https://apps.apple.com/app/id...", "_blank");
-        setQrImage("/qr.svg"); // Update with actual Apple QR image if available
+        setQrImage("/Wedlock App Store QR Wallpaper (Rounded) - iPhone 16 Pro Max.png"); // Update with actual Apple QR image if available
     };
 
     const handlePlayStoreClick = () => {
         window.open("https://play.google.com/store/apps/details?id=com.wedlock.wedlock_application", "_blank");
-        setQrImage("/qr.svg"); // Update with actual Google QR image if available
+        setQrImage("/Wedlock Play Store QR Wallpaper (Rounded) - Galaxy S24.png"); // Update with actual Google QR image if available
     };
 
     return (
@@ -36,7 +36,7 @@ const GetApp = () => {
                                     <img
                                         src="/appstore.png"
                                         alt="Apple Store"
-                                        className="h-14 md:h-20 lg:h-20"
+                                        className="h-14 md:h-20 lg:h-16"
                                     />
                                 </button>
                                 <button
@@ -46,7 +46,7 @@ const GetApp = () => {
                                     <img
                                         src="/googleplay.png"
                                         alt="Play Store"
-                                        className="h-14 md:h-20 lg:h-20"
+                                        className="h-14 md:h-20 lg:h-16"
                                     />
                                 </button>
                             </div>
@@ -54,17 +54,23 @@ const GetApp = () => {
                         <div className="relative mt-8 lg:mt-0 w-full max-w-[300px] md:max-w-[350px]">
                             <div className="relative w-full h-full">
                                 <img
-                                    src="/ph.svg"
+                                    src={qrImage}
                                     alt="Phone"
                                     className="w-full"
                                 />
-                                <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[45%] h-[45%] flex items-center justify-center">
+
+                                {/* <img
+                                    src="/ph.svg"
+                                    alt="Phone"
+                                    className="w-full"
+                                /> */}
+                                {/* <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[45%] h-[45%] flex items-center justify-center">
                                     <img
                                         src={qrImage}
                                         alt="QR code"
                                         className="w-full h-full object-contain transition-opacity duration-300"
                                     />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

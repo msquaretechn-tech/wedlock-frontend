@@ -5,9 +5,7 @@ const Service = () => {
   return (
     <div className="flex flex-col mt-20">
       <div className="bg-[#E6F2F7] text-center px-6 py-6 md:p-24 space-y-8">
-        <h3 className="text-[#007EAF] font-semibold text-base">
-          Last Updated On : 1st September 2026
-        </h3>
+        
         <h1 className=" text-2xl md:text-4xl font-semibold">Services</h1>
         <p className="text-[#475467] text-md md:text-xl text-balance">
           Wedlock is a matchmaking platform developed to redefine the landscape of matrimony, <br /> empowering individuals to embark on their journey towards matrimony and marital bliss with confidence and ease.
@@ -20,10 +18,10 @@ const Service = () => {
         </div>
         <div className=" flex flex-col items-start md:pr-10">
           <h2 className="font-bold text-xl pb-4 "> Services</h2>
-          <p className="pb-4">Welcome to Wedlock.com.au - Australia’s most trusted matrimony platform comes with the feature, that allows members to chat and meet up over video calls.</p>
+          <p className="pb-4">Welcome to Wedlock.com.au - Most trusted matrimony platform comes with the feature, that allows members to chat and meet up over video calls.</p>
 
           <p className="pb-4">
-            Wedlock.com.au is becoming Australia’s fastest growing website and mobile application to provide an exceptional matchmaking experience by expanding the opportunities available to meet potential life partners from diverse communities and nationalities.
+            Wedlock.com.au is becoming the fastest growing website and mobile application to provide an exceptional matchmaking experience by expanding the opportunities available to meet potential life partners from diverse communities and nationalities.
           </p>
 
           <p className="pb-4">
@@ -44,7 +42,7 @@ const Service = () => {
             <li>Focused on providing detailed family information</li>
             <li>New matches daily as per your preference </li>
           </ul>
-          <p className="pb-4">We are Australia's trusted matrimony platform and our app has touched hundreds of people in Australia and in many other countries across the globe.</p>
+          <p className="pb-4">We are trusted matrimony platform and our app has touched hundreds of people in countries across the globe.</p>
           <p className="pb-4 font-semibold text-md">What makes us different from other matrimony and marriage apps?</p>
 
           <ul className="list-disc pb-4 pl-4 space-y-4">
@@ -82,7 +80,7 @@ const Service = () => {
 
           <p className="pb-4">Our sole objective is to provide users a exceptional matrimony search experience which leads to meeting potential life partners translating to a fulfilling & cheering relationship.</p>
 
-          <p className="pb-4">As Australia’s trusted matrimony app which recommends right matches for you on a daily basis. Our support team also ensures that you connect with perfect profiles as per your preference.</p>
+          <p className="pb-4">As trusted matrimony platform which recommends right matches for you on a daily basis. Our support team also ensures that you connect with perfect profiles as per your preference.</p>
 
           <p className="pb-4">We are one of the trusted matrimony platforms with genuine profiles of people who are really serious about marriage.</p>
 
