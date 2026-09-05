@@ -16,7 +16,6 @@ import Discover from "../../components/user-dashboard/Discover";
 import Favourate from "../../components/user-dashboard/Favourate";
 import MyDetails from "../../components/user-dashboard/Mydetails";
 import ChatScreen from "../../pages/chat/ChatScreen";
-import Faqs from "../faqs/Faqs";
 import CallService from "../zegocall/CallService ";
 import Connections from "../connections/Connections";
 // import { MessageOutlined } from "@ant-design/icons";
