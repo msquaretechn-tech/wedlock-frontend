@@ -21,7 +21,7 @@ const page = () => {
           <Nav activeSectionData={"COOKIES POLICY"} />
         </div>
         <div className="">
-          <h1 className=" text-lg md:text-xl font-semibold mb-2">Cookies Policy</h1>
+          <h1 className=" font-bold text-md pb-4 text-xl ">Cookies Policy</h1>
           <p className="pb-4">
 
             Your trust, privacy and data are important to us and

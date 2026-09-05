@@ -148,11 +148,11 @@ const UserDashboard: React.FC = () => {
       children: <Notification />,
     },
     
-    {
-      key: "faqs",
-      label: `FAQs`,
-      children: <Faqs />,
-    },
+    // {
+    //   key: "faqs",
+    //   label: `FAQs`,
+    //   children: <Faqs />,
+    // },
 
   ];
 

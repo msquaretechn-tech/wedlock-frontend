@@ -125,7 +125,7 @@ const Header = memo(() => {
         <div className="">
           <Link to="/user-dashboard">
             <img
-              src="/logowhite.png"
+              src="/wedlock-h-logo.png"
               alt="logo"
               className="h-auto w-24 md:w-36 lg:w-40"
             />

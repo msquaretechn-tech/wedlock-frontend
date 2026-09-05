@@ -41,7 +41,7 @@ const Profile: React.FC = () => {
   const items: TabsProps["items"] = [
     {
       key: "matches",
-      label: `Matches`,
+      label: `User Profile`,
       children: (
         <div>
           <Match userId={userId!} />
@@ -50,13 +50,13 @@ const Profile: React.FC = () => {
     },
     {
       key: "discover",
-      label: `Discover`,
+      label: `Discover Matches`,
       children:
         <div><Discover /></div>,
     },
     {
       key: "favorite-profiles",
-      label: `Favorite Profile`,
+      label: `Saved Favourites`,
       children:
         <div>
           <Favourate />
@@ -85,10 +85,10 @@ const Profile: React.FC = () => {
     <div className="min-w-screen flex min-h-screen flex-col">
       <Header />
       <div className="flex-grow bg-[#E6F2F7] mt-10">
-        <div className="px-4 pt-10">
+        <div className="px-4 pt-20">
           <div className="flex justify-between items-center mb-4">
             <h1 className="text-xl font-semibold md:text-2xl lg:text-3xl m-0">
-              User Profile
+              Explore Your Matches
             </h1>
             <div className="flex items-center gap-2">
               <span className="text-sm font-medium text-gray-500">Membership:</span>

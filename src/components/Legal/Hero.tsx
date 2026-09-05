@@ -13,7 +13,7 @@ const Hero: React.FC<HeroProps>=({updatedAt, title, description}: HeroProps) => 
         <h3 className="text-base mt-10  font-semibold text-[#007EAF]">
           {updatedAt}
         </h3>
-        <h1 className=" text-3xl md:text-5xl font-semibold">{title}</h1>
+        <h1 className=" text-2xl md:text-4xl font-semibold">{title}</h1>
         <p className=" text-md md:text-xl text-[#475467] text-balance">
           {description}
         </p>

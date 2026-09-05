@@ -14,13 +14,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="mb-4">
         {label && (
-          <label htmlFor={generatedId} className="block mb-2" style={labelStyle}>
+          <label htmlFor={generatedId} className="text-white text-[15px] mb-2" style={labelStyle}>
             {label}
           </label>
         )}
         <input
           id={generatedId}
-          className="w-full p-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full mt-2 p-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           ref={ref}
           {...props}
         />

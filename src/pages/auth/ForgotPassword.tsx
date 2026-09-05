@@ -89,7 +89,7 @@ const forgotPassword = () => {
     <div className={`min-w-screen min-h-screen flex flex-col items-center bg-[#007EAF] ${isExclusive? 'bg-[#60457E]': 'bg-[#007EAF]'} `}>
     <div className="flex items-center justify-center mb-14 w-[268px] h-[90px]">
       <Link to={"/"} className='fixed top-8'>
-      <img src="/logowhite.png" alt="Logo"   className='w-72 h-24 ' />
+      <img src="/logowhite.png" alt="Logo" className='w-72 h-24 ' />
       </Link>
     </div>
 

@@ -171,7 +171,7 @@ const Login = () => {
           <div className="rounder-[8px]">
             <Input
               {...register("email")}
-              placeholder="Enter your Email" label="Email"
+              placeholder="Enter your email" label="Email"
               labelStyle={{ color: "white" }}
             />
             {errors.email && <p className="text-orange-200">{errors.email.message}</p>}
@@ -179,7 +179,7 @@ const Login = () => {
             <Input
               {...register("password")}
               type="password"
-              placeholder="Enter your Password" label="Password"
+              placeholder="Enter your password" label="Password"
               labelStyle={{ color: "white" }}
             />
             {errors.password && <p className="text-orange-200">{errors.password.message}</p>}

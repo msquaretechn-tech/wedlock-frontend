@@ -39,7 +39,7 @@ const page = () => {
             Your profile created successfully
           </h1>
           <p className="md:text-md text-sm text-[#F9F5FFE5] 3xl:text-lg">
-           Let Your matchmaking journey begin with us
+           Let your matchmaking journey begin with us
            
           </p>
         </div>

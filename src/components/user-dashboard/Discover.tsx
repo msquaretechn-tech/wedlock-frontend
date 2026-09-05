@@ -125,7 +125,7 @@ const Discover = () => {
       </div>
 
       <div className="mt-10  ">
-        <div className="grid gap-10 lg:gap-40 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-4">
+        <div className="grid gap-10 lg:gap-20 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-4">
           {isLoading ? (
             // Display loading skeletons while loading
             skeletonArray.map((_, index) => <SkeletonCard key={index} />)

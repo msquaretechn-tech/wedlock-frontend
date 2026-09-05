@@ -224,7 +224,7 @@
 
             <div className="mb-4">
               <label className="block text-white">
-                Australian visa status (if applicable)*
+                Australian visa status*
               </label>
               <div className="mb-4">
                 <select

@@ -3,7 +3,7 @@ import Nav from "../../components/Legal/Nav";
 const Service = () => {
   
   return (
-    <div className="flex flex-col mt-20">
+    <div className="flex flex-col mt-10">
       <div className="bg-[#E6F2F7] text-center px-6 py-6 md:p-24 space-y-8">
         
         <h1 className=" text-2xl md:text-4xl font-semibold">Services</h1>

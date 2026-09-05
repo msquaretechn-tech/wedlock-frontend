@@ -221,7 +221,7 @@ const Match: React.FC<MatchProps> = ({ userId }) => {
       <div className="col-span-1 xl:grid w-full md:col-span-2 gap-10">
         <div className="col-span-1 mb-4 xl:mb-0 rounded-xl bg-white p-6 md:col-span-2   md:w-auto  xl:h-[22rem]">
           <div className="self-start text-sm font-semibold  leading-5 text-zinc-900">
-            <h1 className="text-center">Basic & Lifestyle</h1>
+            <h1 className="justify-center font-Proxima-Nova-Bold border-b border-solid border-zinc-300 py-1 text-lg leading-6 tracking-wide  text-[#007EAF] max-md:max-w-full max-md:px-5 md:text-xl ">Basic & Lifestyle</h1>
           </div>
 
           <div className="mt-2.5 flex flex-wrap items-center gap-2.5 self-start text-base font-medium leading-4 text-slate-900">
@@ -467,10 +467,10 @@ lg:text-3xl`}
                     <CiMap />
                   </div>
                   <div className="text-lg leading-8 tracking-wide text-slate-600 md:text-xl">
-                    Body Type
+                    Body type
                   </div>
                 </div>
-                <div className="text-md ml-8 mt-2 flex justify-center gap-1.5 self-start rounded-[100px] border border-solid border-gray-200 bg-blue-50 bg-opacity-50 px-5 py-2 font-medium capitalize leading-7 text-cyan-600 max-md:ml-2.5 md:py-4 md:text-xl">
+                <div className="text-md ml-8 mt-2 justify-center self-start rounded-[100px] bg-blue-50 px-3 py-1.5 text-center font-medium capitalize leading-7 text-cyan-600 max-md:ml-2.5 md:text-xl">
                   {profileData?.personal_background?.bodyType}
                 </div>
                 <div className="mt-6 flex items-center gap-1 whitespace-nowrap text-xl leading-8 tracking-wide text-slate-600">
@@ -497,7 +497,7 @@ lg:text-3xl`}
                     <FaSmoking />
                   </div>
                   <div className="text-lg leading-8 text-slate-600 md:text-xl">
-                    Smoking habbits
+                    Smoking status
                   </div>
                 </div>
                 <div className="text-md ml-9 mt-2 justify-center self-start rounded-[100px] bg-green-100 px-3 py-1.5 text-center font-medium capitalize leading-7 text-green-700 max-md:ml-2.5 md:text-xl">
@@ -513,7 +513,7 @@ lg:text-3xl`}
                   </div>
 
                   <div className="text-lg leading-8 text-slate-600 md:text-xl">
-                    Drinking habbit
+                    Drinking status
                   </div>
                 </div>
                 <div className="text-md ml-7 mt-2 justify-center self-start rounded-[100px] bg-gray-200 px-3 py-1.5 text-center font-medium capitalize leading-7 text-slate-900 max-md:ml-2.5 md:text-xl">
@@ -602,14 +602,15 @@ lg:text-3xl`}
         }
 
 
-        <div className="h-auto py-4 rounded-xl">
-          <div className=" flex max-w-[499px] flex-col pb-9 leading-8 text-slate-900">
+        <div className="h-auto py-4 rounded-xl mb-4 xl:mb-0 bg-white">
+          <div className=" mt-2 flex flex-col px-6 max-md:max-w-full max-md:px-5">
             <div
-              className={`w-full text-lg font-Proxima-Nova-Bold leading-[110%]  ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
+              className={`w-full text-lg border-b border-solid font-Proxima-Nova-Bold leading-[110%]  ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
                 } max-md:max-w-full md:text-xl`}
             >
-              Interest and hobbies
+              Interest & Hobbies
             </div>
+            
             <div className="mt-4 flex gap-2.5 whitespace-nowrap text-center capitalize tracking-wide max-md:pr-5 md:flex-wrap">
               {profileData?.interest_and_hobbies?.map((interest: string) => (
                 <div
@@ -627,7 +628,7 @@ lg:text-3xl`}
         {profileData?.education_and_financial &&
 
           <ProfileSection
-            title="Educational and Financial Background"
+            title="Educational & Financial Background"
             data={{
               "Qualification": profileData?.education_and_financial?.qualification,
               "Occupation": profileData?.education_and_financial?.occupation,

@@ -19,11 +19,11 @@ const Footer = () => {
                 <ul className="text-md flex flex-wrap items-center justify-center gap-6 md:justify-start">
                   <li><Link to="/mission">Mission</Link></li>
                   <li><Link to="/advice">Advice</Link></li>
+                  <li><Link to="/services">Services</Link></li>
                   <li><Link to="/help">Help</Link></li>
                   <li><Link to="/contact-us">Contact</Link></li>
-                  <li><Link to="/services">Services</Link></li>
-                  <li><Link to="/faqs">FAQs</Link></li>
-                  <li><Link to="/privacy-policy">Privacy</Link></li>
+                  {/* <li><Link to="/faqs">FAQs</Link></li> */}
+                  <li><Link to="/privacy-policy">Privacy Policy</Link></li>
                   <li><Link to="/cookies-policy">Cookies Policy</Link></li>
                 </ul>
               </div>
@@ -51,10 +51,10 @@ const Footer = () => {
                     fontFamily: "Proxima-Nova-ExtraBold-Italic, sans-serif",
                   }}
                 >
-                  Next-Gen Matchmaking
+                  Next-Gen Matchmaking for Real, Global Relationships
                 </h4>
                 <p className="text-sm">
-                  Trusted Matrimonial Platform for Serious Relationships.
+                  This platform is strictly for matrimonial purposes only and not a dating platform.
                 </p>
               </div>
               <div className="text-center md:text-right">
