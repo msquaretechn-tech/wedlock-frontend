@@ -39,6 +39,8 @@ interface ProfileCardProps {
 
 
 const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handleFavouriteToggle }) => {
+  console.log("profiles are ",profiles);
+
   const {user } = useSelector((state: RootState) => state.userReducer) ;
 
 
@@ -57,11 +59,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
       case "Premium":
         return "border-[#007EAF]"; 
       case "Standard":
-        return ""; // No border
+        return "border-[#007EAF]"; // No border
       default:
         return "";
     }
   };
+  
 
   console.log(user?.usertype,"userType");
 
@@ -100,13 +103,14 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
   return (
     <div className=" ">
       {profiles.map((data) => (
-        <div
-        onClick={() => handleCardClick(data.userId,data.firstName)}
-          key={data.id}
-          className={`relative w-full cursor-pointer md:w-[24rem] ${data.userType !== "Standard" ? "h-[33.1rem]" : "h-[33.1rem]"} rounded-[1.9rem] ${
-            data.userType !== "Standard" ? "border-t-[1rem]" : ""
-          } ${getBorderColor(data.userType)}`}
-        >
+        <div 
+  onClick={() => handleCardClick(data.userId, data.firstName)} 
+  key={data.id}
+  className={`relative w-full cursor-pointer md:w-[24rem] 
+    h-[33.1rem] rounded-[1.9rem] border-t-[1rem]
+    ${data.userType === "Standard" ? "border-t-gray-400" : "border-t-[#007EAF]"}
+  `}
+  >
           <img
             src={data?.profileImages?.[0] ? data.profileImages[0] : 'path/to/default-image.jpg'}
             alt="p"
@@ -131,7 +135,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
               > <FaStar className="text-2xl text-white" />  </button> :
 
 
-              <button
+            <button
             className="flex items-center gap-2 "
             onClick={(e) => {
               e.stopPropagation();
@@ -146,7 +150,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex h-10 w-28 items-center justify-center rounded-lg bg-gradient-to-t from-[#FFD54266] to-[#C0970766] px-1">
-                <h1 className="text-white">{data.match_percentage}% match</h1>
+                <h1 className="text-white">{Math.round(parseFloat(data.match_percentage))}% match</h1>
               </div>
               <div>
                 <div className="flex items-center justify-between">
@@ -159,7 +163,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
                       ""
                     )}
                   </h1>
-                  <h1>{`${data.gender === 'Man' ? 'M' : 'F'},${data.age}`}</h1>
+                  <h1>{`${data.gender === 'Man' ? 'Male' : 'Female'}, ${data.age}`}</h1>
                   </div>
                 <div className="flex items-center justify-between">
                   <h1 className="text-xl font-semibold"> {data.occupation}</h1>

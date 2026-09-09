@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import PremiumPlan from "../planDiscriptions/PremiumPlan";
 import ExclusivePlan from "../planDiscriptions/ExclusivePlan";
 import { Typography } from "@mui/material";
+import { FaStripe, FaPaypal } from "react-icons/fa6";
 
 
 
@@ -339,36 +340,38 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
       </p>
 
       <div className="grid grid-cols-2 gap-3">
-        <button
-          type="button"
-          onClick={() => {
-            onPaymentMethodChange("stripe");
-            setHasChosenPayment(true);
-          }}
-          className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
-            paymentMethod === "stripe"
-              ? "border-[#00D1FF] bg-[#00D1FF]/15 text-white"
-              : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"
-          }`}
-        >
-          Stripe Pay
-        </button>
+  <button
+    type="button"
+    onClick={() => {
+      onPaymentMethodChange("stripe");
+      setHasChosenPayment(true);
+    }}
+    className={`flex items-center justify-center gap-2 rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
+      paymentMethod === "stripe"
+        ? "border-[#00D1FF] bg-[#00D1FF]/15 text-white"
+        : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"
+    }`}
+  >
+    <FaStripe className="text-3xl" />
+    <span>Stripe Pay</span>
+  </button>
 
-        <button
-          type="button"
-          onClick={() => {
-            onPaymentMethodChange("paypal");
-            setHasChosenPayment(true);
-          }}
-          className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
-            paymentMethod === "paypal"
-              ? "border-[#FFD43B] bg-[#FFD43B]/15 text-white"
-              : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"
-          }`}
-        >
-          PayPal
-        </button>
-      </div>
+  <button
+    type="button"
+    onClick={() => {
+      onPaymentMethodChange("paypal");
+      setHasChosenPayment(true);
+    }}
+    className={`flex items-center justify-center gap-2 rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
+      paymentMethod === "paypal"
+        ? "border-[#FFD43B] bg-[#FFD43B]/15 text-white"
+        : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"
+    }`}
+  >
+    <FaPaypal className="text-2xl" />
+    <span>PayPal</span>
+  </button>
+</div>
     </div>
   )}
 
