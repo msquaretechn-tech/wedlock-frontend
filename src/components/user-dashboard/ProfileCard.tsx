@@ -52,18 +52,18 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
   
 
 
-  const getBorderColor = (userType: string) => {
-    switch (userType) {
-      case "Exclusive":
-        return "border-[#60457E]"; 
-      case "Premium":
-        return "border-[#007EAF]"; 
-      case "Standard":
-        return "border-[#007EAF]"; // No border
-      default:
-        return "";
-    }
-  };
+  // const getBorderColor = (userType: string) => {
+  //   switch (userType) {
+  //     case "Exclusive":
+  //       return "border-[#60457E]"; 
+  //     case "Premium":
+  //       return "border-[#007EAF]"; 
+  //     case "Standard":
+  //       return "border-[#007EAF]"; // No border
+  //     default:
+  //       return "";
+  //   }
+  // };
   
 
   console.log(user?.usertype,"userType");
@@ -96,8 +96,6 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
     navigate(`/profile/${name}/${userId}`);
     window.location.reload();
   };
-
-
 
 
   return (
@@ -145,7 +143,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
           >
             <FaRegStar className="text-2xl" />
           </button>
-               }
+          }
 
             </div>
             <div className="flex flex-col gap-4">
