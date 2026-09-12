@@ -96,10 +96,10 @@ const Profile: React.FC = () => {
                 color={getPlanColor(displayPlan)}
                 className="px-4 py-1 rounded-full border-none text-white font-bold text-sm shadow-sm"
               >
-                {displayPlan.toUpperCase()}
+                {displayPlan}
               </Tag>
               {isExpired && (
-                <Tag color="error" className="rounded-full">EXPIRED</Tag>
+                <Tag color="error" className="rounded-full">Expired</Tag>
               )}
             </div>
           </div>
