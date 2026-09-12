@@ -133,7 +133,7 @@ const FamilyModel: React.FC<FamilyModelProps> = ({ isVisible, onClose }) => {
         wrapClassName="my-modal-content"
         classNames={classNames}
         title={
-          <span className={styles["my-modal-title"]}>Family Background</span>
+          <span className={styles["my-modal-title"]}>Family Details</span>
         }
         centered
         confirmLoading={isLoading}

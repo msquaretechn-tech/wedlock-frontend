@@ -21,7 +21,7 @@ const Footer = () => {
                   <li><Link to="/advice">Advice</Link></li>
                   <li><Link to="/services">Services</Link></li>
                   <li><Link to="/help">Help</Link></li>
-                  <li><Link to="/contact-us">Contact</Link></li>
+                  <li><Link to="/contact-us">Contact Us</Link></li>
                   {/* <li><Link to="/faqs">FAQs</Link></li> */}
                   <li><Link to="/privacy-policy">Privacy Policy</Link></li>
                   <li><Link to="/cookies-policy">Cookies Policy</Link></li>
@@ -44,21 +44,17 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col items-center justify-between space-y-4 px-4 md:flex-row md:space-y-0 md:px-10 ">
-              <div className="text-center md:text-left">
-                <h4
-                  className="text-lg font-semibold italic tracking-wider text-[#FFFFFF]"
-                  style={{
-                    fontFamily: "Proxima-Nova-ExtraBold-Italic, sans-serif",
-                  }}
+              <div className="font-Proxima-Nova-Regular">
+                <h1
+                  className="font-semibold text-base md:text-lg italic"          
                 >
                   Next-Gen Matchmaking for Real, Global Relationships
-                </h4>
+                </h1>
                 <p className="text-sm">
                   This platform is strictly for matrimonial purposes only and not a dating platform.
                 </p>
               </div>
-              <div className="text-center md:text-right">
-                <span className="text-sm">© {currentYear} WGS (Australia) Pty Ltd.   All rights reserved.</span>
+              <div className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">© {currentYear} WGS (Australia) Pty Ltd.   All rights reserved.
               </div>
             </div>
           </div>

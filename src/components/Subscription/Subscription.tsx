@@ -53,16 +53,16 @@ const Subscription: React.FC = () => {
             <thead className="border-b-2 ">
               <tr className="border-b-2  max-md:text-md text-center  text-2xl">
                 <th className="text-left p-2">
-                  <div className="pt-5 pb-5 text-2xl">Features</div>
+                  <div className="pt-5 pb-5 text-2xl text-[20px]">Features</div>
                 </th>
                 <th>
-                  <div className="pt-5 pb-5 text-2xl">Standard</div>
+                  <div className="pt-5 pb-5 text-2xl text-[20px]">Standard</div>
                 </th>
                 <th>
-                  <div className="pt-5 pb-5 text-2xl">Premium</div>
+                  <div className="pt-5 pb-5 text-2xl text-[20px]">Premium</div>
                 </th>
                 <th>
-                  <div className="pt-5 pb-5 text-2xl">Exclusive</div>
+                  <div className="pt-5 pb-5 text-2xl text-[20px]">Exclusive</div>
                 </th>
               </tr>
             </thead>

@@ -310,7 +310,7 @@ return (
          <div className="col-span-1 mb-4 xl:mb-0 rounded-xl bg-white p-6 md:col-span-2   md:w-auto  xl:h-[30rem]">
             <div className="flex w-full flex-col  items-center justify-between gap-10 xl:flex-row">
                <div className=" xl:w-[70%] w-full ">
-                  <div className="justify-center text-lg leading-6 tracking-wide text-[#007EAF] max-md:max-w-full max-md:px-5 md:text-xl" style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}>
+                  <div className="w-full justify-center border-b border-solid border-zinc-300 py-2 text-lg leading-6 tracking-wide text-[#007EAF] max-md:max-w-full max-md:px-5 md:text-xl" style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}>
                      <div>Basic & Lifestyle</div>
                      <div className="flex gap-4 text-cyan-600">
                         {/* 
@@ -384,7 +384,7 @@ return (
                   </div>
                   */}
                </div>
-               <div className="mt-6 flex flex-col rounded-xl bg-cyan-600 bg-opacity-20 px-6 py-3 max-md:max-w-full max-md:px-5">
+               <div className="flex flex-col rounded-xl bg-cyan-600 bg-opacity-20 px-6 py-3 max-md:max-w-full max-md:px-5">
                   <div className="text-base font-bold leading-6 tracking-wide text-gray-900 text-opacity-90 max-md:max-w-full">
                      About{" "}
                      {capitalize(myDetails?.basic_and_lifestyle?.firstName) +
@@ -715,7 +715,7 @@ return (
       </div>
       <div className="mt-4 flex justify-between gap-0 font-normal max-md:flex-wrap">
          <div className="text-sm font-normal leading-8 tracking-wide text-slate-600 md:text-xl">
-            Gothra/Gothram
+            Gothra/Gothram 
          </div>
          <div className="justify-center self-start rounded-[100px] bg-pink-50 px-3 py-1.5 text-center text-base font-medium capitalize leading-4 tracking-normal text-pink-400 ">
             {myDetails?.religious_background?.gotra}

@@ -219,12 +219,11 @@ const Match: React.FC<MatchProps> = ({ userId }) => {
 
       </div>
       <div className="col-span-1 xl:grid w-full md:col-span-2 gap-10">
-        <div className="col-span-1 mb-4 xl:mb-0 rounded-xl bg-white p-6 md:col-span-2   md:w-auto  xl:h-[22rem]">
-          <div className="self-start text-sm font-semibold  leading-5 text-zinc-900">
-            <h1 className="justify-center font-Proxima-Nova-Bold border-b border-solid border-zinc-300 py-1 text-lg leading-6 tracking-wide  text-[#007EAF] max-md:max-w-full max-md:px-5 md:text-xl ">Basic & Lifestyle</h1>
+        <div className="col-span-1 mb-4 xl:mb-0 rounded-xl bg-white md:col-span-2 md:w-auto  xl:h-[25rem]">
+          <div className="w-full justify-center border-b border-solid border-zinc-300 py-2 text-lg leading-6 tracking-wide text-[#007EAF] mt-5 p-6 max-md:max-w-full max-md:px-5 md:text-xl" style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}>
+            <div>Basic & Lifestyle</div>
           </div>
-
-          <div className="mt-2.5 flex flex-wrap items-center gap-2.5 self-start text-base font-medium leading-4 text-slate-900">
+          <div className="flex flex-wrap items-center p-6 gap-2.5 self-start text-base font-medium leading-4 text-slate-900">
             <div
               className={`self-stretch text-xl font-bold leading-10  ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
                 }
@@ -349,7 +348,7 @@ lg:text-3xl`}
             </div>
           </div>
 
-          <div className="mt-6 flex flex-col rounded-xl bg-cyan-600 bg-opacity-20 px-6 py-3 max-md:max-w-full max-md:px-5">
+          <div className="flex flex-col rounded-xl bg-cyan-600 bg-opacity-20 py-3 px-6 max-md:max-w-full max-md:px-5" style={{marginRight: "25px", marginLeft: "25px"}}>
             <div className="text-base font-bold leading-6 tracking-wide text-gray-900 text-opacity-90 max-md:max-w-full">
               About{" "}
               {profileData?.basic_and_lifestyle?.displayName ||
@@ -361,7 +360,7 @@ lg:text-3xl`}
               <p> {profileData?.basic_and_lifestyle?.about}</p>
             </div>
           </div>
-          <div className="mt-4 flex flex-col max-md:max-w-full md:px-5">
+          <div className="mt-4 flex flex-col max-md:max-w-full md:px-10">
             <div className="flex justify-between gap-0 max-md:flex-wrap">
               <div
                 className="text-md flex-1 font-normal leading-8 tracking-wide text-gray-900 text-opacity-90 max-md:max-w-full md:text-lg"
@@ -389,7 +388,7 @@ lg:text-3xl`}
                 className="text-md flex-1 font-normal leading-8 tracking-wide text-gray-900 text-opacity-90 max-md:max-w-full md:text-lg"
                 style={{ fontFamily: "Proxima-Nova-Semibold, sans-serif" }}
               >
-                Posted By
+                Posted by
               </div>
               <div className="justify-center self-start rounded-[100px] bg-purple-100 px-3 py-1.5 text-center text-base font-medium capitalize leading-4 tracking-normal text-violet-600">
                 {profileData?.basic_and_lifestyle?.postedBy}
@@ -401,7 +400,7 @@ lg:text-3xl`}
         {profileData?.family_details &&
 
           <ProfileSection
-            title="Family Background"
+            title="Family Details"
             data={{
               "Father's Occupation": profileData?.family_details?.fatherOccupation,
               "Mother's Occupation": profileData?.family_details?.motherOccupation,
@@ -422,11 +421,10 @@ lg:text-3xl`}
         {
           profileData?.personal_background &&
           <div className="row-span-3 lg:row-span-3 mb-4  xl:mb-0 rounded-xl bg-white ">
-            <div className="flex flex-col rounded-xl bg-white pb-6 shadow-sm">
+            <div className="h-auto py-4 rounded-xl mb-4 xl:mb-0 bg-white">
               <div
-                className={`justify-center border-b font-Proxima-Nova-Bold border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide  ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
-                  } max-md:px-5 md:text-xl`}
-              >
+                className={`justify-center border-b border-solid font-Proxima-Nova-Bold border-zinc-300 px-6 py-1 text-lg leading-6 tracking-wide max-md:max-w-full max-md:px-5 md:text-xl  ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]" }`}
+                >
                 Personal Background
               </div>
               <div className="mt-6 flex flex-col px-6 gap-4 max-md:px-5">
@@ -581,7 +579,7 @@ lg:text-3xl`}
 
         {profileData?.location_background &&
           <ProfileSection
-            title="Location Background"
+            title="Location Details"
             data={{
               Country: profileData?.location_background?.country,
               State: profileData?.location_background?.state,
@@ -603,15 +601,15 @@ lg:text-3xl`}
 
 
         <div className="h-auto py-4 rounded-xl mb-4 xl:mb-0 bg-white">
-          <div className=" mt-2 flex flex-col px-6 max-md:max-w-full max-md:px-5">
+          <div className=" mt-2 flex flex-col max-md:max-w-full max-md:px-5">
             <div
-              className={`w-full text-lg border-b border-solid font-Proxima-Nova-Bold leading-[110%]  ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
+              className={`w-full text-lg px-6 border-b border-solid font-Proxima-Nova-Bold leading-[110%]  ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
                 } max-md:max-w-full md:text-xl`}
             >
               Interest & Hobbies
             </div>
             
-            <div className="mt-4 flex gap-2.5 whitespace-nowrap text-center capitalize tracking-wide max-md:pr-5 md:flex-wrap">
+            <div className="mt-4 flex gap-2.5 px-6 whitespace-nowrap text-center capitalize tracking-wide max-md:pr-5 md:flex-wrap">
               {profileData?.interest_and_hobbies?.map((interest: string) => (
                 <div
                   key={interest}
@@ -628,7 +626,7 @@ lg:text-3xl`}
         {profileData?.education_and_financial &&
 
           <ProfileSection
-            title="Educational & Financial Background"
+            title="Educational & Financial Details"
             data={{
               "Qualification": profileData?.education_and_financial?.qualification,
               "Occupation": profileData?.education_and_financial?.occupation,

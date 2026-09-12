@@ -148,7 +148,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex h-10 w-28 items-center justify-center rounded-lg bg-gradient-to-t from-[#FFD54266] to-[#C0970766] px-1">
-                <h1 className="text-white">{Math.round(parseFloat(data.match_percentage))}% match</h1>
+                <h1 className="text-white">{Math.round(parseFloat(data.match_percentage))}% Match</h1>
               </div>
               <div>
                 <div className="flex items-center justify-between">

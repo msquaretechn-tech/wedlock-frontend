@@ -200,7 +200,7 @@ const ReligiousModel: React.FC<ReligiousModalProps> = ({
               ))}
             </Select>
           </Form.Item>
-          <Form.Item name="gotra" label="Gothra/Gothram" rules={[{ required: false , message: "Please enter your Gothra"}]}>
+          <Form.Item name="gotra" label="Gothra/Gothram (if applicable)" rules={[{ required: false , message: "Please enter your Gothra"}]}>
            {
             <Select placeholder="Select Gothra" defaultValue={myDetails?.religious_background?.gotra} >
               {gotra.map((gotra) => (

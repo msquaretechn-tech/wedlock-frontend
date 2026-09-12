@@ -48,16 +48,16 @@ const Search = () => {
   ],
 
   "Community": [
-    { img: "/Avatar-1.png", ct: "Brahmin" },
-    { img: "/Avatar-2.png", ct: "Kshatriya" },
-    { img: "/Avatar-3.png", ct: "Vaishya" },
-    { img: "/Avatar-4.png", ct: "Shudra" },
-    { img: "/Avatar-5.png", ct: "Kayastha" },
-    { img: "/Avatar-6.png", ct: "Maratha" },
-    { img: "/Avatar-7.png", ct: "Shetty" },
-    { img: "/Avatar-8.png", ct: "Jain" },
-    { img: "/Avatar-1.png", ct: "Rajput" },
-    { img: "/Avatar-7.png", ct: "Yadav" },
+    { img: "/Avatar-1.png", ct: "Han Chinese" },
+    { img: "/Avatar-2.png", ct: "Arabs" },
+    { img: "/Avatar-3.png", ct: "Bengalis" },
+    { img: "/Avatar-4.png", ct: "Europeans" },
+    { img: "/Avatar-5.png", ct: "Punjabis" },
+    { img: "/Avatar-6.png", ct: "Russians" },
+    { img: "/Avatar-7.png", ct: "Japanese" },
+    { img: "/Avatar-8.png", ct: "Javanese" },
+    { img: "/Avatar-1.png", ct: "Vietnamese (Kinh)" },
+    { img: "/Avatar-7.png", ct: "Koreans" },
   ],
 };
 

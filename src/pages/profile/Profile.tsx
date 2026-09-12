@@ -87,11 +87,11 @@ const Profile: React.FC = () => {
       <div className="flex-grow bg-[#E6F2F7] mt-10">
         <div className="px-4 pt-20">
           <div className="flex justify-between items-center mb-4">
-            <h1 className="text-xl font-semibold md:text-2xl lg:text-3xl m-0">
-              Explore Your Matches
+            <h1 className="text-xl font-semibold md:text-2xl lg:text-2xl m-0">
+              Explore your matches
             </h1>
             <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-gray-500">Membership:</span>
+              {/* <span className="text-sm font-medium text-gray-500">Membership:</span> */}
               <Tag 
                 color={getPlanColor(displayPlan)}
                 className="px-4 py-1 rounded-full border-none text-white font-bold text-sm shadow-sm"

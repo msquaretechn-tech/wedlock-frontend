@@ -316,14 +316,14 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
       onPaymentMethodChange("stripe");
       setHasChosenPayment(true);
     }}
-    className={`flex items-center justify-center gap-3 rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
+    className={`flex items-center justify-center gap-3 rounded-2xl border text-sm font-semibold transition ${
       paymentMethod === "stripe"
         ? "border-[#00D1FF] bg-[#00D1FF]/15 text-white"
         : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"
     }`}
   >
-    <FaStripe className="text-3xl" />
-    <span>Stripe Pay</span>
+    <FaStripe className="text-3xl" style={{fontSize:"45px"}} />
+    {/* <span>Stripe Pay</span> */}
   </button>
 
   {/* PayPal */}
@@ -333,13 +333,13 @@ const PlanDescriptionModal = ({ isOpen, onClose, onContinue, title, children, pa
       onPaymentMethodChange("paypal");
       setHasChosenPayment(true);
     }}
-    className={`flex items-center justify-center gap-3 rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
+    className={`flex items-center justify-center gap-3 rounded-2xl border text-sm font-semibold transition ${
       paymentMethod === "paypal"
         ? "border-[#FFD43B] bg-[#FFD43B]/15 text-white"
         : "border-white/20 bg-white/10 text-white/80 hover:bg-white/20"
     }`}
   >
-    <FaPaypal className="text-2xl" />
+    <FaPaypal className="text-2xl" style={{fontSize:"30px"}} />
     <span>PayPal</span>
   </button>
 </div>
