@@ -514,7 +514,7 @@ lg:text-3xl`}
                     Drinking status
                   </div>
                 </div>
-                <div className="text-md ml-7 mt-2 justify-center self-start rounded-[100px] bg-gray-200 px-3 py-1.5 text-center font-medium capitalize leading-7 text-slate-900 max-md:ml-2.5 md:text-xl">
+                <div className="text-md ml-9 mt-2 justify-center self-start rounded-[100px] bg-green-100 px-3 py-1.5 text-center font-medium capitalize leading-7 text-green-700 max-md:ml-2.5 md:text-xl">
                   {profileData?.personal_background?.drinkingHabbit}
                 </div>
                 <div className="mt-6 flex items-center gap-1 whitespace-nowrap">
