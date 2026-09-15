@@ -115,7 +115,7 @@ const Profile: React.FC = () => {
                     colorText: "black",
                     colorBgTextActive: "#363636",
                     colorBorder: "#E6F2F7",
-                    fontSize: 16,
+                    fontSize: 18,
                     fontFamily: "Proxima-Nova-semibold",
                   },
                 },

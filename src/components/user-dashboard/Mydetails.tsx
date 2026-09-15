@@ -1004,7 +1004,7 @@ return (
             <div>Working Status</div>
          </div>
          <div className="justify-center rounded-[100px] bg-orange-100 px-3 py-1.5 text-center text-base font-medium capitalize leading-7 text-slate-900 md:text-md">
-            {myDetails?.education_and_financial?.workingStatus}
+            {myDetails?.education_and_financial?.workingStatus === "selfEmployed" ? "Self-employed" : myDetails?.education_and_financial?.workingStatus}
          </div>
       </div>
       <div className="mt-4 flex justify-between gap-2 pr-8 max-md:pr-5">

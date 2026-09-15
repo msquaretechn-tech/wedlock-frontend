@@ -32,7 +32,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
                             {key.split(/(?=[A-Z])/).join(" ")} {/* Converts camelCase to readable text */}
                         </div>
                         <div
-                            className={`justify-center self-start rounded-[100px] px-3 py-1.5 text-center text-base font-medium capitalize leading-4 tracking-normal ${fieldColors[key] || "bg-blue-50 text-blue-600"
+                            className={`justify-center self-start rounded-[100px] px-3 py-1.5 text-center text-base font-medium leading-4 tracking-normal ${fieldColors[key] || "bg-blue-50 text-blue-600"
                                 }`}
                         >
                             {value || "Not Specified"}

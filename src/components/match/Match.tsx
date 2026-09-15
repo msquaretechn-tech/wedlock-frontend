@@ -632,7 +632,6 @@ lg:text-3xl`}
               "Occupation": profileData?.education_and_financial?.occupation,
               "Working Status": profileData?.education_and_financial?.workingStatus,
               "Income": profileData?.education_and_financial?.income,
-
             }}
             isExclusive={isExclusive}
             fieldColors={{
