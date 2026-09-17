@@ -91,7 +91,7 @@ const Profile: React.FC = () => {
               Explore your matches
             </h1>
             <div className="flex items-center gap-2">
-              {/* <span className="text-sm font-medium text-gray-500">Membership:</span> */}
+              <span className="text-sm font-medium text-gray-500">My current subscription plan:</span>
               <Tag 
                 color={getPlanColor(displayPlan)}
                 className="px-4 py-1 rounded-full border-none text-white font-bold text-sm shadow-sm"

@@ -28,7 +28,7 @@ className={`space-y-4 flex flex-col rounded-lg p-6 h-full ${isHighlighted ? "bg-
 <div className="space-y-4">
    <h1 className={`font-semibold text-3xl ${isHighlighted ? "" : "text-white"}`}>{title}</h1>
    <h1 className={`text-2xl font-bold ${isHighlighted ? "" : "text-white"}`}>
-   {price !== "Free" ? `AU $${price}` : price}
+   {price !== "Free" ? `$${price}` : price}
    <span
       className={`text-base font-normal text-white`}
       >{` / ${duration}`}<sup>*</sup></span>

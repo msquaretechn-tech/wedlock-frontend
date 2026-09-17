@@ -81,10 +81,10 @@ const Subscription: React.FC = () => {
                   Free
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
-                  AU ${prices.monthlyPremium}
+                  ${prices.monthlyPremium}
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
-                  AU ${prices.monthlyExclusive}
+                  ${prices.monthlyExclusive}
                 </td>
               </tr>
               <tr className="border-b-2">
@@ -95,10 +95,10 @@ const Subscription: React.FC = () => {
                   Free
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
-                  AU ${prices.yearlyPremium}
+                  ${prices.yearlyPremium}
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
-                  AU ${prices.yearlyExclusive}
+                  ${prices.yearlyExclusive}
                 </td>
               </tr>
              

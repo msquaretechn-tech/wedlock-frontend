@@ -55,7 +55,7 @@ const Contact = () => {
       <div className="flex flex-col items-center gap-10 px-6 py-10 md:px-10 lg:flex-row lg:gap-20 lg:px-20 mt-10 2xl:mt-0">
         <div className="w-full lg:w-[50%]">
           <div className="mx-auto max-w-md">
-            <h2 className="mb-4 text-3xl font-semibold text-[#101828]">We’re Here to Help</h2>
+            <h2 className="mb-4 mt-4 text-3xl font-semibold text-[#101828]">We’re Here to help</h2>
             <p className="mb-6 text-[#475467]">
               Whether you have questions about our platform or need assistance, contact our dedicated customer support team.
             </p>

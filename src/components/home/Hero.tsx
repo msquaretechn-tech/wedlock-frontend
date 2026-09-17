@@ -21,20 +21,19 @@ function Hero() {
           <div className="text-center container xl:w-[100%]  hero_content xl:space-y-4  md:space-y-4 ">
           
  <p
-  className="md:block text-[#059cdc] text-[24px] xl:text-left leading-[1.5] md:leading-[7] xl:text-[30px] xl:pt-5 px-2 mb-[65px] md:mb-0 font-Proxima-Nova-Regular"
+  className="md:block text-[#059cdc] text-[24px] xl:text-left leading-[1.5] xl:text-[30px] xl:pt-5 px-2 mb-[35px] md:mb-0 font-Proxima-Nova-Regular"
   style={{
     letterSpacing: "2%",
     fontWeight: "600",
     fontSize: "18px",
   }}
  >
-  TRUSTED MATRIMONIAL PLATFORM FOR SERIOUS RELATIONSHIPS
+  AUSTRALIAN MATRIMONIAL PLATFORM - NOT A DATING APP
 </p>
 
 
-            <h1 className="text-[40px] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-left xl:text-[55px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[75px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 xl:-tracking-normal mb-[35px] md:mb-[10px]">
-  <p style={{ lineHeight: "0.1" }}>Next-Gen</p>
-  <p>Matchmaking</p>
+<h1 className="text-[40px] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-left xl:text-[55px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[75px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 xl:-tracking-normal mb-[35px] md:mb-[10px]">
+  <p>Our world, from today</p>
 </h1>
 
            <p
@@ -44,12 +43,26 @@ function Hero() {
                 fontWeight: "400",
               }}
             >
-              Advanced AI-powered compatibility matching for
+              For people serious about marriage -
               <br>
-              
               </br>
-               genuine connections
+               at your pace, and on your terms.
             </p>
+
+            <p
+              className="md:block text-[#FFFFFF] text-[18px] xl:text-left xl:text-[23px] font-Proxima-Nova-Regular"
+              style={{
+                letterSpacing: "2%",
+                fontWeight: "400",
+              }}
+            >
+              Family welcome · No sales calls · Free to join,
+              <br>
+              </br>
+              Premium $14.95 · No auto-renewal
+            </p>
+
+            
 
             
             <Link

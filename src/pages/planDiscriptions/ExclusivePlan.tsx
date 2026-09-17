@@ -18,10 +18,10 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType, plan }) => {
 
         const numericPrice = Number(price);
         if (!Number.isNaN(numericPrice)) {
-            return `AU $${numericPrice.toFixed(2)}`;
+            return `$${numericPrice.toFixed(2)}`;
         }
 
-        return `AU $${price}`;
+        return `$${price}`;
     };
 
     const isYearly = (planType || "").toLowerCase().includes("year") || (planType || "").toLowerCase().includes("annual");
