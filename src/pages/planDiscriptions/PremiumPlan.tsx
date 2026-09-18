@@ -18,7 +18,7 @@ const PremiumPlan: React.FC<PremiumPlanProps> = ({ planType, plan }) => {
 
         const numericPrice = Number(price);
         if (!Number.isNaN(numericPrice)) {
-            return `$${numericPrice.toFixed(2)}`;
+            return `A$${numericPrice.toFixed(2)}`;
         }
 
         return `$${price}`;

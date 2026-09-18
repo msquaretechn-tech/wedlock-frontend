@@ -28,10 +28,11 @@ className={`space-y-4 flex flex-col rounded-lg p-6 h-full ${isHighlighted ? "bg-
 <div className="space-y-4">
    <h1 className={`font-semibold text-3xl ${isHighlighted ? "" : "text-white"}`}>{title}</h1>
    <h1 className={`text-2xl font-bold ${isHighlighted ? "" : "text-white"}`}>
-   {price !== "Free" ? `$${price}` : price}
-   <span
+   {price !== "Free" ? `A$${price}` : price}
+    <span
       className={`text-base font-normal text-white`}
-      >{` / ${duration}`}<sup>*</sup></span>
+      >{` / ${duration}`}<sup>*</sup>
+    </span>
    </h1>
 </div>
 {/* Features Section - Flex Grow Ensures It Pushes the Button to Bottom */}

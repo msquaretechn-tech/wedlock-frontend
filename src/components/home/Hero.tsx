@@ -25,7 +25,7 @@ function Hero() {
   style={{
     letterSpacing: "2%",
     fontWeight: "600",
-    fontSize: "18px",
+    fontSize: "20px",
   }}
  >
   AUSTRALIAN MATRIMONIAL PLATFORM - NOT A DATING APP
@@ -43,23 +43,22 @@ function Hero() {
                 fontWeight: "400",
               }}
             >
-              For people serious about marriage -
+              For people serious about marriage - at your pace,
               <br>
               </br>
-               at your pace, and on your terms.
+              and on your terms.
             </p>
 
+
             <p
-              className="md:block text-[#FFFFFF] text-[18px] xl:text-left xl:text-[23px] font-Proxima-Nova-Regular"
+              className="md:block text-[#FFFFFF] text-[18px] xl:text-left xl:text-[19px] font-Proxima-Nova-Regular tracking-[0.02em] font-normal"
               style={{
                 letterSpacing: "2%",
                 fontWeight: "400",
+                marginTop: "45px",
               }}
             >
-              Family welcome · No sales calls · Free to join,
-              <br>
-              </br>
-              Premium $14.95 · No auto-renewal
+              Family welcome · Free to join, Premium $14.95 · No auto-renewal
             </p>
 
             

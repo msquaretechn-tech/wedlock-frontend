@@ -184,8 +184,8 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose }) => {
         </form>
         <div className="flex flex-col xl:flex-row items-center justify-between xl:justify-between  mb-4 mt-2 ">
           <div className="flex items-center">
-            <input type="checkbox" id="rememberMe" className="mr-2" />
-            <label htmlFor="rememberMe" className="text-white" style={{paddingTop:"4px"}}>
+            <input type="checkbox" id="rememberMe" className="mr-2 w-[15px] h-[15px]" />
+            <label htmlFor="rememberMe" className="text-white text-[16px]" style={{paddingTop:"4px"}}>
               Remember me
             </label>
           </div>
