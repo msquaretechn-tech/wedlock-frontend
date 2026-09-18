@@ -51,14 +51,14 @@ function Hero() {
 
 
             <p
-              className="md:block text-[#FFFFFF] text-[18px] xl:text-left xl:text-[19px] font-Proxima-Nova-Regular tracking-[0.02em] font-normal"
+              className="md:block text-[#FFFFFF] text-[18px] xl:text-left xl:text-[18px] font-Proxima-Nova-Regular tracking-[0.02em] font-normal"
               style={{
                 letterSpacing: "2%",
                 fontWeight: "400",
                 marginTop: "45px",
               }}
             >
-              Family welcome · Free to join, Premium $14.95 · No auto-renewal
+              Family welcome · Free to join, Premium $14.95/mo · No auto-renewal
             </p>
 
             
