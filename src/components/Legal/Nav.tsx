@@ -8,6 +8,7 @@ const sections = [
   { title: "Terms and Conditions", links: "/terms-conditions" },
   { title: "Privacy Policy", links: "/privacy-policy" },
   { title: "Cookies Policy", links: "/cookies-policy" },
+  { title: "Safety", links: "/safety" },
   // { title: "Services", links: "/services" },
   // { title: "Child Safety", links: "/child-safety-policy" },
   // { title: "Delete Account", links: "/delete-account" }

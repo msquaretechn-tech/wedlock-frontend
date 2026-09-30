@@ -60,8 +60,8 @@ const Contact = () => {
               Whether you have questions about our platform or need assistance, contact our dedicated customer support team.
             </p>
             <form ref={form} onSubmit={handleSubmit}>
-              <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                <div>
+              
+                <div className="mb-4">
                   <label className="block text-gray-700">First name</label>
                   <input
                     type="text"
@@ -71,7 +71,7 @@ const Contact = () => {
                     required
                   />
                 </div>
-                <div>
+                <div className="mb-4">
                   <label className="block text-gray-700">Last name</label>
                   <input
                     type="text"
@@ -81,13 +81,14 @@ const Contact = () => {
                     required
                   />
                 </div>
-              </div>
+              
+
               <div className="mb-4">
                 <label className="block text-gray-700">Email</label>
                 <input
                   type="email"
                   name="email"
-                  placeholder="you@company.com"
+                  placeholder="name@example.com"
                   className="mt-1 w-full rounded-[0.5rem] border border-gray-300 p-2"
                   required
                 />
@@ -108,13 +109,12 @@ const Contact = () => {
                 </select>
               </div>
               <div className="mb-4">
-                <label className="block text-gray-700">Phone number</label>
+                <label className="block text-gray-700">Phone number (optional)</label>
                 <input
                   type="tel"
                   name="phoneNumber"
-                  placeholder="000-000-0000"
+                  placeholder="04XX XXX XXX"
                   className="w-full rounded border border-gray-300 p-2"
-                  required
                 />
               </div>
               <div className="mb-4">
@@ -127,15 +127,28 @@ const Contact = () => {
                   required
                 ></textarea>
               </div>
+
+              
+
               <div className="mb-4 flex items-center">
                 <input type="checkbox" id="privacy" className="mr-2" required />
                 <label htmlFor="privacy" className="text-gray-700">
-                  You agree to our friendly{" "}
+                  I have read the{" "}
                   <Link to={"/privacy-policy"} className="text-blue-500 underline">
-                    Privacy Policy
+                    Privacy Policy 
                   </Link>.
                 </label>
               </div>
+               <div className="mb-4 flex items-center">
+                <input type="checkbox" id="privacy" className="mr-2" required />
+                <label htmlFor="privacy" className="text-gray-700">
+                  Email me occasional news and offers from Wedlock. I can unsubscribe at any time.{" "}
+                  <Link to={"/privacy-policy"} className="text-blue-500 underline">
+                    Privacy Policy 
+                  </Link>.
+                </label>
+              </div>
+              <p className="mb-2 text-[#475467]">We use the details you give us here only to answer your enquiry. We keep enquiries for 12 months and then delete them. Our Privacy Policy explains how to access, correct or delete your information, or make a complaint.</p>
               <button
                 type="submit"
                 className="mt-2 w-full rounded bg-[#007EAF] p-2 text-white hover:bg-blue-700"
@@ -146,7 +159,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="w-full lg:w-[50%]">
-          <img src="/contact.png" alt="Contact us" className="mx-auto" />
+          <img src="/contact.jpg" alt="Contact us" className="mx-auto" />
         </div>
       </div>
 
@@ -156,7 +169,7 @@ const Contact = () => {
           Got something you want to talk about? Contact us or email us and we promise to get back to you as soon as we can.
         </p>
         <h3 className="mt-6 text-md font-bold text-[#101828]">Help / Support</h3>
-        <p className="text-[#475467] pb-4">For all technical and platform related queries:</p>
+        <p className="text-[#475467] pb-4">For all technical and platform queries:</p>
         {/* <h3 className="text-md font-bold">Contact Us or reach us by:</h3> */}
         <p className="text-black pb-4">
           <span className="font-medium">Phone: </span>1300 933 562
@@ -166,7 +179,7 @@ const Contact = () => {
           <a href="mailto:info@Wedlock.com.au" className="underline">info@wedlock.com.au</a>
         </p>
         <p className="text-black">
-          <span className="font-medium">Address:</span> Level 3, Suite 329/98/100 Elizabeth St, Melbourne VIC 3000
+          <span className="font-medium">Address:</span> Level 3, Suite 329, 98–100 Elizabeth Street, Melbourne VIC 3000
         </p>
       </div>
     </div>

@@ -44,29 +44,29 @@ const Matching = () => {
                     Key Features
                   </h2>
                   <div className="space-y-2 ">
-                        <div className="flex items-center gap-5 rounded-xl bg-[#FFFFFF80] lg:w-96 h-10 px-2 md:px-5">
+                        <div className="flex items-center gap-5 rounded-xl bg-[#FFFFFF80] lg:w-96 h-10 px-2 md:px-5" style={{width:"28rem"}}>
                             <FaStar className="text-2xl text-yellow-400 "/>
-                            <h1 className="text-[1.1rem] font-[Proxima-Nova-semiBold] ">Exclusive Membership Community</h1>
+                            <h1 className="text-[1rem] font-[Proxima-Nova-semiBold] ">Exclusive Membership Community</h1>
                         </div>
-                        <div className="flex items-center gap-5 rounded-xl bg-[#FFFFFF80] lg:w-96 h-10 px-2 md:px-5">
+                        <div className="flex items-center gap-5 rounded-xl bg-[#FFFFFF80] lg:w-96 h-10 px-2 md:px-5" style={{width:"28rem"}}>
                         <FaStar className="text-2xl text-yellow-400 "/>
-                            <h1 className="text-[1.1rem] font-[Proxima-Nova-semiBold] ">Verified Relationship-Ready Singles</h1>
+                            <h1 className="text-[1rem] font-[Proxima-Nova-semiBold] ">Members who have told us they are ready to marry</h1>
                         </div>
-                        <div className="flex items-center gap-5 rounded-xl bg-[#FFFFFF80] lg:w-96 h-10 px-2 md:px-5">
+                        <div className="flex items-center gap-5 rounded-xl bg-[#FFFFFF80] lg:w-96 h-10 px-2 md:px-5" style={{width:"28rem"}}>
                         <FaStar className="text-2xl text-yellow-400 "/>
-                            <h1 className="text-[1.1rem] font-[Proxima-Nova-semiBold] ">
+                            <h1 className="text-[1rem] font-[Proxima-Nova-semiBold] ">
                              Compatibility-Based Matching
                             </h1>
                         </div>
-                        <div className="flex items-center gap-5 rounded-xl bg-[#FFFFFF80] lg:w-96 h-10 px-2  md:px-5">
+                        <div className="flex items-center gap-5 rounded-xl bg-[#FFFFFF80] lg:w-96 h-10 px-2  md:px-5" style={{width:"28rem"}}>
                         <FaStar className="text-2xl text-yellow-400 "/>
-                            <h1 className="text-[1.1rem] font-[Proxima-Nova-semiBold] ">
+                            <h1 className="text-[1rem] font-[Proxima-Nova-semiBold] ">
                              Marriage-Focused Outcomes
                             </h1>
                         </div>
-                        <div className="flex items-center gap-5 rounded-xl bg-[#FFFFFF80] lg:w-96 h-10 px-2 md:px-5">
+                        <div className="flex items-center gap-5 rounded-xl bg-[#FFFFFF80] lg:w-96 h-10 px-2 md:px-5" style={{width:"28rem"}}>
                         <FaStar className="text-2xl text-yellow-400 "/>
-                            <h1 className="text-[1.1rem] font-[Proxima-Nova-semiBold] ">
+                            <h1 className="text-[1rem] font-[Proxima-Nova-semiBold] ">
                              Curated Match Recommendations
                             </h1>
                         </div>

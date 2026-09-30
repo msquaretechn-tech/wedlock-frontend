@@ -173,7 +173,7 @@ const Login = () => {
           <img
             src="/logowhite.png"
             alt=""
-            className="w-auto md:w-60 lg:w-70 h-24"
+            className="h-24"
           />
         </Link>
       </div>

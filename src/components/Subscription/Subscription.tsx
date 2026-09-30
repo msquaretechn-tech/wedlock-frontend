@@ -81,10 +81,10 @@ const Subscription: React.FC = () => {
                   Free
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
-                  ${prices.monthlyPremium}
+                  A${prices.monthlyPremium}
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
-                  ${prices.monthlyExclusive}
+                  A${prices.monthlyExclusive}
                 </td>
               </tr>
               <tr className="border-b-2">
@@ -95,10 +95,10 @@ const Subscription: React.FC = () => {
                   Free
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
-                  ${prices.yearlyPremium}
+                  A${prices.yearlyPremium}
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
-                  ${prices.yearlyExclusive}
+                  A${prices.yearlyExclusive}
                 </td>
               </tr>
              
@@ -132,7 +132,7 @@ const Subscription: React.FC = () => {
                   Send friend requests
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
-                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">Limited to Premium and Standard profiles only</td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
               </tr>
 
@@ -141,7 +141,7 @@ const Subscription: React.FC = () => {
                   View profiles in full
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">X</td>
-                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">Limited to Premium and Standard profiles only</td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
               </tr>
 
@@ -278,7 +278,7 @@ const Subscription: React.FC = () => {
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">X</td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">X</td>
-                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center "></td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
               </tr>
 
               <tr className="border-b-2">
@@ -321,7 +321,7 @@ const Subscription: React.FC = () => {
 
               <tr className="border-b-2">
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-left ">
-                  Profile verification
+                  Email verification at sign-up
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
@@ -339,6 +339,20 @@ const Subscription: React.FC = () => {
 
             </tbody>
           </table>
+
+          <div>
+            <p className="text-[10px]  font-Proxima-Nova-Light sm:text-[10px] md:text-[20px] lg:text-[14px] xl:text-[18px] pt-[21px]  md:text-start mr-1 mb-9">
+            <i style={{fontSize:"18px"}}>All prices are in Australian dollars and include GST. There are no additional fees, and no plan renews automatically.</i><br></br>
+            <br></br>
+            
+            <b style={{fontSize:"20px"}}>Ending or renewing a plan</b><br></br>
+            Wedlock plans do not renew automatically. Your plan ends by itself on the last day of the term you paid for, and nothing further is charged.<br></br>
+You can see your end date, and buy a new term if you want one, under Manage plan in your account settings. We email you 7 days and 1 day before your term ends.<br></br>
+When the term ends your access returns to the free Standard plan. Your profile, your matches and your conversations stay exactly as they are.<br></br>
+If you bought your plan through Google Play, you can also manage it in your Google Play account.
+
+          </p>
+          </div>
 
         </div>
 

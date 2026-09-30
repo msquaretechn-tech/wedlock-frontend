@@ -19,7 +19,7 @@ const StoryCard = ({ title, description, imageSrc }: StoryCardProps) => {
       <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black via-transparent to-transparent p-6">
         <h2 className="mb-2 text-xl font-bold">{title}</h2>
         <p className="mb-4 text-sm md:text-lg line-clamp-6 hover:line-clamp-none">
-  {description}
+  {description} <br></br><br></br><i>Illustrative example. Not a real member.</i>
 </p>
         {/* <a
           href="#"

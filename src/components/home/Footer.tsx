@@ -160,6 +160,11 @@ const Footer = () => {
                   Cookies Policy
                 </Link>
               </li>
+               <li>
+                <Link to="/safety" className="hover:text-[#007EAF]">
+                  Safety
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -184,7 +189,7 @@ const Footer = () => {
                 <FaSquareXTwitter />
               </a>
               <a
-                href="http://www.youtube.com/@Wedlock_Global"
+                href="http://www.youtube.com/@wedlockcomau"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-[#007EAF]"
@@ -192,7 +197,7 @@ const Footer = () => {
                 <FaYoutube />
               </a>
               <a
-                href="https://www.instagram.com/auwedlockofficial/"
+                href="https://www.instagram.com/wedlock.com.au/"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-[#007EAF]"
@@ -227,19 +232,18 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-6">
           <div className="font-Proxima-Nova-Regular">
             <h1 className="font-semibold text-base md:text-lg italic">
-              Next-Gen Matchmaking for Real, Global Relationships
+              An Australian matrimonial platform — not a dating app.
             </h1>
             <p className="text-xs md:text-sm">
-              This platform is strictly for matrimonial purposes only and not a dating platform.
+              This platform is strictly for matrimonial purposes only.
             </p>
           </div>
-          <div className="text-left md:text-right">
+          <div className="">
             <p className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">
-              © {currentYear} WGS (Australia) Pty Ltd. All
-              rights reserved.
+              © {currentYear} Wedlock Global Services (Australia) Pty Ltd  ·  ABN 36 679 422 738
             </p>
             <p className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">
-              ABN: 36 679 422 738
+             Melbourne, Australia  ·  For members aged 18 and over
             </p>
           </div>
         </div>

@@ -26,6 +26,7 @@ const Mission = lazy(() => import("./pages/mission/Mission"));
 const Advice = lazy(() => import("./pages/advice/Advice"));
 const Help = lazy(() => import("./pages/help/Help"));
 const Cookies_Policy = lazy(() => import("./pages/cookies-policy/Cookies"));
+const Safety = lazy(() => import("./pages/safety/Safety"));
 const Privacy_Policy = lazy(() => import("./pages/privacy-policy/Privacy"));
 const Terms_Conditions = lazy(() => import("./pages/terms-conditions/Terms"));
 const Community_Guidelines = lazy(() => import("./pages/community-guidelines/Community"));
@@ -144,6 +145,7 @@ const AppContent = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/subscription-tiers" element={<Comparison />} />
           <Route path="/cookies-policy" element={<Cookies_Policy />} />
+          <Route path="/safety" element={<Safety />} />
           <Route path="/privacy-policy" element={<Privacy_Policy />} />
           <Route path="/delete-account" element={<DeleteAccount />} />
           <Route path="/terms-conditions" element={<Terms_Conditions />} />

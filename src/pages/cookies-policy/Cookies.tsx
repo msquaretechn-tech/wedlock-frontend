@@ -1,16 +1,14 @@
-
 import Hero from "../../components/Legal/Hero";
 import Nav from "../../components/Legal/Nav";
-import { Link } from "react-router-dom";
 
 
 const page = () => {
-  
+
   const HeroData = {
-    updatedAt: `Last Updated On: 01 September 2026`,
+    updatedAt: `Last Updated On: 29 September 2026`,
     title: "Cookies Policy",
     description:
-      "Your trust, privacy and data are important to us and we are committed to being transparent about our data practices and how we use and protect your data.",
+      "Your trust, your privacy and your data matter to us, and we want to be clear about how we use them.",
   };
 
   return (
@@ -23,118 +21,90 @@ const page = () => {
         <div className="">
           <h1 className=" font-bold text-md pb-4 text-xl ">Cookies Policy</h1>
           <p className="pb-4">
-
-            Your trust, privacy and data are important to us and
-            we are committed to being transparent about our data practices and
-            how we use and protect your data. We use cookies and similar
-            technologies when you use the Wedlock mobile application (including
-            the desktop version) (“App”) or websites (such as Wedlock.com.au)
-            (“Websites”). This policy provides more detail about the cookies and
-            tracking technologies we use and should be read in conjunction with
-            our Privacy Policy and the information available in our “Manage
-            Cookies” section (linked at the bottom of our Websites) or in your
-            profile settings in our App (under “Settings” {">"} “Security &
-            Privacy” {">"} “Privacy Settings” on iOS and Android) where you can
-            adjust your cookie settings at any time.
+            Your trust, your privacy and your data matter to us, and we want to
+            be clear about how we use them. This policy explains the cookies and
+            similar technologies we use on the Wedlock website and in the
+            Wedlock app, and how you can control them. Please read it together
+            with our Privacy Policy.
           </p>
-          <p className="pb-4">This Cookies Policy explains what cookies are and how we use them.</p>
-          <h3 className="text-md font-bold">
-            {" "}
-            1. What are 'cookies' and which 'cookies' does Wedlock use?
-          </h3>
+
+          <h3 className="text-md font-bold pb-4">1. What cookies are</h3>
           <p className="pb-4">
-            {" "}
-            We collect information by placing cookies on your computer or mobile
-            device. A cookie is a piece of text containing a unique identifier,
-            which is stored on your computer by your web browser or by your
-            mobile device. They are basically a tool that stores information
-            about App use and Websites’ visits. Cookies also allow us to
-            recognise you and your preferences each time you visit Wedlock. They
-            ensure the functioning of the App and Websites which in turn allows
-            us to provide the services that our members request and to improve
-            your user experience.
+            A cookie is a small piece of text stored on your computer or mobile
+            device by your browser. Cookies let a website recognise your device
+            and remember things between pages and visits — for example, that you
+            are signed in.
           </p>
-
           <p className="pb-4">
-            {" "}
-            We may also use other technologies such as web beacons (also called
-            pixels), tracking URLs and software development kits (SDKs) for
-            similar purposes as cookies. Web beacons are files that contain a
-            unique identifier that enable us to recognise when someone has
-            accessed content on our Websites. Tracking URLs are unique links
-            that help us understand where visitors to our Websites are coming
-            from. SDKs are small pieces of code included in applications, which
-            function like cookies and web beacons. For simplicity, in this
-            Policy we also refer to these technologies as “Cookies”.
+            Similar technologies include web beacons (small files that record
+            that content has been opened), tracking URLs, and software
+            development kits, which work like cookies inside an app. In this
+            policy we call all of these “cookies”.
           </p>
 
-          <h3 className="text-md font-bold">What the types of Cookies?</h3>
-          <p className="pb-4">These Cookies are necessary for the App and Websites to function and cannot be switched off in our systems, or our App and Websites will not work properly. They are usually only set in response to actions made by you which amount to a request of services, such as setting your privacy preferences, logging in or filling in forms, making payments, uploading photographs, chatting or to localise your experience, such as when you’ve requested to view Wedlock’s Site in your local language or when you’ve asked Wedlock to ‘remember me’, etc. You can always control the Websites’ strictly necessary Cookies in your browser, as explained below.</p>
-
-          <h3 className="text-md font-bold">Strictly necessary Cookies</h3>
-          <p className="pb-4">We also use Cookies to help keep Wedlock and our members safe and secure. These Cookies do things like protect Wedlock users from spam and fraud by ensuring the safety of your personal data when you pay for things on Wedlock like Wedlock’s premium services.</p>
-          <p>help us to prevent phishers, scammers, unauthorised login attempts to your account and accessing any hacked accounts.</p>
-          <p className="pb-4">Some of these strictly necessary Cookies are third parties’, as some social media platforms can be used as an entry point to register for our services.</p>
-          <p className="pb-4">These Cookies allow us to collect information about how visitors interact with our App and Websites. We use this information to compile reports and to help measure and improve the performance of the App and Websites.</p>
-          <h3 className="text-md font-bold">Analytics Cookies</h3>
-          <p className="pb-4">Wedlock uses Google Analytics to collect information about how visitors use the Wedlock Site. We use the information to compile reports and to help us improve the Site or App. The Cookies collect information in an aggregated form, including the number of visitors to the Site or App, where visitors have come to the Site from and the pages they visited.</p>
-          <p className="pb-4">These Cookies allow us to collect information about how visitors interact with our App and Websites. We use this information to compile reports and to help measure and improve the performance of the App and Websites.</p>
-
-          <h3 className="text-md font-bold pb-4">Social Media Cookies</h3>
-          <p className="pb-4">These Cookies help provide experiences, such as links to other social media Websites and social plugins, including making it easier for you to share content between Wedlock and your other favorite social networks.</p>
-          <p className="pb-4">In some cases, the Site feature you choose may allow a third party to place Cookies on your device.</p>
-
-          <h3 className="text-md font-bold pb-4">Advertising Cookies</h3>
-          <p className="pb-4">These   Cookies may be set on our Websites and App by us or our advertising partners.   They may be used to build a profile of your interests and show you relevant   adverts on our App and Websites or other Websites you visit, as well as to   improve reporting on any advertising campaign and to avoid showing you ads   that you have already seen.</p>
-
-          <h3 className="text-md font-bold pb-4">
-            2. Cookies lifespan and third parties placing Cookies
-          </h3>
-          <p>
-            Cookies last for different periods of time depending on which of the
-            following two categories they fall into:
+          <h3 className="text-md font-bold pb-4">2. The cookies we use</h3>
+          <p className="pb-4">
+            We currently use strictly necessary cookies only. These are the
+            cookies the website and app cannot work without. They are set
+            because of something you have asked for — signing in, filling in a
+            form, making a payment, or setting a preference — and they cannot be
+            switched off in our systems without the service breaking.
+          </p>
+          <p className="pb-4">
+            We do not currently use analytics cookies, advertising cookies,
+            social media cookies or any third-party tracking. If that changes,
+            we will update this policy and ask for your consent before setting
+            anything that is not strictly necessary.
           </p>
 
-          <ul className="list-disc pl-4">
-            <li>
-              Session cookies – these cookies only last as long as your online
-              session, and expire when you close your browser (for example
-              Internet Explorer or Safari).
-            </li>
-            <li>
-              Persistent cookies – these cookies stay on your device after your
-              browser has been closed. These cookies are used when we need to
-              remember you for more than one browsing session, for instance to
-              remember your preferences from one visit to the next.
-            </li>
-          </ul>
-          <p>
-            If you would like to obtain more information about the third parties
-            placing Cookies on our Websites and App (including a link to their
-            privacy practices) and their lifespan you can access this
-            information:
+          <h3 className="text-md font-bold pb-4">3. How long cookies last</h3>
+          <p className="pb-4">
+            <span className="font-semibold">Session cookies</span> last only as
+            long as your visit and are deleted when you close your browser.
           </p>
-          <ul className="list-disc pl-4 pb-4">
-            <li>
-              in your profile settings for the Wedlock App (under “Settings”{" "}
-              {`>`} “Security & Privacy” {`>`} “Privacy Settings” on iOS or
-              under “Advertising Preferences” on Android); and
-            </li>
-            <li>
-              in the “Manage Cookies” section linked at the bottom of our
-              Websites.
-            </li>
-          </ul>
-          <h3 className="text-md font-bold pb-4">3. How can you refuse or withdraw consent to the use of Cookies?</h3>
-          <p className="pb-4">When using our Websites, you are in control and may refuse to accept Cookies at any time by managing your preferences in the “Manage Cookies” section (linked at the bottom of our Websites) or by altering the settings on your internet browser (for example Internet Explorer, Chrome and Firefox).</p>
-          <p className="pb-4">If you would like to know more about Cookies and how to refuse Cookies, the following websites provide useful information:</p>
-          <ul className="list-disc pl-4 underline pb-4">
-            <li><Link to={"https://www.allaboutcookies.org"}>https://www.allaboutcookies.org</Link></li>
-            <li><Link to={"https://www.youronlinechoices.eu"}>www.youronlinechoices.eu</Link></li>
-            <li><Link to={"http://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html"}>http://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html</Link></li>
-          </ul>
-          <p className="pb-4">When using our App,When using our App,you are also in control and may refuse to accept Cookies at any time by managing your Privacy Preferences in your Profile in the App (under “Settings” {`>`} “Security & Privacy” {`>`} “Privacy Settings” on iOS and Android).</p>
-          <p>Please note that if you choose not to permit Cookies some areas of our Websites or App may not function properly or be accessible.</p>
+          <p className="pb-4">
+            <span className="font-semibold">Persistent cookies</span> stay on
+            your device after you close your browser, so we can remember a
+            setting from one visit to the next. The table above shows how long
+            each one lasts.
+          </p>
+
+          <h3 className="text-md font-bold pb-4">4. How to control cookies</h3>
+          <p className="pb-4">
+            You can control or delete cookies through your browser settings. The
+            help pages for Chrome, Safari, Firefox and Edge all explain how.
+          </p>
+          <p className="pb-4">
+            In the Wedlock app you can manage your preferences under Settings{" "}
+            {`>`} Privacy.
+          </p>
+          <p className="pb-4">
+            Because we only use strictly necessary cookies, blocking them will
+            stop parts of the website or app from working — you may not be able
+            to stay signed in, for example.
+          </p>
+          <p className="pb-4">
+            If you would like to know more about cookies generally,{" "}
+            <a
+              className="underline"
+              href="https://www.allaboutcookies.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              allaboutcookies.org
+            </a>{" "}
+            is a useful independent guide.
+          </p>
+
+          <h3 className="text-md font-bold pb-4">5. Changes to this policy</h3>
+          <p className="pb-4">
+            We may update this Cookies Policy. When we do, we will publish the
+            new version here with a version number, an effective date and a
+            short note on what changed.
+          </p>
+
+          <p className='text-md font-bold'>Effective date</p>
+          <p className="pb-4">Version 2.0 · Effective 11th October 2026</p>
         </div>
       </div>
     </div>

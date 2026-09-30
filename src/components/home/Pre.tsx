@@ -13,7 +13,7 @@ function Pre() {
             The premier matrimony platform{" "}
           </h1>
           <p className="text-[#475467] text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[8px] pb-[21px]  leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">
-            Trusted matchmaking, delivered by our professional team.
+            Built for marriage, moderated by people.
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 ">
@@ -22,11 +22,10 @@ function Pre() {
               <img src="/lock2.png" alt="lock2" className="w-10 h-10" />
             </div>
             <h1 className="text-xl text-[#00597C] font-[Proxima-Nova-Bold]">
-              100% Privacy
+              Your privacy
             </h1>
             <p className="text-[#00739F] text-xl  text-center font-[Proxima-Nova-Regular] ">
-              Wedlock leads the way in trusted compatibility and guarantees your
-              privacy ensuring that you connect with confidence.{" "}
+              You choose what shows on your profile and who can see it. We never sell your information, and we will never call you to sell you anything.{" "}
             </p>
           </div>
           <div className=" flex flex-col items-center gap-3 p-5 rounded-3xl bg-[#B0D7E680]">
@@ -34,11 +33,10 @@ function Pre() {
               <img src="/guard.png" alt="guard" className="w-10 h-10" />
             </div>
             <h1 className="text-xl font-extrabold text-[#00597C] font-[Proxima-Nova-Bold]">
-              Verified Profiles
+              Real accounts
             </h1>
             <p className="text-[#00739F] text-xl text-center font-[Proxima-Nova-Regular]">
-              All profiles are thoroughly vetted by our team to ensure you only
-              connect with genuine individuals.
+              Accounts confirm an email address and a mobile number. Profiles are moderated, reports are reviewed by a person, and accounts that break the Community Guidelines are removed.
             </p>
           </div>
           <div className=" flex flex-col items-center gap-3 p-5 rounded-3xl bg-[#B0D7E680]">
@@ -46,12 +44,10 @@ function Pre() {
               <img src="/user.png" alt="user" className="w-10 h-10" />
             </div>
             <h1 className="text-xl font-extrabold text-[#00597C] font-[Proxima-Nova-Bold]">
-              Best Matches
+              Matches that fit
             </h1>
             <p className="text-[#00739F] text-xl text-center font-[Proxima-Nova-Regular] ">
-              Our AI technology and human-centric approach work together to
-              deliver tailored suggestions based on your values, lifestyle, and
-              relationship goals.
+              Our matching combines what you tell us about faith, language, community and life goals with how you use the platform, and a person reviews the decisions that matter.
             </p>
           </div>
         </div>

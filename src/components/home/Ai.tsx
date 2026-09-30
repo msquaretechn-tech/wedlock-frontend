@@ -33,9 +33,11 @@ const Ai = () => {
                 <Aicard
                   name="Mark Eibl"
                   description="Hi, I’m Mark Eibl, a software developer based in Melbourne. I’ve joined Wedlock to find a meaningful and lasting relationship. Outside of work, I love traveling, cooking, and staying active with fitness. I’m looking for a partner who values open communication, kindness, and the journey of growing together through life’s adventures. I believe that cultural harmony and mutual respect are the foundations of a strong and happy relationship.
+                  
 "
                   imageSrc="/utkarsh.png"
                 />
+                
               </div>
 
 

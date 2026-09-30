@@ -16,14 +16,14 @@ const YouTube = () => {
           </h1>
           <p className=' text-[#475467] text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]  xl:text-[28px] pt-[14px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1 '>Your search for a great matrimonial profile has never been easier with groundbreaking overhaul of the Wedlock you know and trust.
           </p>
-          <h4 className=' text-[#007EAF] pt-5 font-[10px] text-p-mobile md:text-p-desktop  '>Get a sneek peek:</h4>
+          <h4 className=' text-[#007EAF] pt-5 font-[10px] text-p-mobile md:text-p-desktop  '>Get a sneak peek:</h4>
 
 
           <div className="mt-5 aspect-video">
             <iframe
               width="100%"
               height="630"
-              src="https://www.youtube.com/embed/FWLSosPv5SM"
+              src="https://www.youtube.com/embed/XG1Ka5P6qP8"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

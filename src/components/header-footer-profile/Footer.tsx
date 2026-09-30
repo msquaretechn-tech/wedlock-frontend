@@ -48,13 +48,19 @@ const Footer = () => {
                 <h1
                   className="font-semibold text-base md:text-lg italic"          
                 >
-                  Next-Gen Matchmaking for Real, Global Relationships
+                  An Australian matrimonial platform — not a dating app.
                 </h1>
                 <p className="text-sm">
-                  This platform is strictly for matrimonial purposes only and not a dating platform.
+                  This platform is strictly for matrimonial purposes only.
                 </p>
               </div>
-              <div className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">© {currentYear} WGS (Australia) Pty Ltd.   All rights reserved.
+              <div className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">
+                <p className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">
+                 © {currentYear} Wedlock Global Services (Australia) Pty Ltd  ·  ABN 36 679 422 738
+                </p>
+                <p className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">
+                 Melbourne, Australia  ·  For members aged 18 and over
+                </p>
               </div>
             </div>
           </div>
