@@ -39,7 +39,8 @@ const Navbar: React.FC = () => {
     "/plan",
     "/services",
     "/subscription-tiers",
-    "/delete-account"
+    "/delete-account",
+    "/safety"
 
   ].includes(pathname);
 

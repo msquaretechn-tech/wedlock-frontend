@@ -29,16 +29,7 @@ const GetApp = () => {
                                 </p>
                             </div>
                             <div className="flex flex-row space-x-4 mt-5 lg:mt-12">
-                                <button
-                                    className="p-0 m-0 flex items-center transition-transform hover:scale-105 active:scale-95"
-                                    onClick={handleAppStoreClick}
-                                >
-                                    <img
-                                        src="/appstore.png"
-                                        alt="Apple Store"
-                                        className="h-14 md:h-20 lg:h-16"
-                                    />
-                                </button>
+                                
                                 <button
                                     className="p-0 m-0 flex items-center transition-transform hover:scale-105 active:scale-95"
                                     onClick={handlePlayStoreClick}
@@ -46,6 +37,17 @@ const GetApp = () => {
                                     <img
                                         src="/googleplay.png"
                                         alt="Play Store"
+                                        className="h-14 md:h-20 lg:h-16"
+                                    />
+                                </button>
+
+                                <button
+                                    className="p-0 m-0 flex items-center transition-transform hover:scale-105 active:scale-95"
+                                    onClick={handleAppStoreClick}
+                                >
+                                    <img
+                                        src="/appstore.png"
+                                        alt="Apple Store"
                                         className="h-14 md:h-20 lg:h-16"
                                     />
                                 </button>

@@ -19,14 +19,17 @@ const About = () => {
         </div>
         <div className=" flex flex-col items-start md:pr-10">
           {/* <h2 className="font-bold text-xl pb-4 "> About Us</h2> */}
-          <p>Wedlock.com.au is rapidly emerging as one of the fastest-growing matrimonial and matchmaking platforms across web and mobile. Designed for individuals seeking meaningful, long-term relationships, Wedlock expands opportunities to connect with compatible life partners across diverse communities, cultures, and nationalities. <br />
+          <p>
+            Wedlock is an Australian matrimonial platform, built for people looking for a life partner - not a date. <br /><br />
+            We started from a simple observation: the people most serious about marriage were being handed tools designed for something else entirely. Swiping is built to hold your attention. Marriage asks a different question, and it deserves a different platform.<br /><br />
+            Wedlock lets you search on what actually matters to you - faith, language, community, family expectations and life goals - across cultures, nationalities and communities, whether your match is in Melbourne or on the other side of the world. Every account confirms a real email address before it can be published. Profiles and messages are moderated, and any member can report another in one tap.<br /><br />
+            
+            We are building Wedlock to be the platform Australian families can trust with something this important: careful with your privacy, clear about what we do with your information, and serious about the outcome our members are actually seeking.<br /><br />
 
+            Wedlock is operated by Wedlock Global Services (Australia) Pty Ltd, ABN 36 679 422 738, from Melbourne, Victoria.
 
-            <br />Built on extensive research, intelligent technology, and a privacy-first approach, Wedlock delivers a secure, sophisticated, and easy-to-use matchmaking experience. Our advanced AI-powered compatibility system analyses multiple relationship factors to create smarter, more meaningful matches tailored to each individual. <br />
-
-            <br /> At Wedlock, our vision is to build a globally trusted matchmaking platform capable of positively transforming millions of lives worldwide - combining authenticity, innovation, security, and human connection in one premium experience.</p>
-
-
+            
+          </p>
         </div>
       </div>
     </div>

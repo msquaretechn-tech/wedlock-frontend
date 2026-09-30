@@ -46,9 +46,9 @@ const Footer = () => {
             <div className="flex flex-col items-center justify-between space-y-4 px-4 md:flex-row md:space-y-0 md:px-10 ">
               <div className="font-Proxima-Nova-Regular">
                 <h1
-                  className="font-semibold text-base md:text-lg italic"          
+                  className="font-semibold text-base italic"          
                 >
-                  An Australian matrimonial platform — not a dating app.
+                  An Australian matrimonial platform - not a dating app.
                 </h1>
                 <p className="text-sm">
                   This platform is strictly for matrimonial purposes only.
@@ -56,10 +56,10 @@ const Footer = () => {
               </div>
               <div className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">
                 <p className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">
-                 © {currentYear} Wedlock Global Services (Australia) Pty Ltd  ·  ABN 36 679 422 738
+                 © {currentYear} Wedlock Global Services (Australia) Pty Ltd<br></br>  ABN 36 679 422 738
                 </p>
                 <p className="text-xs sm:text-sm md:text-base font-Proxima-Nova-Regular">
-                 Melbourne, Australia  ·  For members aged 18 and over
+                 Melbourne, Australia <br></br>  For members aged 18 and over
                 </p>
               </div>
             </div>

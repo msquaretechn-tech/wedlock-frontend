@@ -4,7 +4,7 @@ import Aicard from './Aicard';
 const Ai = () => {
   return (
     <div className="w-full   bg-[#009BDA] overflow-hidden " >
-      <div className="relative overflow-hidden px-5 sm:px-20  container m-auto space-y-2  pt-5 md:pt-12">
+      <div className="relative overflow-hidden sm:px-20  container m-auto space-y-2  pt-5 md:pt-12">
         <img
           src="/curvewhite.svg"
           alt="Curve"
@@ -32,7 +32,9 @@ const Ai = () => {
               <div className="relative  md:bottom-44 lg:bottom-10   bottom-14  max-md:left-7 md:h-[40rem]   left-12 h-[44rem] w-[85%] lg:left-40 md:w-[85%] xl:h-[41rem]">
                 <Aicard
                   name="Mark Eibl"
-                  description="Hi, I’m Mark Eibl, a software developer based in Melbourne. I’ve joined Wedlock to find a meaningful and lasting relationship. Outside of work, I love traveling, cooking, and staying active with fitness. I’m looking for a partner who values open communication, kindness, and the journey of growing together through life’s adventures. I believe that cultural harmony and mutual respect are the foundations of a strong and happy relationship.
+                  description="Hi, I'm Mark - a software developer in Melbourne, here to find
+something lasting. I travel, cook, and keep active. Looking for a
+partner who values open communication, kindness and cultural harmony.
                   
 "
                   imageSrc="/utkarsh.png"

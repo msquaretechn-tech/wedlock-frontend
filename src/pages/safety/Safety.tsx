@@ -12,7 +12,7 @@ const Safety = () => {
   };
 
   return (
-    <div className="flex flex-col ">
+     <div className="flex flex-col ">
       <Hero {...HeroData} />
       <div className="flex flex-col md:flex-row flex-grow gap-5 p-4 md:p-4">
         <div className="">

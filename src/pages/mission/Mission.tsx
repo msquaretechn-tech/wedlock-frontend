@@ -25,7 +25,7 @@ const Mission = () => {
           <img
             src={MissionImg}
             alt="mission"
-            className="w-full h-auto sm:h-[30rem] md:h-[35rem] lg:h-[40rem] xl:h-auto  object-center "
+            className="w-full sm:h-[30rem] md:h-[35rem] lg:h-[40rem] object-center "
           />
         </div>
       </div>

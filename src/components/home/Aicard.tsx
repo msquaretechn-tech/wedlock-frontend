@@ -24,7 +24,7 @@ const Aicard = ({ name, description, imageSrc }: AicardProps) => {
         <p className="md:text-xl text-sm text-gray-500 lg:leading-6 lg:tracking-wide font-Proxima-Nova-SemiBold" style={{fontSize:"1rem"}}>
           {description}
         </p>
-        <br></br><i>Illustrative example. Not a real member.</i>
+        <br></br><i style={{fontSize:"15px"}}>Illustrative example. Not a real member.</i>
       </div>
     </div>
   );
