@@ -329,14 +329,14 @@ const Multistep = () => {
       className={`min-w-screen relative flex min-h-screen flex-col items-center ${isExclusive ? "bg-[#60457E]" : "bg-[#007EAF]"
         } px-2 text-white md:px-28 lg:px-60 3xl:px-60`}
     >
-      <div className="relative mt-5 w-full md:mt-10 h-[80px]">
-        {/* Logo centered relative to the screensaf */}
-        <div className="fixed top-5 left-1/2 -translate-x-1/2 z-50">
+      <div className="relative mt-3 w-full h-[90px] flex justify-center items-center">
+        {/* Logo centered */}
+        <div className="z-50 py-2">
           <Link to="/">
             <img
               src="/logowhite.png"
               alt="Wedlock Logo"
-              className="md:w-62 md:h-24 h-20 w-50"
+              className="md:w-56 md:h-20 h-16 w-44 object-contain"
             />
           </Link>
         </div>

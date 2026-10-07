@@ -10,9 +10,10 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
   const [year, setYear] = useState("");
   const [isUnderage, setIsUnderage] = useState<boolean | null>(null);
 
-  // Consent checkboxes (both default unticked)
+  // Consent checkboxes
   const [consent1, setConsent1] = useState(false);
   const [consent2, setConsent2] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
 
   useEffect(() => {
     const isExclusive = localStorage.getItem("isExclusive");
@@ -53,7 +54,7 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
   const onContinueClick = () => {
     if (!canContinue) return;
 
-    // Save consent status in localStorage/Cookies for audit recording at registration
+    // Save consent status in localStorage for audit recording at registration
     const consentRecord = {
       noticeVersion: "v1.0",
       dateAndTimeShown: new Date().toISOString(),
@@ -63,6 +64,7 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
       dateOfBirth: `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`,
     };
     localStorage.setItem("wedlock_consent_record", JSON.stringify(consentRecord));
+    localStorage.setItem("wedlock_marketing_consent", marketingConsent ? "true" : "false");
     handleNext();
   };
 
@@ -70,7 +72,7 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
     <div
       className={`w-full max-w-3xl mx-auto flex flex-col ${
         isExclusive ? "bg-[#60457E]" : "bg-[#007EAF]"
-      } px-4 py-8 text-white rounded-2xl shadow-xl my-6`}
+      } px-4 py-8 text-white rounded-2xl shadow-xl my-4 pt-4 md:pt-6`}
     >
       {/* Title */}
       <div className="text-center mb-6">
@@ -153,7 +155,7 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
         </p>
       </div>
 
-      {/* Part 3: Two Consent Controls */}
+      {/* Part 3: Consents (Required & Marketing) */}
       <div className="space-y-4 mb-6">
         <label className="flex items-start gap-3 cursor-pointer group">
           <input
@@ -183,6 +185,18 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
           />
           <span className="text-sm md:text-base leading-snug">
             I consent to Wedlock collecting the sensitive information described above so it can suggest matches for me.
+          </span>
+        </label>
+
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            checked={marketingConsent}
+            onChange={(e) => setMarketingConsent(e.target.checked)}
+            className="mt-1 h-5 w-5 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer"
+          />
+          <span className="text-sm md:text-base leading-snug">
+            Send me match suggestions, tips and occasional offers by email. I can unsubscribe at any time.
           </span>
         </label>
       </div>
