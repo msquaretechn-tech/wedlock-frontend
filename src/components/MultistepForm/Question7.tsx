@@ -74,14 +74,16 @@ const Question7: React.FC<QuestionProps> = ({
   return (
     <div>
       {question.map((ques) => (
-        <div className="text-left md:text-center" key={ques.id}>
-          <h2 className="w-full text-2xl font-bold md:text-3xl mb-4">
+        <fieldset className="border-0 p-0 m-0 text-left md:text-center" key={ques.id}>
+          <legend className="w-full text-2xl font-bold md:text-3xl mb-4">
             {ques.text}
-          </h2>
+          </legend>
           <p className="text-[#FFFFFF90]">{ques.summary}</p>
 
           <div className="md:w-auto py-4 flex items-center justify-center space-x-4">
             <Select
+              inputId="partner-min-age"
+              aria-label="Partner minimum age"
               options={ageOptions}
               className="text-black w-full"
               placeholder="Select age"
@@ -96,6 +98,8 @@ const Question7: React.FC<QuestionProps> = ({
             <span>{ques.text2}</span>
 
             <Select
+              inputId="partner-max-age"
+              aria-label="Partner maximum age"
               options={ageOptions1}
               className="text-black w-full"
               placeholder="Select age"
@@ -107,7 +111,7 @@ const Question7: React.FC<QuestionProps> = ({
               }
             />
           </div>
-        </div>
+        </fieldset>
       ))}
     </div>
   );

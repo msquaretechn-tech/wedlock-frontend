@@ -126,6 +126,13 @@ updateContactNumber: builder.mutation({
   }),
 }),
 
+removeSensitiveInformation: builder.mutation<void, void>({
+  query: () => ({
+    url: 'profile/remove-sensitive-info',
+    method: 'PUT',
+  }),
+}),
+
 
   }),
  
@@ -136,6 +143,7 @@ updateContactNumber: builder.mutation({
   useUpdatePersonalBackgroundMutation,useUpdatePersonalDetailsMutation,
   useUpdateReligiousBackgroundMutation,useGetProfilesQuery,useUserByidMutation 
   ,useFilterProflesMutation,useFilterFieldCountQuery,useGetUserImageQuery,
-  useGetProfilePercentageQuery,useContactNumberByUserIdQuery,useUpdateContactNumberMutation
+  useGetProfilePercentageQuery,useContactNumberByUserIdQuery,useUpdateContactNumberMutation,
+  useRemoveSensitiveInformationMutation
 } = profileApi;
 

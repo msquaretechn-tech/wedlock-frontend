@@ -201,7 +201,7 @@ const LocationBackgroundModal: React.FC<LocationBagroundModelProps> = ({
             </Col>
 
             <Col span={24}>
-              <Form.Item name="nationality" label="Nationality">
+              <Form.Item name="nationality" label={<span>Nationality <span className="text-gray-400 font-normal text-xs">(optional)</span></span>}>
                 {
                   <Select placeholder="Select Nationality" defaultValue={myDetails?.location_background?.nationality}>
                     {citizenship.map((citizenship) => (

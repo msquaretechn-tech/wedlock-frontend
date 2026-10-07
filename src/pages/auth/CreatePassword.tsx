@@ -113,9 +113,33 @@ const CreatePassword = () => {
             fcmToken: "",
             createdAt: new Date().toISOString(),
           });
+        // Record consent audit log for Australian compliance
+        try {
+          const consentRaw = localStorage.getItem("userConsent");
+          const mktConsentRaw = localStorage.getItem("marketingConsent");
+          const consentObj = consentRaw ? JSON.parse(consentRaw) : {};
+          const marketingConsent = mktConsentRaw ? JSON.parse(mktConsentRaw) : false;
+
+          await fetch(`/api/v1/consent/record`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              userId: userData.userId,
+              noticeVersion: consentObj.noticeVersion || "v1.0",
+              ageGatePassed: consentObj.ageGatePassed ?? true,
+              consentTermsAndAge: consentObj.consentTermsAndAge ?? true,
+              consentSensitiveInfo: consentObj.consentSensitiveInfo ?? true,
+              marketingConsent: Boolean(marketingConsent),
+              marketingNoticeVersion: "mkt-v1.0",
+            }),
+          });
+        } catch (e) {
+          console.error("Consent record error:", e);
         }
 
         localStorage.removeItem("email");
+        localStorage.removeItem("userConsent");
+        localStorage.removeItem("marketingConsent");
         Cookies.remove("answers");
         dispatch(setUser(res.data));
         navigate("/personal-details");

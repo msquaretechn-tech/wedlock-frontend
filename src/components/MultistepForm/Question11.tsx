@@ -57,13 +57,13 @@ const Question11: React.FC<Question11Props> = ({ selectedOptions, handleOptionCh
   };
 
   return (
-    <div >
+    <div>
       {question.map((ques) => (
-        <div key={ques.id}>
+        <fieldset key={ques.id} className="border-0 p-0 m-0">
           <div className="text-left md:text-center">
-            <h2 className="w-full text-2xl font-bold md:text-3xl mb-4">
+            <legend className="w-full text-2xl font-bold md:text-3xl mb-4">
               {ques.text}
-            </h2>
+            </legend>
             <p className="text-[#FFFFFF90]">{ques.summary}</p>
           </div>
 
@@ -71,6 +71,7 @@ const Question11: React.FC<Question11Props> = ({ selectedOptions, handleOptionCh
             {ques.options.map((option, index) => (
               <label
                 key={index}
+                htmlFor={`q${ques.id}-opt-${index}`}
                 className={`flex items-center justify-between rounded-xl text-sm h-10 cursor-pointer px-2 ${
                   localSelectedOptions.includes(option)
                     ? "bg-white text-[#007EAF] h-11"
@@ -79,6 +80,7 @@ const Question11: React.FC<Question11Props> = ({ selectedOptions, handleOptionCh
               >
                 {option}
                 <input
+                  id={`q${ques.id}-opt-${index}`}
                   type="checkbox"
                   className="ml-1 w-4 h-4"
                   checked={localSelectedOptions.includes(option)}
@@ -87,7 +89,7 @@ const Question11: React.FC<Question11Props> = ({ selectedOptions, handleOptionCh
               </label>
             ))}
           </div>
-        </div>
+        </fieldset>
       ))}
     </div>
   );

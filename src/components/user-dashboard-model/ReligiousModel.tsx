@@ -177,7 +177,7 @@ const ReligiousModel: React.FC<ReligiousModalProps> = ({
         confirmLoading={isLoading}
       >
         <Form form={form} layout="vertical" autoComplete="off" onFinish={handleFormSubmit}>
-          <Form.Item name="religion" label="Religion" rules={[{ required: false , message: "Please enter your religion"}]}  >
+          <Form.Item name="religion" label={<span>Religion <span className="text-gray-400 font-normal text-xs">(optional)</span></span>} rules={[{ required: false , message: "Please enter your religion"}]}  >
             <Select placeholder="Select Religion" defaultValue={myDetails?.religious_background?.religion} >
               {religion.map((religion) => (
                 <Select.Option key={religion.id} value={religion.value}>
@@ -191,7 +191,7 @@ const ReligiousModel: React.FC<ReligiousModalProps> = ({
           <Form.Item name="subCommunity" label="Sub Community"  rules={[{ required: false , message: "Please enter your sub community"}]}>
             <Input placeholder="Enter Sub Community" />
           </Form.Item>
-          <Form.Item name="community" label="Community" rules={[{ required: false , message: "Please enter your community"}]}>
+          <Form.Item name="community" label={<span>Community <span className="text-gray-400 font-normal text-xs">(optional)</span></span>} rules={[{ required: false , message: "Please enter your community"}]}>
             <Select placeholder="Select Community" defaultValue={myDetails?.religious_background?.community} >
               {community.map((community) => (
                 <Select.Option key={community.id} value={community.value}>
@@ -221,7 +221,7 @@ const ReligiousModel: React.FC<ReligiousModalProps> = ({
             <Input placeholder="Enter Place of Birth"   />
           </Form.Item>
 
-          <Form.Item name="motherTongue" label="Mother Tongue" rules={[{ required: false , message: "Please enter your mother tongue"}]}>
+          <Form.Item name="motherTongue" label={<span>Mother Tongue <span className="text-gray-400 font-normal text-xs">(optional)</span></span>} rules={[{ required: false , message: "Please enter your mother tongue"}]}>
           <Select placeholder="Select Mother Tongue" >
               {motherTongue.map((motherTongue) => (
                 <Select.Option key={motherTongue.id} value={motherTongue.value}>

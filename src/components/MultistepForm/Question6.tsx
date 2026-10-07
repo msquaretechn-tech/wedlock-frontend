@@ -31,14 +31,16 @@ const Question6: React.FC<QuestionProps> = ({ selectedOptions, handleOptionChang
   return (
     <div>
       {question.map((ques) => (
-        <div className="text-left md:text-center" key={ques.id}>
-          <h2 className="w-full text-2xl font-bold md:text-3xl mb-4">
+        <fieldset className="border-0 p-0 m-0 text-left md:text-center" key={ques.id}>
+          <legend className="w-full text-2xl font-bold md:text-3xl mb-4">
             {ques.text}
-          </h2>
+          </legend>
           <p className="text-[#FFFFFF90]">{ques.summary}</p>
 
           <div className="md:w-auto py-4">
             <Select
+              inputId="select-age"
+              aria-label={ques.text}
               options={ageOptions}
               value={ageOptions.find(option => option.value === selectedOption?.answerValue)}
               onChange={(selected) =>
@@ -48,7 +50,7 @@ const Question6: React.FC<QuestionProps> = ({ selectedOptions, handleOptionChang
               placeholder="Select your age"
             />
           </div>
-        </div>
+        </fieldset>
       ))}
     </div>
   );

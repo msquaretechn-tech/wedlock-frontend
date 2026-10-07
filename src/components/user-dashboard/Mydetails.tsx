@@ -11,7 +11,7 @@ import { FaSmoking } from "react-icons/fa";
 import { FaWineGlassAlt } from "react-icons/fa";
 import Loading from "../Loading";
 import { FaUserGraduate } from "react-icons/fa";
-import { useMyDetailsQuery, useGetProfilePercentageQuery } from "../../Redux/Api/profile.api";
+import { useMyDetailsQuery, useGetProfilePercentageQuery, useRemoveSensitiveInformationMutation } from "../../Redux/Api/profile.api";
 import { useDispatch } from "react-redux";
 import "../../font.css";
 import ReligiouModel from "../user-dashboard-model/ReligiousModel";
@@ -39,6 +39,7 @@ import { Button } from "@mui/material";
 const MyDetails = () => {
 const dispatch = useDispatch();
 const [toggle, { isLoading: isToggleLoading }] = useToggleMutation();
+const [removeSensitiveInfo, { isLoading: isRemovingSensitive }] = useRemoveSensitiveInformationMutation();
 const { user, myDetails } = useSelector((state: RootState) => state.userReducer);
 console.log("my details are", myDetails)
 const [isPersonalDetails, setIsPersonalDetails] = useState(false);
@@ -752,6 +753,28 @@ return (
          <div className="justify-center self-start whitespace-nowrap rounded-[100px] bg-green-100 px-3 py-1.5 text-center text-base font-medium capitalize leading-4 tracking-normal text-green-700">
             {myDetails?.religious_background?.motherTongue}
          </div>
+      </div>
+      {/* Remove Sensitive Information Button */}
+      <div className="mt-6 px-2">
+        <button
+          type="button"
+          disabled={isRemovingSensitive}
+          onClick={async () => {
+            if (window.confirm("Are you sure you want to remove your sensitive information (Religion, Community, Ethnicity, Nationality, Mother Tongue)? This action cannot be undone.")) {
+              try {
+                await removeSensitiveInfo().unwrap();
+                toast.success("Sensitive information removed successfully.");
+                window.location.reload();
+              } catch (err) {
+                toast.error("Failed to remove sensitive information.");
+              }
+            }
+          }}
+          className="w-full text-sm py-2.5 px-4 rounded-lg bg-red-50 text-red-600 border border-red-200 hover:bg-red-100 transition font-medium"
+        >
+          {isRemovingSensitive ? "Removing..." : "Remove Sensitive Information"}
+        </button>
+        <p className="text-xs text-slate-400 mt-1 text-center">Clears Religion, Community, Ethnicity, Nationality & Mother Tongue</p>
       </div>
    </div>
 </div>

@@ -19,11 +19,13 @@ import {
 // caste, community, dateOfBirth, timeOfBirth, religion, placeOfBirth
 
 const otherDetailsSchema = z.object({
-  caste: z.string().min(1, "Caste is required"),
-  community: z.string().min(1, "Community is required"),
+  caste: z.string().optional(),
+  community: z.string().optional(),
+  ethnicity: z.string().optional(),
+  motherTongue: z.string().optional(),
   dateOfBirth: z.string().min(1, "Date of Birth is required"),
   timeOfBirth: z.string().min(1, "Time of Birth is required"),
-  religion: z.string().min(1, "Religion is required"),
+  religion: z.string().optional(),
   placeOfBirth: z.string().min(1, "Place of Birth is required"),
 });
 
@@ -141,9 +143,10 @@ const OtherDetails = () => {
           className="md:px-30 mt-5 grid grid-cols-1 md:grid-cols-2 md:gap-2 md:px-20 xl:px-40 2xl:px-60 3xl:mt-20 3xl:px-60"
         >
           <div>
-            <label className="block text-white">Religion</label>
+            <label className="block text-white" htmlFor="religion">Religion <span className="text-white/60 text-sm">(optional)</span></label>
             <div className="mb-4">
               <select
+                id="religion"
                 {...register("religion")}
                 className="h-10 w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
                 defaultValue={""}
@@ -166,9 +169,10 @@ const OtherDetails = () => {
           </div>
 
           <div>
-            <label className="block text-white">Community</label>
+            <label className="block text-white" htmlFor="community">Community <span className="text-white/60 text-sm">(optional)</span></label>
             <div className="mb-4 ">
               <select
+                id="community"
                 {...register("community")}
                 className="h-10 w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
               >
@@ -190,9 +194,10 @@ const OtherDetails = () => {
           </div>
 
           <div>
-            <label className="block text-white">Date of Birth</label>
+            <label className="block text-white" htmlFor="dateOfBirth">Date of Birth</label>
             <div className="mb-4">
               <input
+                id="dateOfBirth"
                 type="date"
                 {...register("dateOfBirth")}
                 placeholder="Date"
@@ -207,9 +212,10 @@ const OtherDetails = () => {
           </div>
 
           <div>
-            <label className="block text-white">Time of Birth</label>
+            <label className="block text-white" htmlFor="timeOfBirth">Time of Birth</label>
             <div className="mb-4">
               <input
+                id="timeOfBirth"
                 type="time"
                 {...register("timeOfBirth")}
                 placeholder="Time"
@@ -229,9 +235,10 @@ const OtherDetails = () => {
           </div>
 
           <div>
-            <label className="block text-white">Caste</label>
+            <label className="block text-white" htmlFor="caste">Caste</label>
             <div className="mb-4">
               <select
+                id="caste"
                 {...register("caste")}
                 className="h-10 w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
                 defaultValue={""}
@@ -254,9 +261,10 @@ const OtherDetails = () => {
           </div>
 
           <div>
-            <label className="block text-white">Place of Birth</label>
+            <label className="block text-white" htmlFor="placeOfBirth">Place of Birth</label>
             <div className="mb-4">
               <input
+                id="placeOfBirth"
                 type="text"
                 {...register("placeOfBirth")}
                 placeholder="Enter your place of birth"
@@ -267,6 +275,32 @@ const OtherDetails = () => {
                   {errors.placeOfBirth.message?.toString()}
                 </span>
               )}
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-white" htmlFor="ethnicity">Ethnicity <span className="text-white/60 text-sm">(optional)</span></label>
+            <div className="mb-4">
+              <input
+                id="ethnicity"
+                type="text"
+                {...register("ethnicity")}
+                placeholder="Enter your ethnicity"
+                className="h-10 w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-white" htmlFor="motherTongue">Mother Tongue <span className="text-white/60 text-sm">(optional)</span></label>
+            <div className="mb-4">
+              <input
+                id="motherTongue"
+                type="text"
+                {...register("motherTongue")}
+                placeholder="Enter your mother tongue"
+                className="h-10 w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
+              />
             </div>
           </div>
 
