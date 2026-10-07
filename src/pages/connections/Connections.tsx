@@ -51,7 +51,7 @@ const ConnectionCard = ({ userId, isFavourite, handleToggleFav }: ConnectionItem
       data._id,
 
     profileImages: data.profileImage || [],
-    userType: data.userType || data.usertype || data.basic_and_lifestyle?.usertype || data.plans?.planName || "Standard",
+    userType: data.userType || "Standard",
     gender: data.basic_and_lifestyle?.gender || "N/A",
     age: data.basic_and_lifestyle?.age || "N/A",
     match_percentage: data.match_percentage || "0",

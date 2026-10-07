@@ -16,7 +16,6 @@
     country: z.string().min(1, "Country is required"),
     state: z.string().min(1, "State is required"),
     austrailanVisaStatus: z.string().min(1, "Visa Status is required"),
-    nationality: z.string().optional(),
   });
 
   const LocationDetails = () => {
@@ -246,20 +245,6 @@
                     {errors.austrailanVisaStatus.message?.toString()}
                   </p>
                 )}
-              </div>
-            </div>
-
-            <div className="mb-4">
-              <label className="block text-white">
-                Nationality <span className="text-xs text-white/80 font-normal">(optional)</span>
-              </label>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Enter nationality (optional)"
-                  className="w-full rounded-[0.5rem] border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
-                  {...register("nationality")}
-                />
               </div>
             </div>
 
