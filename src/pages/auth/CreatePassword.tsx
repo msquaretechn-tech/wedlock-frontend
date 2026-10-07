@@ -113,6 +113,8 @@ const CreatePassword = () => {
             fcmToken: "",
             createdAt: new Date().toISOString(),
           });
+        }
+
         // Record consent audit log for Australian compliance
         try {
           const consentRaw = localStorage.getItem("userConsent");
