@@ -58,7 +58,7 @@ function Hero() {
                 marginTop: "45px",
               }}
             >
-              Family welcome  ·  Free to join <br></br>Premium A$14.95/month incl. GST  ·  No auto-renewal
+              Family welcome  ·  Free to join <br></br>Premium A$14.95/month incl. GST  ·  No auto-renewal  ·  No sales calls, ever
             </p>
 
           
