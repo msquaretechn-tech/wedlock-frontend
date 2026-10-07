@@ -57,30 +57,28 @@ const Question11: React.FC<Question11Props> = ({ selectedOptions, handleOptionCh
   };
 
   return (
-    <div>
+    <div >
       {question.map((ques) => (
-        <fieldset key={ques.id} className="border-0 p-0 m-0">
+        <div key={ques.id}>
           <div className="text-left md:text-center">
-            <legend className="w-full text-2xl font-bold md:text-3xl mb-4">
+            <h2 className="w-full text-2xl font-bold md:text-3xl mb-4">
               {ques.text}
-            </legend>
+            </h2>
             <p className="text-[#FFFFFF90]">{ques.summary}</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-1 md:grid-cols-5 py-4">
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-5 py-4">
             {ques.options.map((option, index) => (
               <label
                 key={index}
-                htmlFor={`q${ques.id}-opt-${index}`}
-                className={`flex items-center justify-between rounded-xl text-sm h-10 cursor-pointer px-2 ${
+                className={`flex items-center justify-between rounded-xl text-sm md:text-base font-medium h-11 cursor-pointer px-3 transition-all ${
                   localSelectedOptions.includes(option)
-                    ? "bg-white text-[#007EAF] h-11"
+                    ? "bg-white text-[#007EAF]"
                     : "bg-[#FFFFFF80] text-white"
                 }`}
               >
                 {option}
                 <input
-                  id={`q${ques.id}-opt-${index}`}
                   type="checkbox"
                   className="ml-1 w-4 h-4"
                   checked={localSelectedOptions.includes(option)}
@@ -89,7 +87,7 @@ const Question11: React.FC<Question11Props> = ({ selectedOptions, handleOptionCh
               </label>
             ))}
           </div>
-        </fieldset>
+        </div>
       ))}
     </div>
   );

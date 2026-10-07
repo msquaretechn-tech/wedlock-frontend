@@ -25,8 +25,8 @@ const Question1: React.FC<QuestionProps> = ({ selectedOptions, handleOptionChang
   return (
     <div className="flex flex-col gap-6 py-4">
       {questions.map((question) => (
-        <fieldset key={question.id} className="border-0 p-0 m-0">
-          <legend className="font-Proxima-Nova-SemiBold text-white w-full  text-2xl   md:text-3xl mb-4">{question.text}</legend>
+        <div key={question.id}>
+          <p className="font-Proxima-Nova-SemiBold text-white w-full  text-2xl   md:text-3xl mb-4">{question.text}</p>
           <div className="flex flex-wrap gap-4 py-2">
             {question.options.map((option, index) => {
               const isSelected = selectedOptions.some(
@@ -37,7 +37,7 @@ const Question1: React.FC<QuestionProps> = ({ selectedOptions, handleOptionChang
                 <label
                   key={index}
                   htmlFor={`option-${question.id}-${index}`}
-                  className={`flex items-center justify-between w-full md:w-[150px] rounded-xl text-sm h-10 cursor-pointer px-6 transition-all  ${
+                  className={`flex items-center justify-between w-full md:w-[160px] rounded-xl text-base font-medium h-12 cursor-pointer px-5 transition-all  ${
                     isSelected ? "bg-white text-[#007EAF]" : "bg-[#FFFFFF80] text-white"
                   }`}
                 >
@@ -53,7 +53,7 @@ const Question1: React.FC<QuestionProps> = ({ selectedOptions, handleOptionChang
               );
             })}
           </div>
-        </fieldset>
+        </div>
       ))}
     </div>
   );

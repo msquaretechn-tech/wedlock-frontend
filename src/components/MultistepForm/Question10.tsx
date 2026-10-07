@@ -21,27 +21,25 @@ const Question10 : React.FC<QuestionProps>= ( {selectedOptions,handleOptionChang
   return (
     <div>
       {question.map((ques) => (
-        <fieldset key={ques.id} className="border-0 p-0 m-0 text-left md:text-center ">
-            <legend className="w-full  text-2xl font-bold  md:text-3xl mb-4">
+        <div className="text-left md:text-center ">
+            <h2 className="w-full  text-2xl font-bold  md:text-3xl mb-4">
             {ques.text}
-        </legend>
+        </h2>
         <p className="text-[#FFFFFF90]">{ques.summary}</p>
 
-        <div className="grid grid-cols-1 gap-4  md:w-auto py-4">
+        <div className="grid grid-cols-1 gap-4 max-w-xl mx-auto py-4">
             {ques.options.map((option, index) => (
               <label
                 key={index}
-                htmlFor={`q${ques.id}-opt-${index}`}
-                className={`flex items-center justify-between rounded-xl text-sm h-10 cursor-pointer px-6 ${
+                className={`flex items-center justify-between rounded-xl text-base font-medium h-12 cursor-pointer px-6 transition-all ${
                   selectedOptions.some(
                     (sel) => sel.questionId === ques.id && sel.answerValue === option
-                  )                              ? "bg-white text-[#007EAF] h-12"
+                  )                              ? "bg-white text-[#007EAF]"
                     : "bg-[#FFFFFF80] text-white"
                 }`}
               >
                 {option} 
                 <input
-                  id={`q${ques.id}-opt-${index}`}
                   type="checkbox"
                   className="ml-2 w-4 h-4 "
                   checked={selectedOptions.some(
@@ -52,7 +50,7 @@ const Question10 : React.FC<QuestionProps>= ( {selectedOptions,handleOptionChang
             ))}
           </div>
 
-        </fieldset>
+        </div>
       ))}
     </div>
   );

@@ -87,6 +87,7 @@ const CreatePassword = () => {
     try {
       const res = await setPassword({ password: confirmPassword, answer: parsedAnswers });
 
+
       if ('error' in res && res.error) {
         const errorData = res.error as FetchBaseQueryErrorWithData;
         if (errorData.data?.success === false) {
@@ -114,34 +115,34 @@ const CreatePassword = () => {
             createdAt: new Date().toISOString(),
           });
         }
-
-        // Record consent audit log for Australian compliance
+        // Record consent audit log for compliance
         try {
-          const consentRaw = localStorage.getItem("userConsent");
-          const mktConsentRaw = localStorage.getItem("marketingConsent");
-          const consentObj = consentRaw ? JSON.parse(consentRaw) : {};
-          const marketingConsent = mktConsentRaw ? JSON.parse(mktConsentRaw) : false;
-
-          await fetch(`/api/v1/consent/record`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              userId: userData.userId,
-              noticeVersion: consentObj.noticeVersion || "v1.0",
-              ageGatePassed: consentObj.ageGatePassed ?? true,
-              consentTermsAndAge: consentObj.consentTermsAndAge ?? true,
-              consentSensitiveInfo: consentObj.consentSensitiveInfo ?? true,
-              marketingConsent: Boolean(marketingConsent),
-              marketingNoticeVersion: "mkt-v1.0",
-            }),
-          });
+          const consentRaw = localStorage.getItem("wedlock_consent_record");
+          const mktRaw = localStorage.getItem("wedlock_marketing_consent");
+          if (consentRaw && userData?.userId) {
+            const consentObj = JSON.parse(consentRaw);
+            const marketingConsent = mktRaw === "true";
+            await fetch(`/api/v1/consent/record`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                userId: userData.userId,
+                noticeVersion: consentObj.noticeVersion || "v1.0",
+                ageGatePassed: consentObj.ageGatePassed ?? true,
+                consentTermsAndAge: consentObj.consentTermsAndAge ?? true,
+                consentSensitiveInfo: consentObj.consentSensitiveInfo ?? true,
+                marketingConsent: Boolean(marketingConsent),
+                marketingNoticeVersion: "mkt-v1.0",
+              }),
+            });
+            localStorage.removeItem("wedlock_consent_record");
+            localStorage.removeItem("wedlock_marketing_consent");
+          }
         } catch (e) {
           console.error("Consent record error:", e);
         }
 
         localStorage.removeItem("email");
-        localStorage.removeItem("userConsent");
-        localStorage.removeItem("marketingConsent");
         Cookies.remove("answers");
         dispatch(setUser(res.data));
         navigate("/personal-details");
@@ -191,7 +192,7 @@ const CreatePassword = () => {
             >
               {showPassword ? <FaEyeSlash /> : <IoEyeOutline />}
             </span>
-            
+
             {/* Password Complexity Checklist */}
             <div className="mt-3 grid grid-cols-2 gap-2">
               {requirements.map((req, idx) => (

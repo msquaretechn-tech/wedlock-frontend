@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -371,20 +370,20 @@ const Multistep = () => {
                 <div className="flex w-full flex-row items-center justify-between gap-3 md:justify-center md:gap-10 mb-2">
                   <button
                     type="button"
-                    className={`flex h-[48px] w-[48%] md:w-[160px] items-center justify-center gap-2 rounded-md bg-white px-4 py-2 font-medium ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
+                    className={`flex h-[48px] w-[48%] md:w-[160px] items-center justify-center rounded-md bg-white px-4 py-2 font-medium ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
                       }`}
                     onClick={page > 0 ? handlePrevious : () => navigate("/")}
                   >
-                    <FaArrowLeftLong /> Back
+                    Back
                   </button>
 
                   <button
                     type="button"
-                    className={`flex h-[48px] w-[48%] md:w-[160px] items-center justify-center gap-2 rounded-md bg-white px-4 py-2 font-medium ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
+                    className={`flex h-[48px] w-[48%] md:w-[160px] items-center justify-center rounded-md bg-white px-4 py-2 font-medium ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
                       }`}
                     onClick={handleNext}
                   >
-                    Continue <FaArrowRightLong />
+                    Continue
                   </button>
                 </div>
               </div>

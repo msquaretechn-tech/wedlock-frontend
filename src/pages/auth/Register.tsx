@@ -25,7 +25,6 @@ type FormData = z.infer<typeof schema>;
 
 const register = () => {
   const [isExclusive, setExclusive] = useState(false);
-  const [marketingConsent, setMarketingConsent] = useState(false);
 
   useEffect(() => {
     const isExclusive = localStorage.getItem("isExclusive");
@@ -65,7 +64,6 @@ const register = () => {
     try {
 
       localStorage.setItem("email", data.email);
-      localStorage.setItem("marketingConsent", JSON.stringify(marketingConsent));
       const res = await registerUser({ email: data.email });
 
       if ('error' in res && res.error) {
@@ -101,7 +99,7 @@ const register = () => {
         </div>
         <div className="flex flex-col items-center justify-center text-white mt-4 text-center">
           <h1 className="text-4xl font-bold">Create an account</h1>
-          <p className="mt-4 md:text-xl">By tapping the button, you agree to our  terms. Learn  how we  process <br className='hidden md:block' /> your data  in our Privacy Policy and Cookie Policy.
+          <p className="mt-4 md:text-xl">By tapping the button, you agree to our  terms. Learn  how we  process <br className='hidden md:block' /> your data  in our Privacy Policy and Cookies Policy.
           </p>
         </div>
       </div>
@@ -116,19 +114,6 @@ const register = () => {
             labelStyle={{ color: "white", fontSize: "12px" }}
           />
           {errors.email && <p className="text-orange-200">{errors.email.message}</p>}
-
-          <div className="flex items-start gap-2.5 pt-2 pb-2 text-left">
-            <input
-              id="marketingConsent"
-              type="checkbox"
-              checked={marketingConsent}
-              onChange={(e) => setMarketingConsent(e.target.checked)}
-              className="mt-0.5 w-4 h-4 rounded cursor-pointer"
-            />
-            <label htmlFor="marketingConsent" className="text-white text-xs cursor-pointer select-none leading-snug">
-              Send me match suggestions, tips and occasional offers by email. I can unsubscribe at any time.
-            </label>
-          </div>
 
           <button
             type="submit"
