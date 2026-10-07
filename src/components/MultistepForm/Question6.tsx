@@ -31,14 +31,19 @@ const Question6: React.FC<QuestionProps> = ({ selectedOptions, handleOptionChang
   return (
     <div>
       {question.map((ques) => (
-        <div className="text-left md:text-center" key={ques.id}>
-          <h2 className="w-full text-2xl font-bold md:text-3xl mb-4">
+        <fieldset key={ques.id} className="text-left md:text-center border-none p-0 m-0">
+          <legend className="w-full text-2xl font-bold md:text-3xl mb-4 text-white">
             {ques.text}
-          </h2>
-          <p className="text-[#FFFFFF90]">{ques.summary}</p>
+          </legend>
+          <p className="text-[#FFFFFF90] mb-2">{ques.summary}</p>
 
           <div className="md:w-auto py-4">
+            <label htmlFor={`question-${ques.id}-select`} className="sr-only">
+              Select your age
+            </label>
             <Select
+              id={`question-${ques.id}-select`}
+              inputId={`question-${ques.id}-select-input`}
               options={ageOptions}
               value={ageOptions.find(option => option.value === selectedOption?.answerValue)}
               onChange={(selected) =>
@@ -48,7 +53,7 @@ const Question6: React.FC<QuestionProps> = ({ selectedOptions, handleOptionChang
               placeholder="Select your age"
             />
           </div>
-        </div>
+        </fieldset>
       ))}
     </div>
   );

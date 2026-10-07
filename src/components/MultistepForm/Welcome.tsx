@@ -1,39 +1,207 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Welcome = ({ handleNext }: { handleNext: () => void }) => {
   const [isExclusive, setExclusive] = useState(false);
+
+  // Age gate state (DD, MM, YYYY)
+  const [day, setDay] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+  const [isUnderage, setIsUnderage] = useState<boolean | null>(null);
+
+  // Consent checkboxes (both default unticked)
+  const [consent1, setConsent1] = useState(false);
+  const [consent2, setConsent2] = useState(false);
 
   useEffect(() => {
     const isExclusive = localStorage.getItem("isExclusive");
     if (isExclusive) {
       setExclusive(true);
     }
-  });
+  }, []);
+
+  // Validate DOB and calculate age whenever DD, MM, YYYY change
+  useEffect(() => {
+    if (day && month && year && year.length === 4) {
+      const d = parseInt(day, 10);
+      const m = parseInt(month, 10);
+      const y = parseInt(year, 10);
+
+      if (d >= 1 && d <= 31 && m >= 1 && m <= 12 && y > 1900 && y <= new Date().getFullYear()) {
+        const dob = new Date(y, m - 1, d);
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const mDiff = today.getMonth() - dob.getMonth();
+        if (mDiff < 0 || (mDiff === 0 && today.getDate() < dob.getDate())) {
+          age--;
+        }
+
+        if (age < 18) {
+          setIsUnderage(true);
+        } else {
+          setIsUnderage(false);
+        }
+        return;
+      }
+    }
+    setIsUnderage(null);
+  }, [day, month, year]);
+
+  const canContinue = isUnderage === false && consent1 && consent2;
+
+  const onContinueClick = () => {
+    if (!canContinue) return;
+
+    // Save consent status in localStorage/Cookies for audit recording at registration
+    const consentRecord = {
+      noticeVersion: "v1.0",
+      dateAndTimeShown: new Date().toISOString(),
+      ageGatePassed: true,
+      consentTermsAndAge: true,
+      consentSensitiveInfo: true,
+      dateOfBirth: `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`,
+    };
+    localStorage.setItem("wedlock_consent_record", JSON.stringify(consentRecord));
+    handleNext();
+  };
 
   return (
     <div
-      className={`min-w-screen relative  flex-col ${
+      className={`w-full max-w-3xl mx-auto flex flex-col ${
         isExclusive ? "bg-[#60457E]" : "bg-[#007EAF]"
-      } px-2 text-white md:px-28 lg:px-40 3xl:px-60`}
+      } px-4 py-8 text-white rounded-2xl shadow-xl my-6`}
     >
-      {/* Main Content */}
-      <div className="flex mt-40 flex-col items-center justify-center text-center gap-5">
-        <h1 className=" text-3xl md:text-4xl font-bold">Welcome to Wedlock</h1>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-center">
-          Congratulations! You are now one step closer to find your preferred
-          partner.
+      {/* Title */}
+      <div className="text-center mb-6">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Before we start</h1>
+        <p className="mt-2 text-base md:text-lg text-white/90">
+          Wedlock is for adults looking for marriage. You need to be 18 or over to create a profile.
         </p>
+      </div>
 
+      {/* Part 1: Age Gate (Date of Birth Input) */}
+      <div className="bg-white/10 p-5 rounded-xl backdrop-blur-md mb-6 border border-white/20">
+        <label className="block text-sm md:text-base font-semibold mb-3">
+          Date of birth
+        </label>
+        <div className="grid grid-cols-3 gap-3 max-w-sm">
+          <div>
+            <input
+              id="dob-day"
+              type="number"
+              placeholder="DD"
+              min="1"
+              max="31"
+              value={day}
+              onChange={(e) => setDay(e.target.value)}
+              className="w-full h-12 text-center rounded-lg bg-white text-gray-900 font-medium placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </div>
+          <div>
+            <input
+              id="dob-month"
+              type="number"
+              placeholder="MM"
+              min="1"
+              max="12"
+              value={month}
+              onChange={(e) => setMonth(e.target.value)}
+              className="w-full h-12 text-center rounded-lg bg-white text-gray-900 font-medium placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </div>
+          <div>
+            <input
+              id="dob-year"
+              type="number"
+              placeholder="YYYY"
+              min="1920"
+              max={new Date().getFullYear()}
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              className="w-full h-12 text-center rounded-lg bg-white text-gray-900 font-medium placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </div>
+        </div>
+
+        {/* Underage rejection warning */}
+        {isUnderage === true && (
+          <div className="mt-4 p-4 rounded-lg bg-red-600/90 text-white font-medium text-sm leading-relaxed border border-red-400 animate-fadeIn">
+            Sorry — Wedlock is only for people aged 18 and over. Thanks for your interest, and we hope to see you in the future.
+          </div>
+        )}
+      </div>
+
+      {/* Part 2: Collection Notice */}
+      <div className="bg-white/10 p-5 rounded-xl backdrop-blur-md mb-6 border border-white/20 text-sm md:text-base text-white/95 space-y-3 leading-relaxed">
+        <h2 className="text-xl font-bold text-white mb-2">What we collect and why</h2>
+        <p>
+          Wedlock Global Services (Australia) Pty Ltd (ABN 36 679 422 738) collects the information you give us here so we can create your profile and suggest matches. We cannot provide the service without it.
+        </p>
+        <p>
+          Some of the questions ask about your religion, community, ethnicity, nationality and the gender of the people you would like to meet. Australian privacy law treats this as sensitive information, so we only collect it with your consent, and you can skip any question marked optional.
+        </p>
+        <p>
+          We share your information with the service providers who host our platform, send our messages and process our payments. Some of them are located in Singapore and India. We do not sell your information to anyone.
+        </p>
+        <p>
+          Our{" "}
+          <Link to="/privacy-policy" target="_blank" className="underline font-semibold hover:text-cyan-200">
+            Privacy Policy
+          </Link>{" "}
+          explains how to see the information we hold about you, correct it, delete it, or make a complaint.
+        </p>
+      </div>
+
+      {/* Part 3: Two Consent Controls */}
+      <div className="space-y-4 mb-6">
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            checked={consent1}
+            onChange={(e) => setConsent1(e.target.checked)}
+            className="mt-1 h-5 w-5 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer"
+          />
+          <span className="text-sm md:text-base leading-snug">
+            I am 18 or over, and I agree to the{" "}
+            <Link to="/terms-conditions" target="_blank" className="underline font-semibold hover:text-cyan-200">
+              Terms and Conditions
+            </Link>{" "}
+            and the{" "}
+            <Link to="/privacy-policy" target="_blank" className="underline font-semibold hover:text-cyan-200">
+              Privacy Policy
+            </Link>.
+          </span>
+        </label>
+
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            checked={consent2}
+            onChange={(e) => setConsent2(e.target.checked)}
+            className="mt-1 h-5 w-5 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer"
+          />
+          <span className="text-sm md:text-base leading-snug">
+            I consent to Wedlock collecting the sensitive information described above so it can suggest matches for me.
+          </span>
+        </label>
+      </div>
+
+      {/* Continue Button */}
+      {isUnderage !== true && (
         <button
           type="button"
-          className={`flex h-[48px] w-full items-center justify-center gap-2 rounded-md bg-white md:px-40 py-2 ${
-            isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
-          } md:w-auto xl:mt-5 md:mt-0`}
-          onClick={handleNext}
+          disabled={!canContinue}
+          onClick={onContinueClick}
+          className={`w-full py-3.5 px-6 rounded-xl font-bold text-lg transition-all shadow-md ${
+            canContinue
+              ? "bg-white text-[#007EAF] hover:bg-gray-100 cursor-pointer opacity-100"
+              : "bg-white/40 text-white/70 cursor-not-allowed"
+          }`}
         >
-          Click to continue
+          Continue
         </button>
-      </div>
+      )}
     </div>
   );
 };

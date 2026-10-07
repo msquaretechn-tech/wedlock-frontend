@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSetPasswordMutation } from "../../Redux/Api/user.api";
+import { useSetPasswordMutation, useRecordConsentMutation } from "../../Redux/Api/user.api";
 import Input from '../../components/input/Input';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query/react';
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -33,6 +33,7 @@ const CreatePassword = () => {
   }, []);
 
   const [setPassword, { isLoading }] = useSetPasswordMutation();
+  const [recordConsent] = useRecordConsentMutation();
 
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 
@@ -115,7 +116,28 @@ const CreatePassword = () => {
           });
         }
 
+        // Send legal consent audit record to backend
+        try {
+          const rawConsent = localStorage.getItem("wedlock_consent_record");
+          const marketingConsent = localStorage.getItem("wedlock_marketing_consent") === "true";
+          const consentObj = rawConsent ? JSON.parse(rawConsent) : {};
+
+          await recordConsent({
+            userId: userData.userId,
+            noticeVersion: consentObj.noticeVersion || "v1.0",
+            ageGatePassed: consentObj.ageGatePassed ?? true,
+            consentTermsAndAge: consentObj.consentTermsAndAge ?? true,
+            consentSensitiveInfo: consentObj.consentSensitiveInfo ?? true,
+            marketingConsent,
+            marketingNoticeVersion: "mkt-v1.0",
+          });
+        } catch (consentErr) {
+          console.error("Failed to record consent log:", consentErr);
+        }
+
         localStorage.removeItem("email");
+        localStorage.removeItem("wedlock_consent_record");
+        localStorage.removeItem("wedlock_marketing_consent");
         Cookies.remove("answers");
         dispatch(setUser(res.data));
         navigate("/personal-details");

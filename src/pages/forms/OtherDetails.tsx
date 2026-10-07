@@ -19,12 +19,14 @@ import {
 // caste, community, dateOfBirth, timeOfBirth, religion, placeOfBirth
 
 const otherDetailsSchema = z.object({
-  caste: z.string().min(1, "Caste is required"),
-  community: z.string().min(1, "Community is required"),
-  dateOfBirth: z.string().min(1, "Date of Birth is required"),
-  timeOfBirth: z.string().min(1, "Time of Birth is required"),
-  religion: z.string().min(1, "Religion is required"),
-  placeOfBirth: z.string().min(1, "Place of Birth is required"),
+  caste: z.string().optional(),
+  community: z.string().optional(),
+  ethnicity: z.string().optional(),
+  motherTongue: z.string().optional(),
+  dateOfBirth: z.string().optional(),
+  timeOfBirth: z.string().optional(),
+  religion: z.string().optional(),
+  placeOfBirth: z.string().optional(),
 });
 
 const OtherDetails = () => {
@@ -141,16 +143,16 @@ const OtherDetails = () => {
           className="md:px-30 mt-5 grid grid-cols-1 md:grid-cols-2 md:gap-2 md:px-20 xl:px-40 2xl:px-60 3xl:mt-20 3xl:px-60"
         >
           <div>
-            <label className="block text-white">Religion</label>
+            <label className="block text-white">
+              Religion <span className="text-xs text-white/80 font-normal">(optional)</span>
+            </label>
             <div className="mb-4">
               <select
                 {...register("religion")}
                 className="h-10 w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
                 defaultValue={""}
               >
-                <option value="" disabled>
-                  Select Religion
-                </option>
+                <option value="">Select Religion (optional)</option>
                 {religion.map((religion) => (
                   <option value={religion.value} key={religion.id}>
                     {religion.value}
@@ -166,15 +168,15 @@ const OtherDetails = () => {
           </div>
 
           <div>
-            <label className="block text-white">Community</label>
+            <label className="block text-white">
+              Community <span className="text-xs text-white/80 font-normal">(optional)</span>
+            </label>
             <div className="mb-4 ">
               <select
                 {...register("community")}
                 className="h-10 w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
               >
-                <option value="" disabled selected>
-                  Select Community
-                </option>
+                <option value="">Select Community (optional)</option>
                 {community.map((community) => (
                   <option value={community.value} key={community.id}>
                     {community.value}
@@ -267,6 +269,34 @@ const OtherDetails = () => {
                   {errors.placeOfBirth.message?.toString()}
                 </span>
               )}
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-white">
+              Ethnicity <span className="text-xs text-white/80 font-normal">(optional)</span>
+            </label>
+            <div className="mb-4">
+              <input
+                type="text"
+                {...register("ethnicity")}
+                placeholder="Enter ethnicity (optional)"
+                className="h-10 w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-white">
+              Mother Tongue <span className="text-xs text-white/80 font-normal">(optional)</span>
+            </label>
+            <div className="mb-4">
+              <input
+                type="text"
+                {...register("motherTongue")}
+                placeholder="Enter mother tongue (optional)"
+                className="h-10 w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
+              />
             </div>
           </div>
 

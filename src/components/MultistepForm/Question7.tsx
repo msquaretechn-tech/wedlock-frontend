@@ -1,10 +1,9 @@
 import React from 'react';
 import Select from 'react-select';
 
-// Define the type for options used in the Select component
 type Option = {
-  value: string ;
-  label: string ;
+  value: string;
+  label: string;
 };
 
 type SelectedOption = {
@@ -18,7 +17,7 @@ const question = [
     text: "I am looking for a partner of age",
     summary:
       "Specifying the age range of your ideal partner helps us connect you with individuals who match your preferences.",
-      options: Array.from({ length: 85 - 18 + 1 }, (_, i) => String(i + 18)),
+    options: Array.from({ length: 85 - 18 + 1 }, (_, i) => String(i + 18)),
     text2: "to",
     options1: Array.from({ length: 85 - 18 + 1 }, (_, i) => String(i + 18)),
   },
@@ -51,7 +50,6 @@ const Question7: React.FC<QuestionProps> = ({
     const currentValue = currentOption?.answerValue || "";
     const [firstAge, secondAge] = (currentValue as string).split("-");
 
-    // Update the value based on which select was changed
     let updatedValue;
     if (isFirst) {
       updatedValue = `${selectedOption?.value || ""}-${secondAge || ""}`;
@@ -59,29 +57,32 @@ const Question7: React.FC<QuestionProps> = ({
       updatedValue = `${firstAge || ""}-${selectedOption?.value || ""}`;
     }
 
-    // Call the change handler with the updated value
     handleOptionChange(question[0].id, updatedValue.trim());
   };
 
-  // Get the current selected option for this question
   const currentOption = selectedOptions.find(
     (opt) => opt.questionId === question[0].id
   );
   const [selectedFirstAge, selectedSecondAge] = Array.isArray(currentOption?.answerValue)
-  ? []
-  : (currentOption?.answerValue || "").split("-");
-  
+    ? []
+    : (currentOption?.answerValue || "").split("-");
+
   return (
     <div>
       {question.map((ques) => (
-        <div className="text-left md:text-center" key={ques.id}>
-          <h2 className="w-full text-2xl font-bold md:text-3xl mb-4">
+        <fieldset key={ques.id} className="text-left md:text-center border-none p-0 m-0">
+          <legend className="w-full text-2xl font-bold md:text-3xl mb-4 text-white">
             {ques.text}
-          </h2>
-          <p className="text-[#FFFFFF90]">{ques.summary}</p>
+          </legend>
+          <p className="text-[#FFFFFF90] mb-2">{ques.summary}</p>
 
           <div className="md:w-auto py-4 flex items-center justify-center space-x-4">
+            <label htmlFor={`question-${ques.id}-from-select`} className="sr-only">
+              Minimum partner age
+            </label>
             <Select
+              id={`question-${ques.id}-from-select`}
+              inputId={`question-${ques.id}-from-select-input`}
               options={ageOptions}
               className="text-black w-full"
               placeholder="Select age"
@@ -95,7 +96,12 @@ const Question7: React.FC<QuestionProps> = ({
 
             <span>{ques.text2}</span>
 
+            <label htmlFor={`question-${ques.id}-to-select`} className="sr-only">
+              Maximum partner age
+            </label>
             <Select
+              id={`question-${ques.id}-to-select`}
+              inputId={`question-${ques.id}-to-select-input`}
               options={ageOptions1}
               className="text-black w-full"
               placeholder="Select age"
@@ -107,7 +113,7 @@ const Question7: React.FC<QuestionProps> = ({
               }
             />
           </div>
-        </div>
+        </fieldset>
       ))}
     </div>
   );

@@ -111,8 +111,17 @@ export const userApi = apiSlice.injectEndpoints({
       })
     }),
 
+    recordConsent: builder.mutation({
+      query: (data) => ({
+        url: 'consent/record',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+
   }),
 
 });
 
-export const { useRegisterUserMutation,useCheckSuspendStatusMutation,useVerifyOtpMutation,useSetPasswordMutation,useLoginMutation,useLogoutUserMutation,useForgotpasswordMutation,useVerifyMutation,useResetpasswordMutation,useDeleteUserMutation,useUpdateFcmTokenMutation} = userApi;
+export const { useRegisterUserMutation,useCheckSuspendStatusMutation,useVerifyOtpMutation,useSetPasswordMutation,useLoginMutation,useLogoutUserMutation,useForgotpasswordMutation,useVerifyMutation,useResetpasswordMutation,useDeleteUserMutation,useUpdateFcmTokenMutation, useRecordConsentMutation} = userApi;
+
