@@ -156,21 +156,21 @@ const CreatePassword = () => {
   };
 
   return (
-    <div className={`min-w-screen h-screen flex flex-col items-center justify-center ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'} overflow-y-auto py-10`}>
-      <div className="flex items-center justify-center mb-2 md:mb-10">
+    <div className={`min-w-screen min-h-screen flex flex-col items-center justify-center ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'} py-8 px-4`}>
+      <div className="flex items-center justify-center mb-4">
         <Link to="/">
-          <img src="/logowhite.png" alt="" className='w-72 h-24 top-10' />
+          <img src="/logowhite.png" alt="Wedlock Logo" className='w-72 h-24' />
         </Link>
       </div>
-      <div className="flex flex-col items-center justify-center mt-4">
+      <div className="flex flex-col items-center justify-center mt-2">
         <div className="bg-white flex items-center justify-center rounded-full w-12 h-12">
           <div className="bg-[#D1FADF] rounded-full w-9 h-9 flex items-center justify-center">
             <img src="/confirm.png" alt="Star" className="w-6 h-6" />
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center text-white mt-2">
-          <h1 className="text-3xl font-bold">Create Your Password</h1>
-          <p className="mt-4 md:text-lg text-center px-4">
+        <div className="flex flex-col items-center justify-center text-white mt-3">
+          <h1 className="text-2xl md:text-3xl font-bold">Create Your Password</h1>
+          <p className="mt-2 text-sm md:text-base text-center px-4 opacity-90">
             Choose a strong password that is long, random, and unique.
           </p>
         </div>

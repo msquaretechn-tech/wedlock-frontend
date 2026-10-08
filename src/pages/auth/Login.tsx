@@ -164,12 +164,12 @@ const Login = () => {
 
   return (
     <div
-      className={`min-w-screen h-screen flex flex-col items-center justify-center ${
+      className={`min-w-screen min-h-screen flex flex-col items-center justify-center ${
         isExclusive ? "bg-[#60457E]" : "bg-[#007EAF]"
       }`}
     >
-      <div className="flex items-center justify-center mb-10">
-        <Link to="/" className="fixed top-2">
+      <div className="flex items-center justify-center pt-4 pb-2">
+        <Link to="/" className="">
           <img
             src="/logowhite.png"
             alt=""
@@ -178,7 +178,7 @@ const Login = () => {
         </Link>
       </div>
 
-      <div className="flex flex-col items-center justify-center mt-12">
+      <div className="flex flex-col items-center justify-center mt-4">
         <div className="bg-white flex items-center justify-center rounded-md w-12 h-12">
           <img
             src="/login.png"

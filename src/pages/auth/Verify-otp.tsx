@@ -145,9 +145,9 @@ const Verify = () => {
 
   return (
     <div className={`min-w-screen min-h-screen flex flex-col items-center justify-center ${isExclusive? 'bg-[#60457E]': 'bg-[#007EAF]'}`}>
-      <div className="flex items-center justify-center mb-14">
-        <Link to={"/"} className='fixed top-4'>
-        <img src="/logowhite.png" alt="" className="w-72 h-24 " />
+      <div className="flex items-center justify-center pt-6 pb-2">
+        <Link to={"/"} className=''>
+          <img src="/logowhite.png" alt="" className="w-72 h-24 " />
         </Link>
       </div>
       <div className="flex flex-col items-center justify-center mt-8 mb-2">

@@ -77,12 +77,14 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className={`min-w-screen h-screen flex flex-col items-center justify-center ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'}`}>
-      <Link to="/" className="fixed top-10">
-        <img src="/logowhite.png" alt="logo" className="w-72 h-24" />
-      </Link>
+    <div className={`min-w-screen min-h-screen flex flex-col items-center justify-center ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'}`}>
+      <div className="flex items-center justify-center pt-6 pb-2">
+        <Link to="/" className="">
+          <img src="/logowhite.png" alt="logo" className="w-72 h-24" />
+        </Link>
+      </div>
 
-      <div className="flex flex-col items-center justify-center mt-20">
+      <div className="flex flex-col items-center justify-center mt-4">
         <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center">
           <div className="bg-[#D1FADF] rounded-full w-9 h-9 flex items-center justify-center">
             <img src="/confirm.png" alt="confirm" className="w-6 h-6" />
