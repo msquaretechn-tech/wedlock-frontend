@@ -111,7 +111,8 @@ const register = () => {
             type="email"
             {...register("email")}
             placeholder="Enter your email"
-            labelStyle={{ color: "white", fontSize: "12px" }}
+            labelStyle={{ color: "white", fontSize: "18px", fontWeight: "600" }}
+            labelClassName="text-lg md:text-xl font-semibold"
           />
           {errors.email && <p className="text-orange-200">{errors.email.message}</p>}
 

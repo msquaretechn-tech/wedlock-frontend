@@ -207,7 +207,8 @@ const Login = () => {
               {...register("email")}
               placeholder="Enter your email"
               label="Email"
-              labelStyle={{ color: "white" }}
+              labelStyle={{ color: "white", fontSize: "18px", fontWeight: "600" }}
+              labelClassName="text-lg md:text-xl font-semibold"
             />
 
             {errors.email && (
