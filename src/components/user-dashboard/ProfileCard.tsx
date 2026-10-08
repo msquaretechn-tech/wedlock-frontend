@@ -52,6 +52,32 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
   
 
 
+  const getBlurStyle = (currentUserType: string, targetUserType: string): string => {
+    if (currentUserType === "Standard" && targetUserType === "Standard") {
+      return " blur-[5px]";
+    }
+    if (currentUserType === "Standard" && targetUserType === "Premium") {
+      return "blur-[5px]";
+    }
+    if (currentUserType === "Standard" && targetUserType === "Exclusive") {
+      return "blur-[5px]";
+    }
+
+    if (currentUserType === "Premium" && targetUserType === "Standard") {
+      return "";
+    }
+    if (currentUserType === "Premium" && targetUserType === "Exclusive") {
+      return "blur-[5px]";
+    }
+
+    return "";
+  };
+
+  const handleCardClick = (userId: string, name: string) => {
+    navigate(`/profile/${name}/${userId}`);
+    window.location.reload();
+  };
+
   const getPlanStyles = (userType: string) => {
     const type = (userType || "Standard").trim();
     switch (type) {
