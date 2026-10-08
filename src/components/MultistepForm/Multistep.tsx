@@ -19,7 +19,8 @@ import Question11 from "./Question11";
 
 const Multistep = () => {
   const [isExclusive, setExclusive] = useState(false);
-  const [isWelcome, setWelcome] = useState(true);
+  const [isIntro, setIsIntro] = useState(true);   // simple welcome splash
+  const [isWelcome, setWelcome] = useState(true); // age-gate + consent page
 
   const navigate = useNavigate();
 
@@ -318,6 +319,10 @@ const Multistep = () => {
     }
   };
 
+  const handleIntroContinue = () => {
+    setIsIntro(false);
+  };
+
   const handleWelcomeContinue = () => {
     setWelcome(false);
     setPage(0);
@@ -338,7 +343,30 @@ const Multistep = () => {
         </Link>
       </div>
 
-      {isWelcome ? (
+      {isIntro ? (
+        /* ── Step 0: Simple Welcome Splash ── */
+        <div className="flex flex-col items-center justify-center flex-1 w-full text-center px-4 py-16">
+          <h1
+            className="text-3xl md:text-4xl font-bold mb-4"
+            style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
+          >
+            Welcome to Wedlock
+          </h1>
+          <p
+            className="text-base md:text-lg text-white/90 mb-10 max-w-md"
+            style={{ fontFamily: "Proxima-Nova-Regular, sans-serif" }}
+          >
+            Congratulations! You are now one step closer to find your preferred partner.
+          </p>
+          <button
+            type="button"
+            onClick={handleIntroContinue}
+            className={`w-72 md:w-96 py-3 rounded-md bg-white ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"} font-semibold hover:bg-gray-100 transition-all shadow-md`}
+          >
+            Click to continue
+          </button>
+        </div>
+      ) : isWelcome ? (
         <Welcome handleNext={handleWelcomeContinue} />
       ) : (
         <div>

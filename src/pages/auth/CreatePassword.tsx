@@ -156,7 +156,7 @@ const CreatePassword = () => {
   };
 
   return (
-    <div className={`min-w-screen min-h-screen flex flex-col items-center justify-center ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'} py-8 px-4`}>
+    <div className={`min-w-screen min-h-screen flex flex-col items-center ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'} py-8 px-4`}>
       <div className="flex items-center justify-center mb-4">
         <Link to="/">
           <img src="/logowhite.png" alt="Wedlock Logo" className='w-72 h-24' />

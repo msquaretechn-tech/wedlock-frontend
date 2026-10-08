@@ -197,7 +197,10 @@ const PricingPage = () => {
                 duration={getPlanDuration()}
                 isHighlighted={plan.planName === "Exclusive"}
                 features={plan.featureList}
-                isDisabled={plan.planName === currentPlan && plan.planType === activeTab}
+                isDisabled={
+                  plan.planName?.toLowerCase() === currentPlan?.toLowerCase() &&
+                  (plan.planType || "").toLowerCase().includes(activeTab.toLowerCase())
+                }
                 id={plan.id}
                 onClick={() => handlePlanClick(plan.id, plan.planName, plan)}
               />

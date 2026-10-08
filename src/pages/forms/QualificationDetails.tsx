@@ -163,7 +163,7 @@ const QualificationDetails = () => {
   };
 
   return (
-    <div className={`flex min-h-screen flex-col items-center justify-center ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'} px-5 md:px-20 lg:px-40 3xl:px-60`}>
+    <div className={`flex min-h-screen flex-col items-center py-8 ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'} px-5 md:px-20 lg:px-40 3xl:px-60`}>
       <img
         src="/logowhite.png"
         alt="Wedlock Logo"

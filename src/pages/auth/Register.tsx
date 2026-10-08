@@ -87,7 +87,7 @@ const register = () => {
 
 
   return (
-    <div className={`min-w-screen min-h-screen flex flex-col items-center justify-center ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'}`}>
+    <div className={`min-w-screen min-h-screen flex flex-col items-center py-8 ${isExclusive ? 'bg-[#60457E]' : 'bg-[#007EAF]'}`}>
       <div className="flex items-center justify-center pt-6 pb-2">
         <Link to={"/"} className='mx-auto mb-2'>
           <img src="/logowhite.png" alt="Logo" className="w-72 h-24 " />
