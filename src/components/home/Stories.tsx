@@ -96,7 +96,7 @@ const Stories = () => {
         <div className="  happy_story">
           <div className="flex items-center justify-between gap-5">
             <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[48px] ">
-              Inspiring Wedlock stories
+              How a Wedlock match begins
             </h1>
             <div className="flex items-center gap-4 z-10">
               <IoArrowBack
@@ -110,8 +110,8 @@ const Stories = () => {
             </div>
           </div>
           <p className="text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1 mb-9">
-            How a Wedlock match can begin<br></br>
-            These are illustrative examples of the kinds of connection Wedlock is built for.
+            A few of the ways people find each other on Wedlock.<br></br>
+            Illustrative examples, not real members.
           </p>
         </div>
 
