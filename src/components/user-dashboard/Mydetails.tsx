@@ -664,8 +664,8 @@ return (
 </div>
 </div>
 {/* Religious Background */}
-<div className="h-[31rem] md:h-[28rem] mb-4 xl:mb-0 rounded-xl bg-white">
-   <div className="flex h-[28rem] flex-col rounded-xl bg-white pb-6 shadow-sm max-md:max-w-full">
+<div className="h-auto mb-4 xl:mb-0 rounded-xl bg-white">
+   <div className="flex h-auto flex-col rounded-xl bg-white pb-6 shadow-sm max-md:max-w-full">
       <div
       className={`justify-center border-b border-solid border-zinc-300 px-6 py-4 text-lg leading-6 tracking-wide ${isExclusive ? 'text-[#007eaf]' : 'text-[#007EAF]'} max-md:max-w-full max-md:px-5 md:text-xl`}
       style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}

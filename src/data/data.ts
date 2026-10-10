@@ -863,7 +863,8 @@ export const AustralianVisaStatus = [
     { id: 19, name: "Temporary Visa" },
     { id: 20, name: "Working Holiday Visa" },
     { id: 21, name: "Bridging Visa" },
-    { id: 22, name: "Other" }
+    { id: 22, name: "Not applicable" },
+    { id: 23, name: "Other" }
 ];
 
 
