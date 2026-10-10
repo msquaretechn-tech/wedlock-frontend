@@ -754,15 +754,21 @@ return (
             {myDetails?.religious_background?.motherTongue}
          </div>
       </div>
-      {/* Remove Sensitive Information Button */}
-      <div className="mt-6 px-2">
+      {/* Remove Sensitive Information Section */}
+      <div className="mt-6 p-4 rounded-xl border border-red-200 bg-red-50/80 shadow-sm">
+        <div className="text-sm font-semibold text-red-900 mb-1">
+          Sensitive Information
+        </div>
+        <p className="text-xs text-red-700 mb-3 leading-relaxed">
+          Clears your Religion, Community, Ethnicity, Nationality & Mother Tongue from your profile.
+        </p>
         <button
           type="button"
           disabled={isRemovingSensitive}
           onClick={async () => {
             if (window.confirm("Are you sure you want to remove your sensitive information (Religion, Community, Ethnicity, Nationality, Mother Tongue)? This action cannot be undone.")) {
               try {
-                await removeSensitiveInfo().unwrap();
+                await removeSensitiveInfo({ fields: ['religion', 'community', 'ethnicity', 'nationality', 'motherTongue'] }).unwrap();
                 toast.success("Sensitive information removed successfully.");
                 window.location.reload();
               } catch (err) {
@@ -770,11 +776,10 @@ return (
               }
             }
           }}
-          className="w-full text-sm py-2.5 px-4 rounded-lg bg-red-50 text-red-600 border border-red-200 hover:bg-red-100 transition font-medium"
+          className="w-full text-sm py-2.5 px-4 rounded-lg bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-medium transition shadow-sm cursor-pointer disabled:opacity-50"
         >
           {isRemovingSensitive ? "Removing..." : "Remove Sensitive Information"}
         </button>
-        <p className="text-xs text-slate-400 mt-1 text-center">Clears Religion, Community, Ethnicity, Nationality & Mother Tongue</p>
       </div>
    </div>
 </div>
@@ -1027,7 +1032,14 @@ return (
             <div>Working Status</div>
          </div>
          <div className="justify-center rounded-[100px] bg-orange-100 px-3 py-1.5 text-center text-base font-medium capitalize leading-7 text-slate-900 md:text-md">
-            {myDetails?.education_and_financial?.workingStatus === "selfEmployed" ? "Self-employed" : myDetails?.education_and_financial?.workingStatus}
+            {({
+              selfEmployed: "Self Employed",
+              working: "Working",
+              unemployed: "Unemployed",
+              retired: "Retired",
+              others: "Others",
+            } as Record<string, string>)[myDetails?.education_and_financial?.workingStatus ?? ""] ||
+              myDetails?.education_and_financial?.workingStatus}
          </div>
       </div>
       <div className="mt-4 flex justify-between gap-2 pr-8 max-md:pr-5">

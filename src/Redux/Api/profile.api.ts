@@ -126,10 +126,11 @@ updateContactNumber: builder.mutation({
   }),
 }),
 
-removeSensitiveInformation: builder.mutation<void, void>({
-  query: () => ({
+removeSensitiveInformation: builder.mutation<void, { fields?: string[] } | void>({
+  query: (body) => ({
     url: 'profile/remove-sensitive-info',
     method: 'PUT',
+    body: body || { fields: ['religion', 'community', 'ethnicity', 'nationality', 'motherTongue'] },
   }),
 }),
 

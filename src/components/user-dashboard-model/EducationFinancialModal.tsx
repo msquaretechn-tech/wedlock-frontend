@@ -73,7 +73,16 @@ const ReligiouModel: React.FC<EducationalModelProps> = ({
 
   useEffect(() => {
     if (QualificationsData) {
-      setQualifications((QualificationsData as any).data);
+      const raw = ((QualificationsData as any).data || []) as { id: string; value: string }[];
+      const excluded = ["b.l.", "b.l", "m.l.", "m.l", "ias", "ies", "ifs", "irs", "ips"];
+      const filtered = raw.filter((q) => {
+        const val = (q.value || "").trim().toLowerCase();
+        return !excluded.includes(val);
+      });
+      if (!filtered.some((q) => (q.value || "").trim().toLowerCase() === "other")) {
+        filtered.push({ id: "other", value: "Other" });
+      }
+      setQualifications(filtered);
     }
 
     if (OccupationsData) {

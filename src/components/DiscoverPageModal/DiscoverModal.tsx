@@ -135,7 +135,16 @@ const DiscoverModal: React.FC<DiscoverModalProps> = ({
     }
 
     if (qualificationData) {
-      setQualification((qualificationData as any).data)
+      const raw = ((qualificationData as any).data || []) as { id: string; value: string }[];
+      const excluded = ["b.l.", "b.l", "m.l.", "m.l", "ias", "ies", "ifs", "irs", "ips"];
+      const filtered = raw.filter((q) => {
+        const val = (q.value || "").trim().toLowerCase();
+        return !excluded.includes(val);
+      });
+      if (!filtered.some((q) => (q.value || "").trim().toLowerCase() === "other")) {
+        filtered.push({ id: "other", value: "Other" });
+      }
+      setQualification(filtered);
     }
 
     if (maritalStatusData) {

@@ -345,7 +345,7 @@ const Multistep = () => {
 
       {isIntro ? (
         /* ── Step 0: Simple Welcome Splash ── */
-        <div className="flex flex-col items-center justify-center flex-1 w-full text-center px-4 py-16">
+        <div className="flex flex-col items-center justify-center flex-1 w-full text-center px-4 -mt-16 md:-mt-24 pb-12">
           <h1
             className="text-3xl md:text-4xl font-bold mb-4"
             style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}

@@ -117,7 +117,17 @@ const QualificationDetails = () => {
         value: qualificationMapping[q.value] || q.value
       }));
 
-      setQualifications(mappedQualifications);
+      const excludedQualifications = ["b.l.", "b.l", "m.l.", "m.l", "ias", "ies", "ifs", "irs", "ips"];
+      const filteredQualifications = mappedQualifications.filter((q: any) => {
+        const val = (q.value || "").trim().toLowerCase();
+        return !excludedQualifications.includes(val);
+      });
+
+      if (!filteredQualifications.some((q: any) => (q.value || "").trim().toLowerCase() === "other")) {
+        filteredQualifications.push({ id: "other", value: "Other" });
+      }
+
+      setQualifications(filteredQualifications);
       setOccupations((occupationData as any).data);
       setIncomes((incomeData as any).data);
     }

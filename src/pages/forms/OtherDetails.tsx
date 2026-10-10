@@ -220,11 +220,6 @@ const OtherDetails = () => {
                 {...register("timeOfBirth")}
                 placeholder="Time"
                 className="h-10 w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
-                max={new Date().toLocaleTimeString("en-GB", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  hour12: false,
-                })}
               />
               {errors.timeOfBirth && (
                 <span className="text-orange-200">

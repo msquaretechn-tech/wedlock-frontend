@@ -630,7 +630,14 @@ lg:text-3xl`}
             data={{
               "Qualification": profileData?.education_and_financial?.qualification,
               "Occupation": profileData?.education_and_financial?.occupation,
-              "Working Status": profileData?.education_and_financial?.workingStatus,
+              "Working Status": ({
+                selfEmployed: "Self Employed",
+                working: "Working",
+                unemployed: "Unemployed",
+                retired: "Retired",
+                others: "Others",
+              } as Record<string, string>)[profileData?.education_and_financial?.workingStatus ?? ""] ||
+                profileData?.education_and_financial?.workingStatus,
               "Income": profileData?.education_and_financial?.income,
             }}
             isExclusive={isExclusive}

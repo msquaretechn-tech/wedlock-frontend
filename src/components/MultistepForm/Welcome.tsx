@@ -71,9 +71,9 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
 
   return (
     <div
-      className={`w-full max-w-3xl mx-auto flex flex-col ${
+      className={`w-full max-w-4xl mx-auto flex flex-col ${
         isExclusive ? "bg-[#60457E]" : "bg-[#007EAF]"
-      } px-4 py-8 text-white rounded-2xl shadow-xl my-4 pt-4 md:pt-6`}
+      } px-6 py-8 text-white rounded-2xl shadow-xl my-4 pt-4 md:pt-6`}
     >
       {/* Title */}
       <div className="text-center mb-6">
@@ -130,7 +130,7 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
         {/* Underage rejection warning */}
         {isUnderage === true && (
           <div className="mt-4 p-4 rounded-lg bg-red-600/90 text-white font-medium text-sm leading-relaxed border border-red-400 animate-fadeIn">
-            Sorry — Wedlock is only for people aged 18 and over. Thanks for your interest, and we hope to see you in the future.
+            Sorry - Wedlock is only for people aged 18 and over. Thanks for your interest, and we hope to see you in the future.
           </div>
         )}
       </div>
