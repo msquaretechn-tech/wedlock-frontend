@@ -103,6 +103,22 @@ export const userApi = apiSlice.injectEndpoints({
       })
     }),
 
+    sendLoginOtp: builder.mutation({
+      query: (data: { phoneNumber: string; countryCode?: string }) => ({
+        url: 'user/send-login-otp',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+
+    verifyLoginOtp: builder.mutation({
+      query: (data: { phoneNumber: string; otp: string; countryCode?: string }) => ({
+        url: 'user/verify-login-otp',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+
     updateFcmToken:builder.mutation({
       query:(data) => ({
         url: 'user/updateFcmToken',
@@ -115,4 +131,19 @@ export const userApi = apiSlice.injectEndpoints({
 
 });
 
-export const { useRegisterUserMutation,useCheckSuspendStatusMutation,useVerifyOtpMutation,useSetPasswordMutation,useLoginMutation,useLogoutUserMutation,useForgotpasswordMutation,useVerifyMutation,useResetpasswordMutation,useDeleteUserMutation,useUpdateFcmTokenMutation} = userApi;
+export const {
+  useRegisterUserMutation,
+  useCheckSuspendStatusMutation,
+  useVerifyOtpMutation,
+  useSetPasswordMutation,
+  useLoginMutation,
+  useSendLoginOtpMutation,
+  useVerifyLoginOtpMutation,
+  useLogoutUserMutation,
+  useForgotpasswordMutation,
+  useVerifyMutation,
+  useResetpasswordMutation,
+  useDeleteUserMutation,
+  useUpdateFcmTokenMutation,
+} = userApi;
+
