@@ -43,15 +43,41 @@ const PricingPage = () => {
     console.log("planType values:", planData.data.map((p: any) => p.planType));
   }
 
-  const getPlanDuration = () =>
-    activeTab === "Monthly" ? "Per Month" : "Per Year";
+  const getPlanDuration = () => {
+    switch (activeTab) {
+      case "Monthly":
+        return "Per Month";
+      case "3 Months":
+      case "3-Month":
+        return "For 3 Months";
+      case "6 Months":
+      case "6-Month":
+        return "For 6 Months";
+      case "Yearly":
+        return "Per Year";
+      default:
+        return `For ${activeTab}`;
+    }
+  };
 
-  // Case-insensitive filter — handles 'monthly', 'Monthly', 'month', etc.
+  // Case-insensitive filter — handles 'Monthly', '3 Months', '6 Months', and 'Yearly'
   const filteredPlans = planData?.data
     ?.filter((plan: any) => {
       const pt = (plan.planType || "").toLowerCase();
-      if (activeTab === "Monthly" && !pt.includes("month")) return false;
-      if (activeTab === "Yearly" && !pt.includes("year") && !pt.includes("annual")) return false;
+      const duration = Number(plan.durationInMonths) || 1;
+
+      if (activeTab === "Monthly") {
+        if (duration === 3 || duration === 6 || duration >= 12) return false;
+        if (pt.includes("3") || pt.includes("6") || pt.includes("year") || pt.includes("annual")) return false;
+        if (!pt.includes("month") && duration !== 1) return false;
+      } else if (activeTab === "3 Months" || activeTab === "3-Month") {
+        if (duration !== 3 && !pt.includes("3") && !pt.includes("quarter")) return false;
+      } else if (activeTab === "6 Months" || activeTab === "6-Month") {
+        if (duration !== 6 && !pt.includes("6") && !pt.includes("half")) return false;
+      } else if (activeTab === "Yearly") {
+        if (duration !== 12 && !pt.includes("year") && !pt.includes("annual")) return false;
+      }
+
       if (currentPlan === "Exclusive" && plan.planName === "Premium") return false;
       return true;
     })
@@ -157,32 +183,23 @@ const PricingPage = () => {
             </div>
           </div>
 
-          <div className="mt-5 flex h-16 w-60 items-center gap-8 rounded-full bg-[#FFF9EE] p-3 xl:mt-0">
-            <button
-              className={`flex h-10 w-32 items-center justify-center p-2 rounded-full transition-all duration-300 ${activeTab === "Monthly" ? "bg-[#FFC759] w-52" : "bg-transparent"
+          <div className="mt-5 flex flex-wrap items-center gap-1.5 md:gap-2 rounded-full bg-[#FFF9EE] p-1.5 xl:mt-0 shadow-sm border border-[#FFE7B8]">
+            {["Monthly", "3 Months", "6 Months", "Yearly"].map((tab) => (
+              <button
+                key={tab}
+                type="button"
+                className={`flex h-10 px-4 md:px-5 items-center justify-center rounded-full transition-all duration-300 ${
+                  activeTab === tab
+                    ? "bg-[#FFC759] shadow-sm text-white"
+                    : "bg-transparent text-[#42526B] hover:text-black hover:bg-black/5"
                 }`}
-              onClick={() => setActiveTab("Monthly")}
-            >
-              <h1
-                className={`font-semibold transition-colors duration-300 ${activeTab === "Monthly" ? "text-white" : "text-[#42526B]"
-                  }`}
+                onClick={() => setActiveTab(tab)}
               >
-                Monthly
-              </h1>
-            </button>
-
-            <button
-              className={`flex h-10 w-32 items-center justify-center p-2 rounded-full transition-all duration-300 ${activeTab === "Yearly" ? "bg-[#FFC759] w-52" : "bg-transparent"
-                }`}
-              onClick={() => setActiveTab("Yearly")}
-            >
-              <h1
-                className={`font-semibold transition-colors duration-300 ${activeTab === "Yearly" ? "text-white" : "text-[#42526B]"
-                  }`}
-              >
-                Yearly
-              </h1>
-            </button>
+                <span className="font-semibold text-sm md:text-base whitespace-nowrap">
+                  {tab}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
 
@@ -213,12 +230,20 @@ const PricingPage = () => {
               <p className="text-sm text-gray-400 mt-2">
                 Available plan types from API: {planData?.data?.map((p: any) => p.planType).join(", ") || "none"}
               </p>
-              <button
-                className="mt-4 px-6 py-2 rounded-full bg-[#007eaf] text-white text-sm font-semibold hover:bg-[#005f85] transition"
-                onClick={() => setActiveTab(activeTab === "Monthly" ? "Yearly" : "Monthly")}
-              >
-                Try {activeTab === "Monthly" ? "Yearly" : "Monthly"} plans
-              </button>
+              <div className="mt-4 flex flex-wrap gap-2 justify-center">
+                {["Monthly", "3 Months", "6 Months", "Yearly"]
+                  .filter((t) => t !== activeTab)
+                  .map((t) => (
+                    <button
+                      key={t}
+                      type="button"
+                      className="px-4 py-2 rounded-full bg-[#007eaf] text-white text-xs md:text-sm font-semibold hover:bg-[#005f85] transition"
+                      onClick={() => setActiveTab(t)}
+                    >
+                      Try {t} plans
+                    </button>
+                  ))}
+              </div>
             </div>
           )}
         </div>

@@ -25,8 +25,15 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType, plan }) => {
     };
 
     const isYearly = (planType || "").toLowerCase().includes("year") || (planType || "").toLowerCase().includes("annual");
+    const is6Month = (planType || "").includes("6");
+    const is3Month = (planType || "").includes("3");
+
     const periodLabel = isYearly
         ? "12 Months (365 days, no auto-renewal)"
+        : is6Month
+        ? "6 Months (180 days, no auto-renewal)"
+        : is3Month
+        ? "3 Months (90 days, no auto-renewal)"
         : "1 Month (calendar month, no auto-renewal)";
 
     return (
