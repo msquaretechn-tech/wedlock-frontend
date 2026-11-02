@@ -16,7 +16,7 @@ const ContactNumberView = ({ userId }: Props) => {
   
 
   // GET
-  const { data, isLoading } =
+  const { data, isLoading, refetch } =
     useContactNumberByUserIdQuery(userId, { skip: !userId });
 
   // UPDATE
@@ -42,6 +42,7 @@ const ContactNumberView = ({ userId }: Props) => {
       }).unwrap();
 
       toast.success("Contact number updated");
+      refetch();
       setOpen(false);
     } catch (err: any) {
       toast.error(err?.data?.message || "Update failed");
