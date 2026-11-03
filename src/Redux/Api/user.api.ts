@@ -104,7 +104,7 @@ export const userApi = apiSlice.injectEndpoints({
     }),
 
     sendLoginOtp: builder.mutation({
-      query: (data: { phoneNumber: string; countryCode?: string }) => ({
+      query: (data: { email: string; password: string }) => ({
         url: 'user/send-login-otp',
         method: 'POST',
         body: data,
@@ -112,7 +112,7 @@ export const userApi = apiSlice.injectEndpoints({
     }),
 
     verifyLoginOtp: builder.mutation({
-      query: (data: { phoneNumber: string; otp: string; countryCode?: string }) => ({
+      query: (data: { email: string; password: string; otp: string }) => ({
         url: 'user/verify-login-otp',
         method: 'POST',
         body: data,

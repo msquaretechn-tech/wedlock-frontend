@@ -2,16 +2,12 @@ import React, {useState} from "react";
 import Input from "../input/Input";
 import { useNavigate, Link } from "react-router-dom";
 import { useLoginMutation } from "../../Redux/Api/user.api";
-import { setUser } from "../../Redux/Reducers/user.reducer";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 import { LoadingOutlined } from "@ant-design/icons";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../utils/firebaseConfig.ts";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const loginSchema = z.object({
@@ -28,7 +24,6 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   
 
@@ -50,6 +45,8 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose }) => {
     success: boolean;
     message: string;
     user?: any;
+    maskedPhone?: string;
+    isDemo?: boolean;
   };
 
   type FetchBaseQueryErrorWithData = FetchBaseQueryError & {
@@ -64,54 +61,17 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose }) => {
 
       if ("error" in res && res.error) {
         const errorData = res.error as FetchBaseQueryErrorWithData;
-
-        if (errorData.data?.success === false) {
-          toast.error(errorData.data.message);
-          return;
-        }
+        toast.error(errorData.data?.message || "Invalid email or password");
+        return;
       }
-      const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
-      const user = userCredential.user;
-      console.log('signIn user', user);
-      
 
-      dispatch(setUser(res.data));
-
+      // Password is correct and an OTP was sent; the login page finishes the mandatory OTP step
       const successData = res.data as ApiResponse;
       toast.success(successData.message);
+      navigate("/login", {
+        state: { credentials: data, maskedPhone: successData.maskedPhone, isDemo: successData.isDemo },
+      });
 
-      if (successData.success === true) {
-
-        const isLocationFormFilled = successData?.user?.isLocationFormFilled;
-        const isPersonalFormFilled = successData?.user?.isPersonalFormFilled;
-        const isImageFormFilled = successData?.user?.isImageFormFilled;
-        const isQualificationFormFilled = successData?.user?.isQualificationFormFilled;
-        const isOtherFormFilled = successData?.user?.isOtherFormFilled;
-
-
-
-
-          const allFormsFilled = isLocationFormFilled && isPersonalFormFilled && isImageFormFilled && isQualificationFormFilled && isOtherFormFilled
-    
-          if (allFormsFilled) {
-            navigate('/user-dashboard');
-          } 
-          else {
-            if (!isPersonalFormFilled) {
-              navigate('/personal-details');
-            } else if (!isQualificationFormFilled) { 
-              navigate('/qualification-details');
-            } else if (!isLocationFormFilled) {
-              navigate('/location-details');
-            } else if (!isImageFormFilled) {
-              navigate('/photoupload');
-            } else if (!isOtherFormFilled) {
-              navigate('/other-details');
-            }
-          }
-        }
-
-      
     } catch (error) {
       toast.error("An error occurred");
     }

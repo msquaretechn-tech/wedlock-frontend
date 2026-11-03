@@ -146,8 +146,9 @@ const BillingInfo = () => {
         </Typography>
 
         <Typography variant="subtitle1">
-          A{billingData.price}
-          {billingData.price !== "Free" && ` / ${billingData.planType}`}
+          {billingData.price !== "Free"
+            ? `A$${billingData.price} / ${billingData.planType}`
+            : billingData.price}
         </Typography>
 
         <Stack direction="row" spacing={2} mt={2}>

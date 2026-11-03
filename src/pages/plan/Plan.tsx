@@ -183,7 +183,23 @@ const PricingPage = () => {
             </div>
           </div>
 
-          <div className="mt-5 flex flex-wrap items-center gap-1.5 md:gap-2 rounded-full bg-[#FFF9EE] p-1.5 xl:mt-0 shadow-sm border border-[#FFE7B8]">
+          {/* Mobile: dropdown */}
+          <div className="mt-5 w-full md:hidden">
+            <select
+              value={activeTab}
+              onChange={(e) => setActiveTab(e.target.value)}
+              className="w-full h-11 rounded-xl border border-[#FFE7B8] bg-[#FFF9EE] px-4 text-base font-semibold text-[#42526B] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FFC759]"
+            >
+              {["Monthly", "3 Months", "6 Months", "Yearly"].map((tab) => (
+                <option key={tab} value={tab}>
+                  {tab}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Desktop: tabs */}
+          <div className="mt-5 hidden md:flex flex-wrap items-center gap-1.5 md:gap-2 rounded-full bg-[#FFF9EE] p-1.5 xl:mt-0 shadow-sm border border-[#FFE7B8]">
             {["Monthly", "3 Months", "6 Months", "Yearly"].map((tab) => (
               <button
                 key={tab}

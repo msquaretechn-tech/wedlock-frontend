@@ -9,7 +9,7 @@ import {
 } from "../../Redux/Api/user.api";
 import { setUser } from "../../Redux/Reducers/user.reducer";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { connectSocket } from "../../services/socketservice";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query/react";
@@ -19,7 +19,7 @@ import { auth } from "../../../utils/firebaseConfig.ts";
 import syncFirestoreProfileToAuth from "../services/firebaseSyncService.tsx";
 import { z } from "zod";
 import { LoadingOutlined } from "@ant-design/icons";
-import { FiEye, FiEyeOff, FiMail, FiPhone } from "react-icons/fi";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
@@ -33,6 +33,8 @@ type ApiResponse = {
   message: string;
   user: any;
   isDemo?: boolean;
+  otpRequired?: boolean;
+  maskedPhone?: string;
 };
 
 type FetchBaseQueryErrorWithData = FetchBaseQueryError & {
@@ -43,14 +45,10 @@ const Login = () => {
   const [isExclusive, setExclusive] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  // Tab State: 'email' or 'mobile'
-  const [loginMethod, setLoginMethod] = useState<"email" | "mobile">("email");
-
-  // Mobile OTP States
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [countryCode, setCountryCode] = useState("+91");
+  // Step 2 (mandatory): OTP sent to the registered mobile after email + password are verified
+  const [credentials, setCredentials] = useState<FormData | null>(null);
+  const [maskedPhone, setMaskedPhone] = useState("");
   const [otp, setOtp] = useState("");
-  const [otpSent, setOtpSent] = useState(false);
   const [countdown, setCountdown] = useState(0);
 
   const [checkSuspendStatus] = useCheckSuspendStatusMutation();
@@ -59,7 +57,27 @@ const Login = () => {
   const [verifyLoginOtp, { isLoading: isVerifyingOtp }] = useVerifyLoginOtpMutation();
 
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
+
+  const startOtpStep = (data: FormData, res: Partial<ApiResponse>) => {
+    setCredentials(data);
+    setMaskedPhone(res.maskedPhone || "");
+    setOtp("");
+    setCountdown(30);
+    if (res.isDemo) {
+      toast.info("Demo mode: Use OTP 123456 to login", { duration: 8000 });
+    }
+  };
+
+  // Login modal (home navbar) hands over to this page for the OTP step
+  useEffect(() => {
+    const state = location.state as { credentials?: FormData; maskedPhone?: string; isDemo?: boolean } | null;
+    if (state?.credentials) {
+      startOtpStep(state.credentials, state);
+      navigate(location.pathname, { replace: true, state: null });
+    }
+  }, []);
 
   useEffect(() => {
     const isExcl = localStorage.getItem("isExclusive");
@@ -145,50 +163,31 @@ const Login = () => {
     }
   };
 
-  // 1. Email Login Submit
+  // 1. Email + password -> backend sends OTP to the registered mobile (no session yet)
   const onEmailSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       const res = await login(data);
 
       if ("error" in res && res.error) {
         const errorData = res.error as FetchBaseQueryErrorWithData;
-        if (errorData.data?.message) {
-          toast.error(errorData.data.message);
-          return;
-        }
-        toast.error("Invalid email or password");
+        toast.error(errorData.data?.message || "Invalid email or password");
         return;
       }
 
-      try {
-        await signInWithEmailAndPassword(auth, data.email, data.password);
-        await syncFirestoreProfileToAuth();
-      } catch (fbErr: any) {
-        console.warn("Firebase Auth sign-in non-blocking warning:", fbErr?.message);
-      }
-
-      const successData = res.data as ApiResponse;
-      await processSuccessfulLogin(successData);
+      const resData = res.data as ApiResponse;
+      toast.success(resData.message || "OTP sent to your registered mobile number");
+      startOtpStep(data, resData);
     } catch (error) {
       console.error("Login error:", error);
       toast.error("An error occurred during login");
     }
   };
 
-  // 2. Mobile OTP: Send OTP
-  const handleSendOtp = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const cleanPhone = phoneNumber.replace(/\D/g, "");
-    if (!cleanPhone || cleanPhone.length < 10) {
-      toast.error("Please enter a valid 10-digit mobile number");
-      return;
-    }
-
+  // 2. Resend OTP (server re-validates email + password)
+  const handleResendOtp = async () => {
+    if (!credentials) return;
     try {
-      const res = await sendLoginOtp({
-        phoneNumber: cleanPhone,
-        countryCode,
-      });
+      const res = await sendLoginOtp(credentials);
 
       if ("error" in res && res.error) {
         const errorData = res.error as FetchBaseQueryErrorWithData;
@@ -198,32 +197,24 @@ const Login = () => {
 
       const data = res.data as ApiResponse;
       toast.success(data.message || "OTP sent successfully");
-      if (data.isDemo) {
-        toast.info("Demo mode: Use OTP 123456 to login", { duration: 8000 });
-      }
-      setOtpSent(true);
-      setCountdown(30);
+      startOtpStep(credentials, data);
     } catch (err) {
       console.error("Send OTP error:", err);
       toast.error("Could not send OTP. Please try again.");
     }
   };
 
-  // 3. Mobile OTP: Verify & Login
+  // 3. Verify OTP -> session is issued only now
   const handleVerifyOtp = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!credentials) return;
     if (!otp.trim()) {
       toast.error("Please enter the verification code");
       return;
     }
 
     try {
-      const cleanPhone = phoneNumber.replace(/\D/g, "");
-      const res = await verifyLoginOtp({
-        phoneNumber: cleanPhone,
-        otp: otp.trim(),
-        countryCode,
-      });
+      const res = await verifyLoginOtp({ ...credentials, otp: otp.trim() });
 
       if ("error" in res && res.error) {
         const errorData = res.error as FetchBaseQueryErrorWithData;
@@ -231,7 +222,15 @@ const Login = () => {
         return;
       }
 
+      try {
+        await signInWithEmailAndPassword(auth, credentials.email, credentials.password);
+        await syncFirestoreProfileToAuth();
+      } catch (fbErr: any) {
+        console.warn("Firebase Auth sign-in non-blocking warning:", fbErr?.message);
+      }
+
       const successData = res.data as ApiResponse;
+      setCredentials(null);
       await processSuccessfulLogin(successData);
     } catch (err) {
       console.error("Verify OTP error:", err);
@@ -260,41 +259,15 @@ const Login = () => {
       <div className="flex flex-col items-center justify-center text-white mt-2 text-center">
         <h1 className="text-2xl md:text-3xl font-bold">Log in to your account</h1>
         <p className="mt-2 text-sm md:text-base text-gray-100">
-          Welcome back! Please choose your login method.
+          {credentials
+            ? "For your security, verify the OTP sent to your registered mobile."
+            : "Welcome back! Please enter your details."}
         </p>
       </div>
 
       <div className="w-full max-w-md px-2 py-4 mt-2">
-        {/* Toggle Tabs: Email vs Mobile */}
-        <div className="flex bg-black/20 p-1 rounded-xl mb-5 backdrop-blur-sm border border-white/20">
-          <button
-            type="button"
-            onClick={() => setLoginMethod("email")}
-            className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm md:text-base font-semibold rounded-lg transition-all ${
-              loginMethod === "email"
-                ? "bg-white text-gray-900 shadow-md"
-                : "text-white/80 hover:text-white hover:bg-white/10"
-            }`}
-          >
-            <FiMail size={18} />
-            Email Login
-          </button>
-          <button
-            type="button"
-            onClick={() => setLoginMethod("mobile")}
-            className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm md:text-base font-semibold rounded-lg transition-all ${
-              loginMethod === "mobile"
-                ? "bg-white text-gray-900 shadow-md"
-                : "text-white/80 hover:text-white hover:bg-white/10"
-            }`}
-          >
-            <FiPhone size={18} />
-            Mobile OTP
-          </button>
-        </div>
-
-        {/* ================= EMAIL LOGIN FORM ================= */}
-        {loginMethod === "email" && (
+        {/* ================= STEP 1: EMAIL + PASSWORD ================= */}
+        {!credentials && (
           <form onSubmit={handleSubmit(onEmailSubmit)}>
             <div>
               {/* Email */}
@@ -349,57 +322,9 @@ const Login = () => {
           </form>
         )}
 
-        {/* ================= MOBILE OTP LOGIN FORM ================= */}
-        {loginMethod === "mobile" && (
+        {/* ================= STEP 2: MANDATORY MOBILE OTP ================= */}
+        {credentials && (
           <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20">
-            {!otpSent ? (
-              // Step 1: Enter Mobile Number & Send OTP
-              <form onSubmit={handleSendOtp}>
-                <label className="text-white text-sm md:text-base font-semibold block mb-2">
-                  Mobile Number
-                </label>
-                <div className="flex gap-2">
-                  <select
-                    value={countryCode}
-                    onChange={(e) => setCountryCode(e.target.value)}
-                    className="p-2.5 bg-white text-gray-900 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  >
-                    <option value="+91">+91 (IN)</option>
-                    <option value="+61">+61 (AU)</option>
-                    <option value="+1">+1 (US)</option>
-                    <option value="+44">+44 (UK)</option>
-                    <option value="+971">+971 (AE)</option>
-                  </select>
-                  <input
-                    type="tel"
-                    value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    placeholder="Enter 10-digit mobile number"
-                    maxLength={15}
-                    className="flex-1 p-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-                    required
-                  />
-                </div>
-                <p className="text-white/80 text-xs mt-2 mb-6">
-                  We will send a 6-digit verification code to this number.
-                </p>
-
-                <button
-                  type="submit"
-                  disabled={isSendingOtp}
-                  className={`bg-white ${
-                    isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
-                  } w-full h-12 rounded-lg font-bold shadow-lg hover:bg-gray-100 transition flex items-center justify-center`}
-                >
-                  {isSendingOtp ? (
-                    <LoadingOutlined className={`${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"} animate-spin`} />
-                  ) : (
-                    "Send OTP"
-                  )}
-                </button>
-              </form>
-            ) : (
-              // Step 2: Enter OTP & Verify
               <form onSubmit={handleVerifyOtp}>
                 <div className="flex justify-between items-center mb-2">
                   <label className="text-white text-sm md:text-base font-semibold">
@@ -408,23 +333,26 @@ const Login = () => {
                   <button
                     type="button"
                     onClick={() => {
-                      setOtpSent(false);
+                      setCredentials(null);
                       setOtp("");
                     }}
                     className="text-white/90 text-xs underline hover:text-white"
                   >
-                    Change Number
+                    Back
                   </button>
                 </div>
 
                 <p className="text-white/90 text-xs mb-3">
-                  Code sent to <span className="font-semibold">{countryCode} {phoneNumber}</span>
+                  Code sent to your registered mobile{" "}
+                  {maskedPhone && <span className="font-semibold">{maskedPhone}</span>}
                 </p>
 
                 <input
                   type="text"
+                  inputMode="numeric"
+                  autoComplete="one-time-code"
                   value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
+                  onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
                   placeholder="e.g. 123456"
                   maxLength={6}
                   className="w-full p-3 text-center tracking-widest text-xl font-bold border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white mb-4"
@@ -438,7 +366,7 @@ const Login = () => {
                   ) : (
                     <button
                       type="button"
-                      onClick={handleSendOtp}
+                      onClick={handleResendOtp}
                       disabled={isSendingOtp}
                       className="font-bold underline hover:text-white"
                     >
@@ -461,7 +389,6 @@ const Login = () => {
                   )}
                 </button>
               </form>
-            )}
           </div>
         )}
 
