@@ -109,23 +109,22 @@ const Login: React.FC<LoginProps> = ({ isOpen, onClose }) => {
             )}
           </div>
           <div className="mb-4 md:col-span-2">
-            <div style={{position:"relative"}}>
             <Input
               label=""
               type={showPassword ? "text" : "password"}
               {...register("password")}
               className="border w-full bg-white border-gray-300 text-black px-10 p-2 rounded-3xl"
               placeholder="Enter your password"
+              rightElement={
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+                </button>
+              }
             />
-
-            <button
-             type="button"
-             onClick={() => setShowPassword(!showPassword)}
-             className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-            >
-              {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
-            </button>
-            </div>
 
             {errors.password && (
               <p className="text-orange-200">{errors.password.message}</p>

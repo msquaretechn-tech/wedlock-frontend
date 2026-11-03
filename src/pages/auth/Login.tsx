@@ -281,22 +281,22 @@ const Login = () => {
               {errors.email && <p className="text-orange-200 text-sm -mt-2 mb-3">{errors.email.message}</p>}
 
               {/* Password */}
-              <div style={{ position: "relative" }}>
-                <Input
-                  label="Password"
-                  labelStyle={{ color: "white", fontSize: "16px", fontWeight: "600" }}
-                  type={showPassword ? "text" : "password"}
-                  {...register("password")}
-                  placeholder="Enter your password"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-[42px] text-gray-500 hover:text-gray-700"
-                >
-                  {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
-                </button>
-              </div>
+              <Input
+                label="Password"
+                labelStyle={{ color: "white", fontSize: "16px", fontWeight: "600" }}
+                type={showPassword ? "text" : "password"}
+                {...register("password")}
+                placeholder="Enter your password"
+                rightElement={
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+                  </button>
+                }
+              />
               {errors.password && <p className="text-orange-200 text-sm -mt-2 mb-3">{errors.password.message}</p>}
             </div>
 

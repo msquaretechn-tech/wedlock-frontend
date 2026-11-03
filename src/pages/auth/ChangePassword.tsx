@@ -110,14 +110,13 @@ const ChangePassword = () => {
               placeholder="Password"
               type={showPassword ? "text" : "password"}
               {...register("password")}
-              className={`w-full rounded-md border-2 p-2 ${errors.password ? 'border-red-500' : 'border-gray-300'}`}
+              className={`w-full rounded-md border-2 p-2 pr-10 ${errors.password ? 'border-red-500' : 'border-gray-300'}`}
+              rightElement={
+                <span onClick={() => setShowPassword(!showPassword)} className="cursor-pointer text-gray-600">
+                  {showPassword ? <FaEyeSlash /> : <IoEyeOutline />}
+                </span>
+              }
             />
-            <span
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute top-[43px] right-3 cursor-pointer text-gray-600"
-            >
-              {showPassword ? <FaEyeSlash /> : <IoEyeOutline />}
-            </span>
             {errors.password && (
               <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
             )}
@@ -129,14 +128,13 @@ const ChangePassword = () => {
               placeholder="Re-enter password"
               type={showConfirmPassword ? "text" : "password"}
               {...register("confirmPassword")}
-              className={`w-full rounded-md border-2 p-2 ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'}`}
+              className={`w-full rounded-md border-2 p-2 pr-10 ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'}`}
+              rightElement={
+                <span onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="cursor-pointer text-gray-600">
+                  {showConfirmPassword ? <FaEyeSlash /> : <IoEyeOutline />}
+                </span>
+              }
             />
-            <span
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute top-[43px] right-3 cursor-pointer text-gray-600"
-            >
-              {showConfirmPassword ? <FaEyeSlash /> : <IoEyeOutline />}
-            </span>
             {errors.confirmPassword && (
               <p className="text-red-500 text-sm mt-1">{errors.confirmPassword.message}</p>
             )}
