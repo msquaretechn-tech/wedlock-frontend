@@ -5,6 +5,11 @@ import {
 } from "../../Redux/Api/profile.api";
 import { Pencil, X } from "lucide-react";
 import { toast } from "sonner";
+import CountryCodeSelect, {
+  DEFAULT_COUNTRY_CODE,
+  splitInternationalNumber,
+  toInternationalNumber,
+} from "../input/CountryCodeSelect";
 
 interface Props {
   userId?: string;
@@ -13,6 +18,7 @@ interface Props {
 const ContactNumberView = ({ userId }: Props) => {
   const [open, setOpen] = useState(false);
   const [contactNumber, setContactNumber] = useState("");
+  const [countryCode, setCountryCode] = useState(DEFAULT_COUNTRY_CODE);
   
 
   // GET
@@ -25,20 +31,22 @@ const ContactNumberView = ({ userId }: Props) => {
 
   useEffect(() => {
     if (data?.contactNumber) {
-      setContactNumber(data.contactNumber);
+      const parts = splitInternationalNumber(data.contactNumber);
+      setCountryCode(parts.countryCode);
+      setContactNumber(parts.number);
     }
   }, [data]);
 
   const handleUpdate = async () => {
-    if (contactNumber.length !== 10) {
-      toast.error("Contact number must be 10 digits");
+    if (contactNumber.length < 6 || contactNumber.length > 14) {
+      toast.error("Please enter a valid mobile number");
       return;
     }
 
     try {
       await updateContactNumber({
         userId,
-        contactNumber,
+        contactNumber: toInternationalNumber(countryCode, contactNumber),
       }).unwrap();
 
       toast.success("Contact number updated");
@@ -81,19 +89,26 @@ const ContactNumberView = ({ userId }: Props) => {
             </button>
 
             <h2 className="text-lg font-semibold mb-4 text-blue-500">
-              Update Contact Number
+              Update Mobile Number
             </h2>
 
+            <div className="flex gap-2 mb-4">
+            <CountryCodeSelect
+              value={countryCode}
+              onChange={setCountryCode}
+              className="w-32 shrink-0 border rounded-lg px-2 py-2 focus:outline-none focus:ring-2 focus:ring-blue-700"
+            />
             <input
               type="tel"
-              maxLength={10}
+              maxLength={14}
               value={contactNumber}
               onChange={(e) =>
                 setContactNumber(e.target.value.replace(/\D/g, ""))
               }
-              className="w-full border rounded-lg px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-700"
-              placeholder="Enter 10 digit number"
+              className="w-full min-w-0 border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-700"
+              placeholder="Mobile number"
             />
+            </div>
 
             <button
               onClick={handleUpdate}

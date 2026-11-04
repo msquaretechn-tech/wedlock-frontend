@@ -6,6 +6,7 @@ import { useGetPlansQuery } from "../../Redux/Api/plan.api";
 import PlanCard from "../../components/PlanCard/PlanCard";
 import Loading from "../../components/Loading";
 import { useCreateCheckoutSessionMutation } from "../../Redux/Api/checkout.api";
+import { useGetBillingInfoQuery } from "../../Redux/Api/billing.api";
 import { toast } from 'sonner';
 import { RootState } from "./../../Redux/store";
 import { useSelector } from "react-redux";
@@ -33,6 +34,20 @@ const PricingPage = () => {
   const currentPlan = user?.usertype;
 
   const { data: planData, isLoading, error } = useGetPlansQuery<any>();
+  const { data: billingInfo } = useGetBillingInfoQuery<any>(undefined, { skip: !user });
+
+  // "Purchased" only for the plan the user currently holds: same plan name AND same duration, not expired
+  const activeBilling = billingInfo?.data;
+  const hasActivePlan =
+    !!activeBilling &&
+    activeBilling.expirationDate !== "N/A" &&
+    Number(activeBilling.remainingDays) > 0;
+  const durationLabel = (months: number) =>
+    months >= 12 ? "Year" : months === 6 ? "6 Months" : months === 3 ? "3 Months" : "Month";
+  const isActivePlan = (plan: any) =>
+    hasActivePlan &&
+    plan.planName?.toLowerCase() === activeBilling.currentPlan?.toLowerCase() &&
+    durationLabel(Number(plan.durationInMonths) || 1) === activeBilling.planType;
   const [createCheckoutSession] = useCreateCheckoutSessionMutation();
 
   // Debug: log raw API response to check planType values
@@ -230,10 +245,7 @@ const PricingPage = () => {
                 duration={getPlanDuration()}
                 isHighlighted={plan.planName === "Exclusive"}
                 features={plan.featureList}
-                isDisabled={
-                  plan.planName?.toLowerCase() === currentPlan?.toLowerCase() &&
-                  (plan.planType || "").toLowerCase().includes(activeTab.toLowerCase())
-                }
+                isDisabled={isActivePlan(plan)}
                 id={plan.id}
                 onClick={() => handlePlanClick(plan.id, plan.planName, plan)}
               />

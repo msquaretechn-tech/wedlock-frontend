@@ -249,7 +249,14 @@
             </div>
 
             {/* Submit Button */}
-            <div className="md:col-span-2 flex justify-end">
+            <div className="md:col-span-2 flex justify-end gap-4">
+              <button
+                type="button"
+                onClick={() => navigate("/qualification-details")}
+                className="w-full rounded-[0.5rem] border border-[#F9F5FFE5] bg-transparent px-4 py-2 text-white md:w-20 2xl:w-32"
+              >
+                Back
+              </button>
               <button
                 type="submit"
                 className={`w-full rounded-[0.5rem] bg-[#F9F5FFE5] px-4 py-2 ${
@@ -263,7 +270,7 @@
                     } animate-spin`}
                   />
                 ) : (
-                  "Save"
+                  "Continue"
                 )}
               </button>
             </div>

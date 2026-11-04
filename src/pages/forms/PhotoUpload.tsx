@@ -196,9 +196,17 @@ const PhotoUpload = () => {
                 multiple
               />
             </label>
+            <div className="mt-8 flex gap-4">
+            <button
+              type="button"
+              onClick={() => navigate("/location-details")}
+              className="rounded-[0.5rem] border border-[#F9F5FFE5] bg-transparent px-6 py-2.5 font-medium text-white w-32 md:w-36 2xl:w-40"
+            >
+              Back
+            </button>
             <button
               onClick={handleSubmit}
-              className={`mt-8 rounded-[0.5rem] bg-[#F9F5FFE5] px-6 py-2.5 font-medium ${
+              className={`rounded-[0.5rem] bg-[#F9F5FFE5] px-6 py-2.5 font-medium ${
                 isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
               } w-32 md:w-36 2xl:w-40 hover:bg-white transition-all shadow-sm`}
               disabled={isLoading}
@@ -213,6 +221,7 @@ const PhotoUpload = () => {
                 "Upload"
               )}
             </button>
+            </div>
           </div>
         </div>
       </div>

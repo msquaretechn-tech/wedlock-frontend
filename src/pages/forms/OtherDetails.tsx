@@ -300,7 +300,14 @@ const OtherDetails = () => {
           </div>
 
           {/* Submit Button */}
-          <div className="md:col-span-2 flex justify-end mb-5">
+          <div className="md:col-span-2 flex justify-end gap-4 mb-5">
+            <button
+              type="button"
+              onClick={() => navigate("/photoupload")}
+              className="w-full rounded-[0.5rem] border border-[#F9F5FFE5] bg-transparent px-4 py-2 text-white md:w-20 2xl:w-32"
+            >
+              Back
+            </button>
             <button
               type="submit"
               className={`w-full rounded-[0.5rem] bg-[#F9F5FFE5] px-4 py-2 ${
@@ -315,7 +322,7 @@ const OtherDetails = () => {
                   } animate-spin`}
                 />
               ) : (
-                "Save"
+                "Continue"
               )}
             </button>
           </div>

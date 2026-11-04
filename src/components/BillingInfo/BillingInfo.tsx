@@ -147,7 +147,7 @@ const BillingInfo = () => {
 
         <Typography variant="subtitle1">
           {billingData.price !== "Free"
-            ? `A$${billingData.price} / ${billingData.planType}`
+            ? `A$${billingData.price.replace(/^\$/, "")} / ${billingData.planType}`
             : billingData.price}
         </Typography>
 

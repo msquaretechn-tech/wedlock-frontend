@@ -294,13 +294,20 @@ const QualificationDetails = () => {
             )}
           </div>
 
-          <div className="mb-5 flex w-full justify-end py-8 pb-4 xl:px-10 2xl:mb-4 2xl:px-0 3xl:mb-20 3xl:px-0">
+          <div className="mb-5 flex w-full justify-end gap-4 py-8 pb-4 xl:px-10 2xl:mb-4 2xl:px-0 3xl:mb-20 3xl:px-0">
+            <button
+              type="button"
+              onClick={() => navigate("/personal-details")}
+              className="w-full rounded-[0.5rem] border border-[#F9F5FFE5] bg-transparent px-4 py-2 text-white md:w-20 2xl:w-32"
+            >
+              Back
+            </button>
             <button
               type="submit"
               className={`w-full rounded-[0.5rem] bg-[#F9F5FFE5] px-4 py-2 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'}
           md:w-20 2xl:w-32`}
             >
-              {isLoading ? <LoadingOutlined className={`${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} animate-spin`} /> : 'Save'}
+              {isLoading ? <LoadingOutlined className={`${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} animate-spin`} /> : 'Continue'}
 
             </button>
           </div>

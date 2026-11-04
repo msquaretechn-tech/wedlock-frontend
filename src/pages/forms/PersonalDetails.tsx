@@ -15,6 +15,7 @@ import "../../font.css";
 import { toast } from 'sonner'
 import { LoadingOutlined } from '@ant-design/icons';
 import { useGetMaritalStatusQuery } from "../../Redux/Api/dropdown.api.ts";
+import CountryCodeSelect, { DEFAULT_COUNTRY_CODE, toInternationalNumber } from "../../components/input/CountryCodeSelect";
 
 
 
@@ -27,9 +28,10 @@ const personalDetailsSchema = z.object({
   numberOfChildren: z.enum(["0", "1", "2", "3", "4", "5","6","7","8","9","10","11","12"], { message: "Number of children is required" }),
   contactNumber: z
     .string()
-    .min(1, { message: "Contact number is required" })
-    .length(10, { message: "Contact number must be 10 digits" })
-    .regex(/^\d+$/, { message: "Contact number must contain only digits" }),
+    .min(1, { message: "Mobile number is required" })
+    .regex(/^\d+$/, { message: "Mobile number must contain only digits" })
+    .min(6, { message: "Please enter a valid mobile number" })
+    .max(14, { message: "Please enter a valid mobile number" }),
   aboutYourSelf: z.string().min(1, { message: "Description is required" }),
 
 
@@ -43,6 +45,7 @@ const PersonalDetails = () => {
 
   const [isExclusive, setExclusive] = useState(false);
   const [maritalStatus, setMaritalStatus] = useState<{ id: string; value: string }[]>([]);
+  const [countryCode, setCountryCode] = useState(DEFAULT_COUNTRY_CODE);
 
   const { data: maritalStatusData } = useGetMaritalStatusQuery();
 
@@ -88,7 +91,11 @@ const PersonalDetails = () => {
 
   const onSubmit = async (data: any) => {
     try {
-      const res = await personalDetials(data);
+      // Saved with the country code (e.g. +61478648984) so the login OTP reaches the right number
+      const res = await personalDetials({
+        ...data,
+        contactNumber: toInternationalNumber(countryCode, data.contactNumber),
+      });
 
       if (res?.error) {
         const errorData = res.error as FetchBaseQueryErrorWithData;
@@ -181,7 +188,7 @@ const PersonalDetails = () => {
           </div>
 
           <div className="col-span-2 mt-2">
-            <label className="block text-white">Display name</label>
+            <label className="block text-white">Display name*</label>
             <input
               type="text"
               {...register("displayName")}
@@ -196,13 +203,21 @@ const PersonalDetails = () => {
           )}
 
           <div className="col-span-2 mt-2">
-            <label className="block text-white">Contact number*</label>
-            <input
-              type="text"
-              {...register("contactNumber")}
-              placeholder="Contact number"
-              className="w-full rounded border-none bg-[#F9F5FFE5] p-2"
-            />
+            <label className="block text-white">Mobile number*</label>
+            <div className="flex gap-2">
+              <CountryCodeSelect
+                value={countryCode}
+                onChange={setCountryCode}
+                className="w-32 shrink-0 rounded border-none bg-[#F9F5FFE5] p-2"
+              />
+              <input
+                type="tel"
+                inputMode="numeric"
+                {...register("contactNumber")}
+                placeholder="Mobile number"
+                className="w-full min-w-0 rounded border-none bg-[#F9F5FFE5] p-2"
+              />
+            </div>
             {errors.contactNumber && (
               <p className="text-orange-200 text-sm mt-1">
                 {errors?.contactNumber?.message?.toString()}
@@ -237,7 +252,7 @@ const PersonalDetails = () => {
             </div>
 
             <div className="col-span-1">
-              <label className="block text-white">Number of children</label>
+              <label className="block text-white">Number of children*</label>
               <select
                 {...register("numberOfChildren")}
                 className="w-full rounded border bg-[#F9F5FFE5] p-2 text-[#838E9E]"
@@ -285,7 +300,7 @@ const PersonalDetails = () => {
               className={`w-full rounded-[0.5rem] bg-[#F9F5FFE5] px-4 py-2 ${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'}
               md:w-20 2xl:w-32`}
             >
-              {isLoading ? <LoadingOutlined className={`${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} animate-spin`} /> : 'Save'}
+              {isLoading ? <LoadingOutlined className={`${isExclusive ? 'text-[#60457E]' : 'text-[#007EAF]'} animate-spin`} /> : 'Continue'}
             </button>
           </div>
         </form>
