@@ -119,6 +119,15 @@ const BillingInfo = () => {
 
   const isExpired = Number(billingData.remainingDays) <= 0 && billingData.expirationDate !== "N/A";
   const displayPlanName = isExpired ? "Standard" : (billingData.currentPlan || "—");
+  // A paid plan that is still running: Renew / Change Plan open up only once it expires
+  const hasActivePlan =
+    billingData.currentPlan !== "Standard" && billingData.expirationDate !== "N/A" && !isExpired;
+  const planButtonSx = {
+    backgroundColor: "#007eaf",
+    textTransform: "none",
+    ":hover": { backgroundColor: "#005f80" },
+    "&.Mui-disabled": { backgroundColor: "#c7d3d9", color: "#ffffff" },
+  } as const;
 
   return (
     <Box>
@@ -163,11 +172,8 @@ const BillingInfo = () => {
           {billingData.currentPlan !== "Standard" && (
             <Button
               variant="contained"
-              sx={{
-                backgroundColor: "#007eaf",
-                textTransform: "none",
-                ":hover": { backgroundColor: "#005f80" },
-              }}
+              sx={planButtonSx}
+              disabled={hasActivePlan}
               onClick={handleUpgrade}
             >
               Renew Plan
@@ -176,18 +182,20 @@ const BillingInfo = () => {
 
           <Button
             variant="contained"
-            sx={{
-              backgroundColor: "#007eaf",
-              textTransform: "none",
-              ":hover": { backgroundColor: "#005f80" },
-            }}
+            sx={planButtonSx}
+            disabled={hasActivePlan}
             onClick={() => setShowPricing(true)}
           >
             Change Plan
           </Button>
         </Stack>
+        {hasActivePlan && (
+          <Typography variant="body2" color="text.secondary" mt={1}>
+            You can renew or change your plan once your current plan expires on {billingData.expirationDate}.
+          </Typography>
+        )}
 
-        {showPricing && <PricingPage />}
+        {showPricing && !hasActivePlan && <PricingPage />}
 
         {billingData.notification && (
           <Box mt={3}>
