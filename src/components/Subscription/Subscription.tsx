@@ -4,6 +4,10 @@ const Subscription: React.FC = () => {
   const [prices, setPrices] = useState({
     monthlyPremium: "",
     monthlyExclusive: "",
+    threeMonthPremium: "",
+    threeMonthExclusive: "",
+    sixMonthPremium: "",
+    sixMonthExclusive: "",
     yearlyPremium: "",
     yearlyExclusive: "",
   });
@@ -16,17 +20,29 @@ const Subscription: React.FC = () => {
 
         if (data.success) {
           const monthlyPremium =
-            data.data.Monthly.find((p: any) => p.planName === "Premium")?.price || "";
+            data.data.Monthly?.find((p: any) => p.planName === "Premium")?.price || "";
           const monthlyExclusive =
-            data.data.Monthly.find((p: any) => p.planName === "Exclusive")?.price || "";
+            data.data.Monthly?.find((p: any) => p.planName === "Exclusive")?.price || "";
+          const threeMonthPremium =
+            data.data["3-Month"]?.find((p: any) => p.planName === "Premium")?.price || "";
+          const threeMonthExclusive =
+            data.data["3-Month"]?.find((p: any) => p.planName === "Exclusive")?.price || "";
+          const sixMonthPremium =
+            data.data["6-Month"]?.find((p: any) => p.planName === "Premium")?.price || "";
+          const sixMonthExclusive =
+            data.data["6-Month"]?.find((p: any) => p.planName === "Exclusive")?.price || "";
           const yearlyPremium =
-            data.data.Yearly.find((p: any) => p.planName === "Premium")?.price || "";
+            data.data.Yearly?.find((p: any) => p.planName === "Premium")?.price || "";
           const yearlyExclusive =
-            data.data.Yearly.find((p: any) => p.planName === "Exclusive")?.price || "";
+            data.data.Yearly?.find((p: any) => p.planName === "Exclusive")?.price || "";
 
           setPrices({
             monthlyPremium,
             monthlyExclusive,
+            threeMonthPremium,
+            threeMonthExclusive,
+            sixMonthPremium,
+            sixMonthExclusive,
             yearlyPremium,
             yearlyExclusive,
           });
@@ -85,6 +101,34 @@ const Subscription: React.FC = () => {
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
                   A${prices.monthlyExclusive}
+                </td>
+              </tr>
+              <tr className="border-b-2">
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-left ">
+                  3 Months (90 days, no auto-renewal)
+                </td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
+                  Free
+                </td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
+                  A${prices.threeMonthPremium}
+                </td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
+                  A${prices.threeMonthExclusive}
+                </td>
+              </tr>
+              <tr className="border-b-2">
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-left ">
+                  6 Months (180 days, no auto-renewal)
+                </td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
+                  Free
+                </td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
+                  A${prices.sixMonthPremium}
+                </td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">
+                  A${prices.sixMonthExclusive}
                 </td>
               </tr>
               <tr className="border-b-2">

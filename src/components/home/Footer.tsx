@@ -213,6 +213,34 @@ const Footer = () => {
                 <FaLinkedin />
               </a>
             </div>
+
+            {/* Store Badges */}
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 mt-6">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.wedlock.wedlock_application"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block transition-transform hover:opacity-90 active:scale-95"
+              >
+                <img
+                  src="/googleplay.png"
+                  alt="Get it on Google Play"
+                  className="h-10 w-auto"
+                />
+              </a>
+              <a
+                href="https://wedlock.com.au"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block transition-transform hover:opacity-90 active:scale-95"
+              >
+                <img
+                  src="/appstore.png"
+                  alt="Download on the App Store"
+                  className="h-10 w-auto"
+                />
+              </a>
+            </div>
           </div>
         </div>
 

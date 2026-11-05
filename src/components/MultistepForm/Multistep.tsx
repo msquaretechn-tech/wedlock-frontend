@@ -356,14 +356,14 @@ const Multistep = () => {
             className="text-base md:text-lg text-white/90 mb-10 max-w-md"
             style={{ fontFamily: "Proxima-Nova-Regular, sans-serif" }}
           >
-            Congratulations! You are now one step closer to find your preferred partner.
+            A few questions, about ten minutes, and nothing is visible to anyone until you publish your profile.
           </p>
           <button
             type="button"
             onClick={handleIntroContinue}
             className={`w-72 md:w-96 py-3 rounded-md bg-white ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"} font-semibold hover:bg-gray-100 transition-all shadow-md`}
           >
-            Click to continue
+            Get started
           </button>
         </div>
       ) : isWelcome ? (
