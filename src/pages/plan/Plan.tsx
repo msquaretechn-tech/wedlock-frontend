@@ -31,7 +31,6 @@ const PricingPage = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<"stripe" | "paypal">("stripe");
   
 
-  const currentPlan = user?.usertype;
 
   const { data: planData, isLoading, error } = useGetPlansQuery<any>();
   const { data: billingInfo } = useGetBillingInfoQuery<any>(undefined, { skip: !user });
@@ -93,7 +92,7 @@ const PricingPage = () => {
         if (duration !== 12 && !pt.includes("year") && !pt.includes("annual")) return false;
       }
 
-      if (currentPlan === "Exclusive" && plan.planName === "Premium") return false;
+      // Premium and Exclusive are both listed for everyone so users can upgrade, downgrade or change duration
       return true;
     })
     .sort((a: any, b: any) => {

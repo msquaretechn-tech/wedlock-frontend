@@ -1,102 +1,66 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-// import heroImg from "../../assets/bg.png";
-import heroImg from "../../assets/header-bg.png";
+import heroDesktop from "../../assets/hero-banner-desktop.jpg";
+import heroMobile from "../../assets/hero-banner-mobile.jpg";
 
+const primaryBtn =
+  "inline-flex items-center justify-center rounded-full bg-[#009BDA] font-semibold text-white shadow-lg transition hover:bg-[#33b3e6] font-Proxima-Nova-SemiBold";
+const secondaryBtn =
+  "inline-flex items-center justify-center rounded-full border-2 border-[#E6A93A] font-semibold text-[#E6A93A] transition hover:bg-[#E6A93A]/15 font-Proxima-Nova-SemiBold";
 
+// The banner artwork already contains the headline, so it is shown uncropped (fixed aspect ratio)
+// and only the buttons are placed on top; the text stays in the same place on every screen size.
 function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // "See how it works" scrolls to the section right after the banner
+  const showHowItWorks = () =>
+    sectionRef.current?.nextElementSibling?.scrollIntoView({ behavior: "smooth", block: "start" });
+
   return (
-    <div
-      className="relative hero_section bg-cover bg-no-repeat overflow-hidden min-h-screen 7xl:h-[100vh]   top-0 py-0   sm:py-0 3xl:h-[100vh]  xl:h-[100vh]   5xl:h-[100vh]   4xl:h-[100vh]  "
-      style={{
-        backgroundImage: `url(${heroImg})`,
-        width: "100%",
-        // Zoom effect (adjust percentage as needed)
-        
-      }}
-    >
-      <div className="absolute inset-0"></div>
-
-      <div className="relative 3xl:pl-30 bg-opacity-40 text-white min-h-screen md:pl-16 md:flex md:px-10 gap-80 ">
-        <div className="2xl:px-20 pt-[11rem] md:pt-44 pb-28 max-md:mt-0 mt-5 xl:w-full flex justify-center items-start">
-          <div className="text-center container xl:w-[100%]  hero_content xl:space-y-4  md:space-y-4 ">
-          
- <p
-  className="md:block text-[#059cdc] text-[24px] xl:text-left leading-[1.5] xl:text-[30px] xl:pt-5 px-2 mb-[35px] md:mb-0 font-Proxima-Nova-Regular"
-  style={{
-    letterSpacing: "2%",
-    fontWeight: "600",
-    fontSize: "20px",
-  }}
- >
-  AUSTRALIAN MATRIMONIAL PLATFORM - NOT A DATING APP
-</p>
-
-
-<h1 className="text-[40px] sm:text-[50px] md:text-[50px] lg:text-[60px] xl:text-left xl:text-[55px] text-[#FFFFFF] font-Proxima-Nova-Bold leading-[75px] md:leading-[80px] lg:leading-[150px] xl:leading-[120px] xl:pt-3 xl:-tracking-normal mb-[35px] md:mb-[10px]">
-  <p>Our world, from today</p>
-</h1>
-
-           <p
-              className="md:block text-[#FFFFFF] text-[18px] xl:text-left xl:text-[23px] font-Proxima-Nova-Regular"
-              style={{
-                letterSpacing: "2%",
-                fontWeight: "400",
-              }}
-            >
-              For people serious about marriage - at your pace,
-              <br>
-              </br>
-              and on your terms.
-            </p>
-
-
-            <p
-              className="md:block text-[#FFFFFF] text-[18px] xl:text-left xl:text-[18px] font-Proxima-Nova-Regular tracking-[0.02em] font-normal"
-              style={{
-                letterSpacing: "2%",
-                fontWeight: "400",
-                marginTop: "45px",
-              }}
-            >
-              Family welcome  ·  Free to join <br></br>Premium A$14.95/month incl. GST  ·  No auto-renewal  ·  No sales calls, ever
-            </p>
-
-          
-            <Link
-  to="/questions"
-  className="
-    relative z-10 flex items-center justify-center
-    bg-[#009BDA] rounded-full
-    w-[155px] h-[45px]
-    mt-6 xl:mt-[80px]
-    xl:w-[175px] xl:h-[45px] xl:text-[18px]
-    text-black
-    mx-auto
-    xl:float-left xl:justify-start xl:pl-6
-    xl:font-Proxima-Nova-SemiBold
-  "
-  style={{marginTop: "60px"}}
->
-  <span>Get Started Free</span>
-</Link>
-          </div>
-
-          {/* mobile card in hero section 
-          <div className="absolute top-[60px] right-[130px] backdrop-blur backdrop-brightness-125 rounded-3xl w-[25%] h-[73%]   border-8 border-white-2 flex items-center justify-center hidden  md:block 3xl:mr-[5%] lg:hidden" ></div>
-         */}
-        </div>
-        {/* <div
-          className="absolute  bottom-36 -right-7 sm:pt-40  md:bottom-[15rem] md:right-[4rem] xl:bottom-60   xl:right-[4rem] 2xl:rigth-[4rem]  3xl:ml-[18%]  "
-          style={{ transform: "translateY(50%)" }}
-        >
-          <div className="hidden md:flex flex-col items-center gap-2 w-[24rem]">
-            <p className="text-[18px] mt-[14rem] italic font-Proxima-Nova-Light">
-              All photos are used for illustrative purposes only.
-            </p>
-          </div>
-        </div> */}
+    <section ref={sectionRef} className="relative w-full bg-[#020B11]">
+      {/* Same words as the artwork, for search engines and screen readers */}
+      <div className="sr-only">
+        <p>Australian Matrimonial Platform · Not a Dating App</p>
+        <h1>Where the intention is marriage.</h1>
+        <p>Family welcome · Free to join · No sales calls, ever</p>
       </div>
-    </div>
+
+      <div className="relative">
+        <picture>
+          <source media="(max-width: 767px)" srcSet={heroMobile} />
+          <img
+            src={heroDesktop}
+            alt="Bride and groom smiling at their wedding ceremony"
+            className="block h-auto w-full"
+          />
+        </picture>
+
+        {/* Desktop: under the tagline on the left. Positions/sizes are % of the 1920x1080 artwork (vw) so they scale with it */}
+        <div className="absolute left-[6.25%] top-[78%] hidden items-center gap-[1.2vw] md:flex">
+          <Link to="/questions" className={`${primaryBtn} h-[4.2vw] min-h-[40px] px-[2.8vw] text-[clamp(14px,1.45vw,28px)]`}>
+            Get Started Free
+          </Link>
+          <button
+            type="button"
+            onClick={showHowItWorks}
+            className={`${secondaryBtn} h-[4.2vw] min-h-[40px] px-[2.8vw] text-[clamp(14px,1.45vw,28px)]`}
+          >
+            See how it works
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile: the artwork's text runs to its bottom edge, so the buttons sit just below it */}
+      <div className="flex gap-2 px-[7.5%] pb-10 pt-2 md:hidden">
+        <Link to="/questions" className={`${primaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[15px]`}>
+          Get Started Free
+        </Link>
+        <button type="button" onClick={showHowItWorks} className={`${secondaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[15px]`}>
+          See how it works
+        </button>
+      </div>
+    </section>
   );
 }
 

@@ -109,11 +109,12 @@ const Discover = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <h1 className="font-semibold text-[19px]">Discover your matches</h1>
+      <div className="flex items-center justify-between gap-3">
+        <h1 className="font-semibold text-[19px] whitespace-nowrap">Discover your matches</h1>
         <div className="flex items-center gap-10">
-          <h1 className="text-[#475467]">Filter by your preference</h1>
-          <button onClick={openFilterModel}>
+          <button onClick={openFilterModel} className="flex items-center gap-2 md:gap-10" aria-label="Filter by your preference">
+            <span className="text-[#475467] hidden md:inline">Filter by your preference</span>
+            <span className="text-[#475467] md:hidden">Filter</span>
             <PiSlidersLight className="text-2xl text-[#061C3D]" />
           </button>
           <DiscoverModal

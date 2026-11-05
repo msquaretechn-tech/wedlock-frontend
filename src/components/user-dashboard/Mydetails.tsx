@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import PhotoGallery from "../photos/PhotoGallery";
+import ManagePhotosModal from "../photos/ManagePhotosModal";
 import { Gauge, gaugeClasses } from "@mui/x-charts/Gauge";
 import { FaEdit } from "react-icons/fa";
 // import { Link } from "react-router-dom";
@@ -60,7 +62,8 @@ setIsLocationBackground(myDetails.toggleStatus.location_details);
 }
 }, [myDetails]); // Runs whenever `myDetails` updates
 const [Percentage, setProfilePercentage] = useState(0);
-const { data: myDetailsData, isLoading: isLoading } = useMyDetailsQuery
+const [managePhotosOpen, setManagePhotosOpen] = useState(false);
+const { data: myDetailsData, isLoading: isLoading, refetch: refetchMyDetails } = useMyDetailsQuery
 <any>
 ();
 useEffect(() => {
@@ -295,20 +298,24 @@ return (
    </div>
    ) : (
    <div className="min-w-screen flex min-h-screen flex-col gap-4 md:gap-10 lg:flex-row">
-      <div className="mb-4 space-y-5 lg:grid grid-cols-1 gap-5  md:mb-0 h-full  auto-rows-[10rem] ">
-         {myDetails?.profileImage.map(
-         (imageUrl: string, index: number) => (
-         <img
-            key={index}
-            src={imageUrl}
-            alt="profile image"
-            className="max-lg:object-cover w-full h-full rounded-md"
+      <div className="mb-4 md:mb-0">
+         <PhotoGallery images={myDetails?.profileImage} />
+         <button
+            type="button"
+            onClick={() => setManagePhotosOpen(true)}
+            className="mt-3 w-full rounded-lg border border-[#007EAF] py-2 font-semibold text-[#007EAF] hover:bg-[#007EAF] hover:text-white"
+            >
+         Manage photos
+         </button>
+         <ManagePhotosModal
+            isOpen={managePhotosOpen}
+            onClose={() => setManagePhotosOpen(false)}
+            images={Array.isArray(myDetails?.profileImage) ? myDetails.profileImage : []}
+            onSaved={() => { refetchMyDetails(); refetch(); }}
             />
-         )
-         )}
       </div>
       <div className="col-span-1 xl:grid w-full md:col-span-2 gap-10">
-         <div className="col-span-1 mb-4 xl:mb-0 rounded-xl bg-white p-6 md:col-span-2   md:w-auto  xl:h-[30rem]">
+         <div className="col-span-1 mb-4 xl:mb-0 rounded-xl bg-white p-6 md:col-span-2   md:w-auto  xl:min-h-[30rem]">
             <div className="flex w-full flex-col  items-center justify-between gap-10 xl:flex-row">
                <div className=" xl:w-[70%] w-full ">
                   <div className="w-full justify-center border-b border-solid border-zinc-300 py-2 text-lg leading-6 tracking-wide text-[#007EAF] max-md:max-w-full max-md:px-5 md:text-xl" style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}>
@@ -346,7 +353,7 @@ return (
                   {(() => {
                   const isExpired = Number(billingData?.data?.remainingDays) <= 0 && billingData?.data?.expirationDate !== "N/A";
                   const displayPlan = isExpired ? "Standard" : (billingData?.data?.currentPlan || "Standard");
-                  const planColor = displayPlan === "Exclusive" ? "#007eaf" : (displayPlan === "Premium" ? "#007eaf" : "#8c8c8c");
+                  const planColor = displayPlan === "Exclusive" ? "#60457E" : (displayPlan === "Premium" ? "#007eaf" : "#8c8c8c");
                   return (
                   <Button
                   variant="contained"
@@ -431,7 +438,8 @@ return (
                   </div>
                </div>
             </div>
-            <div className="h-[28rem] xl:w-[30%]  w-auto rounded-lg bg-[#FEE7BD]  md:p-5 md:h-[26rem]">
+            <div className="min-h-[26rem] h-auto xl:w-[30%] w-auto rounded-lg bg-[#FEE7BD] p-4 pb-6 md:p-5">
+               {/* Height grows with the text (a fixed height let the tip overflow the box) */}
                <h2 className="font-[Proxima-Nova-Semibold] text-center mt-2 text-[17px]">Profile Completion Percentage</h2>
                <div className="flex flex-col items-center justify-center p-1">
                   <Gauge
@@ -463,7 +471,7 @@ return (
                   tip: Answer more profile questions.
                </p>
                */}
-               <p className="text-lg font-[Proxima-Nova-Regular] text-center mt-8">
+               <p className="text-base xl:text-lg font-[Proxima-Nova-Regular] text-center mt-6">
                   Complete your profile to improve match quality, increase visibility, and connect with people who share your values, interests, and relationship goals.
                </p>
                {/* 

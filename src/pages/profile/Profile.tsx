@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../../components/header-footer-profile/Header";
 import Footer from "../../components/header-footer-profile/Footer";
 import { ConfigProvider, Tag } from "antd";
-import { Tabs } from "antd";
+import ResponsiveTabs from "../../components/ResponsiveTabs";
 import type { TabsProps } from "antd";
 import { useNavigate } from "react-router-dom";
 import Discover from "../../components/user-dashboard/Discover";
@@ -121,10 +121,10 @@ const Profile: React.FC = () => {
                 },
               }}
             >
-              <Tabs
+              <ResponsiveTabs
                 activeKey={activeTab}
                 onChange={handleTabChange}
-                items={items}
+                items={items ?? []}
                 className="ant-tabs"
               />
             </ConfigProvider>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Tabs, Badge, ConfigProvider } from "antd";
+import { Badge, ConfigProvider } from "antd";
+import ResponsiveTabs from "../../components/ResponsiveTabs";
 import type { TabsProps } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -100,7 +101,7 @@ const UserDashboard: React.FC = () => {
 
 
 
-  const items: TabsProps["items"] = [
+  const items: (NonNullable<TabsProps["items"]>[number] & { mobileLabel?: string })[] = [
     {
       key: "discover",
       label: `Discover Matches`,
@@ -113,6 +114,7 @@ const UserDashboard: React.FC = () => {
     },
     {
       key: "chats",
+      mobileLabel: totalUnread > 0 ? `Messages (${totalUnread})` : "Messages",
       label: (
         <span className="flex items-center gap-2">
           Messages 
@@ -185,7 +187,7 @@ const UserDashboard: React.FC = () => {
                 },
               }}
             >
-              <Tabs
+              <ResponsiveTabs
                 activeKey={activeTab}
                 onChange={handleTabChange}
                 items={items}

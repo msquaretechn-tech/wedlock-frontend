@@ -1,4 +1,5 @@
 // import React , { useState } from "react";
+import { useState } from "react";
 import { FaRegStar } from "react-icons/fa";
 import { FaRegMap } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
@@ -33,10 +34,37 @@ interface ProfileCardProps {
   profiles: Profile[];
   isFavourite: boolean;
   handleFavouriteToggle: (userId: string) => void;
-  
+
 }
 
+// Card background photo with arrows/dots to flip through all of a profile's photos
+const CardPhotos = ({ images, className }: { images?: string[]; className: string }) => {
+  const list = (images || []).filter(Boolean);
+  const [index, setIndex] = useState(0);
+  const step = (e: React.MouseEvent, dir: number) => {
+    e.stopPropagation();
+    setIndex((i) => (i + dir + list.length) % list.length);
+  };
 
+  return (
+    <>
+      <img
+        src={list[index] || 'path/to/default-image.jpg'}
+        alt="p"
+        className={`absolute h-full w-full rounded-2xl object-cover ${className}`}
+      />
+      {list.length > 1 && (
+        <div className="absolute inset-x-0 bottom-1 z-10 flex items-center justify-center gap-3">
+          <button onClick={(e) => step(e, -1)} className="rounded-full bg-black/50 px-2 text-lg text-white" aria-label="Previous photo">‹</button>
+          {list.map((_, i) => (
+            <span key={i} className={`h-2 w-2 rounded-full ${i === index ? 'bg-white' : 'bg-white/40'}`} />
+          ))}
+          <button onClick={(e) => step(e, 1)} className="rounded-full bg-black/50 px-2 text-lg text-white" aria-label="Next photo">›</button>
+        </div>
+      )}
+    </>
+  );
+};
 
 const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handleFavouriteToggle }) => {
   console.log("profiles are ",profiles);
@@ -115,10 +143,10 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profiles, isFavourite, handle
               h-[33.1rem] rounded-[1.9rem] border-t-[1rem] ${planStyles.topBorder}
             `}
           >
-            <img
-              src={data?.profileImages?.[0] ? data.profileImages[0] : 'path/to/default-image.jpg'}
-              alt="p"
-              className={`absolute h-full w-full rounded-2xl object-cover ${getBlurStyle(user?.usertype || '', data.userType)}`}  />
+            <CardPhotos
+              images={data?.profileImages}
+              className={getBlurStyle(user?.usertype || '', data.userType)}
+            />
 
             <div
               className={`relative p-5 text-white ${data.userType !== "Standard" ? "space-y-[12.5rem]" : ""} h-full space-y-[13.5rem] rounded-2xl bg-black bg-opacity-45`}

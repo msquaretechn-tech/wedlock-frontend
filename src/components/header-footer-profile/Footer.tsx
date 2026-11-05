@@ -43,7 +43,7 @@ const Footer = () => {
               <div className="h-0.5 w-[95%] rounded-full bg-[#FFFFFF80]"></div>
             </div>
 
-            <div className="flex flex-col items-center justify-between space-y-4 px-4 md:flex-row md:space-y-0 md:px-10 ">
+            <div className="flex flex-col items-start justify-between space-y-4 px-4 text-left md:flex-row md:items-center md:space-y-0 md:px-10 ">
               <div className="font-Proxima-Nova-Regular">
                 <h1
                   className="font-semibold text-base italic"          

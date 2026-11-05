@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
+import PhotoGallery from "../photos/PhotoGallery";
 import { CiMap } from "react-icons/ci";
 import { IoLanguage } from "react-icons/io5";
 import { FaSmoking } from "react-icons/fa";
@@ -204,19 +205,11 @@ const Match: React.FC<MatchProps> = ({ userId }) => {
   return (
     <div className="min-w-screen flex min-h-screen flex-col gap-4 md:gap-10 lg:flex-row">
 
-      <div className="mb-4 space-y-5 lg:grid grid-cols-1 gap-5  md:mb-0 h-full  auto-rows-[10rem] ">
-        {profileData?.profileImage?.map((imageUrl: string, index: number) => (
-          <img
-            key={index}
-            src={imageUrl}
-            alt="profile image"
-            className={`object-cover w-full h-full rounded-md ${getBlurStyle(
-              user?.usertype || "",
-              profileData.userType
-            )}`}
-          />
-        ))}
-
+      <div className="mb-4 md:mb-0">
+        <PhotoGallery
+          images={profileData?.profileImage}
+          imageClassName={getBlurStyle(user?.usertype || "", profileData?.userType)}
+        />
       </div>
       <div className="col-span-1 xl:grid w-full md:col-span-2 gap-10">
         <div className="col-span-1 mb-4 xl:mb-0 rounded-xl bg-white md:col-span-2 md:w-auto  xl:h-[25rem]">

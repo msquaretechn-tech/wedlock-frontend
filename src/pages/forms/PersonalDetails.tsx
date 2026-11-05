@@ -156,9 +156,9 @@ const PersonalDetails = () => {
           className="md:px-30 mt-5 grid grid-cols-1 md:grid-cols-2 md:gap-2 xl:px-40 2xl:px-60 3xl:mt-20 3xl:px-60"
         >
           <div className="col-span-2 mt-2">
-            <label className="block text-white">Your name*</label>
             <div className="flex flex-col md:flex-row">
-              <div className="mt-2 w-full md:mt-0 md:w-1/2 md:pr-2">
+              <div className="w-full md:w-1/2 md:pr-2">
+                <label className="block text-white">First name*</label>
                 <input
                   type="text"
                   {...register("firstName")}
@@ -172,6 +172,7 @@ const PersonalDetails = () => {
                 )}
               </div>
               <div className="mt-2 w-full md:mt-0 md:w-1/2 md:pl-2">
+                <label className="block text-white">Last name*</label>
                 <input
                   type="text"
                   {...register("lastName")}

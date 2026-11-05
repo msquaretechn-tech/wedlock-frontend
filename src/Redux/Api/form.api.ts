@@ -26,6 +26,14 @@ export const formApi = apiSlice.injectEndpoints({
       }),
     }),
 
+    managePhotos: build.mutation({
+      query: (data: FormData) => ({
+        url: '/form/manage-photos',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+
     updateProfileAndBio: build.mutation({
       query: (data) => ({
         url: '/form/update-profile',
@@ -68,6 +76,7 @@ export const {
   useLocationDetailsMutation,
   useOtherDetailsMutation,
   useProfileImageUploadMutation,
+  useManagePhotosMutation,
   useContactFormMutation,
   useUpdateProfileAndBioMutation,
   

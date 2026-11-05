@@ -23,6 +23,12 @@ interface BillingData {
   planType: string;
 }
 
+const PLAN_TAGLINES: Record<string, string> = {
+  Standard: "A simple start for everyone",
+  Premium: "Unlock more matches, unlimited chats and friend requests",
+  Exclusive: "Our most elite membership with access to exclusive member profiles",
+};
+
 const BillingInfo = () => {
   const [showPricing, setShowPricing] = useState(false);
   const [showPremiumDescription, setShowPremiumDescription] = useState(false);
@@ -131,7 +137,9 @@ const BillingInfo = () => {
           </Typography>
         )}
         <Typography variant="body2" color="text.secondary" mb={2} mt={2}>
-          {isExpired ? "Your purchased plan has expired. Please renew or change your plan." : "A simple start for everyone"}
+          {isExpired
+            ? "Your purchased plan has expired. Please renew or change your plan."
+            : PLAN_TAGLINES[displayPlanName] || PLAN_TAGLINES.Standard}
         </Typography>
 
         <Typography variant="subtitle1" mb={2}>
