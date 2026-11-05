@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { Link } from "react-router-dom";
 import heroDesktop from "../../assets/hero-banner-desktop.jpg";
 import heroMobile from "../../assets/hero-banner-mobile.jpg";
@@ -8,17 +7,14 @@ const primaryBtn =
 const secondaryBtn =
   "inline-flex items-center justify-center rounded-full border-2 border-[#E6A93A] font-semibold text-[#E6A93A] transition hover:bg-[#E6A93A]/15 font-Proxima-Nova-SemiBold";
 
+// Same video as the homepage YouTube section
+const HOW_IT_WORKS_URL = "https://www.youtube.com/watch?v=XG1Ka5P6qP8";
+
 // The banner artwork already contains the headline, so it is shown uncropped (fixed aspect ratio)
 // and only the buttons are placed on top; the text stays in the same place on every screen size.
 function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  // "See how it works" scrolls to the section right after the banner
-  const showHowItWorks = () =>
-    sectionRef.current?.nextElementSibling?.scrollIntoView({ behavior: "smooth", block: "start" });
-
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#020B11]">
+    <section className="relative w-full bg-[#020B11]">
       {/* Same words as the artwork, for search engines and screen readers */}
       <div className="sr-only">
         <p>Australian Matrimonial Platform · Not a Dating App</p>
@@ -41,13 +37,14 @@ function Hero() {
           <Link to="/questions" className={`${primaryBtn} h-[4.2vw] min-h-[40px] px-[2.8vw] text-[clamp(14px,1.45vw,28px)]`}>
             Get Started Free
           </Link>
-          <button
-            type="button"
-            onClick={showHowItWorks}
+          <a
+            href={HOW_IT_WORKS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`${secondaryBtn} h-[4.2vw] min-h-[40px] px-[2.8vw] text-[clamp(14px,1.45vw,28px)]`}
           >
             See how it works
-          </button>
+          </a>
         </div>
 
         {/* Desktop: photo disclaimer in the bottom-right corner of the artwork */}
@@ -61,9 +58,14 @@ function Hero() {
         <Link to="/questions" className={`${primaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[15px]`}>
           Get Started Free
         </Link>
-        <button type="button" onClick={showHowItWorks} className={`${secondaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[15px]`}>
+        <a
+          href={HOW_IT_WORKS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${secondaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[15px]`}
+        >
           See how it works
-        </button>
+        </a>
       </div>
       {/* Mobile: same disclaimer, bottom-right under the buttons */}
       <p className="px-[7.5%] pb-6 text-right text-xs italic text-white/70 md:hidden">Photographs are illustrative</p>
