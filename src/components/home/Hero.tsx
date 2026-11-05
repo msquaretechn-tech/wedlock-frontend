@@ -49,10 +49,15 @@ function Hero() {
             See how it works
           </button>
         </div>
+
+        {/* Desktop: photo disclaimer in the bottom-right corner of the artwork */}
+        <p className="absolute bottom-[3%] right-[2.5%] hidden text-[clamp(12px,0.95vw,18px)] italic text-white/85 drop-shadow md:block">
+          Photographs are illustrative
+        </p>
       </div>
 
       {/* Mobile: the artwork's text runs to its bottom edge, so the buttons sit just below it */}
-      <div className="flex gap-2 px-[7.5%] pb-10 pt-2 md:hidden">
+      <div className="flex gap-2 px-[7.5%] pb-3 pt-2 md:hidden">
         <Link to="/questions" className={`${primaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[15px]`}>
           Get Started Free
         </Link>
@@ -60,6 +65,8 @@ function Hero() {
           See how it works
         </button>
       </div>
+      {/* Mobile: same disclaimer, bottom-right under the buttons */}
+      <p className="px-[7.5%] pb-6 text-right text-xs italic text-white/70 md:hidden">Photographs are illustrative</p>
     </section>
   );
 }

@@ -102,11 +102,20 @@ const Navbar: React.FC = () => {
             </div> */}
             <div className="flex justify-center ">
               <Link to={"/"}>
-                <img
-                  src="/wedlock-h-logo.png"
-                  alt="logo"
-                  className="w-[11rem] h-[4rem] xl:w-[18rem] xl:h-[6rem]"
-                />
+                {/* Logo with tagline on dark headers; the tagline is blue text and would vanish on the blue header, so those pages keep the logo without it */}
+                {isBlueBgRoute ? (
+                  <img
+                    src="/wedlock-h-logo.png"
+                    alt="logo"
+                    className="w-[11rem] h-[4rem] xl:w-[18rem] xl:h-[6rem]"
+                  />
+                ) : (
+                  <img
+                    src="/wedlock-logo.png"
+                    alt="Wedlock - Our world, from today"
+                    className="h-auto w-[12rem] xl:w-[18rem]"
+                  />
+                )}
               </Link>
             </div>
             <div className="flex gap-5 items-center justify-end flex-1 pt-2">
