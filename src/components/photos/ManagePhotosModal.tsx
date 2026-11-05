@@ -39,6 +39,24 @@ const ManagePhotosModal = ({ isOpen, onClose, images, onSaved }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, images.join("|")]);
 
+  // While open: lock the page behind, and let the phone's Back button close the popup instead of leaving the page
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+  useEffect(() => {
+    if (!isOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.history.pushState({ ...window.history.state, managePhotos: true }, "");
+    const onPop = () => onCloseRef.current();
+    window.addEventListener("popstate", onPop);
+    return () => {
+      window.removeEventListener("popstate", onPop);
+      document.body.style.overflow = prevOverflow;
+      // Closed with Cancel/Save/X: drop the history entry we added
+      if (window.history.state?.managePhotos) window.history.back();
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const pickFile = (index: number | null) => {
@@ -102,84 +120,97 @@ const ManagePhotosModal = ({ isOpen, onClose, images, onSaved }: Props) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4">
-      <div className="w-full max-w-2xl rounded-2xl bg-white p-6 shadow-2xl">
-        <div className="mb-1 flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-[#007EAF]">Manage photos</h2>
-          <button onClick={onClose} className="text-2xl text-gray-500 hover:text-gray-800" aria-label="Close">
-            &times;
-          </button>
+    <div
+      className="fixed inset-0 z-[9999] flex items-end justify-center bg-black/60 sm:items-center sm:p-4"
+      onClick={onClose}
+    >
+      {/* Header and buttons stay fixed; only the photo grid scrolls, so Save is always reachable on phones */}
+      <div
+        className="flex max-h-[92dvh] w-full max-w-2xl flex-col rounded-t-2xl bg-white shadow-2xl sm:max-h-[90vh] sm:rounded-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="border-b border-gray-100 px-4 pb-3 pt-4 sm:px-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-semibold text-[#007EAF]">Manage photos</h2>
+            <button onClick={onClose} className="px-2 text-3xl leading-none text-gray-500 hover:text-gray-800" aria-label="Close">
+              &times;
+            </button>
+          </div>
+          <p className="mt-1 text-sm text-gray-500">
+            Up to 3 photos. The first photo is your main profile photo. Use the arrows to change the order.
+          </p>
         </div>
-        <p className="mb-5 text-sm text-gray-500">
-          Up to 3 photos. The first photo is your main profile photo. Use the arrows to change the order.
-        </p>
 
         <input ref={fileInput} type="file" accept="image/*" className="hidden" onChange={onFile} />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {slots.map((slot, i) => (
-            <div key={i} className="rounded-xl border border-gray-200 p-2">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-gray-100">
-                <img
-                  src={slot.kind === "existing" ? slot.url : slot.preview}
-                  alt={`photo ${i + 1}`}
-                  className="h-full w-full object-cover"
-                />
-                {i === 0 && (
-                  <span className="absolute left-2 top-2 rounded-full bg-[#007EAF] px-2 py-0.5 text-xs font-semibold text-white">
-                    Main
-                  </span>
-                )}
+        <div className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-6">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4">
+            {slots.map((slot, i) => (
+              <div key={i} className="rounded-xl border border-gray-200 p-1.5 sm:p-2">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-gray-100">
+                  <img
+                    src={slot.kind === "existing" ? slot.url : slot.preview}
+                    alt={`photo ${i + 1}`}
+                    className="h-full w-full object-cover"
+                  />
+                  {i === 0 && (
+                    <span className="absolute left-1 top-1 rounded-full bg-[#007EAF] px-2 py-0.5 text-[10px] font-semibold text-white sm:text-xs">
+                      Main
+                    </span>
+                  )}
+                </div>
+                <div className="mt-1.5 flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => move(i, -1)}
+                    disabled={i === 0}
+                    className="h-8 w-8 rounded-full bg-gray-100 text-base disabled:opacity-30"
+                    aria-label="Move left"
+                  >
+                    ←
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => move(i, 1)}
+                    disabled={i === slots.length - 1}
+                    className="h-8 w-8 rounded-full bg-gray-100 text-base disabled:opacity-30"
+                    aria-label="Move right"
+                  >
+                    →
+                  </button>
+                </div>
+                <div className="mt-1.5 grid grid-cols-1 gap-1 text-xs font-semibold sm:grid-cols-2 sm:text-sm">
+                  <button type="button" onClick={() => pickFile(i)} className="rounded-md bg-[#007EAF]/10 py-1.5 text-[#007EAF]">
+                    Replace
+                  </button>
+                  <button type="button" onClick={() => remove(i)} className="rounded-md bg-red-50 py-1.5 text-red-600">
+                    Delete
+                  </button>
+                </div>
               </div>
-              <div className="mt-2 flex items-center justify-between gap-1 text-sm">
-                <button
-                  type="button"
-                  onClick={() => move(i, -1)}
-                  disabled={i === 0}
-                  className="rounded px-2 py-1 hover:bg-gray-100 disabled:opacity-30"
-                  aria-label="Move left"
-                >
-                  ←
-                </button>
-                <button type="button" onClick={() => pickFile(i)} className="rounded px-2 py-1 text-[#007EAF] hover:bg-gray-100">
-                  Replace
-                </button>
-                <button type="button" onClick={() => remove(i)} className="rounded px-2 py-1 text-red-600 hover:bg-red-50">
-                  Delete
-                </button>
-                <button
-                  type="button"
-                  onClick={() => move(i, 1)}
-                  disabled={i === slots.length - 1}
-                  className="rounded px-2 py-1 hover:bg-gray-100 disabled:opacity-30"
-                  aria-label="Move right"
-                >
-                  →
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
 
-          {slots.length < MAX_PHOTOS && (
-            <button
-              type="button"
-              onClick={() => pickFile(null)}
-              className="flex aspect-[4/5] items-center justify-center rounded-xl border-2 border-dashed border-gray-300 text-gray-500 hover:border-[#007EAF] hover:text-[#007EAF]"
-            >
-              + Add photo
-            </button>
-          )}
+            {slots.length < MAX_PHOTOS && (
+              <button
+                type="button"
+                onClick={() => pickFile(null)}
+                className="flex aspect-[4/5] items-center justify-center rounded-xl border-2 border-dashed border-gray-300 text-center text-sm text-gray-500 hover:border-[#007EAF] hover:text-[#007EAF]"
+              >
+                + Add photo
+              </button>
+            )}
+          </div>
         </div>
 
-        <div className="mt-6 flex justify-end gap-3">
-          <button type="button" onClick={onClose} className="rounded-lg bg-gray-200 px-5 py-2 font-semibold text-gray-700">
+        <div className="flex justify-end gap-3 border-t border-gray-100 px-4 py-3 sm:px-6">
+          <button type="button" onClick={onClose} className="flex-1 rounded-lg bg-gray-200 px-5 py-2.5 font-semibold text-gray-700 sm:flex-none">
             Cancel
           </button>
           <button
             type="button"
             onClick={save}
             disabled={isLoading}
-            className="rounded-lg bg-[#007EAF] px-6 py-2 font-semibold text-white disabled:opacity-60"
+            className="flex-1 rounded-lg bg-[#007EAF] px-6 py-2.5 font-semibold text-white disabled:opacity-60 sm:flex-none"
           >
             {isLoading ? <LoadingOutlined className="animate-spin" /> : "Save"}
           </button>
