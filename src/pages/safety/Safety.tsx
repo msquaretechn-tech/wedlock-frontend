@@ -191,9 +191,7 @@ const Safety = () => {
           <h3 className="text-md font-bold pb-4">What we do</h3>
           <p className="pb-4">
             We use automated systems and human moderators to review accounts and
-            messages for content that breaches our Community Guidelines. Every
-            account confirms an email address and a mobile number before it can
-            be published. Accounts that break the Guidelines are removed, and we
+            messages for content that breaches our Community Guidelines. Every account confirms an email address and a mobile number before the profile can be published. Accounts that break the Guidelines are removed, and we
             cooperate with law enforcement where a criminal investigation
             requires it.
           </p>

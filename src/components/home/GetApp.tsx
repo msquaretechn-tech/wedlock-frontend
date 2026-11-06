@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import '../../font.css';
 
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.wedlock.wedlock_application";
+
 const GetApp = () => {
     const [qrImage, setQrImage] = useState("/Wedlock Play Store QR Wallpaper (Rounded) - Galaxy S24.png"); // Default QR
 
@@ -9,8 +11,8 @@ const GetApp = () => {
         setQrImage("/Wedlock App Store QR Wallpaper (Rounded) - iPhone 16 Pro Max.png"); // Update with actual Apple QR image if available
     };
 
-    const handlePlayStoreClick = () => {
-        window.open("https://play.google.com/store/apps/details?id=com.wedlock.wedlock_application", "_blank");
+    // The link itself opens the store; clicking also swaps the QR code shown beside the badges
+    const showPlayStoreQr = () => {
         setQrImage("/Wedlock Play Store QR Wallpaper (Rounded) - Galaxy S24.png"); // Update with actual Google QR image if available
     };
 
@@ -22,24 +24,28 @@ const GetApp = () => {
                         <div className="max-w-[600px]">
                             <div className="get_app">
                                 <h1 className="text-[40px] md:text-[48px] xl:text-[55px] xl:leading-[83.2px] font-[Proxima-Nova-Bold] tracking-[-0.02em]">
-                                    Get the app!
+                                    Get the Wedlock app
                                 </h1>
                                 <p className="text-[20px] font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start">
-                                    Download our app now to discover meaningful <br className='hidden md:block' /> matches with smart AI compatibility.
+                                    Browse matches, message and video call from your phone. <br className='hidden md:block' /> Free to download, free to join.
                                 </p>
                             </div>
                             <div className="flex flex-row space-x-4 mt-5 lg:mt-12">
                                 
-                                <button
+                                {/* A real link (not a button) so it works without JS, can be opened in a new tab, and is crawlable */}
+                                <a
+                                    href={PLAY_STORE_URL}
+                                    target="_blank"
+                                    rel="noreferrer"
                                     className="p-0 m-0 flex items-center transition-transform hover:scale-105 active:scale-95"
-                                    onClick={handlePlayStoreClick}
+                                    onClick={showPlayStoreQr}
                                 >
                                     <img
                                         src="/googleplay.png"
-                                        alt="Play Store"
+                                        alt="Get it on Google Play"
                                         className="h-14 md:h-20 lg:h-16"
                                     />
-                                </button>
+                                </a>
 
                                 <button
                                     className="p-0 m-0 flex items-center transition-transform hover:scale-105 active:scale-95"

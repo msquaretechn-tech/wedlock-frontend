@@ -9,16 +9,16 @@ const Search = () => {
 
   const categories: Record<CategoryKey, CategoryItem[]> = {
   "Nationality": [
-    { img: "/Avatar-2.png", ct: "Japanese" },
-    { img: "/Avatar-1.png", ct: "Icelandic" },
-    { img: "/Avatar-3.png", ct: "Armenian" },
-    { img: "/Avatar-4.png", ct: "Georgian" },
-    { img: "/Avatar-5.png", ct: "Mongolian" },
-    { img: "/Avatar-3.png", ct: "Ethiopian" },
-    { img: "/Avatar-4.png", ct: "Thai" },
-    { img: "/Avatar-5.png", ct: "Greek" },
-    { img: "/Avatar-6.png", ct: "Israeli" },
     { img: "/Avatar-7.png", ct: "Indian" },
+    { img: "/Avatar-2.png", ct: "Sri Lankan" },
+    { img: "/Avatar-1.png", ct: "Nepali" },
+    { img: "/Avatar-3.png", ct: "Bangladeshi" },
+    { img: "/Avatar-4.png", ct: "Pakistani" },
+    { img: "/Avatar-5.png", ct: "Filipino" },
+    { img: "/Avatar-6.png", ct: "Lebanese" },
+    { img: "/Avatar-8.png", ct: "Afghan" },
+    { img: "/Avatar-10.png", ct: "Fijian Indian" },
+    { img: "/Avatar-12.png", ct: "Mauritian" },
   ],
 
   "Mother Tongue": [
@@ -78,8 +78,7 @@ const Search = () => {
             </h1>
           </div>
           <p className="text-[#101828E5] text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[8px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1">
-            Because meaningful relationships start with the right connection,   we make it easy to find someone who  truly complements your matrimonial
-            journey.
+            Filter by nationality, mother tongue, religion and community, then by the things that decide a marriage - education, profession, location and family expectations.
           </p>
         </div>
 

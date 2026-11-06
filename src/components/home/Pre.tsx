@@ -36,7 +36,7 @@ function Pre() {
               Real accounts
             </h1>
             <p className="text-[#00739F] text-xl text-center font-[Proxima-Nova-Regular]">
-              Accounts confirm an email address and a mobile number. Profiles are moderated, reports are reviewed by a person, and accounts that break the Community Guidelines are removed.
+              Every account confirms an email address and a mobile number before the profile can be published. Profiles are moderated, reports are reviewed by a person, and accounts that break the Community Guidelines are removed.
             </p>
           </div>
           <div className=" flex flex-col items-center gap-3 p-5 rounded-3xl bg-[#B0D7E680]">

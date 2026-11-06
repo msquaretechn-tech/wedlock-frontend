@@ -101,9 +101,9 @@ const Privacy = () => {
 
           <p className="text-md font-semibold pb-4">4.2 Verification</p>
           <p className="pb-4">
-            When you create an account we ask you to confirm your email address,
-            using a one-time passcode we send you. We keep the fact that the
-            confirmation succeeded and the date it happened.
+            Every account confirms an email address and a mobile number before the profile can be published. We send a one-time passcode to
+            each, and keep the fact that each confirmation succeeded and the date
+            it happened.
           </p>
           <p className="pb-4">
             We do not currently collect identity documents or biometric

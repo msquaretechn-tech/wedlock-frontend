@@ -1,7 +1,5 @@
 import "../../font.css";
-import { BiLogoPlayStore } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { FaApple } from "react-icons/fa";
 
 
 const Footer = () => {
@@ -29,11 +27,26 @@ const Footer = () => {
               </div>
 
               <div className="flex w-full justify-center md:w-auto md:justify-start">
-                <ul className="flex flex-col items-center gap-2 text-lg md:flex-row md:gap-4">
+                <ul className="flex flex-col items-center gap-3 text-lg md:flex-row md:gap-4">
                   <li className="text-[#BDC1CA]">Get the App</li>
-                  <li className="flex items-center gap-2">
-                    <BiLogoPlayStore size={30} />
-                    <FaApple size={30} />
+                  {/* Official store badges, same links as the public footer */}
+                  <li className="flex items-center gap-3">
+                    <a
+                      href="https://play.google.com/store/apps/details?id=com.wedlock.wedlock_application"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-block transition-transform hover:opacity-90 active:scale-95"
+                    >
+                      <img src="/googleplay.png" alt="Get it on Google Play" className="h-10 w-auto" />
+                    </a>
+                    <a
+                      href="https://wedlock.com.au"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-block transition-transform hover:opacity-90 active:scale-95"
+                    >
+                      <img src="/appstore.png" alt="Download on the App Store" className="h-10 w-auto" />
+                    </a>
                   </li>
                 </ul>
               </div>

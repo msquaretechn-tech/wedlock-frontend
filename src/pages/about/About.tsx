@@ -22,7 +22,7 @@ const About = () => {
           <p>
             Wedlock is an Australian matrimonial platform, built for people looking for a life partner - not a date. <br /><br />
             We started from a simple observation: the people most serious about marriage were being handed tools designed for something else entirely. Swiping is built to hold your attention. Marriage asks a different question, and it deserves a different platform.<br /><br />
-            Wedlock lets you search on what actually matters to you - faith, language, community, family expectations and life goals - across cultures, nationalities and communities, whether your match is in Melbourne or on the other side of the world. Every account confirms a real email address before it can be published. Profiles and messages are moderated, and any member can report another in one tap.<br /><br />
+            Wedlock lets you search on what actually matters to you - faith, language, community, family expectations and life goals - across cultures, nationalities and communities, whether your match is in Melbourne or on the other side of the world. Every account confirms an email address and a mobile number before the profile can be published. Profiles and messages are moderated, and any member can report another in one tap.<br /><br />
             
             We are building Wedlock to be the platform Australian families can trust with something this important: careful with your privacy, clear about what we do with your information, and serious about the outcome our members are actually seeking.<br /><br />
 

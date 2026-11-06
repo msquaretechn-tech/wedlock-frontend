@@ -24,7 +24,7 @@ const Matching = () => {
                 <h1 className="font-Proxima-Nova-Bold text-[40px] md:text-[48px] text-[#4E3A63] ">Exclusive
                     matchmaking</h1>
                 <p className="text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px]  leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1 ">
-                Our exclusive matchmaking service is designed for exceptional individuals who prioritise meaningful, long-term relationships. Whether you're ready to find your life partner or are looking for someone who shares your vision of a future together, our approach is tailored to your unique needs.
+                The Exclusive tier is for members who want a smaller, closer-managed search, with more of the work done for them. Whether you're ready to find your life partner or are looking for someone who shares your vision of a future together, our approach is tailored to your unique needs.
                 </p>
             </div>
 
@@ -74,9 +74,9 @@ const Matching = () => {
                     </div>
                     <div className="flex items-center justify-center md:justify-between  gap-2">
                         <button
-                            onClick={ ()=>{navigate("/exclusive")} }
+                            onClick={ ()=>{navigate("/subscription-tiers")} }
                             className="flex items-center justify-center px-4 text-[#3C2C4C] bg-[white] rounded-full md:w-50 lg:h-[48px] h-10  ">
-                            <p className="text-sm md:text-lg font-[Proxima-Nova-SemiBold]">Check your eligibility
+                            <p className="text-sm md:text-lg font-[Proxima-Nova-SemiBold]">See what Exclusive includes
                             </p>
                         </button>
                         {/* <p className="text-white text-[0.7rem] lg:text-lg cursor-pointer   ">Read more</p> */}
