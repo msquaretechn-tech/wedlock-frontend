@@ -110,8 +110,7 @@ const Stories = () => {
             </div>
           </div>
           <p className="text-[20px]  font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px]     xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start mr-1 mb-9">
-            A few of the ways people find each other on Wedlock.<br></br>
-            Illustrative examples, not real members.
+            A few of the ways people find each other on Wedlock. Illustrative examples, not real members.
           </p>
         </div>
 
