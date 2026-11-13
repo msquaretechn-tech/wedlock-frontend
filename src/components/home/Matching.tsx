@@ -74,7 +74,7 @@ const Matching = () => {
                     </div>
                     <div className="flex items-center justify-center md:justify-between  gap-2">
                         <button
-                            onClick={ ()=>{navigate("/subscription-tiers")} }
+                            onClick={ ()=>{navigate("/exclusive")} }
                             className="flex items-center justify-center px-4 text-[#3C2C4C] bg-[white] rounded-full md:w-50 lg:h-[48px] h-10  ">
                             <p className="text-sm md:text-lg font-[Proxima-Nova-SemiBold]">See what Exclusive includes
                             </p>

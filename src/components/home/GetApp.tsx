@@ -27,7 +27,7 @@ const GetApp = () => {
                                     Get the Wedlock app
                                 </h1>
                                 <p className="text-[20px] font-Proxima-Nova-Light sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] pt-[21px] leading-[30px] sm:leading-[10px] md:leading-[24px] lg:leading-[28px] xl:leading-[42px] md:text-start">
-                                    Browse matches, message and video call from your phone. <br className='hidden md:block' /> Free to download, free to join.
+                                    Browse matches, message and video call from your phone. Free to download, free to join.
                                 </p>
                             </div>
                             <div className="flex flex-row space-x-4 mt-5 lg:mt-12">
