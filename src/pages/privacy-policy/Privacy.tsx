@@ -5,9 +5,6 @@ const Privacy = () => {
   return (
     <div>
       <div className=" space-y-5 md:space-y-10 mt-14 md:mt-0 bg-[#E6F2F7] p-4 md:p-24 text-center">
-        <h3 className="text-base mt-10  font-semibold text-[#007EAF]">
-          Last Updated On: 29 September 2026
-        </h3>
         <h1 className=" text-2xl md:text-4xl font-semibold">Privacy Policy</h1>
         <p className="text-[#475467] text-md md:text-xl text-balance">
           Your privacy is important to us at Wedlock. We respect your privacy
@@ -26,7 +23,7 @@ const Privacy = () => {
           </p>
           <p className="font-semibold">Wedlock Global Services (Australia) Pty Ltd</p>
           <p>ABN 36 679 422 738 · ACN 679 422 738</p>
-          <p>Level 3, Suite 329, 98–100 Elizabeth Street, Melbourne VIC 3000, Australia</p>
+          <p>Melbourne, Victoria, Australia</p>
           <p className="pb-4">privacy@wedlock.com.au · 1300 933 562</p>
 
           <h3 className="text-md font-bold pb-4">1. Introduction</h3>
@@ -255,6 +252,14 @@ const Privacy = () => {
             advertisers or data brokers. We will never telephone you to sell you
             anything.
           </p>
+          <p className="text-md font-semibold pb-4">Marketing</p>
+          <p className="pb-4">
+            We only use your photograph, profile or story in our own advertising
+            if you have given us separate written permission. That permission is
+            never a condition of using Wedlock, and you can withdraw it at any
+            time from your account settings. We remove the material from
+            anything we control within 30 days of being asked.
+          </p>
 
           <p className="text-md font-bold pb-4">
             8. Information sent overseas
@@ -343,7 +348,7 @@ const Privacy = () => {
                 <tr>
                   <td className="border border-gray-300 p-2">Backups</td>
                   <td className="border border-gray-300 p-2">Disaster recovery</td>
-                  <td className="border border-gray-300 p-2">Purged on the next rotation, within [N] days</td>
+                  <td className="border border-gray-300 p-2">Purged on the next rotation, within 35 days</td>
                 </tr>
               </tbody>
             </table>
@@ -425,7 +430,7 @@ const Privacy = () => {
               after 30 days your personal information is permanently erased and
               cannot be recovered;
             </li>
-            <li>it is removed from our backups within a further [N] days; and</li>
+            <li>it is removed from our backups within a further 35 days; and</li>
             <li>
               we keep only payment and tax records, for 5 years as tax law
               requires, and a one-way code that prevents a removed member
@@ -499,7 +504,7 @@ const Privacy = () => {
           </p>
 
           <p className='text-md font-bold'>Effective date</p>
-          <p className="pb-4">Version 2.0 · Effective 11th October 2026</p>
+          <p className="pb-4">Version 2.0 · Effective 11 October 2026</p>
         </div>
       </div>
     </div>

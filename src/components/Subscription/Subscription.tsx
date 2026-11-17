@@ -155,7 +155,7 @@ const Subscription: React.FC = () => {
 
               <tr className="border-b-2">
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-left ">
-                  Create favorites lists
+                  Create favourites lists
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
@@ -301,7 +301,7 @@ const Subscription: React.FC = () => {
 
               <tr className="border-b-2">
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-left ">
-                  Customize your profile
+                  Customise your profile
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
@@ -365,16 +365,23 @@ const Subscription: React.FC = () => {
 
               <tr className="border-b-2">
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-left ">
-                  Email verification at sign-up
+                  Email confirmed at sign-up
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
-
               </tr>
               <tr className="border-b-2">
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-left ">
-                  Password and OTP authentication
+                  Mobile number confirmed by one-time code
+                </td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
+              </tr>
+              <tr className="border-b-2">
+                <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-left ">
+                  Password plus one-time code at log-in
                 </td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>
                 <td className="font-normal text-md max-md:text-md font-Proxima-Nova-Light text-center ">✔</td>

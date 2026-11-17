@@ -275,6 +275,17 @@ const PricingPage = () => {
           )}
         </div>
 
+        {/* Billing details below all cards */}
+        <div className="mt-12 rounded-2xl bg-white p-6 md:p-8 text-gray-700 shadow-sm border border-gray-200 text-sm md:text-base space-y-2.5 font-Proxima-Nova-Regular">
+          <p className="font-semibold text-gray-900 text-base md:text-lg">Billing Information</p>
+          <p>• All prices are in Australian dollars and include GST. There are no other fees.</p>
+          <p>• No plan renews automatically. Your plan ends by itself on the last day of the term you paid for, and nothing further is charged.</p>
+          <p>• We email you 7 days and 1 day before your term ends. You can see your end date, and buy a new term if you want one, under Manage plan in your account settings.</p>
+          <p>• When a term ends your access goes back to the free Standard plan. Your profile, your matches and your conversations stay exactly as they are.</p>
+          <p>• If you bought your plan through Google Play, you can also manage it in your Google Play account.</p>
+          <p>• Nothing here takes away your rights under the Australian Consumer Law.</p>
+        </div>
+
         {/* Premium Description Modal */}
         <PlanDescriptionModal
           isOpen={showPremiumDescription}

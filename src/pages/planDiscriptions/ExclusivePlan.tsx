@@ -55,7 +55,7 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType, plan }) => {
                         Basic Access
                     </h3>
                     <ul className="space-y-3">
-                        <FeatureItem text="Create favorites lists" />
+                        <FeatureItem text="Create favourites lists" />
                         <FeatureItem text="Create photo profile" />
                         <FeatureItem text="Send friend requests (Unlimited)" />
                         <FeatureItem text="View profiles in full" />
@@ -97,7 +97,7 @@ const ExclusivePlan: React.FC<ExclusivePlanProps> = ({ planType, plan }) => {
                         Profile & Matchmaking
                     </h3>
                     <ul className="space-y-3">
-                        <FeatureItem text="Customize profile" />
+                        <FeatureItem text="Customise profile" />
                         <FeatureItem text="See profile views" />
                         <FeatureItem text="Stand out" />
                         <FeatureItem text="Suggested matches" />

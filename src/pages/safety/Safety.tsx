@@ -5,10 +5,7 @@ import Nav from "../../components/Legal/Nav";
 const Safety = () => {
 
   const HeroData = {
-    updatedAt: `Last Updated On: 29 September 2026`,
     title: "Safety",
-    description:
-      "Most people on Wedlock are exactly who they say they are. This page is for the times when something does not feel right — what to do, what we do, and where to get help.",
   };
 
   return (
@@ -183,8 +180,8 @@ const Safety = () => {
               either.
             </li>
             <li>
-              Use a strong, unique password. Turn on the one-time passcode when
-              we offer it.
+              Use a strong, unique password. Your account already uses a one-time
+              code at sign-up and at log-in.
             </li>
           </ul>
 
@@ -221,7 +218,7 @@ const Safety = () => {
           </p>
 
           <p className='text-md font-bold'>Effective date</p>
-          <p className="pb-4">Version 1.0 · Effective 11th October 2026</p>
+          <p className="pb-4">Version 1.0 · Effective 11 October 2026</p>
         </div>
       </div>
     </div>

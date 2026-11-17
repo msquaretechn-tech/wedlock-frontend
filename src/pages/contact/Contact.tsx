@@ -62,8 +62,9 @@ const Contact = () => {
             <form ref={form} onSubmit={handleSubmit}>
               
                 <div className="mb-4">
-                  <label className="block text-gray-700">First name</label>
+                  <label htmlFor="first_name" className="block text-gray-700">First name</label>
                   <input
+                    id="first_name"
                     type="text"
                     name="first_name"
                     placeholder="First name"
@@ -72,8 +73,9 @@ const Contact = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="block text-gray-700">Last name</label>
+                  <label htmlFor="last_name" className="block text-gray-700">Last name</label>
                   <input
+                    id="last_name"
                     type="text"
                     name="last_name"
                     placeholder="Last name"
@@ -84,8 +86,9 @@ const Contact = () => {
               
 
               <div className="mb-4">
-                <label className="block text-gray-700">Email</label>
+                <label htmlFor="email" className="block text-gray-700">Email</label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   placeholder="name@example.com"
@@ -94,8 +97,9 @@ const Contact = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-gray-700">Country</label>
+                <label htmlFor="country" className="block text-gray-700">Country</label>
                 <select
+                  id="country"
                   name="country"
                   value={selectedCountry}
                   onChange={handleCountryChange}
@@ -109,8 +113,9 @@ const Contact = () => {
                 </select>
               </div>
               <div className="mb-4">
-                <label className="block text-gray-700">Phone number (optional)</label>
+                <label htmlFor="phoneNumber" className="block text-gray-700">Phone number (optional)</label>
                 <input
+                  id="phoneNumber"
                   type="tel"
                   name="phoneNumber"
                   placeholder="04XX XXX XXX"
@@ -118,8 +123,9 @@ const Contact = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-gray-700">Message</label>
+                <label htmlFor="message" className="block text-gray-700">Message</label>
                 <textarea
+                  id="message"
                   name="message"
                   placeholder="Your message..."
                   className="mt-1 w-full resize-none rounded-[0.5rem] border border-gray-300 p-2"
@@ -140,8 +146,8 @@ const Contact = () => {
                 </label>
               </div>
                <div className="mb-4 flex items-center">
-                <input type="checkbox" id="privacy" className="mr-2" required />
-                <label htmlFor="privacy" className="text-gray-700">
+                <input type="checkbox" id="marketing" className="mr-2" />
+                <label htmlFor="marketing" className="text-gray-700">
                   Email me occasional news and offers from Wedlock. I can unsubscribe at any time.{" "}
                   <Link to={"/privacy-policy"} className="text-blue-500 underline">
                     Privacy Policy 
@@ -166,20 +172,21 @@ const Contact = () => {
       <div className="px-6 py-10 md:px-10 lg:px-20 text-left bg-[#e4e8ea7d]">
         <h3 className="text-md font-bold text-[#101828]">Contact Us</h3>
         <p className="mb-2 text-[#475467]">
-          Got something you want to talk about? Contact us or email us and we promise to get back to you as soon as we can.
+          Got something you want to talk about? Send us a message or email us. We reply within 2 business days.
         </p>
         <h3 className="mt-6 text-md font-bold text-[#101828]">Help / Support</h3>
         <p className="text-[#475467] pb-4">For all technical and platform queries:</p>
-        {/* <h3 className="text-md font-bold">Contact Us or reach us by:</h3> */}
         <p className="text-black pb-4">
           <span className="font-medium">Phone: </span>1300 933 562
         </p>
         <p className="text-black pb-4">
           <span className="font-medium">Email:</span>{" "}
-          <a href="mailto:info@Wedlock.com.au" className="underline">info@wedlock.com.au</a>
+          <a href="mailto:info@wedlock.com.au" className="underline">info@wedlock.com.au</a>
         </p>
         <p className="text-black">
-          <span className="font-medium">Address:</span> Level 3, Suite 329, 98–100 Elizabeth Street, Melbourne VIC 3000
+          Wedlock Global Services (Australia) Pty Ltd<br />
+          Melbourne, Victoria, Australia<br />
+          <a href="mailto:privacy@wedlock.com.au" className="underline">privacy@wedlock.com.au</a> · 1300 933 562
         </p>
       </div>
     </div>

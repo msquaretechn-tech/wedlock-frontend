@@ -8,8 +8,7 @@ const About = () => {
       <div className="bg-[#E6F2F7] text-center px-6 py-10 md:p-24 space-y-8">
         <h1 className=" text-2xl md:text-4xl font-semibold">About Us</h1>
         <p className="text-[#475467] text-md md:text-xl text-balance">
-          Premier and most trusted matrimony service recognised for its unwavering commitment to helping individuals find their perfect life partners.
-
+          An Australian matrimonial platform, built for people looking for a life partner - not a date.
         </p>
       </div>
       

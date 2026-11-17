@@ -55,7 +55,7 @@ const PremiumPlan: React.FC<PremiumPlanProps> = ({ planType, plan }) => {
                         Basic Access
                     </h3>
                     <ul className="space-y-3">
-                        <FeatureItem text="Create favorites lists" active />
+                        <FeatureItem text="Create favourites lists" active />
                         <FeatureItem text="Create photo profile" active />
                         <FeatureItem text="Send friend requests (Premium & Standard only)" active />
                         <FeatureItem text="View profiles in full (Premium & Standard only)" active />
@@ -97,7 +97,7 @@ const PremiumPlan: React.FC<PremiumPlanProps> = ({ planType, plan }) => {
                         Profile & Matchmaking
                     </h3>
                     <ul className="space-y-3">
-                        <FeatureItem text="Customize profile" active />
+                        <FeatureItem text="Customise profile" active />
                         <FeatureItem text="See profile views" active />
                         <FeatureItem text="Stand out" active={false} />
                         <FeatureItem text="Suggested matches" active />

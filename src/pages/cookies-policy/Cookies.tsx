@@ -5,7 +5,6 @@ import Nav from "../../components/Legal/Nav";
 const page = () => {
 
   const HeroData = {
-    updatedAt: `Last Updated On: 29 September 2026`,
     title: "Cookies Policy",
     description:
       "Your trust, your privacy and your data matter to us, and we want to be clear about how we use them.",
@@ -57,6 +56,35 @@ const page = () => {
             anything that is not strictly necessary.
           </p>
 
+          <div className="overflow-x-auto my-6">
+            <table className="w-full border-collapse border border-gray-300 text-left text-sm md:text-base">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="border border-gray-300 p-2 font-semibold">Cookie name</th>
+                  <th className="border border-gray-300 p-2 font-semibold">What it does</th>
+                  <th className="border border-gray-300 p-2 font-semibold">How long it lasts</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-gray-300 p-2 font-mono">wl_session</td>
+                  <td className="border border-gray-300 p-2">Keeps you signed in</td>
+                  <td className="border border-gray-300 p-2">Session</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 p-2 font-mono">wl_csrf</td>
+                  <td className="border border-gray-300 p-2">Protects forms from misuse</td>
+                  <td className="border border-gray-300 p-2">Session</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 p-2 font-mono">wl_pref</td>
+                  <td className="border border-gray-300 p-2">Remembers your settings</td>
+                  <td className="border border-gray-300 p-2">12 months</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <h3 className="text-md font-bold pb-4">3. How long cookies last</h3>
           <p className="pb-4">
             <span className="font-semibold">Session cookies</span> last only as
@@ -104,7 +132,7 @@ const page = () => {
           </p>
 
           <p className='text-md font-bold'>Effective date</p>
-          <p className="pb-4">Version 2.0 · Effective 11th October 2026</p>
+          <p className="pb-4">Version 2.0 · Effective 11 October 2026</p>
         </div>
       </div>
     </div>

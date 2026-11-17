@@ -10,9 +10,9 @@ const Stories = () => {
   const stories = [
     {
       src: "/inspiring1 (1).png",
-      title: "Sophia & Arjun",
+      title: "Two families, two languages",
       description:
-        "We met on Wedlock, and despite being from two different countries, we found common ground through our shared values and goals. The platform truly understood what we were looking for in a partner. After months of late-night calls and video chats, we finally met in person, and it was everything we had hoped for. Today, we’re married, and Wedlock helped make it happen.",
+        "Her family speaks Tamil at home, his speaks Sinhala. They meet over shared answers about faith, schooling and where they want to raise a family. Both sets of parents are in the room for the third call.",
       index: 0,
     },
     {

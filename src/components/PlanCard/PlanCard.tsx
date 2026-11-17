@@ -25,15 +25,16 @@ return (
 className={`space-y-4 flex flex-col rounded-lg p-6 h-full ${isHighlighted ? "bg-[#60457e] text-white" : "bg-[#007EAF] shadow text-white border"
 }`}
 >
-<div className="space-y-4">
+<div className="space-y-2">
    <h1 className={`font-semibold text-3xl ${isHighlighted ? "" : "text-white"}`}>{title}</h1>
-   <h1 className={`text-2xl font-bold ${isHighlighted ? "" : "text-white"}`}>
+   <h1 className={`text-3xl font-bold ${isHighlighted ? "" : "text-white"}`}>
    {price !== "Free" ? `A$${price}` : price}
     <span
-      className={`text-base font-normal text-white`}
-      >{` / ${duration}`}<sup>*</sup>
+      className={`text-base font-normal text-white/90 ml-1`}
+      >{` / ${duration}`}
     </span>
    </h1>
+   <p className="text-xs text-white/80 font-medium">Total price, including GST</p>
 </div>
 {/* Features Section - Flex Grow Ensures It Pushes the Button to Bottom */}
 <div className="space-y-3 flex-grow">
@@ -66,11 +67,7 @@ className={`space-y-4 flex flex-col rounded-lg p-6 h-full ${isHighlighted ? "bg-
       isHighlighted ? "ml-0" : ""
     }`}
   >
-    {duration === "Per Month"
-      ? "*Per calendar month, no auto-renewal"
-      : duration === "Per Year"
-      ? "*365 days, no auto-renewal"
-      : ""}
+    Does not renew. Ends on its own.
   </h1>
 </div>
 </div>
@@ -92,7 +89,7 @@ className={`space-y-4 flex flex-col rounded-lg p-6 h-full ${isHighlighted ? "bg-
    </>
    ) : (
    <>
-   <p className="font-semibold">Get Started</p>
+   <p className="font-semibold">Choose this plan</p>
    </>
    )}
    </button>
