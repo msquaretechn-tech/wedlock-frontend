@@ -14,6 +14,7 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
   const [consent1, setConsent1] = useState(false); // Terms & Privacy & Age
   const [consent2, setConsent2] = useState(false); // Sensitive Info
   const [marketingConsent, setMarketingConsent] = useState(false); // Marketing (optional, unticked by default)
+  const [advertisingConsent, setAdvertisingConsent] = useState(false); // Advertising permission (optional, unticked by default)
 
   useEffect(() => {
     const isExclusiveStored = localStorage.getItem("isExclusive");
@@ -62,10 +63,12 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
       consentTermsAndAge: true,
       consentSensitiveInfo: true,
       marketingConsent: marketingConsent,
+      advertisingConsent: advertisingConsent,
       dateOfBirth: `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`,
     };
     localStorage.setItem("wedlock_consent_record", JSON.stringify(consentRecord));
     localStorage.setItem("wedlock_marketing_consent", marketingConsent ? "true" : "false");
+    localStorage.setItem("wedlock_advertising_consent", advertisingConsent ? "true" : "false");
     handleNext();
   };
 
@@ -77,9 +80,9 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
     >
       {/* Title */}
       <div className="text-center mb-6">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Date of birth</h1>
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Before we start</h1>
         <p className="mt-2 text-base md:text-lg text-white/90">
-          Wedlock is for people aged 18 and over.
+          Wedlock is for adults looking for marriage. You need to be 18 or over to create a profile.
         </p>
       </div>
 
@@ -198,6 +201,18 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
           />
           <span className="text-sm md:text-base leading-snug">
             Send me match suggestions, tips and occasional offers by email. I can unsubscribe at any time.
+          </span>
+        </label>
+
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            checked={advertisingConsent}
+            onChange={(e) => setAdvertisingConsent(e.target.checked)}
+            className="mt-1 h-5 w-5 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer"
+          />
+          <span className="text-sm md:text-base leading-snug">
+            Wedlock may use my profile photo and story in its own advertising. I can withdraw this at any time.
           </span>
         </label>
       </div>

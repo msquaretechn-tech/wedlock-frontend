@@ -51,6 +51,19 @@ const [isEducationFinancial, setIsEducationFinancial] = useState(false);
 const [isLocationBackground, setIsLocationBackground] = useState(false);
 const [isConnectionsModalVisible, setIsConnectionsModalVisible] = useState(false);
 const [isSentRequestsModalVisible, setIsSentRequestsModalVisible] = useState(false);
+const [advertisingConsent, setAdvertisingConsent] = useState(() => {
+  return localStorage.getItem("wedlock_advertising_consent") === "true";
+});
+
+const handleAdvertisingToggle = (checked: boolean) => {
+  setAdvertisingConsent(checked);
+  localStorage.setItem("wedlock_advertising_consent", checked ? "true" : "false");
+  toast.success(
+    checked
+      ? "Permission granted: Wedlock may use your profile photo and story in advertising."
+      : "Permission withdrawn: Wedlock will not use your profile photo or story in advertising."
+  );
+};
 console.log(myDetails?.toggleStatus);
 useEffect(() => {
 if (myDetails?.toggleStatus) {
@@ -788,6 +801,26 @@ return (
         >
           {isRemovingSensitive ? "Removing..." : "Remove Sensitive Information"}
         </button>
+      </div>
+      {/* Advertising & Story Permission (Point 20) */}
+      <div className="mt-6 p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
+        <div className="text-sm font-semibold text-gray-900 mb-1 font-Proxima-Nova-SemiBold">
+          Advertising & Marketing
+        </div>
+        <p className="text-xs text-gray-500 mb-3 leading-relaxed font-Proxima-Nova-Regular">
+          Separate from terms. You can change or withdraw this permission at any time.
+        </p>
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={advertisingConsent}
+            onChange={(e) => handleAdvertisingToggle(e.target.checked)}
+            className="mt-0.5 h-4 w-4 rounded border-gray-300 text-[#007EAF] focus:ring-[#007EAF] cursor-pointer"
+          />
+          <span className="text-xs md:text-sm text-gray-800 leading-snug font-Proxima-Nova-Regular">
+            Wedlock may use my profile photo and story in its own advertising. I can withdraw this at any time.
+          </span>
+        </label>
       </div>
    </div>
 </div>

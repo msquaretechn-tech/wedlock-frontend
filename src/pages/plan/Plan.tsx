@@ -275,6 +275,51 @@ const PricingPage = () => {
           )}
         </div>
 
+        {/* The "every plan" list, shown once under the whole section */}
+        <div className="mt-12 rounded-2xl bg-[#E6F2F7] p-6 md:p-8 text-gray-800 shadow-sm border border-[#cbe1ec]">
+          <h3 className="font-Proxima-Nova-Bold text-[#007EAF] text-base md:text-lg uppercase tracking-wide mb-4">
+            EVERY PLAN, INCLUDING THE FREE STANDARD PLAN
+          </h3>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm md:text-base font-Proxima-Nova-Regular">
+            <li className="flex items-start gap-2.5">
+              <span className="text-[#007EAF] font-bold mt-0.5">✓</span>
+              <span>Create and customise your profile, with photos</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="text-[#007EAF] font-bold mt-0.5">✓</span>
+              <span>Search and browse every profile</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="text-[#007EAF] font-bold mt-0.5">✓</span>
+              <span>Advanced filters and saved searches</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="text-[#007EAF] font-bold mt-0.5">✓</span>
+              <span>Send interests and friend requests</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="text-[#007EAF] font-bold mt-0.5">✓</span>
+              <span>Favourites lists</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="text-[#007EAF] font-bold mt-0.5">✓</span>
+              <span>See who has viewed your profile</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="text-[#007EAF] font-bold mt-0.5">✓</span>
+              <span>Suggested matches, matchmaking tools and the personality test</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="text-[#007EAF] font-bold mt-0.5">✓</span>
+              <span>Email and mobile confirmed by one-time code</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="text-[#007EAF] font-bold mt-0.5">✓</span>
+              <span>Password plus one-time code at log-in</span>
+            </li>
+          </ul>
+        </div>
+
         {/* Billing details below all cards */}
         <div className="mt-12 rounded-2xl bg-white p-6 md:p-8 text-gray-700 shadow-sm border border-gray-200 text-sm md:text-base space-y-2.5 font-Proxima-Nova-Regular">
           <p className="font-semibold text-gray-900 text-base md:text-lg">Billing Information</p>

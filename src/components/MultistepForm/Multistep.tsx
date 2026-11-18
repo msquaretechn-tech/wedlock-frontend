@@ -19,7 +19,7 @@ import Question11 from "./Question11";
 
 const Multistep = () => {
   const [isExclusive, setExclusive] = useState(false);
-  const [isWelcome, setWelcome] = useState(true); // age-gate + consent first screen
+  const [step, setStep] = useState<"age" | "welcome" | "questions">("age"); // Age gate comes first, then Welcome, then Questions
 
   const navigate = useNavigate();
 
@@ -318,11 +318,6 @@ const Multistep = () => {
     }
   };
 
-  const handleWelcomeContinue = () => {
-    setWelcome(false);
-    setPage(0);
-  };
-
   return (
     <div
       className={`min-w-screen relative flex min-h-screen flex-col items-center ${isExclusive ? "bg-[#60457E]" : "bg-[#007EAF]"
@@ -338,9 +333,37 @@ const Multistep = () => {
         </Link>
       </div>
 
-      {isWelcome ? (
-        <Welcome handleNext={handleWelcomeContinue} />
+      {step === "age" ? (
+        /* ── Step 1: Age Gate & Consent Screen (Comes First) ── */
+        <Welcome handleNext={() => setStep("welcome")} />
+      ) : step === "welcome" ? (
+        /* ── Step 2: Welcome Splash Screen ── */
+        <div className="flex flex-col items-center justify-center flex-1 w-full text-center px-4 -mt-16 md:-mt-24 pb-12">
+          <h1
+            className="text-3xl md:text-4xl font-bold mb-4"
+            style={{ fontFamily: "Proxima-Nova-Bold, sans-serif" }}
+          >
+            Welcome to Wedlock
+          </h1>
+          <p
+            className="text-base md:text-lg text-white/90 mb-10 max-w-md"
+            style={{ fontFamily: "Proxima-Nova-Regular, sans-serif" }}
+          >
+            A few questions, about ten minutes, and nothing is visible to anyone until you publish your profile.
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setStep("questions");
+              setPage(0);
+            }}
+            className={`w-72 md:w-96 py-3 rounded-md bg-white ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"} font-semibold hover:bg-gray-100 transition-all shadow-md`}
+          >
+            Get started
+          </button>
+        </div>
       ) : (
+        /* ── Step 3: Questions 1 to 11 ── */
         <div>
           <div className=" mt-4 w-full text-center ">
             <h2
@@ -369,7 +392,7 @@ const Multistep = () => {
                     type="button"
                     className={`flex h-[48px] w-[48%] md:w-[160px] items-center justify-center rounded-md bg-white px-4 py-2 font-medium ${isExclusive ? "text-[#60457E]" : "text-[#007EAF]"
                       }`}
-                    onClick={page > 0 ? handlePrevious : () => navigate("/")}
+                    onClick={page > 0 ? handlePrevious : () => setStep("welcome")}
                   >
                     Back
                   </button>
