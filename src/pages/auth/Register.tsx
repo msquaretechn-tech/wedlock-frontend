@@ -24,6 +24,7 @@ type FormData = z.infer<typeof schema>;
 
 
 const register = () => {
+  const navigate = useNavigate();
   const [isExclusive, setExclusive] = useState(false);
 
   useEffect(() => {
@@ -36,11 +37,6 @@ const register = () => {
       navigate("/questions");
     }
   }, [navigate]);
-
-
-
-
-  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const [registerUser, { isLoading }] = useRegisterUserMutation();
