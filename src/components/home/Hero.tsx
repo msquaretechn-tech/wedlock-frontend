@@ -33,7 +33,7 @@ function Hero() {
         </picture>
 
         {/* Desktop: under the tagline on the left. Placement and sizing match reference sample */}
-        <div className="absolute left-[6.25%] top-[74%] hidden items-center gap-3 lg:gap-4 md:flex">
+        <div className="absolute left-[6.25%] top-[77.5%] hidden items-center gap-3 lg:gap-4 md:flex">
           <Link
             to="/questions"
             className={`${primaryBtn} h-11 lg:h-12 px-6 lg:px-7 text-[15px] lg:text-[16px]`}
@@ -64,7 +64,7 @@ function Hero() {
       </div>
 
       {/* Mobile: the artwork's text runs to its bottom edge, so the buttons sit just below it */}
-      <div className="flex gap-2.5 px-[7.5%] pb-3 pt-2 md:hidden">
+      <div className="flex gap-2.5 px-[7.5%] pb-4 pt-3.5 md:hidden">
         <Link
           to="/questions"
           className={`${primaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[14px]`}
