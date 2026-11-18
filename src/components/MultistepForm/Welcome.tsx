@@ -77,9 +77,9 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
     >
       {/* Title */}
       <div className="text-center mb-6">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Before we start</h1>
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Date of birth</h1>
         <p className="mt-2 text-base md:text-lg text-white/90">
-          Wedlock is for adults looking for marriage. You need to be 18 or over to create a profile.
+          Wedlock is for people aged 18 and over.
         </p>
       </div>
 
@@ -130,7 +130,7 @@ const Welcome = ({ handleNext }: { handleNext: () => void }) => {
         {/* Underage rejection warning */}
         {isUnderage === true && (
           <div className="mt-4 p-4 rounded-lg bg-red-600/90 text-white font-medium text-sm leading-relaxed border border-red-400 animate-fadeIn">
-            Sorry - Wedlock is only for people aged 18 and over. Thanks for your interest, and we hope to see you in the future.
+            Wedlock is for people aged 18 and over. We cannot create an account for anyone under 18.
           </div>
         )}
       </div>

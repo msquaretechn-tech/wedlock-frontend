@@ -29,10 +29,13 @@ const register = () => {
   useEffect(() => {
     const isExclusive = localStorage.getItem("isExclusive");
     if (isExclusive) {
-      setExclusive(true)
+      setExclusive(true);
     }
-
-  })
+    const consent = localStorage.getItem("wedlock_consent_record");
+    if (!consent) {
+      navigate("/questions");
+    }
+  }, [navigate]);
 
 
 

@@ -3,9 +3,9 @@ import heroDesktop from "../../assets/hero-banner-desktop.jpg";
 import heroMobile from "../../assets/hero-banner-mobile.jpg";
 
 const primaryBtn =
-  "inline-flex items-center justify-center rounded-full bg-[#009BDA] font-semibold text-white shadow-lg transition hover:bg-[#33b3e6] font-Proxima-Nova-SemiBold";
+  "inline-flex items-center justify-center rounded-full bg-[#009BDA] font-semibold text-white shadow-md transition hover:bg-[#33b3e6] font-Proxima-Nova-SemiBold";
 const secondaryBtn =
-  "inline-flex items-center justify-center rounded-full border-2 border-[#E6A93A] font-semibold text-[#E6A93A] transition hover:bg-[#E6A93A]/15 font-Proxima-Nova-SemiBold";
+  "inline-flex items-center justify-center rounded-full border border-[#E6A93A] font-semibold text-[#E6A93A] transition hover:bg-[#E6A93A]/15 font-Proxima-Nova-SemiBold";
 
 // Same video as the homepage YouTube section
 const HOW_IT_WORKS_URL = "https://www.youtube.com/watch?v=XG1Ka5P6qP8";
@@ -32,17 +32,27 @@ function Hero() {
           />
         </picture>
 
-        {/* Desktop: under the tagline on the left. Positions/sizes are % of the 1920x1080 artwork (vw) so they scale with it */}
-        <div className="absolute left-[6.25%] top-[78%] hidden items-center gap-[1.2vw] md:flex">
-          <Link to="/questions" className={`${primaryBtn} h-[4.2vw] min-h-[40px] px-[2.8vw] text-[clamp(14px,1.45vw,28px)]`}>
+        {/* Desktop: under the tagline on the left. Placement and sizing match reference sample */}
+        <div className="absolute left-[6.25%] top-[74%] hidden items-center gap-3 lg:gap-4 md:flex">
+          <Link
+            to="/questions"
+            className={`${primaryBtn} h-11 lg:h-12 px-6 lg:px-7 text-[15px] lg:text-[16px]`}
+          >
             Get Started Free
           </Link>
           <a
             href={HOW_IT_WORKS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${secondaryBtn} h-[4.2vw] min-h-[40px] px-[2.8vw] text-[clamp(14px,1.45vw,28px)]`}
+            className={`${secondaryBtn} h-11 lg:h-12 px-6 lg:px-7 text-[15px] lg:text-[16px]`}
           >
+            <svg
+              className="mr-2 h-2.5 w-2.5 lg:h-3 lg:w-3 shrink-0 fill-current"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
             See how it works
           </a>
         </div>
@@ -54,16 +64,26 @@ function Hero() {
       </div>
 
       {/* Mobile: the artwork's text runs to its bottom edge, so the buttons sit just below it */}
-      <div className="flex gap-2 px-[7.5%] pb-3 pt-2 md:hidden">
-        <Link to="/questions" className={`${primaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[15px]`}>
+      <div className="flex gap-2.5 px-[7.5%] pb-3 pt-2 md:hidden">
+        <Link
+          to="/questions"
+          className={`${primaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[14px]`}
+        >
           Get Started Free
         </Link>
         <a
           href={HOW_IT_WORKS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${secondaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[15px]`}
+          className={`${secondaryBtn} h-11 flex-1 whitespace-nowrap px-3 text-[14px]`}
         >
+          <svg
+            className="mr-1.5 h-2.5 w-2.5 shrink-0 fill-current"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M8 5v14l11-7z" />
+          </svg>
           See how it works
         </a>
       </div>

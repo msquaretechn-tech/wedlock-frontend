@@ -72,14 +72,14 @@ const Matching = () => {
                         </div>
 
                     </div>
-                    <div className="flex items-center justify-center md:justify-between  gap-2">
+                    <div className="flex items-center justify-center lg:w-96 pt-2">
                         <button
-                            onClick={ ()=>{navigate("/exclusive")} }
-                            className="flex items-center justify-center px-4 text-[#3C2C4C] bg-[white] rounded-full md:w-50 lg:h-[48px] h-10  ">
-                            <p className="text-sm md:text-lg font-[Proxima-Nova-SemiBold]">See what Exclusive includes
+                            onClick={() => { navigate("/exclusive"); }}
+                            className="flex items-center justify-center px-6 text-[#3C2C4C] bg-white rounded-full hover:bg-gray-100 transition-all shadow-md lg:h-[48px] h-10">
+                            <p className="text-sm md:text-base lg:text-lg font-[Proxima-Nova-SemiBold]">
+                                See what Exclusive includes
                             </p>
                         </button>
-                        {/* <p className="text-white text-[0.7rem] lg:text-lg cursor-pointer   ">Read more</p> */}
                     </div>
                 </div>
                 </div>
