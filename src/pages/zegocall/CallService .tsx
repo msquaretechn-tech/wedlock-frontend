@@ -5,6 +5,7 @@ import { auth, db } from "../../../utils/firebaseConfig";
 import { ref, onValue, set, update, remove, get, serverTimestamp } from "firebase/database";
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
 import { onAuthStateChanged } from "firebase/auth";
+import { store } from "../../Redux/store";
 
 let isReloaded = false;
 
@@ -39,6 +40,8 @@ class CallService {
   private hasJoinedCall = false;
   private modalOpen = false;
   private callTimeout?: NodeJS.Timeout;
+  private callDurationTimer?: any;
+  private callWarningTimer?: any;
 
   private zegoInstance?: ReturnType<typeof ZegoUIKitPrebuilt.create>;
 
@@ -510,6 +513,33 @@ class CallService {
       container.appendChild(header);
       document.body.appendChild(container);
 
+      this.clearCallDurationTimer();
+
+      // Enforce plan-based call duration limit:
+      // Premium: 15 mins (900 seconds) per call
+      // Exclusive: 30 mins (1800 seconds) per call
+      try {
+        const currentUser = store.getState()?.userReducer?.user;
+        const planName = (currentUser?.usertype || "").toLowerCase();
+        const callLimitMinutes = planName.includes("exclusive") ? 30 : 15;
+        const callLimitSeconds = callLimitMinutes * 60;
+
+        this.callDurationTimer = setTimeout(() => {
+          this.showSnackbar(`Your ${callLimitMinutes}-minute call limit for this profile has ended.`, 'info');
+          this.endCall(this.currentReceiverId);
+          this.restorePreviousPage();
+          reloadOnce();
+        }, callLimitSeconds * 1000);
+
+        if (callLimitSeconds > 60) {
+          this.callWarningTimer = setTimeout(() => {
+            this.showSnackbar(`You have 1 minute remaining in this call (${callLimitMinutes}-minute plan limit).`, 'info');
+          }, (callLimitSeconds - 60) * 1000);
+        }
+      } catch (timerErr) {
+        console.warn("[CallService] Error setting call duration limit timer:", timerErr);
+      }
+
       this.zegoInstance.joinRoom({
         container: container,
         scenario: { mode: ZegoUIKitPrebuilt.OneONoneCall },
@@ -574,6 +604,18 @@ class CallService {
     this.currentRoomId = undefined;
     this.currentReceiverId = undefined;
     if (this.callTimeout) clearTimeout(this.callTimeout);
+    this.clearCallDurationTimer();
+  }
+
+  private clearCallDurationTimer() {
+    if (this.callDurationTimer) {
+      clearTimeout(this.callDurationTimer);
+      this.callDurationTimer = null;
+    }
+    if (this.callWarningTimer) {
+      clearTimeout(this.callWarningTimer);
+      this.callWarningTimer = null;
+    }
   }
 }
 

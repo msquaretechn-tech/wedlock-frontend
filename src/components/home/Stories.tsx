@@ -9,42 +9,42 @@ const Stories = () => {
 
   const stories = [
     {
-      src: "/inspiring1 (1).png",
+      src: "/wedlock-match-begins-1.png",
       title: "Two families, two languages",
       description:
         "Her family speaks Tamil at home, his speaks Sinhala. They meet over shared answers about faith, schooling and where they want to raise a family. Both sets of parents are in the room for the third call.",
       index: 0,
     },
     {
-      src: "/inspiring1 (2).png",
+      src: "/wedlock-match-begins-2.png",
       title: "Emily & John",
       description:
         "Both of us had been through previous relationships that didn’t work out, but Wedlock gave us hope again. We were both looking for something deeper—someone who understood our past and was willing to build a future together. The platform matched us based on our shared experiences and values, and from the first conversation, we felt a connection. Now, we’re planning our wedding and couldn’t be happier.",
       index: 1,
     },
     {
-      src: "/inspiring1 (3).png",
+      src: "/wedlock-match-begins-3.png",
       title: "Isabella & Liam",
       description:
         "When we first matched, we weren’t even sure we were ready for a serious relationship, but something clicked. We started with casual conversations, but as we got to know each other, we realized we had so much in common. Wedlock did a fantastic job of finding someone who matched both our personalities and our long-term goals. We’re now happily engaged!",
       index: 2,
     },
     {
-      src: "/inspiring1 (4).png",
+      src: "/wedlock-match-begins-4.png",
       title: "Olivia & Ethan",
       description:
         "We started out as friends on Wedlock, sharing common interests and getting to know each other without any pressure. Over time, those conversations turned into something more. The platform gave us the chance to build a relationship slowly and meaningfully. We’re now not only in love but also best friends, and we owe it all to Wedlock’s thoughtful matchmaking process.",
       index: 3,
     },
     {
-      src: "/inspiring1 (5).png",
+      src: "/wedlock-match-begins-5.png",
       title: "Priya & Aaron",
       description:
         "I was initially hesitant to try an AI-powered matchmaking service, but Wedlock’s personalised suggestions really surprised me. It wasn’t about superficial interests; it was about deep compatibility. After a few weeks, I matched with my now-husband, and it felt like the perfect fit right from the start. We bonded over shared values and life goals, and today, we’re happily married.",
       index: 4,
     },
     {
-      src: "/inspiring1 (6).png",
+      src: "/wedlock-match-begins-6.png",
       title: "Dua & Alex",
       description: "I had premium membership on Wedlock, which helped me find her profile really soon and also get her contact details. I was blown away with her beauty when I saw her pictures for the first time. Also, she matched my expectations like being from the hometown and a working professional, being my most important criteria. I found her profile quite interesting and so sent her a request. Once she accepted it, we had few chat conversations, then phone calls and finally decided to meet up. During our first meet itself we felt very comfortable and I liked her so much. But we still met a few times to understand each other well and better our compatibility. Then, we told our parents about it and took it further.",
       index: 5,

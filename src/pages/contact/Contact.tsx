@@ -185,8 +185,7 @@ const Contact = () => {
         </p>
         <p className="text-black">
           Wedlock Global Services (Australia) Pty Ltd<br />
-          Melbourne, Victoria, Australia<br />
-          <a href="mailto:privacy@wedlock.com.au" className="underline">privacy@wedlock.com.au</a> · 1300 933 562
+          Melbourne, Victoria, Australia
         </p>
       </div>
     </div>
