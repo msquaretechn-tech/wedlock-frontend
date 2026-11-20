@@ -175,7 +175,11 @@ const Login = () => {
       }
 
       const resData = res.data as ApiResponse;
-      toast.success(resData.message || "OTP sent to your registered mobile number");
+      toast.success(
+        resData.message && !resData.message.includes("Twilio")
+          ? resData.message
+          : "OTP sent successfully to your mobile number"
+      );
       startOtpStep(data, resData);
     } catch (error) {
       console.error("Login error:", error);
@@ -196,7 +200,11 @@ const Login = () => {
       }
 
       const data = res.data as ApiResponse;
-      toast.success(data.message || "OTP sent successfully");
+      toast.success(
+        data.message && !data.message.includes("Twilio")
+          ? data.message
+          : "OTP sent successfully to your mobile number"
+      );
       startOtpStep(credentials, data);
     } catch (err) {
       console.error("Send OTP error:", err);
